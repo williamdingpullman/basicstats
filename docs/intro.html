@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 MLE | Basic Stats</title>
+  <title>Chapter 2 MLE | Basic Stats</title>
   <meta name="description" content="The webpages are mainly about Bayesian." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 MLE | Basic Stats" />
+  <meta property="og:title" content="Chapter 2 MLE | Basic Stats" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 MLE | Basic Stats" />
+  <meta name="twitter:title" content="Chapter 2 MLE | Basic Stats" />
   
   <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
+<link rel="prev" href="logit-and-probit.html"/>
 <link rel="next" href="score-gradient-and-jacobian.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -106,25 +106,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: Motivation</a></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> MLE</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#basic-idea-of-mle"><i class="fa fa-check"></i><b>1.1</b> Basic idea of MLE</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#coin-flip-example-probit-and-logit"><i class="fa fa-check"></i><b>1.2</b> Coin flip example, probit, and logit</a><ul>
-<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#probit"><i class="fa fa-check"></i><b>1.2.1</b> Probit</a></li>
-<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#logit"><i class="fa fa-check"></i><b>1.2.2</b> Logit</a></li>
+<li class="chapter" data-level="1" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>1</b> Logit and Probit</a><ul>
+<li class="chapter" data-level="1.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>1.1</b> Logit</a></li>
+<li class="chapter" data-level="1.2" data-path="logit-and-probit.html"><a href="logit-and-probit.html#probit"><i class="fa fa-check"></i><b>1.2</b> Probit</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#further-on-logit"><i class="fa fa-check"></i><b>1.3</b> Further on logit</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#references"><i class="fa fa-check"></i><b>1.4</b> References</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> MLE</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#basic-idea-of-mle"><i class="fa fa-check"></i><b>2.1</b> Basic idea of MLE</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#coin-flip-example-probit-and-logit"><i class="fa fa-check"></i><b>2.2</b> Coin flip example, probit, and logit</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#probit-1"><i class="fa fa-check"></i><b>2.2.1</b> Probit</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#logit-1"><i class="fa fa-check"></i><b>2.2.2</b> Logit</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html"><i class="fa fa-check"></i><b>2</b> Score, Gradient and Jacobian</a><ul>
-<li class="chapter" data-level="2.1" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#score"><i class="fa fa-check"></i><b>2.1</b> Score</a></li>
-<li class="chapter" data-level="2.2" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#fisher-scoring"><i class="fa fa-check"></i><b>2.2</b> Fisher scoring</a></li>
-<li class="chapter" data-level="2.3" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#gradient-and-jacobian"><i class="fa fa-check"></i><b>2.3</b> Gradient and Jacobian</a></li>
-<li class="chapter" data-level="2.4" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#hessian-and-fisher-information"><i class="fa fa-check"></i><b>2.4</b> Hessian and Fisher Information</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#further-on-logit"><i class="fa fa-check"></i><b>2.3</b> Further on logit</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#references"><i class="fa fa-check"></i><b>2.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="canonical-link-function.html"><a href="canonical-link-function.html"><i class="fa fa-check"></i><b>3</b> Canonical link function</a></li>
-<li class="chapter" data-level="4" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html"><i class="fa fa-check"></i><b>4</b> Ordinary Least Squares (OLS)</a><ul>
-<li class="chapter" data-level="4.1" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#taylor-series"><i class="fa fa-check"></i><b>4.1</b> Taylor series</a></li>
-<li class="chapter" data-level="4.2" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#references-1"><i class="fa fa-check"></i><b>4.2</b> References</a></li>
+<li class="chapter" data-level="3" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html"><i class="fa fa-check"></i><b>3</b> Score, Gradient and Jacobian</a><ul>
+<li class="chapter" data-level="3.1" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#score"><i class="fa fa-check"></i><b>3.1</b> Score</a></li>
+<li class="chapter" data-level="3.2" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#fisher-scoring"><i class="fa fa-check"></i><b>3.2</b> Fisher scoring</a></li>
+<li class="chapter" data-level="3.3" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#gradient-and-jacobian"><i class="fa fa-check"></i><b>3.3</b> Gradient and Jacobian</a></li>
+<li class="chapter" data-level="3.4" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#hessian-and-fisher-information"><i class="fa fa-check"></i><b>3.4</b> Hessian and Fisher Information</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="canonical-link-function.html"><a href="canonical-link-function.html"><i class="fa fa-check"></i><b>4</b> Canonical link function</a></li>
+<li class="chapter" data-level="5" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html"><i class="fa fa-check"></i><b>5</b> Ordinary Least Squares (OLS)</a><ul>
+<li class="chapter" data-level="5.1" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#taylor-series"><i class="fa fa-check"></i><b>5.1</b> Taylor series</a></li>
+<li class="chapter" data-level="5.2" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#references-1"><i class="fa fa-check"></i><b>5.2</b> References</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
@@ -147,9 +151,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> MLE</h1>
+<h1><span class="header-section-number">Chapter 2</span> MLE</h1>
 <div id="basic-idea-of-mle" class="section level2">
-<h2><span class="header-section-number">1.1</span> Basic idea of MLE</h2>
+<h2><span class="header-section-number">2.1</span> Basic idea of MLE</h2>
 <p>Suppose that we flip a coin, <span class="math inline">\(y_i=0\)</span> for tails and <span class="math inline">\(y_i=1\)</span> for heads. If we get <span class="math inline">\(p\)</span> heads from <span class="math inline">\(n\)</span> trials, we can get the proportion of heads is <span class="math inline">\(p/n\)</span>, which is the sample mean. If we do not do any further calculation, this is our best guess.</p>
 <p>Suppose that the true proablity is <span class="math inline">\(\rho\)</span>, then we can get:</p>
 <p><span class="math display">\[
@@ -162,7 +166,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math display">\[\sum y_i \frac{1}{\rho}-\sum(1-y_i) \frac{1}{1-\rho}=0\]</span> <span class="math display">\[\Rightarrow (1-\rho)\sum y_i - \rho \sum(1-y_i) =0\]</span> <span class="math display">\[\Rightarrow \sum y_i-\rho\sum y_i - n\rho +\rho\sum y_i =0\]</span> <span class="math display">\[\Rightarrow \sum y_i - n\rho  =0\]</span> <span class="math display">\[\Rightarrow \rho  = \frac{\sum y_i}{n}=\frac{p}{n}\]</span> Thus, we can see that the <span class="math inline">\(\rho\)</span> maximizing the likelihood function is equal to the sample mean.</p>
 </div>
 <div id="coin-flip-example-probit-and-logit" class="section level2">
-<h2><span class="header-section-number">1.2</span> Coin flip example, probit, and logit</h2>
+<h2><span class="header-section-number">2.2</span> Coin flip example, probit, and logit</h2>
 <p>In the example above, we are not really trying to estimate a lot of regression coefficients. What we are doing actually is to calculate the sample mean, or intercept in the regresion sense. What does it mean? Let’s use some data to explain it.</p>
 <p>Suppose that we flip a coin 20 times and observe 8 heads. We can use the R’s glm function to esimate the <span class="math inline">\(\rho\)</span>. If the result is consistent with what we did above, we should observe that the <span class="math inline">\(cdf\)</span> of the esimate of <span class="math inline">\(\beta_0\)</span> (i.e., intercept) should be equal to <span class="math inline">\(8/20=0.4\)</span>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coins&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dt">times=</span><span class="dv">8</span>),<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dt">times=</span><span class="dv">12</span>))
@@ -171,8 +175,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  0  1 
 ## 12  8</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">coins&lt;-<span class="kw">as.data.frame</span>(coins)</code></pre></div>
-<div id="probit" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Probit</h3>
+<div id="probit-1" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Probit</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">probitresults &lt;-<span class="st"> </span><span class="kw">glm</span>(coins <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="dt">data =</span> coins)
 probitresults</code></pre></div>
 <pre><code>## 
@@ -191,8 +195,8 @@ probitresults</code></pre></div>
 ##         0.4</code></pre>
 <p>As we can see the intercept is <span class="math inline">\(-0.2533\)</span>, and thus <span class="math inline">\(\Phi(-0.2533471)=0.4\)</span></p>
 </div>
-<div id="logit" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Logit</h3>
+<div id="logit-1" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Logit</h3>
 <p>We can also use logit link to calculate the intercept as well. Recall that</p>
 <p><span class="math display">\[p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]</span> Thus,</p>
 <p><span class="math display">\[p(y=1)=\frac{e^{\beta_0}}{1+e^{\beta_0}}\]</span></p>
@@ -207,7 +211,7 @@ logitresults<span class="op">$</span>coefficients</code></pre></div>
 </div>
 </div>
 <div id="further-on-logit" class="section level2">
-<h2><span class="header-section-number">1.3</span> Further on logit</h2>
+<h2><span class="header-section-number">2.3</span> Further on logit</h2>
 <p>The probablity of <span class="math inline">\(y=1\)</span> is as follows:</p>
 <p><span class="math display">\[p=p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]</span></p>
 <p>Thus, the likelihood function is as follows:</p>
@@ -264,7 +268,7 @@ mylogit2 =<span class="st"> </span><span class="kw">mle.logreg</span>(fmla, myda
 ## as.factor(rank)4 -1.551463677 -1.563396035</code></pre>
 </div>
 <div id="references" class="section level2">
-<h2><span class="header-section-number">1.4</span> References</h2>
+<h2><span class="header-section-number">2.4</span> References</h2>
 <p><a href="http://www.columbia.edu/~so33/SusDev/Lecture_9.pdf" class="uri">http://www.columbia.edu/~so33/SusDev/Lecture_9.pdf</a></p>
 
 </div>
@@ -274,7 +278,7 @@ mylogit2 =<span class="st"> </span><span class="kw">mle.logreg</span>(fmla, myda
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logit-and-probit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="score-gradient-and-jacobian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
