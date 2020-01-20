@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Basic Stats</title>
+  <title>Chapter 2 Score, Gradient and Jacobian | Basic Stats</title>
   <meta name="description" content="The webpages are mainly about Bayesian." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Basic Stats" />
+  <meta property="og:title" content="Chapter 2 Score, Gradient and Jacobian | Basic Stats" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Basic Stats" />
+  <meta name="twitter:title" content="Chapter 2 Score, Gradient and Jacobian | Basic Stats" />
   
   <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="intro.html"/>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="canonical-link-function.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -146,23 +146,89 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Basic Stats</h1>
-<p class="author"><em>Bill Last Updated:</em></p>
-<p class="date"><em>19 January, 2020</em></p>
+<div id="score-gradient-and-jacobian" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Score, Gradient and Jacobian</h1>
+<div id="score" class="section level2">
+<h2><span class="header-section-number">2.1</span> Score</h2>
+<p>The score is the gradient (the vector of partial derivatives) of <span class="math inline">\(log L(\theta)\)</span>, with respect to an m-dimensional parameter vector <span class="math inline">\(\theta\)</span>.</p>
+<p><span class="math display">\[S(\theta) = \frac{\partial\ell}{\partial \theta}\]</span> Typically, they use <span class="math inline">\(\nabla\)</span> to denote the partical derivative.</p>
+<p><span class="math display">\[\nabla \ell\]</span></p>
+<p>Such differentiation will generate a <span class="math inline">\(m \times 1\)</span> row vector, which indicates the sensitivity of the likelihood.</p>
+<p>Quote from Steffen Lauritzen’s slides: “Generally the solution to this equation must be calculated by iterative methods. One of the most common methods is the Newton–Raphson method and this is based on successive approximations to the solution, using Taylor’s theorem to approximate the equation.”</p>
+<p>For instance, using logit link, we can get the first derivative of log likelihood logistic regression as follows. We can not really find <span class="math inline">\(\beta\)</span> easily to make the equation to be 0.</p>
+<p><span class="math display">\[\begin{aligned}
+\frac{\partial \ell} {\partial \beta} 
+&amp;= \sum_{i=1}^{n}x_i^T[y_i-\frac{e^{\beta^Tx_i}}{1+e^{\beta^Tx_i}}] \\
+&amp;=\sum_{i=1}^{n} x_i^T[y_i-\hat{y_i}]
+\end{aligned}\]</span></p>
 </div>
-<div id="my-section" class="section level1 unnumbered">
-<h1>Preface: Motivation</h1>
-<p>All the notes I have done here are about basic stats. While I have tried my best, probably there are still some typos and errors. Please feel free to let me know in case you find one. Thank you!</p>
-
+<div id="fisher-scoring" class="section level2">
+<h2><span class="header-section-number">2.2</span> Fisher scoring</h2>
+<p>[I will come back to this later.]</p>
+<p><a href="https://www2.stat.duke.edu/courses/Fall00/sta216/handouts/diagnostics.pdf" class="uri">https://www2.stat.duke.edu/courses/Fall00/sta216/handouts/diagnostics.pdf</a></p>
+<p><a href="https://stats.stackexchange.com/questions/176351/implement-fisher-scoring-for-linear-regression" class="uri">https://stats.stackexchange.com/questions/176351/implement-fisher-scoring-for-linear-regression</a></p>
+</div>
+<div id="gradient-and-jacobian" class="section level2">
+<h2><span class="header-section-number">2.3</span> Gradient and Jacobian</h2>
+<p><strong>Remarks</strong>: This part discusses gradient in a more general sense.</p>
+<p>When <span class="math inline">\(f(x)\)</span> is only in a single dimension space:</p>
+<p><span class="math inline">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span></p>
+<p><span class="math display">\[\nabla f(x)=[\frac{\partial f}{\partial x_1},\frac{\partial f}{\partial x_2},...,\frac{\partial f}{\partial x_n}]\]</span> When <span class="math inline">\(f(x)\)</span> is only in a m-dimension space (i.e., Jacobian): <span class="math inline">\(\mathbb{R}^n \rightarrow \mathbb{R^m}\)</span></p>
+<p><span class="math display">\[Jac(f)=\begin{bmatrix}
+\frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} &amp; \frac{\partial f_1}{\partial x_3} &amp; ... &amp; \frac{\partial f_1}{\partial x_n}\\
+\frac{\partial f_2}{\partial x_1} &amp; \frac{\partial f_2}{\partial x_2} &amp; \frac{\partial f_2}{\partial x_3} &amp; ... &amp; \frac{\partial f_2}{\partial x_n} \\
+...\\
+\frac{\partial f_m}{\partial x_1} &amp; \frac{\partial f_m}{\partial x_2} &amp; \frac{\partial f_n}{\partial x_3} &amp; ... &amp; \frac{\partial f_m}{\partial x_n}
+\end{bmatrix}\]</span></p>
+<p>For instance,</p>
+<p><span class="math inline">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span>:</p>
+<p><span class="math display">\[f(x,y)=x^2+2y\]</span> <span class="math display">\[\nabla f(x,y)=[\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}]=[2x,2]\]</span> <span class="math inline">\(\mathbb{R}^n \rightarrow \mathbb{R^m}\)</span></p>
+<p><span class="math display">\[f(x,y)=(x^2+2y,x^3)\]</span> <span class="math display">\[Jac(f)=\begin{bmatrix}
+2x &amp; 2\\
+2x^2 &amp; 0 
+\end{bmatrix}\]</span></p>
+</div>
+<div id="hessian-and-fisher-information" class="section level2">
+<h2><span class="header-section-number">2.4</span> Hessian and Fisher Information</h2>
+<p>Hessian matrix or Hessian is a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field.</p>
+<p><span class="math inline">\(\mathbb{R}^n \rightarrow \mathbb{R}\)</span></p>
+<p><span class="math display">\[Hessian=\nabla ^2(f) =\begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_3} &amp; ... &amp; \frac{\partial^2 f}{\partial x_1 \partial x_n}\\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2} &amp; \frac{\partial^2 f}{\partial x_2 \partial x_3} &amp; ... &amp; \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+\frac{\partial^2 f}{\partial x_3 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_3 \partial x_2} &amp; \frac{\partial^2 f}{\partial x_3^2} &amp; ... &amp; \frac{\partial^2 f}{\partial x_3 \partial x_n} \\
+...\\
+\frac{\partial^2 f}{\partial x_n \partial x_1} &amp; \frac{\partial^2 f}{\partial x_n \partial x_2} &amp; \frac{\partial^2 f}{\partial x_n \partial x_3} &amp; ... &amp; \frac{\partial^2 f}{\partial x_n^2}
+\end{bmatrix}\]</span></p>
+<p>As a special case, in the context of logit:</p>
+<p>Suppose that the log likelihood function is <span class="math inline">\(\ell (\theta)\)</span>. <span class="math inline">\(\theta\)</span> is a <span class="math inline">\(m\)</span> demension vector.</p>
+<p><span class="math display">\[ \theta = \begin{bmatrix}\theta_1 \\
+\theta_2 \\
+\theta_3 \\
+\theta_4 \\
+...\\
+\theta_m \\
+\end{bmatrix}\]</span></p>
+<p><span class="math display">\[Hessian=\nabla ^2(\ell) =\begin{bmatrix}
+\frac{\partial^2 \ell}{\partial \theta_1^2} &amp; \frac{\partial^2 \ell}{\partial \theta_1 \partial \theta_2} &amp; \frac{\partial^2 \ell}{\partial \theta_1 \partial \theta_3} &amp; ... &amp; \frac{\partial^2 \ell}{\partial \theta_1 \partial \theta_m}\\
+\frac{\partial^2 \ell}{\partial \theta_2 \partial \theta_1} &amp; \frac{\partial^2 \ell}{\partial \theta_2^2 } &amp; \frac{\partial^2 \ell}{\partial \theta_1 \partial \theta_3} &amp; ... &amp; \frac{\partial^2 \ell}{\partial \theta_1 \partial \theta_m} \\
+\frac{\partial^2 \ell}{\partial \theta_3 \partial \theta_1} &amp; \frac{\partial^2 \ell}{\partial \theta_3 \theta_2 } &amp; \frac{\partial^2 \ell}{\partial \theta_3^2} &amp; ... &amp; \frac{\partial^2 \ell}{\partial \theta_3 \partial \theta_m} \\
+...\\
+\frac{\partial^2 \ell}{\partial \theta_m \partial \theta_1} &amp; \frac{\partial^2 \ell}{\partial \theta_m \theta_2 } &amp; \frac{\partial^2 \ell}{\partial \theta_m \partial \theta_3} &amp; ... &amp; \frac{\partial^2 \ell}{\partial \theta_m \partial \theta_m} 
+\end{bmatrix}\]</span></p>
+<p>“In statistics, the observed information, or observed Fisher information, is the negative of the second derivative (the Hessian matrix) of the”log-likelihood&quot; (the logarithm of the likelihood function). It is a sample-based version of the Fisher information.&quot; (Direct quote from Wikipedia.)</p>
+<p>Thus, the observed information matrix:</p>
+<p><span class="math display">\[-Hessian=-\nabla ^2(\ell) \]</span></p>
+<p>Expected (Fisher) information matrix:</p>
+<p><span class="math display">\[E[-\nabla ^2(\ell)] \]</span></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="canonical-link-function.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -193,7 +259,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/081-BasicStat.Rmd",
 "text": "Edit"
 },
 "history": {
