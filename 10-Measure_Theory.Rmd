@@ -1,0 +1,12 @@
+# Measure Theory
+
+$\mathbb{R}$
+
+
+$P(X)$: Power set $X$
+
+Example: the set is $X=\{ a,b \}$, and the power set is $p(x)=\{ \varnothing, X, a,b \}$
+
+Definition:
+
+ $A \subseteq P(X)$ is called a $\sigma$-algebra.

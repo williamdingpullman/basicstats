@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="canonical-link-function.html"/>
-
+<link rel="next" href="measure-theory.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -130,6 +130,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.1" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#taylor-series"><i class="fa fa-check"></i><b>5.1</b> Taylor series</a></li>
 <li class="chapter" data-level="5.2" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#references-1"><i class="fa fa-check"></i><b>5.2</b> References</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="measure-theory.html"><a href="measure-theory.html"><i class="fa fa-check"></i><b>6</b> Measure Theory</a></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
 
@@ -199,9 +200,9 @@ transposed_X&lt;-<span class="kw">t</span>(X)
 beta_hat&lt;-<span class="kw">solve</span>(transposed_X<span class="op">%*%</span>X)<span class="op">%*%</span>transposed_X<span class="op">%*%</span>y
 beta_hat</code></pre></div>
 <pre><code>##          [,1]
-## [1,] 1.969822
-## [2,] 1.064305
-## [3,] 1.973670</code></pre>
+## [1,] 1.959880
+## [2,] 1.014653
+## [3,] 1.988230</code></pre>
 <p><strong>Side Notes</strong> The function of as.matrix will automatically make c(2,1,2) become the dimension of <span class="math inline">\(3 \times 1\)</span>, you do not need to transpose the <span class="math inline">\(\beta\)</span>.</p>
 <div id="taylor-series" class="section level2">
 <h2><span class="header-section-number">5.1</span> Taylor series</h2>
@@ -264,8 +265,8 @@ e^x |_{a=0} &amp;= e^a+ \frac{e^a}{1!}(x-a)+\frac{e^a}{2!}(x-a)^2+...+\frac{e^a}
           </div>
         </div>
       </div>
-<a href="canonical-link-function.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="canonical-link-function.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measure-theory.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
