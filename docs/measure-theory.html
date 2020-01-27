@@ -134,6 +134,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1" data-path="measure-theory.html"><a href="measure-theory.html#part-1"><i class="fa fa-check"></i><b>6.1</b> Part 1</a></li>
 <li class="chapter" data-level="6.2" data-path="measure-theory.html"><a href="measure-theory.html#part-2"><i class="fa fa-check"></i><b>6.2</b> Part 2</a></li>
 <li class="chapter" data-level="6.3" data-path="measure-theory.html"><a href="measure-theory.html#part-3"><i class="fa fa-check"></i><b>6.3</b> Part 3</a></li>
+<li class="chapter" data-level="6.4" data-path="measure-theory.html"><a href="measure-theory.html#part-4"><i class="fa fa-check"></i><b>6.4</b> Part 4</a></li>
+<li class="chapter" data-level="6.5" data-path="measure-theory.html"><a href="measure-theory.html#part-5"><i class="fa fa-check"></i><b>6.5</b> Part 5</a></li>
+<li class="chapter" data-level="6.6" data-path="measure-theory.html"><a href="measure-theory.html#part-6"><i class="fa fa-check"></i><b>6.6</b> Part 6</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
@@ -226,6 +229,68 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><p><span class="math inline">\(\mu ([0,1]^n)=1\)</span></p></li>
 <li><p><span class="math inline">\(\mu(x+A)=\mu(A)\)</span> for all <span class="math inline">\(x \in \mathbb{R}^n\)</span></p></li>
 </ol>
+</div>
+<div id="part-4" class="section level2">
+<h2><span class="header-section-number">6.4</span> Part 4</h2>
+<p>Search measure <span class="math inline">\(\mu\)</span> on <span class="math inline">\(p(\mathbb{R})\)</span> with</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\mu([a,b])=b-a, b&gt;a\)</span></p></li>
+<li><p><span class="math inline">\(\mu(X+A)=\mu(A), A \in p(\mathbb{R}), X \in \mathbb{R}\)</span></p></li>
+</ol>
+<p><span class="math inline">\(\rightarrow \mu\)</span> does not exist.</p>
+<p>Claim: Let <span class="math inline">\(\mu\)</span> be a measure on <span class="math inline">\(p(\mathbb{R})\)</span> with <span class="math inline">\(\mu([0,1])&lt;\infty\)</span> and (2) <span class="math inline">\(\rightarrow \mu=0\)</span></p>
+</div>
+<div id="part-5" class="section level2">
+<h2><span class="header-section-number">6.5</span> Part 5</h2>
+<p><strong>Definition</strong>:</p>
+<p><span class="math inline">\((\Omega_1,\mathcal{A}_1), (\Omega_2,\mathcal{A}_2)\)</span> measurable spaces</p>
+<p><span class="math inline">\(f: \Omega_1 \rightarrow \Omega_2\)</span> measurable (<span class="math inline">\(w.r.t \; \mathcal{A}_1, \mathcal{A}_2\)</span>) if <span class="math inline">\(f^{-1}(\mathcal{A}_1) \in \mathcal{A}_2\)</span> for all <span class="math inline">\(\mathcal{A}_1 \in \mathcal{A}_2\)</span>.</p>
+<p>Examples:</p>
+<ol style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Omega,\mathcal{A}\)</span>), (<span class="math inline">\(\mathbb{R},B(\mathbb{R})\)</span>): characteristic function (also indicator function)</li>
+</ol>
+<p><span class="math display">\[\chi_A : \Omega \rightarrow \mathbb{R}\]</span></p>
+<p><span class="math display">\[\chi_A (\omega) :=  \begin{cases} 1 &amp;, \omega \in  A \\ 0 &amp;, else\end{cases}\]</span></p>
+<p>For all measurable <span class="math inline">\(A \in \mathcal{A}\)</span>, <span class="math inline">\(\chi_A\)</span> is a measurable map.</p>
+<p><span class="math display">\[\chi_A(\varnothing)=\varnothing, \chi_A^{-1}(\mathbb{R})=\Omega\]</span> <span class="math display">\[\chi_A(\{ 1 \})=A, \chi_A^{-1}(\mathbb{0})=A^c\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>(<span class="math inline">\(\Omega_1,\mathcal{A}_1\)</span>), (<span class="math inline">\(\Omega_2,\mathcal{A}_2\)</span>), (<span class="math inline">\(\Omega_3,\mathcal{A}_3\)</span>) measurable spaces</li>
+</ol>
+<p><span class="math display">\[\Omega_1 \rightarrow \Omega_2 \rightarrow \Omega_3\]</span></p>
+<p>If both <span class="math inline">\(\Omega_1 \rightarrow \Omega_2\)</span> and <span class="math inline">\(\Omega_2 \rightarrow \Omega_3\)</span> are measurable, then <span class="math inline">\(\Omega_1 \rightarrow \Omega_3\)</span> is measurable as well.</p>
+</div>
+<div id="part-6" class="section level2">
+<h2><span class="header-section-number">6.6</span> Part 6</h2>
+<p><strong>Lebesgue integral</strong></p>
+<p>Lebesgue integral for step functions.</p>
+<p><span class="math display">\[Measure \; space(X, \mathcal{A}, \mu)\]</span></p>
+<p>Where,</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(X is set\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathcal{A}\)</span>: collection of subset of <span class="math inline">\(X\)</span>: <span class="math inline">\(\sigma\)</span>-algebra.</p></li>
+<li><p><span class="math inline">\(\mu\)</span>: <span class="math inline">\(\mathcal{A} \rightarrow [0, \infty]\)</span>.</p></li>
+</ol>
+<p>In order to integrate some special function, we need measurable maps:</p>
+<p><span class="math display">\[Measure \; maps \; f: X \rightarrow \mathbb{R}\]</span></p>
+<p>Where, there is <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(\mathcal{A}\)</span> on the <span class="math inline">\(X\)</span>, whereas <span class="math inline">\(\sigma\)</span>-algebra <span class="math inline">\(B\)</span> for <span class="math inline">\(\mathbb{R}\)</span>. In other words, we can get:</p>
+<p><span class="math display">\[f^{-1}(E) \in \mathcal{A} \; for \; all \; Borcel \; sets \; E \subseteq \mathbb{R}\]</span></p>
+<p>For example:</p>
+<p><span class="math display">\[\chi_A: X \rightarrow \mathbb{R}, A \in \mathcal{A}\]</span> <span class="math display">\[I(\chi_A):= \mu (A)\]</span></p>
+<p>Simple functions (step functions, staircase functions, …)</p>
+<p>For <span class="math inline">\(A_1, ... A_N \in \mathcal{A}\)</span> and <span class="math inline">\(c_1,...,c_n \in \mathbb{R}\)</span></p>
+<p><span class="math display">\[f(x)=\sum_{i=1}^n c_i \cdot x_{A_i}(x)\]</span> <img src="yt.JPG" alt="Credit of this figure: https://www.youtube.com/watch?v=TG67nsccqeQ&amp;t=391s" /></p>
+<p><strong>Definition</strong></p>
+<p><span class="math display">\[S^{+}:=\{ f: X \rightarrow \mathbb{R}| f: simple \; function, f\geq0\}\]</span></p>
+<p>Properties:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(I(\alpha f + \beta g)=\alpha I(f) +\beta I(g)\)</span>, <span class="math inline">\(\alpha, \beta\geq 0\)</span></p></li>
+<li><p><span class="math inline">\(f \leq g \rightarrow I(f) \leq I(g) (monotonicity)\)</span></p></li>
+</ol>
+<div class="figure">
+<img src="yt2.JPG" />
+
+</div>
+<p>__Definitions__F</p>
 
 </div>
 </div>

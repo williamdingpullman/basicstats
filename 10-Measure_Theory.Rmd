@@ -98,3 +98,99 @@ $$\delta_p (A) \begin{cases} 1 &, p \in  A \\ 0 &, else\end{cases}$$
 
 (2) $\mu(x+A)=\mu(A)$ for all $x \in \mathbb{R}^n$
 
+## Part 4
+
+Search measure $\mu$ on $p(\mathbb{R})$ with
+
+(1) $\mu([a,b])=b-a, b>a$
+
+(2) $\mu(X+A)=\mu(A), A \in p(\mathbb{R}), X \in \mathbb{R}$
+
+ $\rightarrow \mu$ does not exist.
+ 
+ Claim: Let $\mu$ be a measure on $p(\mathbb{R})$ with $\mu([0,1])<\infty$ and (2) $\rightarrow \mu=0$ 
+ 
+
+## Part 5
+
+__Definition__:
+
+$(\Omega_1,\mathcal{A}_1), (\Omega_2,\mathcal{A}_2)$ measurable spaces
+
+$f: \Omega_1 \rightarrow \Omega_2$ measurable ($w.r.t \; \mathcal{A}_1, \mathcal{A}_2$) if $f^{-1}(\mathcal{A}_1) \in \mathcal{A}_2$ for all $\mathcal{A}_1 \in \mathcal{A}_2$.
+
+Examples:
+
+(1) ($\Omega,\mathcal{A}$), ($\mathbb{R},B(\mathbb{R})$): characteristic function (also indicator function)
+
+$$\chi_A : \Omega \rightarrow \mathbb{R}$$
+
+$$\chi_A (\omega) :=  \begin{cases} 1 &, \omega \in  A \\ 0 &, else\end{cases}$$
+
+For all measurable $A \in \mathcal{A}$, $\chi_A$ is a measurable map.
+
+$$\chi_A(\varnothing)=\varnothing, \chi_A^{-1}(\mathbb{R})=\Omega$$
+$$\chi_A(\{ 1 \})=A, \chi_A^{-1}(\mathbb{0})=A^c$$
+
+
+(2)  ($\Omega_1,\mathcal{A}_1$),  ($\Omega_2,\mathcal{A}_2$),  ($\Omega_3,\mathcal{A}_3$) measurable spaces
+
+$$\Omega_1 \rightarrow \Omega_2 \rightarrow \Omega_3$$
+
+If both $\Omega_1 \rightarrow \Omega_2$ and $\Omega_2 \rightarrow \Omega_3$ are measurable, then $\Omega_1 \rightarrow \Omega_3$ is measurable as well. 
+
+## Part 6
+
+__Lebesgue integral__
+
+Lebesgue integral for step functions.
+
+$$Measure \; space(X, \mathcal{A}, \mu)$$ 
+
+Where, 
+
+(1) $X is set$.
+
+(2) $\mathcal{A}$: collection of subset of $X$: $\sigma$-algebra.
+
+(3) $\mu$: $\mathcal{A} \rightarrow [0, \infty]$.
+
+
+In order to integrate some special function, we need measurable maps:
+
+$$Measure \; maps \; f: X \rightarrow \mathbb{R}$$
+
+Where, there is $\sigma$-algebra $\mathcal{A}$ on the $X$, whereas $\sigma$-algebra $B$ for $\mathbb{R}$. In other words, we can get:
+
+$$f^{-1}(E) \in \mathcal{A} \; for \; all \; Borcel \; sets \; E \subseteq \mathbb{R}$$
+
+
+For example:
+
+$$\chi_A: X \rightarrow \mathbb{R}, A \in \mathcal{A}$$
+$$I(\chi_A):= \mu (A)$$
+
+Simple functions (step functions, staircase functions, ...)
+
+For $A_1, ... A_N \in \mathcal{A}$ and $c_1,...,c_n \in \mathbb{R}$
+
+$$f(x)=\sum_{i=1}^n c_i \cdot x_{A_i}(x)$$
+![Credit of this figure: https://www.youtube.com/watch?v=TG67nsccqeQ&t=391s](yt.jpg) 
+
+__Definition__
+
+$$S^{+}:=\{ f: X \rightarrow \mathbb{R}| f: simple \; function, f\geq0\}$$
+
+
+Properties:
+
+(1) $I(\alpha f + \beta g)=\alpha I(f) +\beta I(g)$, $\alpha, \beta\geq 0$
+
+(2) $f \leq g \rightarrow  I(f) \leq I(g) (monotonicity)$
+
+![](yt2.jpg) 
+
+
+__Definitions__F
+
+

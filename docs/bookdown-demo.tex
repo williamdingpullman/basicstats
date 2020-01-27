@@ -752,10 +752,10 @@ calculation.
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 2.007784
-## [2,] 1.037370
-## [3,] 1.973201
+##           [,1]
+## [1,] 1.9577970
+## [2,] 0.9788484
+## [3,] 2.0641304
 \end{verbatim}
 
 \textbf{Side Notes} The function of as.matrix will automatically make
@@ -1022,6 +1022,132 @@ Calculation rules in \([0, \infty]\):
 \item
   \(\mu(x+A)=\mu(A)\) for all \(x \in \mathbb{R}^n\)
 \end{enumerate}
+
+\section{Part 4}\label{part-4}
+
+Search measure \(\mu\) on \(p(\mathbb{R})\) with
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(\mu([a,b])=b-a, b>a\)
+\item
+  \(\mu(X+A)=\mu(A), A \in p(\mathbb{R}), X \in \mathbb{R}\)
+\end{enumerate}
+
+\(\rightarrow \mu\) does not exist.
+
+Claim: Let \(\mu\) be a measure on \(p(\mathbb{R})\) with
+\(\mu([0,1])<\infty\) and (2) \(\rightarrow \mu=0\)
+
+\section{Part 5}\label{part-5}
+
+\textbf{Definition}:
+
+\((\Omega_1,\mathcal{A}_1), (\Omega_2,\mathcal{A}_2)\) measurable spaces
+
+\(f: \Omega_1 \rightarrow \Omega_2\) measurable
+(\(w.r.t \; \mathcal{A}_1, \mathcal{A}_2\)) if
+\(f^{-1}(\mathcal{A}_1) \in \mathcal{A}_2\) for all
+\(\mathcal{A}_1 \in \mathcal{A}_2\).
+
+Examples:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\tightlist
+\item
+  (\(\Omega,\mathcal{A}\)), (\(\mathbb{R},B(\mathbb{R})\)):
+  characteristic function (also indicator function)
+\end{enumerate}
+
+\[\chi_A : \Omega \rightarrow \mathbb{R}\]
+
+\[\chi_A (\omega) :=  \begin{cases} 1 &, \omega \in  A \\ 0 &, else\end{cases}\]
+
+For all measurable \(A \in \mathcal{A}\), \(\chi_A\) is a measurable
+map.
+
+\[\chi_A(\varnothing)=\varnothing, \chi_A^{-1}(\mathbb{R})=\Omega\]
+\[\chi_A(\{ 1 \})=A, \chi_A^{-1}(\mathbb{0})=A^c\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  (\(\Omega_1,\mathcal{A}_1\)), (\(\Omega_2,\mathcal{A}_2\)),
+  (\(\Omega_3,\mathcal{A}_3\)) measurable spaces
+\end{enumerate}
+
+\[\Omega_1 \rightarrow \Omega_2 \rightarrow \Omega_3\]
+
+If both \(\Omega_1 \rightarrow \Omega_2\) and
+\(\Omega_2 \rightarrow \Omega_3\) are measurable, then
+\(\Omega_1 \rightarrow \Omega_3\) is measurable as well.
+
+\section{Part 6}\label{part-6}
+
+\textbf{Lebesgue integral}
+
+Lebesgue integral for step functions.
+
+\[Measure \; space(X, \mathcal{A}, \mu)\]
+
+Where,
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(X is set\).
+\item
+  \(\mathcal{A}\): collection of subset of \(X\): \(\sigma\)-algebra.
+\item
+  \(\mu\): \(\mathcal{A} \rightarrow [0, \infty]\).
+\end{enumerate}
+
+In order to integrate some special function, we need measurable maps:
+
+\[Measure \; maps \; f: X \rightarrow \mathbb{R}\]
+
+Where, there is \(\sigma\)-algebra \(\mathcal{A}\) on the \(X\), whereas
+\(\sigma\)-algebra \(B\) for \(\mathbb{R}\). In other words, we can get:
+
+\[f^{-1}(E) \in \mathcal{A} \; for \; all \; Borcel \; sets \; E \subseteq \mathbb{R}\]
+
+For example:
+
+\[\chi_A: X \rightarrow \mathbb{R}, A \in \mathcal{A}\]
+\[I(\chi_A):= \mu (A)\]
+
+Simple functions (step functions, staircase functions, \ldots{})
+
+For \(A_1, ... A_N \in \mathcal{A}\) and \(c_1,...,c_n \in \mathbb{R}\)
+
+\[f(x)=\sum_{i=1}^n c_i \cdot x_{A_i}(x)\] \includegraphics{yt.jpg}
+
+\textbf{Definition}
+
+\[S^{+}:=\{ f: X \rightarrow \mathbb{R}| f: simple \; function, f\geq0\}\]
+
+Properties:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(I(\alpha f + \beta g)=\alpha I(f) +\beta I(g)\),
+  \(\alpha, \beta\geq 0\)
+\item
+  \(f \leq g \rightarrow I(f) \leq I(g) (monotonicity)\)
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{yt2.jpg}
+\caption{}
+\end{figure}
+
+\_\_Definitions\_\_F
 
 \bibliography{book.bib,packages.bib}
 
