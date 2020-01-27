@@ -1,5 +1,28 @@
 # Measure Theory
 
+Instead of density, give probability to every event. 
+
+__Definition__
+
+Let $\Omega$ be set [state space]= set of all outcomes. 
+
+Each $\omega \in \Omega$ is outcome.
+
+Each $A \in \Omega$$ is event.
+
+For rolling a die, $\Omega ={1, 2, ...,6}$, whereas $A={1,3,6}$. Thus, $P(A)=\frac{1}{2}$.
+
+$P: 2^\Omega \rightarrow [0,1]$
+
+(1) $P(\Omega)=1, P(\varnothing)=0$
+
+(2) $P(A) \in [0,1]$
+
+(3) If $A\cap B=\varnothing$, then $P(A\cup B)=P(A)+P(B)$
+
+(4) If $A_i$ are mutually disjoint, then $P(\cup A_i)=\sum P(A_i)$
+
+
 ## Part 1
 
 $P(X)$: Power set $X$
@@ -149,7 +172,7 @@ $$Measure \; space(X, \mathcal{A}, \mu)$$
 
 Where, 
 
-(1) $X is set$.
+(1) $X$ is a set.
 
 (2) $\mathcal{A}$: collection of subset of $X$: $\sigma$-algebra.
 
@@ -191,6 +214,8 @@ Properties:
 ![](yt2.jpg) 
 
 
-__Definitions__F
+__Definitions__
 
+$f: X \rightarrow [0, \infty) measurable$
 
+$\int f d(\mu):=sup \{ I(h) | h \in S^+, h \leq f \}$, in which, $h = \sum_{i=1}^n c_i x_{A_i}$. We call this Lebesgue integral of $f$ w.r.t $\mu$. $f$ is called $\mu$-integral if $\int_x f d\mu < =\infty$

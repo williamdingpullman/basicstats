@@ -753,9 +753,9 @@ calculation.
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 1.9577970
-## [2,] 0.9788484
-## [3,] 2.0641304
+## [1,] 2.0081310
+## [2,] 0.9689952
+## [3,] 2.0324824
 \end{verbatim}
 
 \textbf{Side Notes} The function of as.matrix will automatically make
@@ -874,6 +874,33 @@ if \(x=2\)
 \url{https://stats.stackexchange.com/questions/40876/what-is-the-difference-between-a-link-function-and-a-canonical-link-function}
 
 \chapter{Measure Theory}\label{measure-theory}
+
+Instead of density, give probability to every event.
+
+\textbf{Definition}
+
+Let \(\Omega\) be set {[}state space{]}= set of all outcomes.
+
+Each \(\omega \in \Omega\) is outcome.
+
+Each \(A \in \Omega\)\$ is event.
+
+For rolling a die, \(\Omega ={1, 2, ...,6}\), whereas \(A={1,3,6}\).
+Thus, \(P(A)=\frac{1}{2}\).
+
+\(P: 2^\Omega \rightarrow [0,1]\)
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(P(\Omega)=1, P(\varnothing)=0\)
+\item
+  \(P(A) \in [0,1]\)
+\item
+  If \(A\cap B=\varnothing\), then \(P(A\cup B)=P(A)+P(B)\)
+\item
+  If \(A_i\) are mutually disjoint, then \(P(\cup A_i)=\sum P(A_i)\)
+\end{enumerate}
 
 \section{Part 1}\label{part-1}
 
@@ -1099,7 +1126,7 @@ Where,
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
 \item
-  \(X is set\).
+  \(X\) is a set.
 \item
   \(\mathcal{A}\): collection of subset of \(X\): \(\sigma\)-algebra.
 \item
@@ -1147,7 +1174,14 @@ Properties:
 \caption{}
 \end{figure}
 
-\_\_Definitions\_\_F
+\textbf{Definitions}
+
+\(f: X \rightarrow [0, \infty) measurable\)
+
+\(\int f d(\mu):=sup \{ I(h) | h \in S^+, h \leq f \}\), in which,
+\(h = \sum_{i=1}^n c_i x_{A_i}\). We call this Lebesgue integral of
+\(f\) w.r.t \(\mu\). \(f\) is called \(\mu\)-integral if
+\(\int_x f d\mu < =\infty\)
 
 \bibliography{book.bib,packages.bib}
 

@@ -160,6 +160,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="measure-theory" class="section level1">
 <h1><span class="header-section-number">Chapter 6</span> Measure Theory</h1>
+<p>Instead of density, give probability to every event.</p>
+<p><strong>Definition</strong></p>
+<p>Let <span class="math inline">\(\Omega\)</span> be set [state space]= set of all outcomes.</p>
+<p>Each <span class="math inline">\(\omega \in \Omega\)</span> is outcome.</p>
+<p>Each <span class="math inline">\(A \in \Omega\)</span>$ is event.</p>
+<p>For rolling a die, <span class="math inline">\(\Omega ={1, 2, ...,6}\)</span>, whereas <span class="math inline">\(A={1,3,6}\)</span>. Thus, <span class="math inline">\(P(A)=\frac{1}{2}\)</span>.</p>
+<p><span class="math inline">\(P: 2^\Omega \rightarrow [0,1]\)</span></p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(P(\Omega)=1, P(\varnothing)=0\)</span></p></li>
+<li><p><span class="math inline">\(P(A) \in [0,1]\)</span></p></li>
+<li><p>If <span class="math inline">\(A\cap B=\varnothing\)</span>, then <span class="math inline">\(P(A\cup B)=P(A)+P(B)\)</span></p></li>
+<li><p>If <span class="math inline">\(A_i\)</span> are mutually disjoint, then <span class="math inline">\(P(\cup A_i)=\sum P(A_i)\)</span></p></li>
+</ol>
 <div id="part-1" class="section level2">
 <h2><span class="header-section-number">6.1</span> Part 1</h2>
 <p><span class="math inline">\(P(X)\)</span>: Power set <span class="math inline">\(X\)</span></p>
@@ -266,7 +279,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><span class="math display">\[Measure \; space(X, \mathcal{A}, \mu)\]</span></p>
 <p>Where,</p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(X is set\)</span>.</p></li>
+<li><p><span class="math inline">\(X\)</span> is a set.</p></li>
 <li><p><span class="math inline">\(\mathcal{A}\)</span>: collection of subset of <span class="math inline">\(X\)</span>: <span class="math inline">\(\sigma\)</span>-algebra.</p></li>
 <li><p><span class="math inline">\(\mu\)</span>: <span class="math inline">\(\mathcal{A} \rightarrow [0, \infty]\)</span>.</p></li>
 </ol>
@@ -290,7 +303,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <img src="yt2.JPG" />
 
 </div>
-<p>__Definitions__F</p>
+<p><strong>Definitions</strong></p>
+<p><span class="math inline">\(f: X \rightarrow [0, \infty) measurable\)</span></p>
+<p><span class="math inline">\(\int f d(\mu):=sup \{ I(h) | h \in S^+, h \leq f \}\)</span>, in which, <span class="math inline">\(h = \sum_{i=1}^n c_i x_{A_i}\)</span>. We call this Lebesgue integral of <span class="math inline">\(f\)</span> w.r.t <span class="math inline">\(\mu\)</span>. <span class="math inline">\(f\)</span> is called <span class="math inline">\(\mu\)</span>-integral if <span class="math inline">\(\int_x f d\mu &lt; =\infty\)</span></p>
 
 </div>
 </div>
