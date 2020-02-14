@@ -1,0 +1,42 @@
+# Cholesky decomposition
+
+Use Cholesky decomposition to generate 1,000 trivariate normal deviates $X_1, ..., x_{1000}$ with mean $\mu$ = (−2, 4, 3) and covariance matrix
+
+$$X=\begin{bmatrix}
+2 & -1 & 0.5 \\
+-1 & 4 & 1 \\
+0.5 & 1 & 5 
+\end{bmatrix}$$
+
+
+```{r}
+Nsim = 10^3           
+means = c(-2,4,3)              
+N_columns = 3               
+
+# Generating random standard normal distribution numbers 
+Generated_numbers = matrix(rnorm(N_columns * Nsim), nrow = N_columns) 
+
+# The provided covariance matrix
+cov_matrix = rbind(c(2, -1, 0.5), c(-1, 4, 1), c(0.5, 1, 5))
+
+# Cholesky decomposition 
+Cholesky_decom_results = chol(cov_matrix)    
+
+# Data is transformed using the Cholesky decomposition 
+adjusted_data = t(Generated_numbers) %*% Cholesky_decom_results       
+
+Final_data = t(t(adjusted_data) + means)
+
+
+
+# calculating column means
+colMeans(Final_data)
+
+# calculating column variances
+apply(Final_data,2,var)
+
+# calculating covariance matrix
+cov(Final_data)
+
+```

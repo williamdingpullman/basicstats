@@ -1,36 +1,46 @@
-\documentclass[]{book}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage[]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
-\usepackage[unicode=true]{hyperref}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-            pdftitle={Basic Stats},
-            pdfauthor={Bill Last Updated:},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
+  pdftitle={Basic Stats},
+  pdfauthor={Bill Last Updated:},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -40,40 +50,46 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -83,31 +99,14 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-% set default figure placement to htbp
+% Set default figure placement to htbp
 \makeatletter
 \def\fps@figure{htbp}
 \makeatother
-
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
 \usepackage{booktabs}
 \usepackage{amsthm}
 \makeatletter
@@ -116,35 +115,38 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
 
 \title{Basic Stats}
 \author{Bill Last Updated:}
-\date{26 January, 2020}
+\date{14 February, 2020}
 
 \begin{document}
+\frontmatter
 \maketitle
 
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\chapter*{Preface: Motivation}\label{my-section}
+\mainmatter
+\hypertarget{my-section}{%
+\chapter*{Preface: Motivation}\label{my-section}}
 \addcontentsline{toc}{chapter}{Preface: Motivation}
 
-All the notes I have done here are about basic stats. While I have tried
-my best, probably there are still some typos and errors. Please feel
-free to let me know in case you find one. Thank you!
+All the notes I have done here are about basic stats. While I have tried my best, probably there are still some typos and errors. Please feel free to let me know in case you find one. Thank you!
 
-\chapter{Logit and Probit}\label{logit-and-probit}
+\hypertarget{logit-and-probit}{%
+\chapter{Logit and Probit}\label{logit-and-probit}}
 
-\section{Logit}\label{logit}
+\hypertarget{logit}{%
+\section{Logit}\label{logit}}
 
-\[f(x)=log(\frac{p(y=1)}{1-p(y=1)})\] The basic idea of logistic
-regression:
+\[f(x)=log(\frac{p(y=1)}{1-p(y=1)})\]
+The basic idea of logistic regression:
 \[p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]
-Thus, \(e^{\beta_0+\beta_1x_1+...+\beta_nx_n}\) can be from \(-\infty\)
-to \(+\infty\), and \(p(y=1)\) will be always within the range of
-\((0,1)\).
+Thus, \(e^{\beta_0+\beta_1x_1+...+\beta_nx_n}\) can be from \(-\infty\) to \(+\infty\), and \(p(y=1)\) will be always within the range of \((0,1)\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -157,14 +159,10 @@ to \(+\infty\), and \(p(y=1)\) will be always within the range of
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-1-1.pdf}
 
 We can also write the function into another format as follows:
-\[log \frac{p(y=1)}{1-p(y=1)}= \beta_0+\beta_1x_1+...+\beta_nx_n\] Thus,
-we know that the regression coeficients of \(\beta_i\) actually change
-the ``log-odds'' of the event. Of course, note that the magnitude of
-\(\beta_i\) is dependent upon the units of \(x_i\).
+\[log \frac{p(y=1)}{1-p(y=1)}= \beta_0+\beta_1x_1+...+\beta_nx_n\]
+Thus, we know that the regression coeficients of \(\beta_i\) actually change the ``log-odds'' of the event. Of course, note that the magnitude of \(\beta_i\) is dependent upon the units of \(x_i\).
 
-The following is an example testing whether that home teams are more
-likely to win in NFL games. The results show that the odd of winning is
-the same for both home and away teams.
+The following is an example testing whether that home teams are more likely to win in NFL games. The results show that the odd of winning is the same for both home and away teams.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -208,12 +206,10 @@ the same for both home and away teams.
 ## Number of Fisher Scoring iterations: 3
 \end{verbatim}
 
-\section{Probit}\label{probit}
+\hypertarget{probit}{%
+\section{Probit}\label{probit}}
 
-As noted above, logit \(f(x)=log(\frac{p(y=1)}{1-p(y=1)})\) provides the
-resulting range of \((0,1)\). Another way to provide the same rage is
-through the cdf of normal distribution.The following R code is used to
-illusrate this process.
+As noted above, logit \(f(x)=log(\frac{p(y=1)}{1-p(y=1)})\) provides the resulting range of \((0,1)\). Another way to provide the same rage is through the cdf of normal distribution.The following R code is used to illusrate this process.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -223,19 +219,15 @@ illusrate this process.
 \end{Shaded}
 
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-3-1.pdf}
-Thus, the cdf of normal distribution can be used to indicate the
-probability of \(p(y=1)\).
+Thus, the cdf of normal distribution can be used to indicate the probability of \(p(y=1)\).
 
 \[\Phi(\beta_0+\beta_1x_1+...+\beta_nx_n )= p(y=1)\]
 
-Similar to logit model, we can also write the inverse function of the
-cdf to get the function that can be from \(-\infty\) to \(+\infty\).
+Similar to logit model, we can also write the inverse function of the cdf to get the function that can be from \(-\infty\) to \(+\infty\).
 
 \[\beta_0+\beta_1x_1+...+\beta_nx_n =\Phi^{-1}(p(y=1))\]
 
-Thus, for example, if \(X\beta\) = -2, based on
-\(\Phi(\beta_0+\beta_1x_1+...+\beta_nx_n )= p(y=1)\) we can get that the
-\(p(y=1)=0.023\).
+Thus, for example, if \(X\beta\) = -2, based on \(\Phi(\beta_0+\beta_1x_1+...+\beta_nx_n )= p(y=1)\) we can get that the \(p(y=1)=0.023\).
 
 In contrast, if \(X\beta\) = 3, the \(p(y=1)=0.999\).
 
@@ -261,10 +253,8 @@ In contrast, if \(X\beta\) = 3, the \(p(y=1)=0.999\).
 
 Let's assume that there is a latent variable called \(Y^*\) such that
 
-\[Y^*=X\beta+\epsilon, \epsilon \sim N(0,\sigma^2)\] You could think of
-\(Y^*\) as a kind of ``proxy'' between \(X\beta+\epsilon\) and the
-observed \(Y (1 or 0)\). Thus, we can get the following. Note that, it
-does not have to be zero, and can be any constant.
+\[Y^*=X\beta+\epsilon, \epsilon \sim N(0,\sigma^2)\]
+You could think of \(Y^*\) as a kind of ``proxy'' between \(X\beta+\epsilon\) and the observed \(Y (1 or 0)\). Thus, we can get the following. Note that, it does not have to be zero, and can be any constant.
 
 \[
 Y^*=\begin{cases} 0 \;\;\: if \;  y_i^* \leq 0 \\ 1 \;\;\: if \;  y_i^* > 0 \end{cases}
@@ -274,35 +264,32 @@ Thus,
 
 \[y_i^* > 0 \Rightarrow \beta^{'}X_i + \epsilon_i >0 \Rightarrow \epsilon_i > -\beta^{'}X_i\]
 
-Thus, we can write it as follows. Note that
-\(\frac{ \epsilon_i}{\sigma} \sim N(0,1)\)
+Thus, we can write it as follows. Note that \(\frac{ \epsilon_i}{\sigma} \sim N(0,1)\)
 
 \[p(y=1|x_i)= p(y_i^* >0|x_i)=p(\epsilon_i > -\beta^{'}X_i)= p(\frac{ \epsilon_i}{\sigma}>\frac{-\beta^{'}X_i}{\sigma})=\Phi(\frac{\beta^{'}X_i}{\sigma}) \]
 We thus can get:
 
 \[p(y=0|x_i)=1-\Phi(\frac{\beta^{'}X_i}{\sigma})\]
 
-For \(p(y=1|x_i)=\Phi(\frac{\beta^{'}X_i}{\sigma})\), we can not really
-estimate both \(\beta\) and \(\sigma\) as they are in a ratio. We can
-assume \(\sigma =1\), then \(\epsilon \sim N(0,1)\). We know \(y_i\) and
-\(x_i\) since we observe them. Thus, we can write it as follows.
+For \(p(y=1|x_i)=\Phi(\frac{\beta^{'}X_i}{\sigma})\), we can not really estimate both \(\beta\) and \(\sigma\) as they are in a ratio. We can assume \(\sigma =1\), then \(\epsilon \sim N(0,1)\).
+We know \(y_i\) and \(x_i\) since we observe them. Thus, we can write it as follows.
 
 \[p(y=1|x_i)=\Phi(\beta^{'}X_i)\]
 
-\chapter{MLE}\label{intro}
+\hypertarget{intro}{%
+\chapter{MLE}\label{intro}}
 
-\section{Basic idea of MLE}\label{basic-idea-of-mle}
+\hypertarget{basic-idea-of-mle}{%
+\section{Basic idea of MLE}\label{basic-idea-of-mle}}
 
-Suppose that we flip a coin, \(y_i=0\) for tails and \(y_i=1\) for
-heads. If we get \(p\) heads from \(n\) trials, we can get the
-proportion of heads is \(p/n\), which is the sample mean. If we do not
-do any further calculation, this is our best guess.
+Suppose that we flip a coin, \(y_i=0\) for tails and \(y_i=1\) for heads. If we get \(p\) heads from \(n\) trials, we can get the proportion of heads is \(p/n\), which is the sample mean. If we do not do any further calculation, this is our best guess.
 
 Suppose that the true proablity is \(\rho\), then we can get:
 
 \[
 \mathbf{L}(y_i)=\begin{cases} \rho \;\;\:   y_i = 1 \\ 1-\rho \;\;\:  y_i = 0 \end{cases}
-\] Thus, we can also write it as follows.
+\]
+Thus, we can also write it as follows.
 \[\mathbf{L}(y_i) = \rho^{y_i}(1-\rho)^{1-y_i}\]
 
 Thus, we can get:
@@ -312,8 +299,7 @@ Further, we can get a log-transformed format.
 
 \[log (\prod \mathbf{L}(y_i|\rho))=\sum y_i log \rho + \sum(1-y_i) log(1-\rho)\]
 
-To maximize the log-function above, we can calculate the derivative with
-respect to \(\rho\).
+To maximize the log-function above, we can calculate the derivative with respect to \(\rho\).
 \[\frac{\partial log (\prod \mathbf{L}(y_i|\rho)) }{\partial \rho}=\sum y_i \frac{1}{\rho}-\sum(1-y_i) \frac{1}{1-\rho}\]
 Set the derivative to zero and solve for \(\rho\), we can get
 
@@ -321,23 +307,15 @@ Set the derivative to zero and solve for \(\rho\), we can get
 \[\Rightarrow (1-\rho)\sum y_i - \rho \sum(1-y_i) =0\]
 \[\Rightarrow \sum y_i-\rho\sum y_i - n\rho +\rho\sum y_i =0\]
 \[\Rightarrow \sum y_i - n\rho  =0\]
-\[\Rightarrow \rho  = \frac{\sum y_i}{n}=\frac{p}{n}\] Thus, we can see
-that the \(\rho\) maximizing the likelihood function is equal to the
-sample mean.
+\[\Rightarrow \rho  = \frac{\sum y_i}{n}=\frac{p}{n}\]
+Thus, we can see that the \(\rho\) maximizing the likelihood function is equal to the sample mean.
 
-\section{Coin flip example, probit, and
-logit}\label{coin-flip-example-probit-and-logit}
+\hypertarget{coin-flip-example-probit-and-logit}{%
+\section{Coin flip example, probit, and logit}\label{coin-flip-example-probit-and-logit}}
 
-In the example above, we are not really trying to estimate a lot of
-regression coefficients. What we are doing actually is to calculate the
-sample mean, or intercept in the regresion sense. What does it mean?
-Let's use some data to explain it.
+In the example above, we are not really trying to estimate a lot of regression coefficients. What we are doing actually is to calculate the sample mean, or intercept in the regresion sense. What does it mean? Let's use some data to explain it.
 
-Suppose that we flip a coin 20 times and observe 8 heads. We can use the
-R's glm function to esimate the \(\rho\). If the result is consistent
-with what we did above, we should observe that the \(cdf\) of the
-esimate of \(\beta_0\) (i.e., intercept) should be equal to
-\(8/20=0.4\).
+Suppose that we flip a coin 20 times and observe 8 heads. We can use the R's glm function to esimate the \(\rho\). If the result is consistent with what we did above, we should observe that the \(cdf\) of the esimate of \(\beta_0\) (i.e., intercept) should be equal to \(8/20=0.4\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -358,7 +336,8 @@ esimate of \(\beta_0\) (i.e., intercept) should be equal to
 \end{Highlighting}
 \end{Shaded}
 
-\subsection{Probit}\label{probit-1}
+\hypertarget{probit-1}{%
+\subsection{Probit}\label{probit-1}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -392,13 +371,12 @@ esimate of \(\beta_0\) (i.e., intercept) should be equal to
 ##         0.4
 \end{verbatim}
 
-As we can see the intercept is \(-0.2533\), and thus
-\(\Phi(-0.2533471)=0.4\)
+As we can see the intercept is \(-0.2533\), and thus \(\Phi(-0.2533471)=0.4\)
 
-\subsection{Logit}\label{logit-1}
+\hypertarget{logit-1}{%
+\subsection{Logit}\label{logit-1}}
 
-We can also use logit link to calculate the intercept as well. Recall
-that
+We can also use logit link to calculate the intercept as well. Recall that
 
 \[p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]
 Thus,
@@ -428,10 +406,10 @@ Thus,
 ##         0.4
 \end{verbatim}
 
-Note that, the defaul link for the binomial in the glm function in
-logit.
+Note that, the defaul link for the binomial in the glm function in logit.
 
-\section{Further on logit}\label{further-on-logit}
+\hypertarget{further-on-logit}{%
+\section{Further on logit}\label{further-on-logit}}
 
 The probablity of \(y=1\) is as follows:
 
@@ -446,9 +424,7 @@ Thus, the likelihood function is as follows:
 Thus, the log-likelihood is as follows:
 \[logL=\sum (-y_i \cdot log(1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)})-(1-y_i)\cdot log(1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}))\]
 
-Typically, optimisers minimize a function, so we use negative
-log-likelihood as minimising that is equivalent to maximising the
-log-likelihood or the likelihood itself.
+Typically, optimisers minimize a function, so we use negative log-likelihood as minimising that is equivalent to maximising the log-likelihood or the likelihood itself.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -510,36 +486,30 @@ log-likelihood or the likelihood itself.
 ## as.factor(rank)4 -1.551463677 -1.563396035
 \end{verbatim}
 
-\section{References}\label{references}
+\hypertarget{references}{%
+\section{References}\label{references}}
 
 \url{http://www.columbia.edu/~so33/SusDev/Lecture_9.pdf}
 
-\chapter{Score, Gradient and
-Jacobian}\label{score-gradient-and-jacobian}
+\hypertarget{score-gradient-and-jacobian}{%
+\chapter{Score, Gradient and Jacobian}\label{score-gradient-and-jacobian}}
 
-\section{Score}\label{score}
+\hypertarget{score}{%
+\section{Score}\label{score}}
 
-The score is the gradient (the vector of partial derivatives) of
-\(log L(\theta)\), with respect to an m-dimensional parameter vector
-\(\theta\).
+The score is the gradient (the vector of partial derivatives) of \(log L(\theta)\), with respect to an m-dimensional parameter vector \(\theta\).
 
-\[S(\theta) = \frac{\partial\ell}{\partial \theta}\] Typically, they use
-\(\nabla\) to denote the partical derivative.
+\[S(\theta) = \frac{\partial\ell}{\partial \theta}\]
+Typically, they use \(\nabla\) to denote the partical derivative.
 
 \[\nabla \ell\]
 
-Such differentiation will generate a \(m \times 1\) row vector, which
-indicates the sensitivity of the likelihood.
+Such differentiation will generate a \(m \times 1\) row vector, which indicates the sensitivity of the likelihood.
 
-Quote from Steffen Lauritzen's slides: ``Generally the solution to this
-equation must be calculated by iterative methods. One of the most common
-methods is the Newton--Raphson method and this is based on successive
-approximations to the solution, using Taylor's theorem to approximate
-the equation.''
+Quote from Steffen Lauritzen's slides: ``Generally the solution to this equation must be calculated by iterative methods. One of the most common methods is the Newton--Raphson
+method and this is based on successive approximations to the solution, using Taylor's theorem to approximate the equation.''
 
-For instance, using logit link, we can get the first derivative of log
-likelihood logistic regression as follows. We can not really find
-\(\beta\) easily to make the equation to be 0.
+For instance, using logit link, we can get the first derivative of log likelihood logistic regression as follows. We can not really find \(\beta\) easily to make the equation to be 0.
 
 \[\begin{aligned}
 \frac{\partial \ell} {\partial \beta} 
@@ -547,7 +517,8 @@ likelihood logistic regression as follows. We can not really find
 &=\sum_{i=1}^{n} x_i^T[y_i-\hat{y_i}]
 \end{aligned}\]
 
-\section{Fisher scoring}\label{fisher-scoring}
+\hypertarget{fisher-scoring}{%
+\section{Fisher scoring}\label{fisher-scoring}}
 
 {[}I will come back to this later.{]}
 
@@ -555,7 +526,8 @@ likelihood logistic regression as follows. We can not really find
 
 \url{https://stats.stackexchange.com/questions/176351/implement-fisher-scoring-for-linear-regression}
 
-\section{Gradient and Jacobian}\label{gradient-and-jacobian}
+\hypertarget{gradient-and-jacobian}{%
+\section{Gradient and Jacobian}\label{gradient-and-jacobian}}
 
 \textbf{Remarks}: This part discusses gradient in a more general sense.
 
@@ -582,16 +554,16 @@ For instance,
 \[\nabla f(x,y)=[\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}]=[2x,2]\]
 \(\mathbb{R}^n \rightarrow \mathbb{R^m}\)
 
-\[f(x,y)=(x^2+2y,x^3)\] \[Jac(f)=\begin{bmatrix}
+\[f(x,y)=(x^2+2y,x^3)\]
+\[Jac(f)=\begin{bmatrix}
 2x & 2\\
 2x^2 & 0 
 \end{bmatrix}\]
 
-\section{Hessian and Fisher
-Information}\label{hessian-and-fisher-information}
+\hypertarget{hessian-and-fisher-information}{%
+\section{Hessian and Fisher Information}\label{hessian-and-fisher-information}}
 
-Hessian matrix or Hessian is a square matrix of second-order partial
-derivatives of a scalar-valued function, or scalar field.
+Hessian matrix or Hessian is a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field.
 
 \(\mathbb{R}^n \rightarrow \mathbb{R}\)
 
@@ -605,8 +577,7 @@ derivatives of a scalar-valued function, or scalar field.
 
 As a special case, in the context of logit:
 
-Suppose that the log likelihood function is \(\ell (\theta)\).
-\(\theta\) is a \(m\) demension vector.
+Suppose that the log likelihood function is \(\ell (\theta)\). \(\theta\) is a \(m\) demension vector.
 
 \[ \theta = \begin{bmatrix}\theta_1 \\
 \theta_2 \\
@@ -624,11 +595,7 @@ Suppose that the log likelihood function is \(\ell (\theta)\).
 \frac{\partial^2 \ell}{\partial \theta_m \partial \theta_1} & \frac{\partial^2 \ell}{\partial \theta_m \theta_2 } & \frac{\partial^2 \ell}{\partial \theta_m \partial \theta_3} & ... & \frac{\partial^2 \ell}{\partial \theta_m \partial \theta_m} 
 \end{bmatrix}\]
 
-``In statistics, the observed information, or observed Fisher
-information, is the negative of the second derivative (the Hessian
-matrix) of the''log-likelihood" (the logarithm of the likelihood
-function). It is a sample-based version of the Fisher information."
-(Direct quote from Wikipedia.)
+``In statistics, the observed information, or observed Fisher information, is the negative of the second derivative (the Hessian matrix) of the''log-likelihood" (the logarithm of the likelihood function). It is a sample-based version of the Fisher information." (Direct quote from Wikipedia.)
 
 Thus, the observed information matrix:
 
@@ -638,20 +605,20 @@ Expected (Fisher) information matrix:
 
 \[E[-\nabla ^2(\ell)] \]
 
-\chapter{Canonical link function}\label{canonical-link-function}
+\hypertarget{canonical-link-function}{%
+\chapter{Canonical link function}\label{canonical-link-function}}
 
 Inspired by a Stack Exchange post, I created the following figure:
 
 \[ \frac{Paramter}{\theta} \longrightarrow \gamma^{'}(\theta) = \mu \longrightarrow \frac{Mean}{\mu} \longrightarrow g(\mu) = \eta \longrightarrow \frac{ Linear predictor}{\eta} \]
 
-For the case of \(n\) time Bernoulli (i.e., Binomial), its canonical
-link function is logit. Specifically,
+For the case of \(n\) time Bernoulli (i.e., Binomial), its canonical link function is logit. Specifically,
 
 \[ \frac{Paramter}{\theta=\beta^Tx_i}  \longrightarrow \gamma^{'}(\theta)= \frac{e^{\beta^Tx_i}}{1+e^{\beta^Tx_i}}\longrightarrow \frac{Mean}{\mu=\frac{e^{\beta^Tx_i}}{1+e^{\beta^Tx_i}}}\longrightarrow g(\mu) = log \frac{\frac{e^{\beta^Tx_i}}{1+e^{\beta^Tx_i}}}{1-\frac{e^{\beta^Tx_i}}{1+e^{\beta^Tx_i}}}\longrightarrow \frac{ Linear predictor}{\eta = \beta^Tx_i}\]
 Thus, we can see that,
 
-\[\theta \equiv \eta \] The link function \(g(\mu)\) relates the linear
-predictor \(\eta = \beta^Tx_i\) to the mean \(\mu\).
+\[\theta \equiv \eta \]
+The link function \(g(\mu)\) relates the linear predictor \(\eta = \beta^Tx_i\) to the mean \(\mu\).
 
 \textbf{Remarks}:
 
@@ -662,22 +629,17 @@ predictor \(\eta = \beta^Tx_i\) to the mean \(\mu\).
 \item
   \(\mu=p(y=1)=\frac{e^{\beta^Tx_i}}{1+e^{\beta^Tx_i}}\) (Not logit!).
 \item
-  Link function (i.e., \(g(\mu)\)) = logit = logarithm of odds = log
-  \(\frac{Event - Happened }{Event - Not - Happened}\).
+  Link function (i.e., \(g(\mu)\)) = logit = logarithm of odds = log \(\frac{Event - Happened }{Event - Not - Happened}\).
 \item
-  \(g(\mu) = log \frac{\mu}{1-\mu}=\beta^T x_i\). Thus, link function =
-  linear predictor = log odds!
+  \(g(\mu) = log \frac{\mu}{1-\mu}=\beta^T x_i\). Thus, link function = linear predictor = log odds!
 \item
-  Quote from the Stack Exchange post ``Newton Method and Fisher scoring
-  for finding the ML estimator coincide, these links simplify the
-  derivation of the MLE.''
+  Quote from the Stack Exchange post ``Newton Method and Fisher scoring for finding the ML estimator coincide, these links simplify the derivation of the MLE.''
 \end{enumerate}
 
-(Recall, we know that \(\mu\) or \(p(y=1)\) is the mean function. Recall
-that, \(n\) trails of coin flips, and get \(p\) heads. Thus
-\(\mu = \frac{p}{n}\).)
+(Recall, we know that \(\mu\) or \(p(y=1)\) is the mean function. Recall that, \(n\) trails of coin flips, and get \(p\) heads. Thus \(\mu = \frac{p}{n}\).)
 
-\chapter{Ordinary Least Squares (OLS)}\label{ordinary-least-squares-ols}
+\hypertarget{ordinary-least-squares-ols}{%
+\chapter{Ordinary Least Squares (OLS)}\label{ordinary-least-squares-ols}}
 
 Suppose we have \(n\) observation, and \(m\) variables.
 
@@ -703,7 +665,8 @@ We can combine all the \(n\) equations as the following one:
 
 We can further rewrite it as a matrix format as follows.
 
-\[y= X \beta\] Where,
+\[y= X \beta\]
+Where,
 
 \[y = \begin{bmatrix}y_1 \\
 y_2 \\
@@ -728,14 +691,11 @@ y_n \\
 \beta_m \\
 \end{bmatrix}\]
 
-Since later we need the inverse of \(X\), we need to make it into a
-square matrix.
+Since later we need the inverse of \(X\), we need to make it into a square matrix.
 
 \[X^Ty=X^TX \hat{\beta} \Rightarrow \hat{\beta} = (X^TX)^{-1} X^Ty\]
 
-We can use R to implement this calculation. As we can see, there is no
-need to do any iterations at all, but rather just pure matrix
-calculation.
+We can use R to implement this calculation. As we can see, there is no need to do any iterations at all, but rather just pure matrix calculation.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -753,16 +713,16 @@ calculation.
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 2.0081310
-## [2,] 0.9689952
-## [3,] 2.0324824
+## [1,] 2.0173069
+## [2,] 0.9982007
+## [3,] 1.9965694
 \end{verbatim}
 
-\textbf{Side Notes} The function of as.matrix will automatically make
-c(2,1,2) become the dimension of \(3 \times 1\), you do not need to
-transpose the \(\beta\).
+\textbf{Side Notes}
+The function of as.matrix will automatically make c(2,1,2) become the dimension of \(3 \times 1\), you do not need to transpose the \(\beta\).
 
-\section{Taylor series}\label{taylor-series}
+\hypertarget{taylor-series}{%
+\section{Taylor series}\label{taylor-series}}
 
 \[\begin{aligned}
 f(x)|_{a} &=f(a)+\frac{f^{'}(a)}{1!}(x-a)+\frac{f^{'}(a)}{2!}(x-a)^2+\frac{f^{''}(a)}{3!}(x-a)^{3}+...\\&=\sum_{n=0}^{\infty} \frac{f^{n}(a)}{n!}(x-a)^n 
@@ -786,7 +746,8 @@ if \(x=2\)
 
 \(e^2 \approx 1+\frac{1}{1!}x+\frac{1}{2!}x^2 +\frac{1}{3!}x^2+\frac{1}{4!}x^2+\frac{1}{5!}x^2=7.2666...\)
 
-\section{References}\label{references-1}
+\hypertarget{references-1}{%
+\section{References}\label{references-1}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -873,7 +834,8 @@ if \(x=2\)
 
 \url{https://stats.stackexchange.com/questions/40876/what-is-the-difference-between-a-link-function-and-a-canonical-link-function}
 
-\chapter{Measure Theory}\label{measure-theory}
+\hypertarget{measure-theory}{%
+\chapter{Measure Theory}\label{measure-theory}}
 
 Instead of density, give probability to every event.
 
@@ -885,8 +847,7 @@ Each \(\omega \in \Omega\) is outcome.
 
 Each \(A \in \Omega\)\$ is event.
 
-For rolling a die, \(\Omega ={1, 2, ...,6}\), whereas \(A={1,3,6}\).
-Thus, \(P(A)=\frac{1}{2}\).
+For rolling a die, \(\Omega ={1, 2, ...,6}\), whereas \(A={1,3,6}\). Thus, \(P(A)=\frac{1}{2}\).
 
 \(P: 2^\Omega \rightarrow [0,1]\)
 
@@ -902,21 +863,19 @@ Thus, \(P(A)=\frac{1}{2}\).
   If \(A_i\) are mutually disjoint, then \(P(\cup A_i)=\sum P(A_i)\)
 \end{enumerate}
 
-\section{Part 1}\label{part-1}
+\hypertarget{part-1}{%
+\section{Part 1}\label{part-1}}
 
 \(P(X)\): Power set \(X\)
 
-Example: the set is \(X=\{ a,b \}\), and thus the power set is
-\(p(x)=\{ \varnothing, X, a,b \}\)
+Example: the set is \(X=\{ a,b \}\), and thus the power set is \(p(x)=\{ \varnothing, X, a,b \}\)
 
-\textbf{Definition}: \(\mathcal{A} \subseteq P(X)\) is called a
-\(\sigma\)-algebra.
+\textbf{Definition}: \(\mathcal{A} \subseteq P(X)\) is called a \(\sigma\)-algebra.
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 \item
-  \(\sigma\)-algebra at least has two elements, namely empty set and
-  full set: \(\varnothing\),\(X \in \mathcal{A}\)
+  \(\sigma\)-algebra at least has two elements, namely empty set and full set: \(\varnothing\),\(X \in \mathcal{A}\)
 \item
   \(A \in \mathcal{A} \rightarrow A^c: \in \mathcal{A}\)
 \end{enumerate}
@@ -941,23 +900,21 @@ Example of \(\sigma\)-algebra:
   \(\mathcal{A}= P(X)\)
 \end{enumerate}
 
-\section{Part 2}\label{part-2}
+\hypertarget{part-2}{%
+\section{Part 2}\label{part-2}}
 
 Easy to show:
 
-\(\mathcal{A}_i\) \(\sigma\)-algebra on \(X\), \(in \in I(index set)\).
-Then, \(\cap \mathcal{A}_i\) is also a \(\sigma\)-algebra on \(X\).
+\(\mathcal{A}_i\) \(\sigma\)-algebra on \(X\), \(in \in I(index set)\). Then, \(\cap \mathcal{A}_i\) is also a \(\sigma\)-algebra on \(X\).
 
-\textbf{Definition}: For \(M \subseteq P(X)\), there is a smallest
-\(\sigma\)-algebra that contains \(M\). That is, \(\sigma\)-algebra is
-generated by \(M\).
+\textbf{Definition}: For \(M \subseteq P(X)\), there is a smallest \(\sigma\)-algebra that contains \(M\). That is, \(\sigma\)-algebra is generated by \(M\).
 
-\[ \sigma(M):=\cap_{\mathcal{A} \supseteq M}\mathcal{A}\] Example:
+\[ \sigma(M):=\cap_{\mathcal{A} \supseteq M}\mathcal{A}\]
+Example:
 
 \[X=\{ a, b, c, d\}, M=\{ \{a\}, \{b\}\}\]
 
-Note that, \(M\) is not a \(\sigma\)-algebra yet, and the smallest
-\(\sigma\)-algebra containing \(M\):
+Note that, \(M\) is not a \(\sigma\)-algebra yet, and the smallest \(\sigma\)-algebra containing \(M\):
 
 \[\sigma(M)= \{\varnothing, X=\{ a, b, c, d\},\{a\},\{b\},\{a,b\},\{b,c,d\},\{a,c,d\},\{c,d\}\}\]
 
@@ -965,36 +922,31 @@ Note that, \(M\) is not a \(\sigma\)-algebra yet, and the smallest
 
 Let \(X\) be a topological space
 
-(Let \(X\) be a metric space, or let \(X\) be a subset of
-\(\mathbb{R}^n\))
+(Let \(X\) be a metric space, or let \(X\) be a subset of \(\mathbb{R}^n\))
 
-\(B(X)\) Borel \(\sigma\)-algebra on \(X\): THe \(\sigma\)-algebra
-generated by open sets.
+\(B(X)\) Borel \(\sigma\)-algebra on \(X\): THe \(\sigma\)-algebra generated by open sets.
 
 \(B(X):=\sigma(\Im)\)
 
-\section{Part 3}\label{part-3}
+\hypertarget{part-3}{%
+\section{Part 3}\label{part-3}}
 
 What is a measure?
 
-A measure is a \(\sigma\)-algebra. It can be either a power set or a
-subset.
+A measure is a \(\sigma\)-algebra. It can be either a power set or a subset.
 
 \textbf{Definition}:
 
-\((X, \mathcal{A})\) measurable space. \(\mathcal{A}\) is the subset of
-the set \(X\).
+\((X, \mathcal{A})\) measurable space. \(\mathcal{A}\) is the subset of the set \(X\).
 
-A map \(\mu: \mathcal{A} \rightarrow [0, \infty]\) is called a measure
-if it satisfies:
+A map \(\mu: \mathcal{A} \rightarrow [0, \infty]\) is called a measure if it satisfies:
 
 \begin{enumerate}
 \def\labelenumi{(\alph{enumi})}
 \item
   \(\mu (\varnothing)=0\)
 \item
-  \(\mu(\cup_{i=1}^\infty A_i)=\sum_{i=1}^\infty \mu(A_i)\) with
-  \(A_i \cap A_j = \varnothing\) for all \(A_i \in \mathcal{A}\)
+  \(\mu(\cup_{i=1}^\infty A_i)=\sum_{i=1}^\infty \mu(A_i)\) with \(A_i \cap A_j = \varnothing\) for all \(A_i \in \mathcal{A}\)
 \end{enumerate}
 
 \textbf{Definition}: Measure space \[(X,\mathcal{A}, \mu)\]
@@ -1050,7 +1002,8 @@ Calculation rules in \([0, \infty]\):
   \(\mu(x+A)=\mu(A)\) for all \(x \in \mathbb{R}^n\)
 \end{enumerate}
 
-\section{Part 4}\label{part-4}
+\hypertarget{part-4}{%
+\section{Part 4}\label{part-4}}
 
 Search measure \(\mu\) on \(p(\mathbb{R})\) with
 
@@ -1064,19 +1017,16 @@ Search measure \(\mu\) on \(p(\mathbb{R})\) with
 
 \(\rightarrow \mu\) does not exist.
 
-Claim: Let \(\mu\) be a measure on \(p(\mathbb{R})\) with
-\(\mu([0,1])<\infty\) and (2) \(\rightarrow \mu=0\)
+Claim: Let \(\mu\) be a measure on \(p(\mathbb{R})\) with \(\mu([0,1])<\infty\) and (2) \(\rightarrow \mu=0\)
 
-\section{Part 5}\label{part-5}
+\hypertarget{part-5}{%
+\section{Part 5}\label{part-5}}
 
 \textbf{Definition}:
 
 \((\Omega_1,\mathcal{A}_1), (\Omega_2,\mathcal{A}_2)\) measurable spaces
 
-\(f: \Omega_1 \rightarrow \Omega_2\) measurable
-(\(w.r.t \; \mathcal{A}_1, \mathcal{A}_2\)) if
-\(f^{-1}(\mathcal{A}_1) \in \mathcal{A}_2\) for all
-\(\mathcal{A}_1 \in \mathcal{A}_2\).
+\(f: \Omega_1 \rightarrow \Omega_2\) measurable (\(w.r.t \; \mathcal{A}_1, \mathcal{A}_2\)) if \(f^{-1}(\mathcal{A}_1) \in \mathcal{A}_2\) for all \(\mathcal{A}_1 \in \mathcal{A}_2\).
 
 Examples:
 
@@ -1084,16 +1034,14 @@ Examples:
 \def\labelenumi{(\arabic{enumi})}
 \tightlist
 \item
-  (\(\Omega,\mathcal{A}\)), (\(\mathbb{R},B(\mathbb{R})\)):
-  characteristic function (also indicator function)
+  (\(\Omega,\mathcal{A}\)), (\(\mathbb{R},B(\mathbb{R})\)): characteristic function (also indicator function)
 \end{enumerate}
 
 \[\chi_A : \Omega \rightarrow \mathbb{R}\]
 
 \[\chi_A (\omega) :=  \begin{cases} 1 &, \omega \in  A \\ 0 &, else\end{cases}\]
 
-For all measurable \(A \in \mathcal{A}\), \(\chi_A\) is a measurable
-map.
+For all measurable \(A \in \mathcal{A}\), \(\chi_A\) is a measurable map.
 
 \[\chi_A(\varnothing)=\varnothing, \chi_A^{-1}(\mathbb{R})=\Omega\]
 \[\chi_A(\{ 1 \})=A, \chi_A^{-1}(\mathbb{0})=A^c\]
@@ -1103,17 +1051,15 @@ map.
 \setcounter{enumi}{1}
 \tightlist
 \item
-  (\(\Omega_1,\mathcal{A}_1\)), (\(\Omega_2,\mathcal{A}_2\)),
-  (\(\Omega_3,\mathcal{A}_3\)) measurable spaces
+  (\(\Omega_1,\mathcal{A}_1\)), (\(\Omega_2,\mathcal{A}_2\)), (\(\Omega_3,\mathcal{A}_3\)) measurable spaces
 \end{enumerate}
 
 \[\Omega_1 \rightarrow \Omega_2 \rightarrow \Omega_3\]
 
-If both \(\Omega_1 \rightarrow \Omega_2\) and
-\(\Omega_2 \rightarrow \Omega_3\) are measurable, then
-\(\Omega_1 \rightarrow \Omega_3\) is measurable as well.
+If both \(\Omega_1 \rightarrow \Omega_2\) and \(\Omega_2 \rightarrow \Omega_3\) are measurable, then \(\Omega_1 \rightarrow \Omega_3\) is measurable as well.
 
-\section{Part 6}\label{part-6}
+\hypertarget{part-6}{%
+\section{Part 6}\label{part-6}}
 
 \textbf{Lebesgue integral}
 
@@ -1137,8 +1083,7 @@ In order to integrate some special function, we need measurable maps:
 
 \[Measure \; maps \; f: X \rightarrow \mathbb{R}\]
 
-Where, there is \(\sigma\)-algebra \(\mathcal{A}\) on the \(X\), whereas
-\(\sigma\)-algebra \(B\) for \(\mathbb{R}\). In other words, we can get:
+Where, there is \(\sigma\)-algebra \(\mathcal{A}\) on the \(X\), whereas \(\sigma\)-algebra \(B\) for \(\mathbb{R}\). In other words, we can get:
 
 \[f^{-1}(E) \in \mathcal{A} \; for \; all \; Borcel \; sets \; E \subseteq \mathbb{R}\]
 
@@ -1147,11 +1092,12 @@ For example:
 \[\chi_A: X \rightarrow \mathbb{R}, A \in \mathcal{A}\]
 \[I(\chi_A):= \mu (A)\]
 
-Simple functions (step functions, staircase functions, \ldots{})
+Simple functions (step functions, staircase functions, \ldots)
 
 For \(A_1, ... A_N \in \mathcal{A}\) and \(c_1,...,c_n \in \mathbb{R}\)
 
-\[f(x)=\sum_{i=1}^n c_i \cdot x_{A_i}(x)\] \includegraphics{yt.jpg}
+\[f(x)=\sum_{i=1}^n c_i \cdot x_{A_i}(x)\]
+\includegraphics{yt.jpg}
 
 \textbf{Definition}
 
@@ -1162,27 +1108,87 @@ Properties:
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
 \item
-  \(I(\alpha f + \beta g)=\alpha I(f) +\beta I(g)\),
-  \(\alpha, \beta\geq 0\)
+  \(I(\alpha f + \beta g)=\alpha I(f) +\beta I(g)\), \(\alpha, \beta\geq 0\)
 \item
   \(f \leq g \rightarrow I(f) \leq I(g) (monotonicity)\)
 \end{enumerate}
 
-\begin{figure}
-\centering
 \includegraphics{yt2.jpg}
-\caption{}
-\end{figure}
 
 \textbf{Definitions}
 
 \(f: X \rightarrow [0, \infty) measurable\)
 
-\(\int f d(\mu):=sup \{ I(h) | h \in S^+, h \leq f \}\), in which,
-\(h = \sum_{i=1}^n c_i x_{A_i}\). We call this Lebesgue integral of
-\(f\) w.r.t \(\mu\). \(f\) is called \(\mu\)-integral if
-\(\int_x f d\mu < =\infty\)
+\(\int f d(\mu):=sup \{ I(h) | h \in S^+, h \leq f \}\), in which, \(h = \sum_{i=1}^n c_i x_{A_i}\). We call this Lebesgue integral of \(f\) w.r.t \(\mu\). \(f\) is called \(\mu\)-integral if \(\int_x f d\mu < =\infty\)
 
-\bibliography{book.bib,packages.bib}
+\hypertarget{cholesky-decomposition}{%
+\chapter{Cholesky decomposition}\label{cholesky-decomposition}}
+
+Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, ..., x_{1000}\) with mean \(\mu\) = (−2, 4, 3) and covariance matrix
+
+\[X=\begin{bmatrix}
+2 & -1 & 0.5 \\
+-1 & 4 & 1 \\
+0.5 & 1 & 5 
+\end{bmatrix}\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Nsim =}\StringTok{ }\DecValTok{10}\OperatorTok{^}\DecValTok{3}           
+\NormalTok{means =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{)              }
+\NormalTok{N_columns =}\StringTok{ }\DecValTok{3}               
+
+\CommentTok{# Generating random standard normal distribution numbers }
+\NormalTok{Generated_numbers =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(N_columns }\OperatorTok{*}\StringTok{ }\NormalTok{Nsim), }\DataTypeTok{nrow =}\NormalTok{ N_columns) }
+
+\CommentTok{# The provided covariance matrix}
+\NormalTok{cov_matrix =}\StringTok{ }\KeywordTok{rbind}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{-1}\NormalTok{, }\FloatTok{0.5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+
+\CommentTok{# Cholesky decomposition }
+\NormalTok{Cholesky_decom_results =}\StringTok{ }\KeywordTok{chol}\NormalTok{(cov_matrix)    }
+
+\CommentTok{# Data is transformed using the Cholesky decomposition }
+\NormalTok{adjusted_data =}\StringTok{ }\KeywordTok{t}\NormalTok{(Generated_numbers) }\OperatorTok{%*%}\StringTok{ }\NormalTok{Cholesky_decom_results       }
+
+\NormalTok{Final_data =}\StringTok{ }\KeywordTok{t}\NormalTok{(}\KeywordTok{t}\NormalTok{(adjusted_data) }\OperatorTok{+}\StringTok{ }\NormalTok{means)}
+
+
+
+\CommentTok{# calculating column means}
+\KeywordTok{colMeans}\NormalTok{(Final_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -2.004393  3.971092  3.076288
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculating column variances}
+\KeywordTok{apply}\NormalTok{(Final_data,}\DecValTok{2}\NormalTok{,var)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.964593 3.663064 4.745499
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculating covariance matrix}
+\KeywordTok{cov}\NormalTok{(Final_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            [,1]       [,2]      [,3]
+## [1,]  1.9645928 -0.8633619 0.5850011
+## [2,] -0.8633619  3.6630635 0.8833475
+## [3,]  0.5850011  0.8833475 4.7454987
+\end{verbatim}
+
+\backmatter
+  \bibliography{book.bib,packages.bib}
 
 \end{document}
