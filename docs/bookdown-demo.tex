@@ -120,7 +120,7 @@
 
 \title{Basic Stats}
 \author{Bill Last Updated:}
-\date{14 February, 2020}
+\date{15 February, 2020}
 
 \begin{document}
 \frontmatter
@@ -712,10 +712,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 1.970008
-## [2,] 1.084080
-## [3,] 1.946107
+##           [,1]
+## [1,] 2.0235923
+## [2,] 0.9220692
+## [3,] 1.9224103
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1163,7 +1163,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.339784  3.957519  3.217539
+## [1] -2.044812  3.734013  2.682987
 \end{verbatim}
 
 \begin{Shaded}
@@ -1174,7 +1174,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.6963347 5.9872028 4.1129275
+## [1] 1.402625 4.200641 4.958806
 \end{verbatim}
 
 \begin{Shaded}
@@ -1185,16 +1185,16 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]       [,2]        [,3]
-## [1,]  0.69633471 0.04013543 -0.02499646
-## [2,]  0.04013543 5.98720285  2.14735977
-## [3,] -0.02499646 2.14735977  4.11292745
+##            [,1]      [,2]       [,3]
+## [1,]  1.4026251 -1.892414  0.1797366
+## [2,] -1.8924136  4.200641 -1.1203564
+## [3,]  0.1797366 -1.120356  4.9588057
 \end{verbatim}
 
 \hypertarget{example-2}{%
 \section{Example 2}\label{example-2}}
 
-AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq
+AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq. Note that, there are only one individual or participant in this data simulation.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1288,6 +1288,170 @@ AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq
 \begin{verbatim}
 ## [1] 2.074626
 \end{verbatim}
+
+\hypertarget{example-3}{%
+\section{Example 3}\label{example-3}}
+
+The following code very similar to the code shown above. However, it had only one observation. To illustrate the situation that there are more than one individuals (or, participants), I did the code below.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n =}\DecValTok{25}\NormalTok{;   }\CommentTok{#the number of time points}
+\NormalTok{m=}\StringTok{ }\DecValTok{15}\NormalTok{;   }\CommentTok{# the number of participants or individuals, whichever ways you would like to think }
+\NormalTok{SigmaSq =}\StringTok{ }\DecValTok{5}\NormalTok{;}
+\NormalTok{Rho =}\StringTok{ }\FloatTok{0.8}\NormalTok{;}
+
+\NormalTok{filling_numbers<-}\KeywordTok{rep}\NormalTok{(n}\OperatorTok{*}\NormalTok{n,}\DecValTok{0}\NormalTok{)}
+\NormalTok{V =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(filling_numbers,n,n);}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)}
+\NormalTok{\{}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ i}\OperatorTok{:}\NormalTok{n)}
+\NormalTok{  \{}
+\NormalTok{    V[i,j]=SigmaSq}\OperatorTok{*}\NormalTok{Rho}\OperatorTok{^}\NormalTok{(j}\OperatorTok{-}\NormalTok{i)}
+\NormalTok{    V[j,i]=V[i,j]}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{2345}\NormalTok{)}
+\NormalTok{random_normal<-}\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(m}\OperatorTok{*}\NormalTok{n),}\DataTypeTok{nrow =}\NormalTok{ m)}
+\CommentTok{#chol(V) %*% random_normal}
+\CommentTok{#colSums (chol(V))}
+\NormalTok{b2<-random_normal}\OperatorTok{%*%}\KeywordTok{chol}\NormalTok{(V)}
+
+\NormalTok{pi =}\StringTok{ }\KeywordTok{exp}\NormalTok{(b2)}\OperatorTok{/}\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\KeywordTok{exp}\NormalTok{(b2));}
+
+\NormalTok{random_unfirom<-}\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(m}\OperatorTok{*}\NormalTok{n),}\DataTypeTok{nrow =}\NormalTok{ m)}
+
+\NormalTok{y<-}\KeywordTok{ifelse}\NormalTok{(pi}\OperatorTok{>}\NormalTok{random_unfirom,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13]
+##  [1,]    0    0    0    0    0    0    1    1    1     1     1     0     1
+##  [2,]    0    1    1    1    1    1    0    1    0     0     0     0     0
+##  [3,]    1    0    0    0    0    1    0    1    0     1     1     0     0
+##  [4,]    1    0    0    0    0    0    0    0    1     0     0     0     0
+##  [5,]    0    0    0    0    1    0    0    0    0     0     0     0     1
+##  [6,]    0    0    1    1    0    0    0    1    0     0     0     0     0
+##  [7,]    0    0    0    0    0    1    0    0    1     0     0     0     1
+##  [8,]    1    1    1    1    0    0    0    0    0     1     1     0     0
+##  [9,]    1    1    1    1    0    1    1    1    0     1     0     0     0
+## [10,]    1    0    1    1    1    1    1    1    1     1     0     0     0
+## [11,]    1    1    1    1    1    1    1    1    1     0     1     0     0
+## [12,]    1    1    1    1    1    1    0    1    1     1     1     1     0
+## [13,]    0    1    0    0    0    0    0    0    1     1     1     1     0
+## [14,]    1    1    0    1    1    1    1    1    1     0     0     0     0
+## [15,]    1    1    0    1    1    1    1    0    0     1     0     0     1
+##       [,14] [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25]
+##  [1,]     1     1     1     1     0     1     0     0     1     0     0     0
+##  [2,]     0     1     1     1     1     1     0     0     0     1     0     1
+##  [3,]     0     1     0     0     1     1     1     1     0     0     1     1
+##  [4,]     1     0     0     0     0     0     1     0     1     0     0     0
+##  [5,]     0     0     1     1     1     0     1     1     1     0     1     1
+##  [6,]     1     1     0     0     1     0     0     1     0     1     1     1
+##  [7,]     0     0     0     0     0     1     0     0     1     0     0     0
+##  [8,]     0     0     0     0     0     0     0     0     0     1     1     1
+##  [9,]     0     1     1     1     0     0     1     0     0     0     0     0
+## [10,]     1     1     1     1     1     1     1     1     1     1     1     1
+## [11,]     0     0     0     1     0     0     0     0     1     1     1     0
+## [12,]     0     0     0     0     1     1     1     0     0     0     1     0
+## [13,]     0     1     0     0     0     1     0     1     1     1     1     1
+## [14,]     0     0     0     0     1     0     1     0     0     0     0     0
+## [15,]     0     0     0     0     0     0     1     0     1     0     0     1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The code above basically completes the generating job! The code below is to check }
+
+\CommentTok{# The following calcuates variance}
+\CommentTok{# calculate variance of each column}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{apply}\NormalTok{(b2, }\DecValTok{2}\NormalTok{, var))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.330903
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# calculate variance of each row}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{apply}\NormalTok{(b2, }\DecValTok{1}\NormalTok{, var))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.568107
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The whole table}
+\KeywordTok{var}\NormalTok{(}\KeywordTok{as.vector}\NormalTok{(b2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.299165
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The following code calculates the correlation }
+\NormalTok{b =}\StringTok{ }\NormalTok{b2[,}\DecValTok{2}\OperatorTok{:}\NormalTok{n]}
+\NormalTok{c =}\StringTok{ }\NormalTok{b2[,}\DecValTok{1}\OperatorTok{:}\NormalTok{(n}\DecValTok{-1}\NormalTok{)]}
+
+\NormalTok{collected_cor<-}\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,m}\DecValTok{-1}\NormalTok{) }\CommentTok{#creating an empty vector to collect correlation. }
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{(m}\DecValTok{-1}\NormalTok{))}
+\NormalTok{\{collected_cor[i]<-}\KeywordTok{cor}\NormalTok{(b[i,],c[i,])\}}
+\NormalTok{collected_cor}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.8473037 0.7065013 0.6376223 0.5481540 0.7851062 0.6576329 0.4844481
+##  [8] 0.6950847 0.6731673 0.6409116 0.7966547 0.7184030 0.8001861 0.7913736
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(collected_cor)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.6987535
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.456
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{log}\NormalTok{(}\KeywordTok{mean}\NormalTok{(y)}\OperatorTok{/}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(y)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] -0.1764564
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# It will always get a value close to zero, since we set the mean to be zero when simulating the data}
+\end{Highlighting}
+\end{Shaded}
 
 \backmatter
   \bibliography{book.bib,packages.bib}

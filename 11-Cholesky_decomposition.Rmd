@@ -46,7 +46,7 @@ cov(Final_data)
 
 ## Example 2
 
-AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq
+AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq. Note that, there are only one individual or participant in this data simulation.
 
 ```{R}
 n = 10;
@@ -90,6 +90,67 @@ var(as.vector(b2))
 #Not sure why the means are not the same ?
 mean(as.vector(b2))
 mean(random_normal)
+```
 
+
+## Example 3
+
+The following code very similar to the code shown above. However, it had only one observation. To illustrate the situation that there are more than one individuals (or, participants), I did the code below.
+
+```{R}
+n =25;   #the number of time points
+m= 15;   # the number of participants or individuals, whichever ways you would like to think 
+SigmaSq = 5;
+Rho = 0.8;
+
+filling_numbers<-rep(n*n,0)
+V = matrix(filling_numbers,n,n);
+
+for (i in 1:n)
+{
+  for (j in i:n)
+  {
+    V[i,j]=SigmaSq*Rho^(j-i)
+    V[j,i]=V[i,j]
+  }
+}
+
+set.seed(2345)
+random_normal<-matrix(rnorm(m*n),nrow = m)
+#chol(V) %*% random_normal
+#colSums (chol(V))
+b2<-random_normal%*%chol(V)
+
+pi = exp(b2)/(1 + exp(b2));
+
+random_unfirom<-matrix(runif(m*n),nrow = m)
+
+y<-ifelse(pi>random_unfirom,1,0)
+y
+
+# The code above basically completes the generating job! The code below is to check 
+
+# The following calcuates variance
+# calculate variance of each column
+mean(apply(b2, 2, var))
+# calculate variance of each row
+mean(apply(b2, 1, var))
+# The whole table
+var(as.vector(b2))
+
+# The following code calculates the correlation 
+b = b2[,2:n]
+c = b2[,1:(n-1)]
+
+collected_cor<-rep(0,m-1) #creating an empty vector to collect correlation. 
+for (i in 1:(m-1))
+{collected_cor[i]<-cor(b[i,],c[i,])}
+collected_cor
+mean(collected_cor)
+
+mean(y)
+
+log(mean(y)/(1-mean(y)))
+# It will always get a value close to zero, since we set the mean to be zero when simulating the data
 
 ```
