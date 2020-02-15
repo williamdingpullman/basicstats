@@ -163,7 +163,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5" data-path="measure-theory.html"><a href="measure-theory.html#part-5"><i class="fa fa-check"></i><b>6.5</b> Part 5</a></li>
 <li class="chapter" data-level="6.6" data-path="measure-theory.html"><a href="measure-theory.html#part-6"><i class="fa fa-check"></i><b>6.6</b> Part 6</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html"><i class="fa fa-check"></i><b>7</b> Cholesky decomposition</a></li>
+<li class="chapter" data-level="7" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html"><i class="fa fa-check"></i><b>7</b> Cholesky decomposition</a><ul>
+<li class="chapter" data-level="7.1" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html#example-1"><i class="fa fa-check"></i><b>7.1</b> Example 1</a></li>
+<li class="chapter" data-level="7.2" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html#example-2"><i class="fa fa-check"></i><b>7.2</b> Example 2</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
 
@@ -236,10 +239,10 @@ y_n \\
 <a class="sourceLine" id="cb25-7" title="7">transposed_X&lt;-<span class="kw">t</span>(X)</a>
 <a class="sourceLine" id="cb25-8" title="8">beta_hat&lt;-<span class="kw">solve</span>(transposed_X<span class="op">%*%</span>X)<span class="op">%*%</span>transposed_X<span class="op">%*%</span>y</a>
 <a class="sourceLine" id="cb25-9" title="9">beta_hat</a></code></pre></div>
-<pre><code>##           [,1]
-## [1,] 1.9499993
-## [2,] 0.9404962
-## [3,] 2.0326660</code></pre>
+<pre><code>##          [,1]
+## [1,] 1.923785
+## [2,] 1.032562
+## [3,] 2.035068</code></pre>
 <p><strong>Side Notes</strong>
 The function of as.matrix will automatically make c(2,1,2) become the dimension of <span class="math inline">\(3 \times 1\)</span>, you do not need to transpose the <span class="math inline">\(\beta\)</span>.</p>
 <div id="taylor-series" class="section level2">

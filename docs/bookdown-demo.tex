@@ -712,10 +712,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 2.0173069
-## [2,] 0.9982007
-## [3,] 1.9965694
+##          [,1]
+## [1,] 1.970008
+## [2,] 1.084080
+## [3,] 1.946107
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1124,6 +1124,9 @@ Properties:
 \hypertarget{cholesky-decomposition}{%
 \chapter{Cholesky decomposition}\label{cholesky-decomposition}}
 
+\hypertarget{example-1}{%
+\section{Example 1}\label{example-1}}
+
 Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, ..., x_{1000}\) with mean \(\mu\) = (−2, 4, 3) and covariance matrix
 
 \[X=\begin{bmatrix}
@@ -1134,7 +1137,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{Nsim =}\StringTok{ }\DecValTok{10}\OperatorTok{^}\DecValTok{3}           
+\NormalTok{Nsim =}\StringTok{ }\DecValTok{10}           
 \NormalTok{means =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{3}\NormalTok{)              }
 \NormalTok{N_columns =}\StringTok{ }\DecValTok{3}               
 
@@ -1160,7 +1163,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.004393  3.971092  3.076288
+## [1] -2.339784  3.957519  3.217539
 \end{verbatim}
 
 \begin{Shaded}
@@ -1171,7 +1174,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.964593 3.663064 4.745499
+## [1] 0.6963347 5.9872028 4.1129275
 \end{verbatim}
 
 \begin{Shaded}
@@ -1182,10 +1185,108 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]      [,3]
-## [1,]  1.9645928 -0.8633619 0.5850011
-## [2,] -0.8633619  3.6630635 0.8833475
-## [3,]  0.5850011  0.8833475 4.7454987
+##             [,1]       [,2]        [,3]
+## [1,]  0.69633471 0.04013543 -0.02499646
+## [2,]  0.04013543 5.98720285  2.14735977
+## [3,] -0.02499646 2.14735977  4.11292745
+\end{verbatim}
+
+\hypertarget{example-2}{%
+\section{Example 2}\label{example-2}}
+
+AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n =}\StringTok{ }\DecValTok{10}\NormalTok{;}
+\NormalTok{SigmaSq =}\StringTok{ }\DecValTok{5}\NormalTok{;}
+\NormalTok{Rho =}\StringTok{ }\FloatTok{0.8}\NormalTok{;}
+
+\NormalTok{V =}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{rep}\NormalTok{(n}\OperatorTok{*}\NormalTok{n,}\DecValTok{0}\NormalTok{),n,n);}
+
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\NormalTok{n)}
+\NormalTok{\{}
+  \ControlFlowTok{for}\NormalTok{ (j }\ControlFlowTok{in}\NormalTok{ i}\OperatorTok{:}\NormalTok{n)}
+\NormalTok{  \{}
+\NormalTok{    V[i,j]=SigmaSq}\OperatorTok{*}\NormalTok{Rho}\OperatorTok{^}\NormalTok{(j}\OperatorTok{-}\NormalTok{i)}
+\NormalTok{    V[j,i]=V[i,j]}
+\NormalTok{  \}}
+\NormalTok{\}}
+
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{random_normal<-}\KeywordTok{rnorm}\NormalTok{(n,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\CommentTok{#chol(V) %*% random_normal}
+\CommentTok{#colSums (chol(V))}
+\NormalTok{b2<-}\KeywordTok{t}\NormalTok{(}\KeywordTok{as.matrix}\NormalTok{(random_normal))}\OperatorTok{%*%}\KeywordTok{chol}\NormalTok{(V)}
+
+\NormalTok{pi =}\StringTok{ }\KeywordTok{exp}\NormalTok{(b2)}\OperatorTok{/}\NormalTok{(}\DecValTok{1} \OperatorTok{+}\StringTok{ }\KeywordTok{exp}\NormalTok{(b2));}
+
+\NormalTok{y<-}\KeywordTok{ifelse}\NormalTok{(pi}\OperatorTok{>}\KeywordTok{runif}\NormalTok{(}\DecValTok{1}\NormalTok{),}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+
+\NormalTok{y}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    1    1    1    1    1    1    1    1    1     1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The code above basically completes the generating job! }
+\CommentTok{# The code below is to check }
+
+\NormalTok{b =}\StringTok{ }\NormalTok{b2[}\DecValTok{2}\OperatorTok{:}\NormalTok{n]}
+\NormalTok{c =}\StringTok{ }\NormalTok{b2[}\DecValTok{1}\OperatorTok{:}\NormalTok{(n}\DecValTok{-1}\NormalTok{)]}
+\KeywordTok{cor}\NormalTok{(b,c)   }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.8967058
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(}\KeywordTok{as.vector}\NormalTok{(b2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.535119
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# note that, you can not use var, as the mean is not zero, but rather it is 2}
+\KeywordTok{var}\NormalTok{(}\KeywordTok{as.vector}\NormalTok{(b2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12.49707
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Not sure why the means are not the same ?}
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{as.vector}\NormalTok{(b2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10.01925
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(random_normal)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.074626
 \end{verbatim}
 
 \backmatter
