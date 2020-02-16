@@ -46,7 +46,7 @@ cov(Final_data)
 
 ## Example 2
 
-AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq. Note that, there are only one individual or participant in this data simulation.
+AR(1) Covariance Matrix with Correlatiion Rho and Variance SigmaSq. Note that, there is only one individual or participant in this data simulation.
 
 ```{R}
 n = 10;
