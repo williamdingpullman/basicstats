@@ -195,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[f(x)=log(\frac{p(y=1)}{1-p(y=1)})\]</span>
 The basic idea of logistic regression:
 <span class="math display">\[p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]</span>
-Thus, <span class="math inline">\(e^{\beta_0+\beta_1x_1+...+\beta_nx_n}\)</span> can be from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>, and <span class="math inline">\(p(y=1)\)</span> will be always within the range of <span class="math inline">\((0,1)\)</span>.</p>
+Thus, <span class="math inline">\(\beta_0+\beta_1x_1+...+\beta_nx_n\)</span> can be from <span class="math inline">\(-\infty\)</span> to <span class="math inline">\(+\infty\)</span>, and <span class="math inline">\(p(y=1)\)</span> will be always within the range of <span class="math inline">\((0,1)\)</span>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">f&lt;-<span class="cf">function</span>(x){<span class="kw">exp</span>(x)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(x))}</a>
 <a class="sourceLine" id="cb1-2" title="2">data&lt;-<span class="kw">seq</span>(<span class="op">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="kw">plot</span>(data,<span class="kw">f</span>(data),<span class="dt">type =</span> <span class="st">&quot;b&quot;</span>)</a></code></pre></div>

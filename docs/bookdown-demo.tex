@@ -120,7 +120,7 @@
 
 \title{Basic Stats}
 \author{Bill Last Updated:}
-\date{15 February, 2020}
+\date{26 February, 2020}
 
 \begin{document}
 \frontmatter
@@ -146,7 +146,7 @@ All the notes I have done here are about basic stats. While I have tried my best
 \[f(x)=log(\frac{p(y=1)}{1-p(y=1)})\]
 The basic idea of logistic regression:
 \[p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]
-Thus, \(e^{\beta_0+\beta_1x_1+...+\beta_nx_n}\) can be from \(-\infty\) to \(+\infty\), and \(p(y=1)\) will be always within the range of \((0,1)\).
+Thus, \(\beta_0+\beta_1x_1+...+\beta_nx_n\) can be from \(-\infty\) to \(+\infty\), and \(p(y=1)\) will be always within the range of \((0,1)\).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -712,10 +712,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 1.9861545
-## [2,] 0.9609265
-## [3,] 1.9739853
+##          [,1]
+## [1,] 1.935410
+## [2,] 1.022426
+## [3,] 1.972382
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1163,7 +1163,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.762798  3.151423  2.115317
+## [1] -1.840286  5.045964  3.521371
 \end{verbatim}
 
 \begin{Shaded}
@@ -1174,7 +1174,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.521973 5.264132 2.221007
+## [1] 1.687107 7.079335 3.741855
 \end{verbatim}
 
 \begin{Shaded}
@@ -1185,10 +1185,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]        [,2]        [,3]
-## [1,]  1.52197284 -2.48554020 -0.05592627
-## [2,] -2.48554020  5.26413239  0.01699378
-## [3,] -0.05592627  0.01699378  2.22100682
+##           [,1]       [,2]       [,3]
+## [1,] 1.6871073  0.6835597  1.4018260
+## [2,] 0.6835597  7.0793350 -0.8267907
+## [3,] 1.4018260 -0.8267907  3.7418554
 \end{verbatim}
 
 \hypertarget{example-2}{%
