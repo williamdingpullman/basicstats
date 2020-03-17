@@ -293,7 +293,7 @@ We know \(y_i\) and \(x_i\) since we observe them. Thus, we can write it as foll
 \hypertarget{basics}{%
 \section{Basics}\label{basics}}
 
-\(\mu\) and \(\sigma\) determine the center and spread of the distribution
+\(\mu\) and \(\sigma\) determine the center and spread of the distribution.
 
 \begin{figure}
 \centering
@@ -338,8 +338,8 @@ This is related to the 68-95-99.7 rule or the three-sigma rule.
 
 (Note that, it is \emph{related}, not \emph{direct} 68-95-99.7 rule, which is about symmetric situations. See the figure above)
 
-\hypertarget{confidence-intervals}{%
-\section{Confidence intervals}\label{confidence-intervals}}
+\hypertarget{confidence-intervals-for-normal-distributions}{%
+\section{Confidence intervals for normal distributions}\label{confidence-intervals-for-normal-distributions}}
 
 \[\bar{X} \pm Z \frac{\sigma}{\sqrt{n}}\]
 where,
@@ -801,9 +801,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 2.0209179
-## [2,] 0.9302156
-## [3,] 1.9903761
+## [1,] 1.9765919
+## [2,] 0.9201192
+## [3,] 2.0063969
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -964,7 +964,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.981985  3.923244  3.252347
+## [1] -2.149600  4.152225  3.828335
 \end{verbatim}
 
 \begin{Shaded}
@@ -975,7 +975,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.745078 1.507714 3.516142
+## [1] 2.489761 3.101250 3.240265
 \end{verbatim}
 
 \begin{Shaded}
@@ -986,10 +986,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]       [,2]       [,3]
-## [1,]  1.745078 -1.1484634  0.2292710
-## [2,] -1.148463  1.5077136 -0.9052588
-## [3,]  0.229271 -0.9052588  3.5161421
+##            [,1]       [,2]     [,3]
+## [1,]  2.4897610 -0.4219059 1.659276
+## [2,] -0.4219059  3.1012504 1.308168
+## [3,]  1.6592756  1.3081676 3.240265
 \end{verbatim}
 
 \hypertarget{example-2}{%

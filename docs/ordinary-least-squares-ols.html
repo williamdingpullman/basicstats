@@ -138,7 +138,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2" data-path="normal-distribution.html"><a href="normal-distribution.html"><i class="fa fa-check"></i><b>2</b> Normal distribution</a><ul>
 <li class="chapter" data-level="2.1" data-path="normal-distribution.html"><a href="normal-distribution.html#basics"><i class="fa fa-check"></i><b>2.1</b> Basics</a></li>
 <li class="chapter" data-level="2.2" data-path="normal-distribution.html"><a href="normal-distribution.html#percentile"><i class="fa fa-check"></i><b>2.2</b> Percentile</a></li>
-<li class="chapter" data-level="2.3" data-path="normal-distribution.html"><a href="normal-distribution.html#confidence-intervals"><i class="fa fa-check"></i><b>2.3</b> Confidence intervals</a></li>
+<li class="chapter" data-level="2.3" data-path="normal-distribution.html"><a href="normal-distribution.html#confidence-intervals-for-normal-distributions"><i class="fa fa-check"></i><b>2.3</b> Confidence intervals for normal distributions</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> MLE</a><ul>
 <li class="chapter" data-level="3.1" data-path="intro.html"><a href="intro.html#basic-idea-of-mle"><i class="fa fa-check"></i><b>3.1</b> Basic idea of MLE</a></li>
@@ -238,9 +238,9 @@ y_n \\
 <a class="sourceLine" id="cb25-8" title="8">beta_hat&lt;-<span class="kw">solve</span>(transposed_X<span class="op">%*%</span>X)<span class="op">%*%</span>transposed_X<span class="op">%*%</span>y</a>
 <a class="sourceLine" id="cb25-9" title="9">beta_hat</a></code></pre></div>
 <pre><code>##          [,1]
-## [1,] 2.073459
-## [2,] 0.993279
-## [3,] 2.006511</code></pre>
+## [1,] 2.036308
+## [2,] 1.046414
+## [3,] 2.039978</code></pre>
 <p><strong>Side Notes</strong>
 The function of as.matrix will automatically make c(2,1,2) become the dimension of <span class="math inline">\(3 \times 1\)</span>, you do not need to transpose the <span class="math inline">\(\beta\)</span>.</p>
 <div id="taylor-series" class="section level2">

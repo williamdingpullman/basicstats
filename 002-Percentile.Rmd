@@ -2,7 +2,7 @@
 
 ## Basics 
 
-$\mu$ and $\sigma$ determine the center and spread of the distribution
+$\mu$ and $\sigma$ determine the center and spread of the distribution.
 
 ![Normal](Standard_deviation_diagram.PNG) 
 
@@ -40,7 +40,7 @@ This is related to the 68-95-99.7 rule or the three-sigma rule.
 (Note that, it is _related_, not _direct_ 68-95-99.7 rule, which is about symmetric situations. See the figure above)
 
 
-## Confidence intervals
+## Confidence intervals for normal distributions
 
 
 $$\bar{X} \pm Z \frac{\sigma}{\sqrt{n}}$$
