@@ -57,7 +57,7 @@ $n$ is the number of observations
 (We can see the connection between this formula and information shown in the _Basics_ section.)
 
 $$\begin{bmatrix}
-confidence \; level & Z \\
+Confidence \; Levels & Z \\
 80  & 1.282 \\
 85 & 1.440 \\
 90 & 1.645 \\
