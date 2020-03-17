@@ -195,6 +195,21 @@ $$E(T)=\tau(\theta)$$
 for all $\theta \in \Omega$. Otherwise, we said that $T$ is biased  stimator of $\tau(\theta)$.
 
 
+For instance, if we want to estimate a percentile, say the 95th percentile of $N(\mu,9)$. Note that the percentiles that we know are about standardized noraml (i.e., $N(0,1)$). Thus, we need to have some calculation to get the non-standard one.
+
+$$\frac{X_{95 \; percentile}-\mu}{\sigma}=1.645$$
+Thus, we can get 
+
+$$X_{95 \; percentile}=1.645 \times \sigma +\mu$$
+
+We know that $\bar{X}$ is the unbiased estimate for $\mu$. Thus, we can get
+
+$$X_{95 \; percentile}=1.645 \times \sigma +\mu=4.94+\mu$$
+
+We know that 
+
+$$E(T)=E(\bar{X}+4.94)=\mu+4.94$$
+Thus, $T=\bar{X}+4.94$ is the unbiased estimator of $\tau(\mu)=\mu+4.94$.
 
 ### Cramer-Rao lower bound
 

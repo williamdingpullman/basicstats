@@ -519,6 +519,22 @@ An estimator T is said to be an unbiased estimator of \(\tau(\theta)\) if
 
 for all \(\theta \in \Omega\). Otherwise, we said that \(T\) is biased stimator of \(\tau(\theta)\).
 
+For instance, if we want to estimate a percentile, say the 95th percentile of \(N(\mu,9)\). Note that the percentiles that we know are about standardized noraml (i.e., \(N(0,1)\)). Thus, we need to have some calculation to get the non-standard one.
+
+\[\frac{X_{95 \; percentile}-\mu}{\sigma}=1.645\]
+Thus, we can get
+
+\[X_{95 \; percentile}=1.645 \times \sigma +\mu\]
+
+We know that \(\bar{X}\) is the unbiased estimate for \(\mu\). Thus, we can get
+
+\[X_{95 \; percentile}=1.645 \times \sigma +\mu=4.94+\mu\]
+
+We know that
+
+\[E(T)=E(\bar{X}+4.94)=\mu+4.94\]
+Thus, \(T=\bar{X}+4.94\) is the unbiased estimator of \(\tau(\mu)=\mu+4.94\).
+
 \hypertarget{cramer-rao-lower-bound}{%
 \subsection{Cramer-Rao lower bound}\label{cramer-rao-lower-bound}}
 
@@ -1214,10 +1230,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 1.995510
-## [2,] 1.035600
-## [3,] 1.971047
+##           [,1]
+## [1,] 2.0669243
+## [2,] 0.9325165
+## [3,] 1.9621678
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1378,7 +1394,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.617791  3.870952  4.110284
+## [1] -2.01278  4.69800  3.33587
 \end{verbatim}
 
 \begin{Shaded}
@@ -1389,7 +1405,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  3.063702 10.142295  4.763623
+## [1] 2.703966 1.200539 1.605540
 \end{verbatim}
 
 \begin{Shaded}
@@ -1401,9 +1417,9 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 
 \begin{verbatim}
 ##           [,1]      [,2]      [,3]
-## [1,]  3.063702 -4.460627 -2.035878
-## [2,] -4.460627 10.142295  4.512836
-## [3,] -2.035878  4.512836  4.763623
+## [1,] 2.7039659 0.2838892 0.6641438
+## [2,] 0.2838892 1.2005386 0.4852776
+## [3,] 0.6641438 0.4852776 1.6055402
 \end{verbatim}
 
 \hypertarget{example-2}{%

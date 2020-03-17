@@ -369,6 +369,15 @@ where <span class="math inline">\(M_{X_i}(t_i)\)</span> is the MGF of <span clas
 <p>An estimator T is said to be an unbiased estimator of <span class="math inline">\(\tau(\theta)\)</span> if</p>
 <p><span class="math display">\[E(T)=\tau(\theta)\]</span></p>
 <p>for all <span class="math inline">\(\theta \in \Omega\)</span>. Otherwise, we said that <span class="math inline">\(T\)</span> is biased stimator of <span class="math inline">\(\tau(\theta)\)</span>.</p>
+<p>For instance, if we want to estimate a percentile, say the 95th percentile of <span class="math inline">\(N(\mu,9)\)</span>. Note that the percentiles that we know are about standardized noraml (i.e., <span class="math inline">\(N(0,1)\)</span>). Thus, we need to have some calculation to get the non-standard one.</p>
+<p><span class="math display">\[\frac{X_{95 \; percentile}-\mu}{\sigma}=1.645\]</span>
+Thus, we can get</p>
+<p><span class="math display">\[X_{95 \; percentile}=1.645 \times \sigma +\mu\]</span></p>
+<p>We know that <span class="math inline">\(\bar{X}\)</span> is the unbiased estimate for <span class="math inline">\(\mu\)</span>. Thus, we can get</p>
+<p><span class="math display">\[X_{95 \; percentile}=1.645 \times \sigma +\mu=4.94+\mu\]</span></p>
+<p>We know that</p>
+<p><span class="math display">\[E(T)=E(\bar{X}+4.94)=\mu+4.94\]</span>
+Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estimator of <span class="math inline">\(\tau(\mu)=\mu+4.94\)</span>.</p>
 </div>
 <div id="cramer-rao-lower-bound" class="section level3">
 <h3><span class="header-section-number">2.2.6</span> Cramer-Rao lower bound</h3>
