@@ -100,6 +100,7 @@ $$\bar{X_n} \xrightarrow{p} \mu \; \; \; (n \rightarrow \infty)$$
 This, for any positive number $\epsilon$
 
 $$lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|>\epsilon)=0$$
+
 ### Strong law
 
 $$\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)$$

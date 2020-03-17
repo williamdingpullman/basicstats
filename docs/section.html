@@ -149,8 +149,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4" data-path="section.html"><a href="section.html#large-sample-theory"><i class="fa fa-check"></i><b>1.4</b> Large Sample Theory</a><ul>
 <li class="chapter" data-level="1.4.1" data-path="section.html"><a href="section.html#convergence-in-distribution"><i class="fa fa-check"></i><b>1.4.1</b> Convergence in distribution</a></li>
 <li class="chapter" data-level="1.4.2" data-path="section.html"><a href="section.html#weak-law"><i class="fa fa-check"></i><b>1.4.2</b> Weak law</a></li>
-<li class="chapter" data-level="1.4.3" data-path="section.html"><a href="section.html#central-limit-theorem"><i class="fa fa-check"></i><b>1.4.3</b> Central limit theorem</a></li>
-<li class="chapter" data-level="1.4.4" data-path="section.html"><a href="section.html#poisson-approximation-to-binomial"><i class="fa fa-check"></i><b>1.4.4</b> Poisson approximation to binomial</a></li>
+<li class="chapter" data-level="1.4.3" data-path="section.html"><a href="section.html#strong-law"><i class="fa fa-check"></i><b>1.4.3</b> Strong law</a></li>
+<li class="chapter" data-level="1.4.4" data-path="section.html"><a href="section.html#central-limit-theorem"><i class="fa fa-check"></i><b>1.4.4</b> Central limit theorem</a></li>
+<li class="chapter" data-level="1.4.5" data-path="section.html"><a href="section.html#poisson-approximation-to-binomial"><i class="fa fa-check"></i><b>1.4.5</b> Poisson approximation to binomial</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>2</b> 556</a><ul>
@@ -305,23 +306,25 @@ Mean: <span class="math inline">\(\theta\)</span></p>
 <p>The weak law of large numbers: The sample average converges in probability towards the expected value.</p>
 <p><span class="math display">\[\bar{X_n} \xrightarrow{p} \mu \; \; \; (n \rightarrow \infty)\]</span>
 This, for any positive number <span class="math inline">\(\epsilon\)</span></p>
-<p><span class="math display">\[lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|&gt;\epsilon)=0\]</span>
-### Strong law</p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|&gt;\epsilon)=0\]</span></p>
+</div>
+<div id="strong-law" class="section level3">
+<h3><span class="header-section-number">1.4.3</span> Strong law</h3>
 <p><span class="math display">\[\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)\]</span>
 This is,</p>
 <p><span class="math display">\[Pr(lim_{n \rightarrow \infty} \bar{X_n}=\mu)=1\]</span></p>
 </div>
 <div id="central-limit-theorem" class="section level3">
-<h3><span class="header-section-number">1.4.3</span> Central limit theorem</h3>
+<h3><span class="header-section-number">1.4.4</span> Central limit theorem</h3>
 <p>If <span class="math inline">\(X_1,...,X_n\)</span> is a random sample from a distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, then the limiting distribution of</p>
 <p><span class="math display">\[Z_n=\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \sigma}\]</span></p>
 <p>is the standard normal, <span class="math inline">\(Z_n \xrightarrow{d} Z \sim N(0,1)\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.</p>
 <div id="bernoulli-law-of-large-number" class="section level4">
-<h4><span class="header-section-number">1.4.3.1</span> Bernoulli law of large number</h4>
+<h4><span class="header-section-number">1.4.4.1</span> Bernoulli law of large number</h4>
 <p><span class="math inline">\(\hat{p_n}\)</span> converges stochasticalltly to <span class="math inline">\(p\)</span> as <span class="math inline">\(n\)</span> approchaes infinity. For example, if a coin is tossed repeatedly, and <span class="math inline">\(A=\{H\}\)</span>, then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to <span class="math inline">\(p=1/2\)</span>.</p>
 </div>
 <div id="normal-approximation-to-binomial" class="section level4">
-<h4><span class="header-section-number">1.4.3.2</span> Normal approximation to Binomial</h4>
+<h4><span class="header-section-number">1.4.4.2</span> Normal approximation to Binomial</h4>
 <p><span class="math display">\[Z_n=\frac{Y_n-np}{\sqrt{npq}} \xrightarrow{d} Z \sim N(0, 1)\]</span></p>
 <p>Example: The probability that a basketball player hits a shot is <span class="math inline">\(p=0.5\)</span>. If he takes 20 shorts, what is the probability that he hits at least 9?</p>
 <p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}] \\ &amp;=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&amp;=0.7483 \end{aligned} \]</span></p>
@@ -329,12 +332,12 @@ This is,</p>
 <p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}] \\ &amp;=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&amp;=0.8133 \end{aligned} \]</span></p>
 </div>
 <div id="normal-approximation-to-poisson" class="section level4">
-<h4><span class="header-section-number">1.4.3.3</span> Normal approximation to Poisson</h4>
+<h4><span class="header-section-number">1.4.4.3</span> Normal approximation to Poisson</h4>
 <p><span class="math display">\[\begin{aligned} P[10\leq Y_{20} \leq 30] &amp;=P[ Y_{20} \leq 30]-P[ Y_{20} \leq 10] \\&amp;=\Phi[\frac{30.5-20}{\sqrt{20}}]-\Phi[\frac{9.5-20}{\sqrt{20}}] \\ &amp;=0.981 \end{aligned}\]</span></p>
 </div>
 </div>
 <div id="poisson-approximation-to-binomial" class="section level3">
-<h3><span class="header-section-number">1.4.4</span> Poisson approximation to binomial</h3>
+<h3><span class="header-section-number">1.4.5</span> Poisson approximation to binomial</h3>
 <p>We know that the mean for binomial is</p>
 <p><span class="math display">\[\mu=np \rightarrow p=\frac{\mu}{n}\]</span>
 The moment generating function for Binomial is</p>
