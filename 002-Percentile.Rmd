@@ -15,31 +15,6 @@ The empirical rule holds for all normal distributions:
 (2) 99.7% of the area under the curve lies between $(\mu-3\sigma,\mu+3\sigma)$.
 
 
-## Percentile
-
-A percentile is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations falls. 
-
-For example, the 20th percentile is the value (or score) below which 20% of the observations may be found. 
-
-For normal distribution, 
-
--3 $\sigma$ is the 0.13th percentile (i.e., $\frac{100-99.7}{2}=0.15$); 
-
--2 $\sigma$ is the 2.28th percentile ((i.e., $\frac{100-95}{2}=2.50$)); 
-
--1$\sigma$ is the 15.87th percentile (i.e., $\frac{100-68}{2}=16$); 
-
-0 $\sigma$ is 50th percentile.
-
-+2 $\sigma$ is the 97.72nd percentile (i.e., $100-\frac{100-95}{2}=100-2.5=97.50$); 
-
-+3 $\sigma$ is the 99.87th percentile (i.e., $100-\frac{100-99.70}{2}=100-0.15=99.85$). 
-
-This is related to the 68-95-99.7 rule or the three-sigma rule.
-
-(Note that, it is _related_, not _direct_ 68-95-99.7 rule, which is about symmetric situations. See the figure above)
-
-
 ## Confidence intervals for normal distributions
 
 
@@ -66,3 +41,38 @@ Confidence \; Levels & Z \\
 99.5 & 2.807 \\
 99.9 & 3.291 \end{bmatrix}$$
 
+
+## Percentile
+
+A percentile is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations falls. 
+
+For example, the 20th percentile is the value (or score) below which 20% of the observations may be found. 
+
+For normal distribution, 
+
+-3 $\sigma$ is the 0.13th percentile (i.e., $\frac{100-99.7}{2}=0.15$); 
+
+-2 $\sigma$ is the 2.28th percentile ((i.e., $\frac{100-95}{2}=2.50$)); 
+
+-1$\sigma$ is the 15.87th percentile (i.e., $\frac{100-68}{2}=16$); 
+
+0 $\sigma$ is 50th percentile.
+
++2 $\sigma$ is the 97.72nd percentile (i.e., $100-\frac{100-95}{2}=100-2.5=97.50$); 
+
++3 $\sigma$ is the 99.87th percentile (i.e., $100-\frac{100-99.70}{2}=100-0.15=99.85$). 
+
+This is related to the 68-95-99.7 rule or the three-sigma rule.
+
+(Note that, it is _related_, not _direct_ 68-95-99.7 rule, which is about symmetric situations. See the figure above)
+
+
+$$\begin{bmatrix}
+Percentile & Z \\
+90  & 1.282 \\
+- & 1.440 \\
+95 & 1.645 \\
+- & 1.960 \\
+- & 2.576 \\
+- & 2.807 \\
+99.9 & 3.000 \end{bmatrix}$$

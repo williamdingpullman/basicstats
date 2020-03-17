@@ -186,7 +186,7 @@ If $\hat{\theta}$ is the MLE of $\theta$ and if $u(\theta)$ is a function of $\t
 
 For instance,
 
-### Unbiased estimators, Cramer-Rao lower bound
+### Unbiased estimators
 
 An estimator T is said to be an unbiased estimator of $\tau(\theta)$ if 
 
@@ -194,6 +194,9 @@ $$E(T)=\tau(\theta)$$
 
 for all $\theta \in \Omega$. Otherwise, we said that $T$ is biased  stimator of $\tau(\theta)$.
 
+
+
+### Cramer-Rao lower bound
 
 ### Best linear unbiased estimation (BLUE or MVLUE)
 

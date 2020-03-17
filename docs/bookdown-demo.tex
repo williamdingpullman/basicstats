@@ -510,14 +510,17 @@ If \(\hat{\theta}\) is the MLE of \(\theta\) and if \(u(\theta)\) is a function 
 
 For instance,
 
-\hypertarget{unbiased-estimators-cramer-rao-lower-bound}{%
-\subsection{Unbiased estimators, Cramer-Rao lower bound}\label{unbiased-estimators-cramer-rao-lower-bound}}
+\hypertarget{unbiased-estimators}{%
+\subsection{Unbiased estimators}\label{unbiased-estimators}}
 
 An estimator T is said to be an unbiased estimator of \(\tau(\theta)\) if
 
 \[E(T)=\tau(\theta)\]
 
 for all \(\theta \in \Omega\). Otherwise, we said that \(T\) is biased stimator of \(\tau(\theta)\).
+
+\hypertarget{cramer-rao-lower-bound}{%
+\subsection{Cramer-Rao lower bound}\label{cramer-rao-lower-bound}}
 
 \hypertarget{best-linear-unbiased-estimation-blue-or-mvlue}{%
 \subsection{Best linear unbiased estimation (BLUE or MVLUE)}\label{best-linear-unbiased-estimation-blue-or-mvlue}}
@@ -714,31 +717,6 @@ The empirical rule holds for all normal distributions:
   99.7\% of the area under the curve lies between \((\mu-3\sigma,\mu+3\sigma)\).
 \end{enumerate}
 
-\hypertarget{percentile}{%
-\section{Percentile}\label{percentile}}
-
-A percentile is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations falls.
-
-For example, the 20th percentile is the value (or score) below which 20\% of the observations may be found.
-
-For normal distribution,
-
--3 \(\sigma\) is the 0.13th percentile (i.e., \(\frac{100-99.7}{2}=0.15\));
-
--2 \(\sigma\) is the 2.28th percentile ((i.e., \(\frac{100-95}{2}=2.50\)));
-
--1\(\sigma\) is the 15.87th percentile (i.e., \(\frac{100-68}{2}=16\));
-
-0 \(\sigma\) is 50th percentile.
-
-+2 \(\sigma\) is the 97.72nd percentile (i.e., \(100-\frac{100-95}{2}=100-2.5=97.50\));
-
-+3 \(\sigma\) is the 99.87th percentile (i.e., \(100-\frac{100-99.70}{2}=100-0.15=99.85\)).
-
-This is related to the 68-95-99.7 rule or the three-sigma rule.
-
-(Note that, it is \emph{related}, not \emph{direct} 68-95-99.7 rule, which is about symmetric situations. See the figure above)
-
 \hypertarget{confidence-intervals-for-normal-distributions}{%
 \section{Confidence intervals for normal distributions}\label{confidence-intervals-for-normal-distributions}}
 
@@ -764,6 +742,41 @@ Confidence \; Levels & Z \\
 99 & 2.576 \\
 99.5 & 2.807 \\
 99.9 & 3.291 \end{bmatrix}\]
+
+\hypertarget{percentile}{%
+\section{Percentile}\label{percentile}}
+
+A percentile is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations falls.
+
+For example, the 20th percentile is the value (or score) below which 20\% of the observations may be found.
+
+For normal distribution,
+
+-3 \(\sigma\) is the 0.13th percentile (i.e., \(\frac{100-99.7}{2}=0.15\));
+
+-2 \(\sigma\) is the 2.28th percentile ((i.e., \(\frac{100-95}{2}=2.50\)));
+
+-1\(\sigma\) is the 15.87th percentile (i.e., \(\frac{100-68}{2}=16\));
+
+0 \(\sigma\) is 50th percentile.
+
++2 \(\sigma\) is the 97.72nd percentile (i.e., \(100-\frac{100-95}{2}=100-2.5=97.50\));
+
++3 \(\sigma\) is the 99.87th percentile (i.e., \(100-\frac{100-99.70}{2}=100-0.15=99.85\)).
+
+This is related to the 68-95-99.7 rule or the three-sigma rule.
+
+(Note that, it is \emph{related}, not \emph{direct} 68-95-99.7 rule, which is about symmetric situations. See the figure above)
+
+\[\begin{bmatrix}
+Percentile & Z \\
+90  & 1.282 \\
+- & 1.440 \\
+95 & 1.645 \\
+- & 1.960 \\
+- & 2.576 \\
+- & 2.807 \\
+99.9 & 3.000 \end{bmatrix}\]
 
 \hypertarget{intro}{%
 \chapter{MLE}\label{intro}}
@@ -1202,9 +1215,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 2.007234
-## [2,] 1.031029
-## [3,] 1.974309
+## [1,] 1.995510
+## [2,] 1.035600
+## [3,] 1.971047
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1365,7 +1378,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.382830  4.319868  3.498347
+## [1] -1.617791  3.870952  4.110284
 \end{verbatim}
 
 \begin{Shaded}
@@ -1376,7 +1389,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  2.541562  1.293179 11.259367
+## [1]  3.063702 10.142295  4.763623
 \end{verbatim}
 
 \begin{Shaded}
@@ -1387,10 +1400,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]       [,2]      [,3]
-## [1,] 2.5415620  0.4809192  2.234623
-## [2,] 0.4809192  1.2931790 -2.457228
-## [3,] 2.2346227 -2.4572282 11.259367
+##           [,1]      [,2]      [,3]
+## [1,]  3.063702 -4.460627 -2.035878
+## [2,] -4.460627 10.142295  4.512836
+## [3,] -2.035878  4.512836  4.763623
 \end{verbatim}
 
 \hypertarget{example-2}{%
