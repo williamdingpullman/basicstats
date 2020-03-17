@@ -312,6 +312,129 @@ Thus,
 \hypertarget{section-1}{%
 \chapter{556}\label{section-1}}
 
+\hypertarget{statistics-and-sampling-distributions}{%
+\section{Statistics and Sampling Distributions}\label{statistics-and-sampling-distributions}}
+
+\hypertarget{statistics}{%
+\subsection{Statistics}\label{statistics}}
+
+\hypertarget{definition-of-statistic}{%
+\subsubsection{Definition of Statistic}\label{definition-of-statistic}}
+
+\emph{P.264}
+
+A fucntion of observable random variables, \(T=t(X_1, ... X_n)\), which does not depend on any unknown parameters is called statistic.
+
+For example, Let \(X_1, ..., X_n\) represent a random sample from a population with \(pdf \;f(x)\). The sample mean provides an example of a statistic with the function
+
+\[t(x_1,...,x_n)=(x_1+...+x_n)/n\]
+
+This statistic usually is denoted by
+
+\[\bar{X}=\sum_{i=1}^n \frac{X_i}{n}\]
+
+When a random sample is observed, the value of \(\bar{X}\), computed from the data, usually is denoted by lower case \(\bar{x}\).
+
+\[\bar{x}=\sum_{i=1}^n \frac{x_i}{n}\]
+
+\hypertarget{sample-and-parameters}{%
+\subsubsection{Sample and parameters}\label{sample-and-parameters}}
+
+\emph{P.265}
+
+If \(X_1,..., X_n\) denotes a random sample from \(f(x)\) with \(E(X)=\mu\) and \(var(X)=\sigma^2\), then
+
+\[E(\bar{X})=\mu\]
+
+\[Var(\bar{X})=\frac{\sigma^2}{n}\]
+
+For example, a random sample of size \(n\) from a Bernoulli distribution \(X_i \sim BIN(1,p)\). We know Bernoulli has \(\mu=p\) and \(\sigma^2 =pq\). In this case, the sample mean is
+
+\[\bar{X}=Y/n=\hat{p}\]
+
+Thus,
+
+\[E(\hat{p})=p\]
+
+\[Var (\hat{p})=\frac{pq}{n}\]
+
+Thus, sample mean is the unbiased estimate for the population mean. However, you can not use sample mean's variance to estimate pupulation variance. That lead to definition of sample variance.
+
+\emph{P.266}
+
+Sample variance:
+
+\[S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2\]
+
+\[E(S^2)=\sigma^2\]
+
+\hypertarget{chi2-t-f-beta}{%
+\subsection{\texorpdfstring{\(\chi^2, t, F, beta\)}{\textbackslash chi\^{}2, t, F, beta}}\label{chi2-t-f-beta}}
+
+\hypertarget{chi2}{%
+\subsubsection{\texorpdfstring{\(\chi^2\)}{\textbackslash chi\^{}2}}\label{chi2}}
+
+Always squre from standard normal, and the standardization can be using \(\mu\) or \(\bar{X}\).
+
+\[\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2(n-1)\]
+(Thus, we can see this is a bit weired, as the numerator is \(\bar{X}\) is from the sample, whereas \(\sigma^2\) is from the population.)
+
+Thus, we can
+
+\[\frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2}\sim \chi^2(n-1)\]
+(You can compare \(\bar{X}\) with \(\mu\), we can see the only difference is that the \(\chi^2\) has one less degree of freedom because we use this degree of freedom to calculate the mean.)
+
+We need to know the mean and variance of \(\chi^2\).
+
+Assume that
+
+\[X \sim x^2(v)\]
+
+\[mean:v\]
+\[variance: 2v\]
+
+\hypertarget{t}{%
+\subsubsection{\texorpdfstring{\(t\)}{t}}\label{t}}
+
+Definition
+
+\[t(k)=\frac{N(0,1)}{\sqrt{\frac{\chi^2(k)}{k}}}\]
+
+Property 1: t distribution is symmetrical
+
+Given that t-distribution is symmetrical, we can get
+
+\[H(-c)=1-H(c)\]
+
+Property 2: t distribution has heavier tails than the normal
+
+My note: t-distribution only has a parameter of \(k\), which is determined by the \(\chi^2\)'s degree of freedom. Of course, \(\chi^2\) also only has one parameter, namely the degree of freedom.
+
+\hypertarget{f}{%
+\subsubsection{\texorpdfstring{\(F\)}{F}}\label{f}}
+
+If \(V_1 \sim \chi^2(v_1)\) and \(V_2 \sim \chi^2(v_2)\) are independent, then the random variable
+
+\[\frac{V_1/v_1}{V_2/v_2}\sim F(v_1,v_2)\]
+
+\hypertarget{beta}{%
+\subsubsection{Beta}\label{beta}}
+
+If \(X \sim F(v_1, v_2)\)
+
+\[Y=\frac{(v_1/v_2)X}{1+(v_1/v_2)X} \sim Beta(\alpha, \beta)\]
+
+\hypertarget{large-sample-approximations}{%
+\subsection{Large-sample approximations}\label{large-sample-approximations}}
+
+\emph{P.280}
+
+If \(Y_v \sim x^2(x)\), then
+
+\[Z_v =\frac{Y_v-v}{\sqrt{2v}} \xrightarrow{d} Z \sim N(0,1)\]
+
+(The proof is based on CLT.)
+
 \hypertarget{point-estimation}{%
 \section{Point Estimation}\label{point-estimation}}
 
@@ -371,6 +494,8 @@ The joint density function of \(n\) random variables \(X_1,...X_n\) evaluated at
 
 \hypertarget{maximum-likelihood-estimators}{%
 \subsubsection{Maximum likelihood estimators}\label{maximum-likelihood-estimators}}
+
+\emph{P.294}
 
 Let \(L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega\), be the joint pdf of \(X_1, ..., X_n\). For a given set of observations, \((x_1,...x_n)\), a value \(\hat{\theta}\) in \(\Omega\) at which \(L(\theta)\) is a maximum is called a \emph{maximum likelihood estimate (MLE)} of \(\theta\). That is \(\hat{\theta}\) is a value of \(\theta\) that satisfies
 
@@ -1077,9 +1202,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 2.014238
-## [2,] 1.049004
-## [3,] 1.942880
+## [1,] 2.007234
+## [2,] 1.031029
+## [3,] 1.974309
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1240,7 +1365,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.739893  3.999161  3.651681
+## [1] -2.382830  4.319868  3.498347
 \end{verbatim}
 
 \begin{Shaded}
@@ -1251,7 +1376,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.992868 5.114639 2.319674
+## [1]  2.541562  1.293179 11.259367
 \end{verbatim}
 
 \begin{Shaded}
@@ -1262,10 +1387,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]       [,3]
-## [1,]  1.9928678 -1.3314872  0.4809966
-## [2,] -1.3314872  5.1146395 -0.9960708
-## [3,]  0.4809966 -0.9960708  2.3196745
+##           [,1]       [,2]      [,3]
+## [1,] 2.5415620  0.4809192  2.234623
+## [2,] 0.4809192  1.2931790 -2.457228
+## [3,] 2.2346227 -2.4572282 11.259367
 \end{verbatim}
 
 \hypertarget{example-2}{%
