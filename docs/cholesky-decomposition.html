@@ -166,9 +166,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.3" data-path="section-1.html"><a href="section-1.html#likelihood-function-and-maximum-likelihood-estimators"><i class="fa fa-check"></i><b>2.2.3</b> likelihood function and maximum likelihood estimators</a></li>
 <li class="chapter" data-level="2.2.4" data-path="section-1.html"><a href="section-1.html#invariance-property-of-mles"><i class="fa fa-check"></i><b>2.2.4</b> Invariance property of MLEs</a></li>
 <li class="chapter" data-level="2.2.5" data-path="section-1.html"><a href="section-1.html#unbiased-estimators"><i class="fa fa-check"></i><b>2.2.5</b> Unbiased estimators</a></li>
-<li class="chapter" data-level="2.2.6" data-path="section-1.html"><a href="section-1.html#cramer-rao-lower-bound"><i class="fa fa-check"></i><b>2.2.6</b> Cramer-Rao lower bound</a></li>
+<li class="chapter" data-level="2.2.6" data-path="section-1.html"><a href="section-1.html#umvue-and-cramer-rao-lower-bound"><i class="fa fa-check"></i><b>2.2.6</b> UMVUE and Cramer-Rao lower bound</a></li>
 <li class="chapter" data-level="2.2.7" data-path="section-1.html"><a href="section-1.html#best-linear-unbiased-estimation-blue-or-mvlue"><i class="fa fa-check"></i><b>2.2.7</b> Best linear unbiased estimation (BLUE or MVLUE)</a></li>
-<li class="chapter" data-level="2.2.8" data-path="section-1.html"><a href="section-1.html#rao-blackwell-theorem-umvues"><i class="fa fa-check"></i><b>2.2.8</b> Rao-Blackwell theorem, UMVUEs</a></li>
+<li class="chapter" data-level="2.2.8" data-path="section-1.html"><a href="section-1.html#rao-blackwell-theorem"><i class="fa fa-check"></i><b>2.2.8</b> Rao-Blackwell theorem</a></li>
 <li class="chapter" data-level="2.2.9" data-path="section-1.html"><a href="section-1.html#consistency-asymptotic-unbiasedness"><i class="fa fa-check"></i><b>2.2.9</b> Consistency, asymptotic unbiasedness</a></li>
 <li class="chapter" data-level="2.2.10" data-path="section-1.html"><a href="section-1.html#efficiency-asymptotic-efficiency"><i class="fa fa-check"></i><b>2.2.10</b> Efficiency, asymptotic efficiency</a></li>
 <li class="chapter" data-level="2.2.11" data-path="section-1.html"><a href="section-1.html#asymptotic-properties-of-mles"><i class="fa fa-check"></i><b>2.2.11</b> Asymptotic properties of MLEs</a></li>
@@ -266,16 +266,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb27-20" title="20"></a>
 <a class="sourceLine" id="cb27-21" title="21"><span class="co"># calculating column means</span></a>
 <a class="sourceLine" id="cb27-22" title="22"><span class="kw">colMeans</span>(Final_data)</a></code></pre></div>
-<pre><code>## [1] -2.548990  4.390681  3.587359</code></pre>
+<pre><code>## [1] -2.185051  3.627987  2.787119</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="co"># calculating column variances</span></a>
 <a class="sourceLine" id="cb29-2" title="2"><span class="kw">apply</span>(Final_data,<span class="dv">2</span>,var)</a></code></pre></div>
-<pre><code>## [1] 2.055220 6.498879 6.709851</code></pre>
+<pre><code>## [1] 2.782496 3.848291 1.027335</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="co"># calculating covariance matrix</span></a>
 <a class="sourceLine" id="cb31-2" title="2"><span class="kw">cov</span>(Final_data)</a></code></pre></div>
-<pre><code>##            [,1]       [,2]     [,3]
-## [1,]  2.0552202 -0.3879766 1.756395
-## [2,] -0.3879766  6.4988787 3.742453
-## [3,]  1.7563953  3.7424531 6.709851</code></pre>
+<pre><code>##            [,1]       [,2]       [,3]
+## [1,]  2.7824960 -2.3295394 -0.2991267
+## [2,] -2.3295394  3.8482911  0.4876563
+## [3,] -0.2991267  0.4876563  1.0273353</code></pre>
 </div>
 <div id="example-2" class="section level2">
 <h2><span class="header-section-number">9.2</span> Example 2</h2>

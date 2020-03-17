@@ -211,11 +211,55 @@ We know that
 $$E(T)=E(\bar{X}+4.94)=\mu+4.94$$
 Thus, $T=\bar{X}+4.94$ is the unbiased estimator of $\tau(\mu)=\mu+4.94$.
 
-### Cramer-Rao lower bound
+### UMVUE and Cramer-Rao lower bound
+
+#### UMVUE
+
+Let $X_1, X_2,...,X_n$ be a random sample of size $n$ from $f(x; \theta)$. An estimator $T^*$ of $\tau (\theta)$ is called a _uniformly minimum variance ubiased estimator_ (UMVUE) of $\tau(\theta)$ if 
+
+1. $T^*$ is unbiased for $\tau{\theta}$
+
+2. For any other unbiased estimator $T$ of $\tau(\theta)$, $Var(T^*) \leq Var(T)$ for all $\theta \in \Omega$.
+
+#### Cramer-Rao lower bound 
+
+If $T$ is an unbiased estimator of $\tau(\theta)$, then the Cramer-Rao lower bound (CRLB), based on a random sample, is
+
+$$Var(T)=\frac{[\tau^{'}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}$$
+
+For instance, consider a random sample from an exponential distribution, $X_i \sim Exp(\theta)$. Because
+
+$$f(x; \theta)=\frac{1}{\theta} e^{-\frac{x}{\theta}}$$
+
+Thus,
+
+$$ln(f(x;\theta))=-\frac{x}{\theta}-ln \theta$$
+
+$$\frac{\partial}{\partial \theta} ln(f(X; \theta))=\frac{X}{\theta^2}-\frac{1}{\theta}=\frac{X-\theta}{\theta^2}$$
+
+Thus,
+
+$$E[\frac{\partial}{\partial \theta} ln(f(X; \theta))]^2 =E[\frac{(X-\theta)^2}{\theta^4}]=\frac{1}{\theta^4}E(X-\theta)^2=\frac{1}{\theta^4} Var(X)=\frac{\theta^2}{\theta^4}=\frac{1}{\theta^2}$$
+
+Thus, the CRLB for $\tau(\theta)=\theta$ is as follows.
+
+$$Var(T) \geq \frac{[\tau^{'}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}=\frac{[\frac{\partial }{\partial \theta}\theta]^2}{n \frac{1}{\theta^2}}=\frac{1^2}{\frac{n}{\theta^2}}=\frac{\theta^2}{n}$$
+
+We know that the variance for exponential distribution
+
+$$Var(\bar{X})=\frac{Var(X)}{n}=\frac{\theta^2}{n}$$
+
+We know that $\theta$ is the mean for exponential distribution. We also know that sample mean $\bar(X)$ is the unbiased estimator for population mean.
+
+Thus,
+
+$\bar{X}$ is the UMVUE of $\theta$.
+
+
 
 ### Best linear unbiased estimation (BLUE or MVLUE)
 
-### Rao-Blackwell theorem,  UMVUEs
+### Rao-Blackwell theorem
 
 
 ### Consistency, asymptotic unbiasedness
@@ -223,6 +267,13 @@ Thus, $T=\bar{X}+4.94$ is the unbiased estimator of $\tau(\mu)=\mu+4.94$.
 
 ### Efficiency, asymptotic efficiency
 
+_P.308_
+
+The relative efficiency of an unbiased estimator $T$ of $\tau(\theta)$ to another unbiased estimator $T^*$ of $\tau(\theta)$ is given by 
+
+$$re(T, T^*)=\frac{Var(T^*)}{Var(T)}$$
+
+An unbiased 
 
 ### Asymptotic properties of MLEs
 

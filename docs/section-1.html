@@ -166,9 +166,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.3" data-path="section-1.html"><a href="section-1.html#likelihood-function-and-maximum-likelihood-estimators"><i class="fa fa-check"></i><b>2.2.3</b> likelihood function and maximum likelihood estimators</a></li>
 <li class="chapter" data-level="2.2.4" data-path="section-1.html"><a href="section-1.html#invariance-property-of-mles"><i class="fa fa-check"></i><b>2.2.4</b> Invariance property of MLEs</a></li>
 <li class="chapter" data-level="2.2.5" data-path="section-1.html"><a href="section-1.html#unbiased-estimators"><i class="fa fa-check"></i><b>2.2.5</b> Unbiased estimators</a></li>
-<li class="chapter" data-level="2.2.6" data-path="section-1.html"><a href="section-1.html#cramer-rao-lower-bound"><i class="fa fa-check"></i><b>2.2.6</b> Cramer-Rao lower bound</a></li>
+<li class="chapter" data-level="2.2.6" data-path="section-1.html"><a href="section-1.html#umvue-and-cramer-rao-lower-bound"><i class="fa fa-check"></i><b>2.2.6</b> UMVUE and Cramer-Rao lower bound</a></li>
 <li class="chapter" data-level="2.2.7" data-path="section-1.html"><a href="section-1.html#best-linear-unbiased-estimation-blue-or-mvlue"><i class="fa fa-check"></i><b>2.2.7</b> Best linear unbiased estimation (BLUE or MVLUE)</a></li>
-<li class="chapter" data-level="2.2.8" data-path="section-1.html"><a href="section-1.html#rao-blackwell-theorem-umvues"><i class="fa fa-check"></i><b>2.2.8</b> Rao-Blackwell theorem, UMVUEs</a></li>
+<li class="chapter" data-level="2.2.8" data-path="section-1.html"><a href="section-1.html#rao-blackwell-theorem"><i class="fa fa-check"></i><b>2.2.8</b> Rao-Blackwell theorem</a></li>
 <li class="chapter" data-level="2.2.9" data-path="section-1.html"><a href="section-1.html#consistency-asymptotic-unbiasedness"><i class="fa fa-check"></i><b>2.2.9</b> Consistency, asymptotic unbiasedness</a></li>
 <li class="chapter" data-level="2.2.10" data-path="section-1.html"><a href="section-1.html#efficiency-asymptotic-efficiency"><i class="fa fa-check"></i><b>2.2.10</b> Efficiency, asymptotic efficiency</a></li>
 <li class="chapter" data-level="2.2.11" data-path="section-1.html"><a href="section-1.html#asymptotic-properties-of-mles"><i class="fa fa-check"></i><b>2.2.11</b> Asymptotic properties of MLEs</a></li>
@@ -379,20 +379,51 @@ Thus, we can get</p>
 <p><span class="math display">\[E(T)=E(\bar{X}+4.94)=\mu+4.94\]</span>
 Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estimator of <span class="math inline">\(\tau(\mu)=\mu+4.94\)</span>.</p>
 </div>
-<div id="cramer-rao-lower-bound" class="section level3">
-<h3><span class="header-section-number">2.2.6</span> Cramer-Rao lower bound</h3>
+<div id="umvue-and-cramer-rao-lower-bound" class="section level3">
+<h3><span class="header-section-number">2.2.6</span> UMVUE and Cramer-Rao lower bound</h3>
+<div id="umvue" class="section level4">
+<h4><span class="header-section-number">2.2.6.1</span> UMVUE</h4>
+<p>Let <span class="math inline">\(X_1, X_2,...,X_n\)</span> be a random sample of size <span class="math inline">\(n\)</span> from <span class="math inline">\(f(x; \theta)\)</span>. An estimator <span class="math inline">\(T^*\)</span> of <span class="math inline">\(\tau (\theta)\)</span> is called a <em>uniformly minimum variance ubiased estimator</em> (UMVUE) of <span class="math inline">\(\tau(\theta)\)</span> if</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(T^*\)</span> is unbiased for <span class="math inline">\(\tau{\theta}\)</span></p></li>
+<li><p>For any other unbiased estimator <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span>, <span class="math inline">\(Var(T^*) \leq Var(T)\)</span> for all <span class="math inline">\(\theta \in \Omega\)</span>.</p></li>
+</ol>
+</div>
+<div id="cramer-rao-lower-bound" class="section level4">
+<h4><span class="header-section-number">2.2.6.2</span> Cramer-Rao lower bound</h4>
+<p>If <span class="math inline">\(T\)</span> is an unbiased estimator of <span class="math inline">\(\tau(\theta)\)</span>, then the Cramer-Rao lower bound (CRLB), based on a random sample, is</p>
+<p><span class="math display">\[Var(T)=\frac{[\tau^{&#39;}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}\]</span></p>
+<p>For instance, consider a random sample from an exponential distribution, <span class="math inline">\(X_i \sim Exp(\theta)\)</span>. Because</p>
+<p><span class="math display">\[f(x; \theta)=\frac{1}{\theta} e^{-\frac{x}{\theta}}\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[ln(f(x;\theta))=-\frac{x}{\theta}-ln \theta\]</span></p>
+<p><span class="math display">\[\frac{\partial}{\partial \theta} ln(f(X; \theta))=\frac{X}{\theta^2}-\frac{1}{\theta}=\frac{X-\theta}{\theta^2}\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[E[\frac{\partial}{\partial \theta} ln(f(X; \theta))]^2 =E[\frac{(X-\theta)^2}{\theta^4}]=\frac{1}{\theta^4}E(X-\theta)^2=\frac{1}{\theta^4} Var(X)=\frac{\theta^2}{\theta^4}=\frac{1}{\theta^2}\]</span></p>
+<p>Thus, the CRLB for <span class="math inline">\(\tau(\theta)=\theta\)</span> is as follows.</p>
+<p><span class="math display">\[Var(T) \geq \frac{[\tau^{&#39;}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}=\frac{[\frac{\partial }{\partial \theta}\theta]^2}{n \frac{1}{\theta^2}}=\frac{1^2}{\frac{n}{\theta^2}}=\frac{\theta^2}{n}\]</span></p>
+<p>We know that the variance for exponential distribution</p>
+<p><span class="math display">\[Var(\bar{X})=\frac{Var(X)}{n}=\frac{\theta^2}{n}\]</span></p>
+<p>We know that <span class="math inline">\(\theta\)</span> is the mean for exponential distribution. We also know that sample mean <span class="math inline">\(\bar(X)\)</span> is the unbiased estimator for population mean.</p>
+<p>Thus,</p>
+<p><span class="math inline">\(\bar{X}\)</span> is the UMVUE of <span class="math inline">\(\theta\)</span>.</p>
+</div>
 </div>
 <div id="best-linear-unbiased-estimation-blue-or-mvlue" class="section level3">
 <h3><span class="header-section-number">2.2.7</span> Best linear unbiased estimation (BLUE or MVLUE)</h3>
 </div>
-<div id="rao-blackwell-theorem-umvues" class="section level3">
-<h3><span class="header-section-number">2.2.8</span> Rao-Blackwell theorem, UMVUEs</h3>
+<div id="rao-blackwell-theorem" class="section level3">
+<h3><span class="header-section-number">2.2.8</span> Rao-Blackwell theorem</h3>
 </div>
 <div id="consistency-asymptotic-unbiasedness" class="section level3">
 <h3><span class="header-section-number">2.2.9</span> Consistency, asymptotic unbiasedness</h3>
 </div>
 <div id="efficiency-asymptotic-efficiency" class="section level3">
 <h3><span class="header-section-number">2.2.10</span> Efficiency, asymptotic efficiency</h3>
+<p><em>P.308</em></p>
+<p>The relative efficiency of an unbiased estimator <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span> to another unbiased estimator <span class="math inline">\(T^*\)</span> of <span class="math inline">\(\tau(\theta)\)</span> is given by</p>
+<p><span class="math display">\[re(T, T^*)=\frac{Var(T^*)}{Var(T)}\]</span></p>
+<p>An unbiased</p>
 </div>
 <div id="asymptotic-properties-of-mles" class="section level3">
 <h3><span class="header-section-number">2.2.11</span> Asymptotic properties of MLEs</h3>

@@ -535,20 +535,76 @@ We know that
 \[E(T)=E(\bar{X}+4.94)=\mu+4.94\]
 Thus, \(T=\bar{X}+4.94\) is the unbiased estimator of \(\tau(\mu)=\mu+4.94\).
 
+\hypertarget{umvue-and-cramer-rao-lower-bound}{%
+\subsection{UMVUE and Cramer-Rao lower bound}\label{umvue-and-cramer-rao-lower-bound}}
+
+\hypertarget{umvue}{%
+\subsubsection{UMVUE}\label{umvue}}
+
+Let \(X_1, X_2,...,X_n\) be a random sample of size \(n\) from \(f(x; \theta)\). An estimator \(T^*\) of \(\tau (\theta)\) is called a \emph{uniformly minimum variance ubiased estimator} (UMVUE) of \(\tau(\theta)\) if
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(T^*\) is unbiased for \(\tau{\theta}\)
+\item
+  For any other unbiased estimator \(T\) of \(\tau(\theta)\), \(Var(T^*) \leq Var(T)\) for all \(\theta \in \Omega\).
+\end{enumerate}
+
 \hypertarget{cramer-rao-lower-bound}{%
-\subsection{Cramer-Rao lower bound}\label{cramer-rao-lower-bound}}
+\subsubsection{Cramer-Rao lower bound}\label{cramer-rao-lower-bound}}
+
+If \(T\) is an unbiased estimator of \(\tau(\theta)\), then the Cramer-Rao lower bound (CRLB), based on a random sample, is
+
+\[Var(T)=\frac{[\tau^{'}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}\]
+
+For instance, consider a random sample from an exponential distribution, \(X_i \sim Exp(\theta)\). Because
+
+\[f(x; \theta)=\frac{1}{\theta} e^{-\frac{x}{\theta}}\]
+
+Thus,
+
+\[ln(f(x;\theta))=-\frac{x}{\theta}-ln \theta\]
+
+\[\frac{\partial}{\partial \theta} ln(f(X; \theta))=\frac{X}{\theta^2}-\frac{1}{\theta}=\frac{X-\theta}{\theta^2}\]
+
+Thus,
+
+\[E[\frac{\partial}{\partial \theta} ln(f(X; \theta))]^2 =E[\frac{(X-\theta)^2}{\theta^4}]=\frac{1}{\theta^4}E(X-\theta)^2=\frac{1}{\theta^4} Var(X)=\frac{\theta^2}{\theta^4}=\frac{1}{\theta^2}\]
+
+Thus, the CRLB for \(\tau(\theta)=\theta\) is as follows.
+
+\[Var(T) \geq \frac{[\tau^{'}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}=\frac{[\frac{\partial }{\partial \theta}\theta]^2}{n \frac{1}{\theta^2}}=\frac{1^2}{\frac{n}{\theta^2}}=\frac{\theta^2}{n}\]
+
+We know that the variance for exponential distribution
+
+\[Var(\bar{X})=\frac{Var(X)}{n}=\frac{\theta^2}{n}\]
+
+We know that \(\theta\) is the mean for exponential distribution. We also know that sample mean \(\bar(X)\) is the unbiased estimator for population mean.
+
+Thus,
+
+\(\bar{X}\) is the UMVUE of \(\theta\).
 
 \hypertarget{best-linear-unbiased-estimation-blue-or-mvlue}{%
 \subsection{Best linear unbiased estimation (BLUE or MVLUE)}\label{best-linear-unbiased-estimation-blue-or-mvlue}}
 
-\hypertarget{rao-blackwell-theorem-umvues}{%
-\subsection{Rao-Blackwell theorem, UMVUEs}\label{rao-blackwell-theorem-umvues}}
+\hypertarget{rao-blackwell-theorem}{%
+\subsection{Rao-Blackwell theorem}\label{rao-blackwell-theorem}}
 
 \hypertarget{consistency-asymptotic-unbiasedness}{%
 \subsection{Consistency, asymptotic unbiasedness}\label{consistency-asymptotic-unbiasedness}}
 
 \hypertarget{efficiency-asymptotic-efficiency}{%
 \subsection{Efficiency, asymptotic efficiency}\label{efficiency-asymptotic-efficiency}}
+
+\emph{P.308}
+
+The relative efficiency of an unbiased estimator \(T\) of \(\tau(\theta)\) to another unbiased estimator \(T^*\) of \(\tau(\theta)\) is given by
+
+\[re(T, T^*)=\frac{Var(T^*)}{Var(T)}\]
+
+An unbiased
 
 \hypertarget{asymptotic-properties-of-mles}{%
 \subsection{Asymptotic properties of MLEs}\label{asymptotic-properties-of-mles}}
@@ -1231,9 +1287,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 2.0669243
-## [2,] 0.9325165
-## [3,] 1.9621678
+## [1,] 1.9597299
+## [2,] 0.9853665
+## [3,] 2.0651599
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1394,7 +1450,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.01278  4.69800  3.33587
+## [1] -2.134181  3.811002  3.145170
 \end{verbatim}
 
 \begin{Shaded}
@@ -1405,7 +1461,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.703966 1.200539 1.605540
+## [1] 2.649007 1.875926 3.029340
 \end{verbatim}
 
 \begin{Shaded}
@@ -1416,10 +1472,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]      [,2]      [,3]
-## [1,] 2.7039659 0.2838892 0.6641438
-## [2,] 0.2838892 1.2005386 0.4852776
-## [3,] 0.6641438 0.4852776 1.6055402
+##           [,1]      [,2]     [,3]
+## [1,]  2.649007 -0.386361 0.485667
+## [2,] -0.386361  1.875926 1.377654
+## [3,]  0.485667  1.377654 3.029340
 \end{verbatim}
 
 \hypertarget{example-2}{%
