@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{15 March, 2020}
+    \date{16 March, 2020}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -286,6 +286,83 @@ For \(p(y=1|x_i)=\Phi(\frac{\beta^{'}X_i}{\sigma})\), we can not really estimate
 We know \(y_i\) and \(x_i\) since we observe them. Thus, we can write it as follows.
 
 \[p(y=1|x_i)=\Phi(\beta^{'}X_i)\]
+
+\hypertarget{normal-distribution}{%
+\chapter{Normal distribution}\label{normal-distribution}}
+
+\hypertarget{basics}{%
+\section{Basics}\label{basics}}
+
+\(\mu\) and \(\sigma\) determine the center and spread of the distribution
+
+\begin{figure}
+\centering
+\includegraphics{Standard_deviation_diagram.PNG}
+\caption{Normal}
+\end{figure}
+
+The empirical rule holds for all normal distributions:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  68\% of the area under the curve lies between \((\mu-\sigma,\mu+\sigma)\).
+\item
+  95\% of the area under the curve lies between \((\mu-2\sigma,\mu+2\sigma)\).
+\item
+  99.7\% of the area under the curve lies between \((\mu-3\sigma,\mu+3\sigma)\).
+\end{enumerate}
+
+\hypertarget{percentile}{%
+\section{Percentile}\label{percentile}}
+
+A percentile is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations falls.
+
+For example, the 20th percentile is the value (or score) below which 20\% of the observations may be found.
+
+For normal distribution,
+
+-3 \(\sigma\) is the 0.13th percentile (i.e., \(\frac{100-99.7}{2}=0.15\));
+
+-2 \(\sigma\) is the 2.28th percentile ((i.e., \(\frac{100-95}{2}=2.50\)));
+
+-1\(\sigma\) is the 15.87th percentile (i.e., \(\frac{100-68}{2}=16\));
+
+0 \(\sigma\) is 50th percentile.
+
++2 \(\sigma\) is the 97.72nd percentile (i.e., \(100-\frac{100-95}{2}=100-2.5=97.50\));
+
++3 \(\sigma\) is the 99.87th percentile (i.e., \(100-\frac{100-99.70}{2}=100-0.15=99.85\)).
+
+This is related to the 68-95-99.7 rule or the three-sigma rule.
+
+(Note that, it is \emph{related}, not \emph{direct} 68-95-99.7 rule, which is about symmetric situations. See the figure above)
+
+\hypertarget{confidence-intervals}{%
+\section{Confidence intervals}\label{confidence-intervals}}
+
+\[\bar{X} \pm Z \frac{\sigma}{\sqrt{n}}\]
+where,
+
+\(\bar{X}\) is the mean
+
+\(Z\) is the Z value (see the table below)
+
+\(\sigma\) is the standard deviation
+
+\(n\) is the number of observations
+
+(We can see the connection between this formula and information shown in the \emph{Basics} section.)
+
+\[\begin{bmatrix}
+confidence \; level & Z \\
+80  & 1.282 \\
+85 & 1.440 \\
+90 & 1.645 \\
+95 & 1.960 \\
+99 & 2.576 \\
+99.5 & 2.807 \\
+99.9 & 3.291 \end{bmatrix}\]
 
 \hypertarget{intro}{%
 \chapter{MLE}\label{intro}}
@@ -723,10 +800,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 2.087385
-## [2,] 1.028342
-## [3,] 1.973166
+##           [,1]
+## [1,] 2.0209179
+## [2,] 0.9302156
+## [3,] 1.9903761
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -887,7 +964,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.711810  3.552727  3.168555
+## [1] -1.981985  3.923244  3.252347
 \end{verbatim}
 
 \begin{Shaded}
@@ -898,7 +975,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  2.296725  3.753631 10.650703
+## [1] 1.745078 1.507714 3.516142
 \end{verbatim}
 
 \begin{Shaded}
@@ -909,10 +986,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]       [,3]
-## [1,]  2.2967248 -1.252805 -0.9098542
-## [2,] -1.2528047  3.753631  1.2118817
-## [3,] -0.9098542  1.211882 10.6507030
+##           [,1]       [,2]       [,3]
+## [1,]  1.745078 -1.1484634  0.2292710
+## [2,] -1.148463  1.5077136 -0.9052588
+## [3,]  0.229271 -0.9052588  3.5161421
 \end{verbatim}
 
 \hypertarget{example-2}{%

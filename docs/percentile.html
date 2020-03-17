@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Basic Stats</title>
+  <title>Chapter 2 Percentile | Basic Stats</title>
   <meta name="description" content="The webpages are mainly about Bayesian." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Basic Stats" />
+  <meta property="og:title" content="Chapter 2 Percentile | Basic Stats" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Basic Stats" />
+  <meta name="twitter:title" content="Chapter 2 Percentile | Basic Stats" />
   
   <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="logit-and-probit.html"/>
+<link rel="prev" href="logit-and-probit.html"/>
+<link rel="next" href="intro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -135,11 +135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>1.1</b> Logit</a></li>
 <li class="chapter" data-level="1.2" data-path="logit-and-probit.html"><a href="logit-and-probit.html#probit"><i class="fa fa-check"></i><b>1.2</b> Probit</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="normal-distribution.html"><a href="normal-distribution.html"><i class="fa fa-check"></i><b>2</b> Normal distribution</a><ul>
-<li class="chapter" data-level="2.1" data-path="normal-distribution.html"><a href="normal-distribution.html#basics"><i class="fa fa-check"></i><b>2.1</b> Basics</a></li>
-<li class="chapter" data-level="2.2" data-path="normal-distribution.html"><a href="normal-distribution.html#percentile"><i class="fa fa-check"></i><b>2.2</b> Percentile</a></li>
-<li class="chapter" data-level="2.3" data-path="normal-distribution.html"><a href="normal-distribution.html#confidence-intervals"><i class="fa fa-check"></i><b>2.3</b> Confidence intervals</a></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="percentile.html"><a href="percentile.html"><i class="fa fa-check"></i><b>2</b> Percentile</a></li>
 <li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>3</b> MLE</a><ul>
 <li class="chapter" data-level="3.1" data-path="intro.html"><a href="intro.html#basic-idea-of-mle"><i class="fa fa-check"></i><b>3.1</b> Basic idea of MLE</a></li>
 <li class="chapter" data-level="3.2" data-path="intro.html"><a href="intro.html#coin-flip-example-probit-and-logit"><i class="fa fa-check"></i><b>3.2</b> Coin flip example, probit, and logit</a><ul>
@@ -185,14 +181,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Basic Stats</h1>
-<p class="author"><em>Bill Last Updated:</em></p>
-<p class="date"><em>16 March, 2020</em></p>
+<div id="percentile" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Percentile</h1>
+<p><span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> determine the center and spread of the distribution</p>
+<div class="figure">
+<img src="normal_figure.PNG" alt="Normal" />
+<p class="caption">Normal</p>
 </div>
-<div id="my-section" class="section level1 unnumbered">
-<h1>Preface: Motivation</h1>
-<p>All the notes I have done here are about basic stats. While I have tried my best, probably there are still some typos and errors. Please feel free to let me know in case you find one. Thank you!</p>
 
 </div>
             </section>
@@ -200,8 +195,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="logit-and-probit.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="logit-and-probit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -232,7 +227,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/002-Percentile.Rmd",
 "text": "Edit"
 },
 "history": {

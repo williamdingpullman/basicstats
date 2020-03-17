@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Basic Stats</title>
+  <title>Chapter 2 Normal distribution | Basic Stats</title>
   <meta name="description" content="The webpages are mainly about Bayesian." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Basic Stats" />
+  <meta property="og:title" content="Chapter 2 Normal distribution | Basic Stats" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Basic Stats" />
+  <meta name="twitter:title" content="Chapter 2 Normal distribution | Basic Stats" />
   
   <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="logit-and-probit.html"/>
+<link rel="prev" href="logit-and-probit.html"/>
+<link rel="next" href="intro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -185,23 +185,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Basic Stats</h1>
-<p class="author"><em>Bill Last Updated:</em></p>
-<p class="date"><em>16 March, 2020</em></p>
+<div id="normal-distribution" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Normal distribution</h1>
+<div id="basics" class="section level2">
+<h2><span class="header-section-number">2.1</span> Basics</h2>
+<p><span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> determine the center and spread of the distribution</p>
+<div class="figure">
+<img src="Standard_deviation_diagram.PNG" alt="Normal" />
+<p class="caption">Normal</p>
 </div>
-<div id="my-section" class="section level1 unnumbered">
-<h1>Preface: Motivation</h1>
-<p>All the notes I have done here are about basic stats. While I have tried my best, probably there are still some typos and errors. Please feel free to let me know in case you find one. Thank you!</p>
+<p>The empirical rule holds for all normal distributions:</p>
+<ol style="list-style-type: decimal">
+<li><p>68% of the area under the curve lies between <span class="math inline">\((\mu-\sigma,\mu+\sigma)\)</span>.</p></li>
+<li><p>95% of the area under the curve lies between <span class="math inline">\((\mu-2\sigma,\mu+2\sigma)\)</span>.</p></li>
+<li><p>99.7% of the area under the curve lies between <span class="math inline">\((\mu-3\sigma,\mu+3\sigma)\)</span>.</p></li>
+</ol>
+</div>
+<div id="percentile" class="section level2">
+<h2><span class="header-section-number">2.2</span> Percentile</h2>
+<p>A percentile is a measure used in statistics indicating the value below which a given percentage of observations in a group of observations falls.</p>
+<p>For example, the 20th percentile is the value (or score) below which 20% of the observations may be found.</p>
+<p>For normal distribution,</p>
+<p>-3 <span class="math inline">\(\sigma\)</span> is the 0.13th percentile (i.e., <span class="math inline">\(\frac{100-99.7}{2}=0.15\)</span>);</p>
+<p>-2 <span class="math inline">\(\sigma\)</span> is the 2.28th percentile ((i.e., <span class="math inline">\(\frac{100-95}{2}=2.50\)</span>));</p>
+<p>-1<span class="math inline">\(\sigma\)</span> is the 15.87th percentile (i.e., <span class="math inline">\(\frac{100-68}{2}=16\)</span>);</p>
+<p>0 <span class="math inline">\(\sigma\)</span> is 50th percentile.</p>
+<p>+2 <span class="math inline">\(\sigma\)</span> is the 97.72nd percentile (i.e., <span class="math inline">\(100-\frac{100-95}{2}=100-2.5=97.50\)</span>);</p>
+<p>+3 <span class="math inline">\(\sigma\)</span> is the 99.87th percentile (i.e., <span class="math inline">\(100-\frac{100-99.70}{2}=100-0.15=99.85\)</span>).</p>
+<p>This is related to the 68-95-99.7 rule or the three-sigma rule.</p>
+<p>(Note that, it is <em>related</em>, not <em>direct</em> 68-95-99.7 rule, which is about symmetric situations. See the figure above)</p>
+</div>
+<div id="confidence-intervals" class="section level2">
+<h2><span class="header-section-number">2.3</span> Confidence intervals</h2>
+<p><span class="math display">\[\bar{X} \pm Z \frac{\sigma}{\sqrt{n}}\]</span>
+where,</p>
+<p><span class="math inline">\(\bar{X}\)</span> is the mean</p>
+<p><span class="math inline">\(Z\)</span> is the Z value (see the table below)</p>
+<p><span class="math inline">\(\sigma\)</span> is the standard deviation</p>
+<p><span class="math inline">\(n\)</span> is the number of observations</p>
+<p>(We can see the connection between this formula and information shown in the <em>Basics</em> section.)</p>
+<p><span class="math display">\[\begin{bmatrix}
+confidence \; level &amp; Z \\
+80  &amp; 1.282 \\
+85 &amp; 1.440 \\
+90 &amp; 1.645 \\
+95 &amp; 1.960 \\
+99 &amp; 2.576 \\
+99.5 &amp; 2.807 \\
+99.9 &amp; 3.291 \end{bmatrix}\]</span></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="logit-and-probit.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="logit-and-probit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -232,7 +273,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/002-Percentile.Rmd",
 "text": "Edit"
 },
 "history": {
