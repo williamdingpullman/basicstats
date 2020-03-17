@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 4. Large Sample Theory | Basic Stats</title>
+  <meta name="description" content="The webpages are mainly about Bayesian." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 4. Large Sample Theory | Basic Stats" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The webpages are mainly about Bayesian." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 4. Large Sample Theory | Basic Stats" />
+  
+  <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
+  
+
+<meta name="author" content="Bill Last Updated:" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="continuous-random-variables.html"/>
+<link rel="next" href="method-of-moments-estimators.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://williamdingpullman.github.io/" target="blank">Bill's Stats Notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface: Motivation</a></li>
+<li class="chapter" data-level="1" data-path="some-basic-concepts.html"><a href="some-basic-concepts.html"><i class="fa fa-check"></i><b>1</b> 1. Some basic concepts</a><ul>
+<li class="chapter" data-level="1.1" data-path="some-basic-concepts.html"><a href="some-basic-concepts.html#permutation"><i class="fa fa-check"></i><b>1.1</b> 1.1 Permutation</a></li>
+<li class="chapter" data-level="1.2" data-path="some-basic-concepts.html"><a href="some-basic-concepts.html#combinations"><i class="fa fa-check"></i><b>1.2</b> 1.2 Combinations</a></li>
+<li class="chapter" data-level="1.3" data-path="some-basic-concepts.html"><a href="some-basic-concepts.html#partitioning"><i class="fa fa-check"></i><b>1.3</b> 1.3 Partitioning</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="discrete-random-variables.html"><a href="discrete-random-variables.html"><i class="fa fa-check"></i><b>2</b> 2. Discrete Random Variables</a><ul>
+<li class="chapter" data-level="2.1" data-path="discrete-random-variables.html"><a href="discrete-random-variables.html#binomial"><i class="fa fa-check"></i><b>2.1</b> 2.1 Binomial</a></li>
+<li class="chapter" data-level="2.2" data-path="discrete-random-variables.html"><a href="discrete-random-variables.html#poisson"><i class="fa fa-check"></i><b>2.2</b> 2.2 Poisson</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="continuous-random-variables.html"><a href="continuous-random-variables.html"><i class="fa fa-check"></i><b>3</b> 3. Continuous Random Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="continuous-random-variables.html"><a href="continuous-random-variables.html#uniform"><i class="fa fa-check"></i><b>3.1</b> 3.1 Uniform</a></li>
+<li class="chapter" data-level="3.2" data-path="continuous-random-variables.html"><a href="continuous-random-variables.html#exponential"><i class="fa fa-check"></i><b>3.2</b> 3.2 Exponential</a></li>
+<li class="chapter" data-level="3.3" data-path="continuous-random-variables.html"><a href="continuous-random-variables.html#normal"><i class="fa fa-check"></i><b>3.3</b> 3.3 Normal</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="large-sample-theory.html"><a href="large-sample-theory.html"><i class="fa fa-check"></i><b>4</b> 4. Large Sample Theory</a><ul>
+<li class="chapter" data-level="4.1" data-path="large-sample-theory.html"><a href="large-sample-theory.html#convergence-in-distribution"><i class="fa fa-check"></i><b>4.1</b> 4.1 Convergence in distribution</a></li>
+<li class="chapter" data-level="4.2" data-path="large-sample-theory.html"><a href="large-sample-theory.html#weak-law"><i class="fa fa-check"></i><b>4.2</b> 4.2 Weak law</a></li>
+<li class="chapter" data-level="4.3" data-path="large-sample-theory.html"><a href="large-sample-theory.html#central-limit-theorem"><i class="fa fa-check"></i><b>4.3</b> 4.4 Central limit theorem</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="large-sample-theory.html"><a href="large-sample-theory.html#bernoulli-law-of-large-number"><i class="fa fa-check"></i><b>4.3.1</b> 4.4.1 Bernoulli law of large number</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="large-sample-theory.html"><a href="large-sample-theory.html#normal-approximation-to-binomial"><i class="fa fa-check"></i><b>4.4</b> 4.4.2 Normal approximation to Binomial</a></li>
+<li class="chapter" data-level="4.5" data-path="large-sample-theory.html"><a href="large-sample-theory.html#normal-approximation-to-poisson"><i class="fa fa-check"></i><b>4.5</b> 4.4.3 Normal approximation to Poisson</a></li>
+<li class="chapter" data-level="4.6" data-path="large-sample-theory.html"><a href="large-sample-theory.html#poisson-approximation-to-binomial"><i class="fa fa-check"></i><b>4.6</b> 4.4.4 Poisson approximation to binomial</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="method-of-moments-estimators.html"><a href="method-of-moments-estimators.html"><i class="fa fa-check"></i><b>5</b> 1.Method of moments estimators</a><ul>
+<li class="chapter" data-level="5.1" data-path="method-of-moments-estimators.html"><a href="method-of-moments-estimators.html#definition"><i class="fa fa-check"></i><b>5.1</b> (1) Definition</a></li>
+<li class="chapter" data-level="5.2" data-path="method-of-moments-estimators.html"><a href="method-of-moments-estimators.html#well-known-mgf"><i class="fa fa-check"></i><b>5.2</b> (2) Well-known MGF</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="least-squares-estimators.html"><a href="least-squares-estimators.html"><i class="fa fa-check"></i><b>6</b> 2. least squares estimators</a></li>
+<li class="chapter" data-level="7" data-path="likelihood-function-and-maximum-likelihood-estimators.html"><a href="likelihood-function-and-maximum-likelihood-estimators.html"><i class="fa fa-check"></i><b>7</b> 3. likelihood function and maximum likelihood estimators</a><ul>
+<li class="chapter" data-level="7.1" data-path="likelihood-function-and-maximum-likelihood-estimators.html"><a href="likelihood-function-and-maximum-likelihood-estimators.html#likelihood-function"><i class="fa fa-check"></i><b>7.1</b> 3.1 Likelihood function</a></li>
+<li class="chapter" data-level="7.2" data-path="likelihood-function-and-maximum-likelihood-estimators.html"><a href="likelihood-function-and-maximum-likelihood-estimators.html#maximum-likelihood-estimators"><i class="fa fa-check"></i><b>7.2</b> 3.2 Maximum likelihood estimators</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="invariance-property-of-mles.html"><a href="invariance-property-of-mles.html"><i class="fa fa-check"></i><b>8</b> 4. Invariance property of MLEs</a><ul>
+<li class="chapter" data-level="8.1" data-path="invariance-property-of-mles.html"><a href="invariance-property-of-mles.html#unbiased-estimators-cramer-rao-lower-bound"><i class="fa fa-check"></i><b>8.1</b> Unbiased estimators, Cramer-Rao lower bound</a></li>
+<li class="chapter" data-level="8.2" data-path="invariance-property-of-mles.html"><a href="invariance-property-of-mles.html#best-linear-unbiased-estimation-blue-or-mvlue"><i class="fa fa-check"></i><b>8.2</b> Best linear unbiased estimation (BLUE or MVLUE)</a></li>
+<li class="chapter" data-level="8.3" data-path="invariance-property-of-mles.html"><a href="invariance-property-of-mles.html#rao-blackwell-theorem-umvues"><i class="fa fa-check"></i><b>8.3</b> Rao-Blackwell theorem, UMVUEs</a></li>
+<li class="chapter" data-level="8.4" data-path="invariance-property-of-mles.html"><a href="invariance-property-of-mles.html#consistency-asymptotic-unbiasedness"><i class="fa fa-check"></i><b>8.4</b> Consistency, asymptotic unbiasedness</a></li>
+<li class="chapter" data-level="8.5" data-path="invariance-property-of-mles.html"><a href="invariance-property-of-mles.html#efficiency-asymptotic-efficiency"><i class="fa fa-check"></i><b>8.5</b> Efficiency, asymptotic efficiency</a></li>
+<li class="chapter" data-level="8.6" data-path="invariance-property-of-mles.html"><a href="invariance-property-of-mles.html#asymptotic-properties-of-mles"><i class="fa fa-check"></i><b>8.6</b> Asymptotic properties of MLEs</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="sufficient-and-completeness.html"><a href="sufficient-and-completeness.html"><i class="fa fa-check"></i><b>9</b> Sufficient and completeness</a><ul>
+<li class="chapter" data-level="9.1" data-path="sufficient-and-completeness.html"><a href="sufficient-and-completeness.html#sufficiency-and-minimal-sufficiency"><i class="fa fa-check"></i><b>9.1</b> Sufficiency and minimal sufficiency</a></li>
+<li class="chapter" data-level="9.2" data-path="sufficient-and-completeness.html"><a href="sufficient-and-completeness.html#neyman-factorization-theorem-minimal-sufficiency-of-mles"><i class="fa fa-check"></i><b>9.2</b> Neyman factorization theorem, minimal sufficiency of MLEs</a></li>
+<li class="chapter" data-level="9.3" data-path="sufficient-and-completeness.html"><a href="sufficient-and-completeness.html#completeness-lehmann-scheffe-completeness-theorem"><i class="fa fa-check"></i><b>9.3</b> completeness, Lehmann-Scheffe completeness theorem</a></li>
+<li class="chapter" data-level="9.4" data-path="sufficient-and-completeness.html"><a href="sufficient-and-completeness.html#exponential-class-complete-sufficient-statistics"><i class="fa fa-check"></i><b>9.4</b> Exponential class, complete sufficient statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>10</b> Logit and Probit</a><ul>
+<li class="chapter" data-level="10.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>10.1</b> Logit</a></li>
+<li class="chapter" data-level="10.2" data-path="logit-and-probit.html"><a href="logit-and-probit.html#probit"><i class="fa fa-check"></i><b>10.2</b> Probit</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="normal-distribution.html"><a href="normal-distribution.html"><i class="fa fa-check"></i><b>11</b> Normal distribution</a><ul>
+<li class="chapter" data-level="11.1" data-path="normal-distribution.html"><a href="normal-distribution.html#basics"><i class="fa fa-check"></i><b>11.1</b> Basics</a></li>
+<li class="chapter" data-level="11.2" data-path="normal-distribution.html"><a href="normal-distribution.html#percentile"><i class="fa fa-check"></i><b>11.2</b> Percentile</a></li>
+<li class="chapter" data-level="11.3" data-path="normal-distribution.html"><a href="normal-distribution.html#confidence-intervals-for-normal-distributions"><i class="fa fa-check"></i><b>11.3</b> Confidence intervals for normal distributions</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>12</b> MLE</a><ul>
+<li class="chapter" data-level="12.1" data-path="intro.html"><a href="intro.html#basic-idea-of-mle"><i class="fa fa-check"></i><b>12.1</b> Basic idea of MLE</a></li>
+<li class="chapter" data-level="12.2" data-path="intro.html"><a href="intro.html#coin-flip-example-probit-and-logit"><i class="fa fa-check"></i><b>12.2</b> Coin flip example, probit, and logit</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="intro.html"><a href="intro.html#probit-1"><i class="fa fa-check"></i><b>12.2.1</b> Probit</a></li>
+<li class="chapter" data-level="12.2.2" data-path="intro.html"><a href="intro.html#logit-1"><i class="fa fa-check"></i><b>12.2.2</b> Logit</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="intro.html"><a href="intro.html#further-on-logit"><i class="fa fa-check"></i><b>12.3</b> Further on logit</a></li>
+<li class="chapter" data-level="12.4" data-path="intro.html"><a href="intro.html#references"><i class="fa fa-check"></i><b>12.4</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html"><i class="fa fa-check"></i><b>13</b> Score, Gradient and Jacobian</a><ul>
+<li class="chapter" data-level="13.1" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#score"><i class="fa fa-check"></i><b>13.1</b> Score</a></li>
+<li class="chapter" data-level="13.2" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#fisher-scoring"><i class="fa fa-check"></i><b>13.2</b> Fisher scoring</a></li>
+<li class="chapter" data-level="13.3" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#gradient-and-jacobian"><i class="fa fa-check"></i><b>13.3</b> Gradient and Jacobian</a></li>
+<li class="chapter" data-level="13.4" data-path="score-gradient-and-jacobian.html"><a href="score-gradient-and-jacobian.html#hessian-and-fisher-information"><i class="fa fa-check"></i><b>13.4</b> Hessian and Fisher Information</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="canonical-link-function.html"><a href="canonical-link-function.html"><i class="fa fa-check"></i><b>14</b> Canonical link function</a></li>
+<li class="chapter" data-level="15" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html"><i class="fa fa-check"></i><b>15</b> Ordinary Least Squares (OLS)</a><ul>
+<li class="chapter" data-level="15.1" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#taylor-series"><i class="fa fa-check"></i><b>15.1</b> Taylor series</a></li>
+<li class="chapter" data-level="15.2" data-path="ordinary-least-squares-ols.html"><a href="ordinary-least-squares-ols.html#references-1"><i class="fa fa-check"></i><b>15.2</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html"><i class="fa fa-check"></i><b>16</b> Cholesky decomposition</a><ul>
+<li class="chapter" data-level="16.1" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html#example-1"><i class="fa fa-check"></i><b>16.1</b> Example 1</a></li>
+<li class="chapter" data-level="16.2" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html#example-2"><i class="fa fa-check"></i><b>16.2</b> Example 2</a></li>
+<li class="chapter" data-level="16.3" data-path="cholesky-decomposition.html"><a href="cholesky-decomposition.html#example-3"><i class="fa fa-check"></i><b>16.3</b> Example 3</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://www.williamsding.com/" target="blank">Bill's website</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Basic Stats</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="large-sample-theory" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> 4. Large Sample Theory</h1>
+<div id="convergence-in-distribution" class="section level2">
+<h2><span class="header-section-number">4.1</span> 4.1 Convergence in distribution</h2>
+<p><a href="https://en.wikipedia.org/wiki/Law_of_large_numbers" class="uri">https://en.wikipedia.org/wiki/Law_of_large_numbers</a></p>
+<p><span class="math display">\[\bar{X} \rightarrow \mu \; \; \; (n \rightarrow \infty)\]</span></p>
+<p><span class="math display">\[Var(\bar{X})=Var(\frac{1}{n}(X_1+...+X_n))=\frac{1}{n^2}Var(X_1+...+X_n)=\frac{n \sigma^2}{n^2}=\frac{\sigma^2}{n}\]</span></p>
+</div>
+<div id="weak-law" class="section level2">
+<h2><span class="header-section-number">4.2</span> 4.2 Weak law</h2>
+<p>There are two different versions of the Law of Large Numbers: Strong law of large numbers and Weak law of large numbers.</p>
+<p>The weak law of large numbers: The sample average converges in probability towards the expected value.</p>
+<p><span class="math display">\[\bar{X_n} \xrightarrow{p} \mu \; \; \; (n \rightarrow \infty)\]</span>
+This, for any positive number <span class="math inline">\(\epsilon\)</span></p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|&gt;\epsilon)=0\]</span>
+## 4.3 Strong law</p>
+<p><span class="math display">\[\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)\]</span>
+This is,</p>
+<p><span class="math display">\[Pr(lim_{n \rightarrow \infty} \bar{X_n}=\mu)=1\]</span></p>
+</div>
+<div id="central-limit-theorem" class="section level2">
+<h2><span class="header-section-number">4.3</span> 4.4 Central limit theorem</h2>
+<p>If <span class="math inline">\(X_1,...,X_n\)</span> is a random sample from a distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, then the limiting distribution of</p>
+<p><span class="math display">\[Z_n=\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \sigma}\]</span></p>
+<p>is the standard normal, <span class="math inline">\(Z_n \xrightarrow{d} Z \sim N(0,1)\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.</p>
+<div id="bernoulli-law-of-large-number" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> 4.4.1 Bernoulli law of large number</h3>
+<p><span class="math inline">\(\hat{p_n}\)</span> converges stochasticalltly to <span class="math inline">\(p\)</span> as <span class="math inline">\(n\)</span> approchaes infinity. For example, if a coin is tossed repeatedly, and <span class="math inline">\(A=\{H\}\)</span>, then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to <span class="math inline">\(p=1/2\)</span>.</p>
+</div>
+</div>
+<div id="normal-approximation-to-binomial" class="section level2">
+<h2><span class="header-section-number">4.4</span> 4.4.2 Normal approximation to Binomial</h2>
+<p><span class="math display">\[Z_n=\frac{Y_n-np}{\sqrt{npq}} \xrightarrow{d} Z \sim N(0, 1)\]</span></p>
+<p>Example: The probability that a basketball player hits a shot is <span class="math inline">\(p=0.5\)</span>. If he takes 20 shorts, what is the probability that he hits at least 9?</p>
+<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}] \\ &amp;=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&amp;=0.7483 \end{aligned} \]</span></p>
+<p>A normal approximation is</p>
+<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}] \\ &amp;=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&amp;=0.8133 \end{aligned} \]</span></p>
+</div>
+<div id="normal-approximation-to-poisson" class="section level2">
+<h2><span class="header-section-number">4.5</span> 4.4.3 Normal approximation to Poisson</h2>
+<p><span class="math display">\[\begin{aligned} P[10\leq Y_{20} \leq 30] &amp;=P[ Y_{20} \leq 30]-P[ Y_{20} \leq 10] \\&amp;=\Phi[\frac{30.5-20}{\sqrt{20}}]-\Phi[\frac{9.5-20}{\sqrt{20}}] \\ &amp;=0.981 \end{aligned}\]</span></p>
+</div>
+<div id="poisson-approximation-to-binomial" class="section level2">
+<h2><span class="header-section-number">4.6</span> 4.4.4 Poisson approximation to binomial</h2>
+<p>We know that the mean for binomial is</p>
+<p><span class="math display">\[\mu=np \rightarrow p=\frac{\mu}{n}\]</span>
+The moment generating function for Binomial is</p>
+<p><span class="math display">\[M_n(t)=(1-p+pe^t)^n=(1+\frac{\mu (e^t-1)}{n})^n\]</span>
+<span class="math display">\[lim_{n \rightarrow \infty} M_n(t)=e^{\mu (e^t-1)}\]</span></p>
+<p>Note that the MGF for Poisson is as follows.</p>
+<p><span class="math display">\[POI(\lambda): e^{\lambda(e^t-1)}\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[Y_n \rightarrow Y \sim POI (\mu)\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="continuous-random-variables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="method-of-moments-estimators.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/0000_1_443.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

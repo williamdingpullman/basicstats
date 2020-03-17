@@ -148,6 +148,291 @@
 
 All the notes I have done here are about basic stats. While I have tried my best, probably there are still some typos and errors. Please feel free to let me know in case you find one. Thank you!
 
+\hypertarget{section}{%
+\chapter{443}\label{section}}
+
+\hypertarget{some-basic-concepts}{%
+\section{Some basic concepts}\label{some-basic-concepts}}
+
+\hypertarget{permutation}{%
+\subsection{Permutation}\label{permutation}}
+
+An ordered arrangement of a set of objects is known as a permutation.
+
+e.g., The number of permutations of n distinguishable objects is \(n!\).
+e.g., The number of permuations of n distinct objects taken r at a time is
+
+\[_{n}P_r=\frac{n!}{(n-r)!}\]
+
+\hypertarget{combinations}{%
+\subsection{Combinations}\label{combinations}}
+
+If the order of the objects is not important, then one may simply be interested in the number of combinations.
+
+\[\binom{n}{r}=\frac{n!}{r!(n-r)!}\]
+
+\hypertarget{partitioning}{%
+\subsection{Partitioning}\label{partitioning}}
+
+The number of ways of partitioning a set of n objects into k cells with \(r_1\) objects into the first cell, \(r_2\) in the second cell, and so forth is
+
+\[\frac{n!}{r_1! r_2! ...r_k!}\]
+
+\hypertarget{discrete-random-variables}{%
+\section{Discrete Random Variables}\label{discrete-random-variables}}
+
+\hypertarget{binomial}{%
+\subsection{Binomial}\label{binomial}}
+
+\[X\sim BIN(n,p)\]
+
+\[\binom{n}{x}P^x(1-P)^{n-x}\]
+mean: \(np\)
+
+variance: \(npq\)
+
+(Note that, Bernoulli is written as \(BIN(1, p)\))
+
+\hypertarget{poisson}{%
+\subsection{Poisson}\label{poisson}}
+
+\[X \sim POI(\mu)\]
+\[\frac{e^{-\mu}\mu^x}{x!}\]
+mean: \(\mu\)
+
+variance: \(\mu\)
+
+\hypertarget{continuous-random-variables}{%
+\section{Continuous Random Variables}\label{continuous-random-variables}}
+
+\hypertarget{uniform}{%
+\subsection{Uniform}\label{uniform}}
+
+\[X \sim UNIF(a,b)\]
+
+\[\frac{1}{b-a}\]
+
+Mean: \(\frac{a+b}{2}\)
+
+Variance: \(\frac{(b-a)^2}{12}\)
+
+\hypertarget{exponential}{%
+\subsection{Exponential}\label{exponential}}
+
+\[X \sim EXP(\theta)\]
+
+\[\frac{1}{\theta} e^{-x/\theta}\]
+Mean: \(\theta\)
+
+Variance: \(\theta^2\)
+
+\hypertarget{normal}{%
+\subsection{Normal}\label{normal}}
+
+\[X\sim N(\mu, \sigma^2)\]
+
+\[\frac{1}{\sqrt{2 \pi \sigma}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}\]
+
+Mean: \(\mu\)
+
+Variance" \(\sigma^2\)
+
+\hypertarget{large-sample-theory}{%
+\section{Large Sample Theory}\label{large-sample-theory}}
+
+\hypertarget{convergence-in-distribution}{%
+\subsection{Convergence in distribution}\label{convergence-in-distribution}}
+
+\url{https://en.wikipedia.org/wiki/Law_of_large_numbers}
+
+\[\bar{X} \rightarrow \mu \; \; \; (n \rightarrow \infty)\]
+
+\[Var(\bar{X})=Var(\frac{1}{n}(X_1+...+X_n))=\frac{1}{n^2}Var(X_1+...+X_n)=\frac{n \sigma^2}{n^2}=\frac{\sigma^2}{n}\]
+
+\hypertarget{weak-law}{%
+\subsection{Weak law}\label{weak-law}}
+
+There are two different versions of the Law of Large Numbers: Strong law of large numbers and Weak law of large numbers.
+
+The weak law of large numbers: The sample average converges in probability towards the expected value.
+
+\[\bar{X_n} \xrightarrow{p} \mu \; \; \; (n \rightarrow \infty)\]
+This, for any positive number \(\epsilon\)
+
+\[lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|>\epsilon)=0\]
+\#\#\# Strong law
+
+\[\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)\]
+This is,
+
+\[Pr(lim_{n \rightarrow \infty} \bar{X_n}=\mu)=1\]
+
+\hypertarget{central-limit-theorem}{%
+\subsection{Central limit theorem}\label{central-limit-theorem}}
+
+If \(X_1,...,X_n\) is a random sample from a distribution with mean \(\mu\) and variance \(\sigma^2 < \infty\), then the limiting distribution of
+
+\[Z_n=\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \sigma}\]
+
+is the standard normal, \(Z_n \xrightarrow{d} Z \sim N(0,1)\) as \(n \rightarrow \infty\).
+
+\hypertarget{bernoulli-law-of-large-number}{%
+\subsubsection{Bernoulli law of large number}\label{bernoulli-law-of-large-number}}
+
+\(\hat{p_n}\) converges stochasticalltly to \(p\) as \(n\) approchaes infinity. For example, if a coin is tossed repeatedly, and \(A=\{H\}\), then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to \(p=1/2\).
+
+\hypertarget{normal-approximation-to-binomial}{%
+\subsubsection{Normal approximation to Binomial}\label{normal-approximation-to-binomial}}
+
+\[Z_n=\frac{Y_n-np}{\sqrt{npq}} \xrightarrow{d} Z \sim N(0, 1)\]
+
+Example: The probability that a basketball player hits a shot is \(p=0.5\). If he takes 20 shorts, what is the probability that he hits at least 9?
+
+\[\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&=0.7483 \end{aligned} \]
+
+A normal approximation is
+
+\[\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&=0.8133 \end{aligned} \]
+
+\hypertarget{normal-approximation-to-poisson}{%
+\subsubsection{Normal approximation to Poisson}\label{normal-approximation-to-poisson}}
+
+\[\begin{aligned} P[10\leq Y_{20} \leq 30] &=P[ Y_{20} \leq 30]-P[ Y_{20} \leq 10] \\&=\Phi[\frac{30.5-20}{\sqrt{20}}]-\Phi[\frac{9.5-20}{\sqrt{20}}] \\ &=0.981 \end{aligned}\]
+
+\hypertarget{poisson-approximation-to-binomial}{%
+\subsection{Poisson approximation to binomial}\label{poisson-approximation-to-binomial}}
+
+We know that the mean for binomial is
+
+\[\mu=np \rightarrow p=\frac{\mu}{n}\]
+The moment generating function for Binomial is
+
+\[M_n(t)=(1-p+pe^t)^n=(1+\frac{\mu (e^t-1)}{n})^n\]
+\[lim_{n \rightarrow \infty} M_n(t)=e^{\mu (e^t-1)}\]
+
+Note that the MGF for Poisson is as follows.
+
+\[POI(\lambda): e^{\lambda(e^t-1)}\]
+
+Thus,
+
+\[Y_n \rightarrow Y \sim POI (\mu)\]
+
+\hypertarget{section-1}{%
+\chapter{556}\label{section-1}}
+
+\hypertarget{point-estimation}{%
+\section{Point Estimation}\label{point-estimation}}
+
+\hypertarget{method-of-moments-estimators}{%
+\subsection{Method of moments estimators}\label{method-of-moments-estimators}}
+
+\hypertarget{definition}{%
+\subsubsection{Definition}\label{definition}}
+
+The joint MGF of (\(X_1, ..., X_n\)) is defined as \(M(t_1,...,t_n)=E(e^{\sum_{i=1}^nt_iX_i})\)
+
+When \(X_1, ..., X_n\) are independent if and only if
+
+\[M(t_1,t_n)=\prod_{i=1}^n M_{X_i}(t_i)\]
+where \(M_{X_i}(t_i)\) is the MGF of \(X_i\)
+
+\hypertarget{well-known-mgf}{%
+\subsubsection{Well-known MGF}\label{well-known-mgf}}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  Bernoulli with success probability p: \(1-p+pe^t\)
+\item
+  Binomial Bin(n,p): \((1-p+pe^t)^n\)
+\item
+  Poisson \(POI(\lambda)\): \(e^{\lambda(e^t-1)}\)
+\item
+  Normal \(N(\mu,\sigma^2)\): \(e^{\mu t+\frac{1}{2}\sigma^2t^2}\)
+\item
+  Gamma \(GAM(\theta,k)\): \((1-\theta t)^{-k}\)
+\end{enumerate}
+
+Two special cases:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{5}
+\item
+  Chi-square \(\chi^2(v) =GAM(2,\frac{v}{2})\): \((1-2t)^{-\frac{v}{2}}\)
+\item
+  Exponential \(EXP(\theta)=GAM(\theta,1)\): \((1-\theta t)^{-1}\)
+\end{enumerate}
+
+\hypertarget{least-squares-estimators}{%
+\subsection{least squares estimators}\label{least-squares-estimators}}
+
+\hypertarget{likelihood-function-and-maximum-likelihood-estimators}{%
+\subsection{likelihood function and maximum likelihood estimators}\label{likelihood-function-and-maximum-likelihood-estimators}}
+
+\hypertarget{likelihood-function}{%
+\subsubsection{Likelihood function}\label{likelihood-function}}
+
+\emph{P.293}
+
+The joint density function of \(n\) random variables \(X_1,...X_n\) evaluated at \(x_1, ...x_n\), say \(f(x_1,...,x_n; \theta)\), is referered to as a \emph{likelihood function}.
+
+\hypertarget{maximum-likelihood-estimators}{%
+\subsubsection{Maximum likelihood estimators}\label{maximum-likelihood-estimators}}
+
+Let \(L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega\), be the joint pdf of \(X_1, ..., X_n\). For a given set of observations, \((x_1,...x_n)\), a value \(\hat{\theta}\) in \(\Omega\) at which \(L(\theta)\) is a maximum is called a \emph{maximum likelihood estimate (MLE)} of \(\theta\). That is \(\hat{\theta}\) is a value of \(\theta\) that satisfies
+
+\[f(x_1,...x_n; \theta)=max_{\theta \in \Omega} f(x_1, ..., x_n; \theta)\]
+
+\hypertarget{invariance-property-of-mles}{%
+\subsection{Invariance property of MLEs}\label{invariance-property-of-mles}}
+
+\emph{p296}
+
+If \(\hat{\theta}\) is the MLE of \(\theta\) and if \(u(\theta)\) is a function of \(\theta\), then \(u(\hat{\theta})\) is an MLE of \(u(\theta)\).
+
+For instance,
+
+\hypertarget{unbiased-estimators-cramer-rao-lower-bound}{%
+\subsection{Unbiased estimators, Cramer-Rao lower bound}\label{unbiased-estimators-cramer-rao-lower-bound}}
+
+An estimator T is said to be an unbiased estimator of \(\tau(\theta)\) if
+
+\[E(T)=\tau(\theta)\]
+
+for all \(\theta \in \Omega\). Otherwise, we said that \(T\) is biased stimator of \(\tau(\theta)\).
+
+\hypertarget{best-linear-unbiased-estimation-blue-or-mvlue}{%
+\subsection{Best linear unbiased estimation (BLUE or MVLUE)}\label{best-linear-unbiased-estimation-blue-or-mvlue}}
+
+\hypertarget{rao-blackwell-theorem-umvues}{%
+\subsection{Rao-Blackwell theorem, UMVUEs}\label{rao-blackwell-theorem-umvues}}
+
+\hypertarget{consistency-asymptotic-unbiasedness}{%
+\subsection{Consistency, asymptotic unbiasedness}\label{consistency-asymptotic-unbiasedness}}
+
+\hypertarget{efficiency-asymptotic-efficiency}{%
+\subsection{Efficiency, asymptotic efficiency}\label{efficiency-asymptotic-efficiency}}
+
+\hypertarget{asymptotic-properties-of-mles}{%
+\subsection{Asymptotic properties of MLEs}\label{asymptotic-properties-of-mles}}
+
+\hypertarget{sufficient-and-completeness}{%
+\section{Sufficient and completeness}\label{sufficient-and-completeness}}
+
+\hypertarget{sufficiency-and-minimal-sufficiency}{%
+\subsection{Sufficiency and minimal sufficiency}\label{sufficiency-and-minimal-sufficiency}}
+
+\hypertarget{neyman-factorization-theorem-minimal-sufficiency-of-mles}{%
+\subsection{Neyman factorization theorem, minimal sufficiency of MLEs}\label{neyman-factorization-theorem-minimal-sufficiency-of-mles}}
+
+\hypertarget{completeness-lehmann-scheffe-completeness-theorem}{%
+\subsection{completeness, Lehmann-Scheffe completeness theorem}\label{completeness-lehmann-scheffe-completeness-theorem}}
+
+\hypertarget{exponential-class-complete-sufficient-statistics}{%
+\subsection{Exponential class, complete sufficient statistics}\label{exponential-class-complete-sufficient-statistics}}
+
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
 
@@ -801,9 +1086,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 1.903521
-## [2,] 1.042251
-## [3,] 2.046957
+## [1,] 1.977272
+## [2,] 0.974921
+## [3,] 2.041420
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -964,7 +1249,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.231848  3.553956  3.502630
+## [1] -1.692994  4.576956  3.014793
 \end{verbatim}
 
 \begin{Shaded}
@@ -975,7 +1260,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.022254 2.810998 7.937810
+## [1] 1.329091 3.017849 4.221219
 \end{verbatim}
 
 \begin{Shaded}
@@ -987,9 +1272,9 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 
 \begin{verbatim}
 ##            [,1]       [,2]     [,3]
-## [1,]  1.0222540 -0.1396062 1.232714
-## [2,] -0.1396062  2.8109977 1.628188
-## [3,]  1.2327144  1.6281881 7.937810
+## [1,]  1.3290914 -0.1473316 1.054596
+## [2,] -0.1473316  3.0178492 1.280163
+## [3,]  1.0545965  1.2801631 4.221219
 \end{verbatim}
 
 \hypertarget{example-2}{%

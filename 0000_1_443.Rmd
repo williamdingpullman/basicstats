@@ -1,0 +1,159 @@
+
+# 443
+
+## Some basic concepts
+
+### Permutation
+An ordered arrangement of a set of objects is known as a permutation. 
+
+e.g., The number of permutations of n distinguishable objects is $n!$.
+e.g., The number of permuations of n distinct objects taken r at a time is 
+
+$$_{n}P_r=\frac{n!}{(n-r)!}$$
+
+### Combinations 
+
+If the order of the objects is not important, then one may simply be interested in the number of combinations.
+
+$$\binom{n}{r}=\frac{n!}{r!(n-r)!}$$
+
+### Partitioning 
+
+The number of ways of partitioning a set of n objects into k cells with $r_1$ objects into the first cell, $r_2$ in the second cell, and so forth is
+
+$$\frac{n!}{r_1! r_2! ...r_k!}$$
+
+
+## Discrete Random Variables 
+
+### Binomial 
+
+$$X\sim BIN(n,p)$$
+
+$$\binom{n}{x}P^x(1-P)^{n-x}$$
+mean: $np$
+
+variance: $npq$
+
+(Note that, Bernoulli is written as $BIN(1, p)$)
+
+### Poisson 
+
+$$X \sim POI(\mu)$$
+$$\frac{e^{-\mu}\mu^x}{x!}$$
+mean: $\mu$
+
+variance: $\mu$
+
+## Continuous Random Variables
+
+### Uniform
+
+$$X \sim UNIF(a,b)$$
+
+$$\frac{1}{b-a}$$
+
+Mean: $\frac{a+b}{2}$
+
+Variance: $\frac{(b-a)^2}{12}$
+
+### Exponential 
+
+$$X \sim EXP(\theta)$$
+
+$$\frac{1}{\theta} e^{-x/\theta}$$
+Mean: $\theta$
+
+Variance: $\theta^2$
+
+### Normal
+
+$$X\sim N(\mu, \sigma^2)$$
+
+$$\frac{1}{\sqrt{2 \pi \sigma}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$$
+
+Mean: $\mu$
+
+Variance" $\sigma^2$
+
+## Large Sample Theory 
+
+### Convergence in distribution
+
+ https://en.wikipedia.org/wiki/Law_of_large_numbers
+
+
+
+$$\bar{X} \rightarrow \mu \; \; \; (n \rightarrow \infty)$$
+
+$$Var(\bar{X})=Var(\frac{1}{n}(X_1+...+X_n))=\frac{1}{n^2}Var(X_1+...+X_n)=\frac{n \sigma^2}{n^2}=\frac{\sigma^2}{n}$$
+
+
+
+### Weak law
+
+There are two different versions of the Law of Large Numbers: Strong law of large numbers and Weak law of large numbers. 
+
+The weak law of large numbers: The sample average converges in probability towards the expected value. 
+
+$$\bar{X_n} \xrightarrow{p} \mu \; \; \; (n \rightarrow \infty)$$
+This, for any positive number $\epsilon$
+
+$$lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|>\epsilon)=0$$
+### Strong law
+
+$$\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)$$
+This is,
+
+$$Pr(lim_{n \rightarrow \infty} \bar{X_n}=\mu)=1$$
+
+### Central limit theorem
+
+If $X_1,...,X_n$ is a random sample from a distribution with mean $\mu$ and variance $\sigma^2 < \infty$, then the limiting distribution of 
+
+$$Z_n=\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \sigma}$$
+
+is the standard normal, $Z_n \xrightarrow{d} Z \sim N(0,1)$ as $n \rightarrow \infty$.
+
+
+#### Bernoulli law of large number 
+
+
+$\hat{p_n}$ converges stochasticalltly to $p$ as $n$ approchaes infinity. For example, if a coin is tossed repeatedly, and $A=\{H\}$, then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to $p=1/2$.
+
+
+#### Normal approximation to Binomial
+
+$$Z_n=\frac{Y_n-np}{\sqrt{npq}} \xrightarrow{d} Z \sim N(0, 1)$$
+
+Example: The probability that a basketball player hits a shot is $p=0.5$. If he takes 20 shorts, what is the probability that he hits at least 9?
+
+$$\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&=0.7483 \end{aligned} $$
+
+A normal approximation is
+
+$$\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&=0.8133 \end{aligned} $$
+
+#### Normal approximation to Poisson
+
+
+$$\begin{aligned} P[10\leq Y_{20} \leq 30] &=P[ Y_{20} \leq 30]-P[ Y_{20} \leq 10] \\&=\Phi[\frac{30.5-20}{\sqrt{20}}]-\Phi[\frac{9.5-20}{\sqrt{20}}] \\ &=0.981 \end{aligned}$$
+
+### Poisson approximation to binomial
+
+We know that the mean for binomial is 
+
+$$\mu=np \rightarrow p=\frac{\mu}{n}$$
+The moment generating function for Binomial is 
+
+$$M_n(t)=(1-p+pe^t)^n=(1+\frac{\mu (e^t-1)}{n})^n$$
+$$lim_{n \rightarrow \infty} M_n(t)=e^{\mu (e^t-1)}$$
+
+Note that the MGF for Poisson is as follows.
+
+$$POI(\lambda): e^{\lambda(e^t-1)}$$
+
+Thus, 
+
+$$Y_n \rightarrow Y \sim POI (\mu)$$
+

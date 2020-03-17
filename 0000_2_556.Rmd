@@ -1,0 +1,97 @@
+# 556
+
+## Point Estimation
+
+### Method of moments estimators
+
+#### Definition
+
+The joint MGF of ($X_1, ..., X_n$) is defined as $M(t_1,...,t_n)=E(e^{\sum_{i=1}^nt_iX_i})$
+
+When $X_1, ..., X_n$ are independent if and only if 
+
+$$M(t_1,t_n)=\prod_{i=1}^n M_{X_i}(t_i)$$
+where $M_{X_i}(t_i)$ is the MGF of $X_i$
+
+#### Well-known MGF
+
+(1) Bernoulli with success probability p: $1-p+pe^t$
+
+(2) Binomial Bin(n,p): $(1-p+pe^t)^n$
+
+(3) Poisson $POI(\lambda)$: $e^{\lambda(e^t-1)}$
+
+(4) Normal $N(\mu,\sigma^2)$: $e^{\mu t+\frac{1}{2}\sigma^2t^2}$
+
+(5) Gamma $GAM(\theta,k)$: $(1-\theta t)^{-k}$
+
+
+Two special cases:
+
+(6) Chi-square $\chi^2(v) =GAM(2,\frac{v}{2})$: $(1-2t)^{-\frac{v}{2}}$
+
+(7) Exponential $EXP(\theta)=GAM(\theta,1)$: $(1-\theta t)^{-1}$
+
+
+### least squares estimators
+
+
+### likelihood function and maximum likelihood estimators
+
+#### Likelihood function
+
+_P.293_
+
+The joint density function of $n$ random variables $X_1,...X_n$ evaluated at $x_1, ...x_n$, say $f(x_1,...,x_n; \theta)$, is referered to as a _likelihood function_.
+
+#### Maximum likelihood estimators
+
+Let $L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega$, be the joint pdf of $X_1, ..., X_n$. For a given set of observations, $(x_1,...x_n)$, a value $\hat{\theta}$ in $\Omega$ at which $L(\theta)$ is a maximum is called a _maximum likelihood estimate (MLE)_ of $\theta$. That is $\hat{\theta}$ is a value of $\theta$ that satisfies
+
+$$f(x_1,...x_n; \theta)=max_{\theta \in \Omega} f(x_1, ..., x_n; \theta)$$
+
+### Invariance property of MLEs
+
+_p296_
+
+If $\hat{\theta}$ is the MLE of $\theta$ and if $u(\theta)$ is a function of $\theta$, then $u(\hat{\theta})$ is an MLE of $u(\theta)$.
+
+For instance,
+
+### Unbiased estimators, Cramer-Rao lower bound
+
+An estimator T is said to be an unbiased estimator of $\tau(\theta)$ if 
+
+$$E(T)=\tau(\theta)$$
+
+for all $\theta \in \Omega$. Otherwise, we said that $T$ is biased  stimator of $\tau(\theta)$.
+
+
+### Best linear unbiased estimation (BLUE or MVLUE)
+
+### Rao-Blackwell theorem,  UMVUEs
+
+
+### Consistency, asymptotic unbiasedness
+
+
+### Efficiency, asymptotic efficiency
+
+
+### Asymptotic properties of MLEs
+
+
+
+## Sufficient and completeness
+
+### Sufficiency and minimal sufficiency
+
+### Neyman factorization theorem, minimal sufficiency of MLEs
+
+### completeness, Lehmann-Scheffe completeness theorem
+
+### Exponential class, complete sufficient statistics
+
+
+
+

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 MLE | Basic Stats</title>
+  <title>Chapter 2 556 | Basic Stats</title>
   <meta name="description" content="The webpages are mainly about Bayesian." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 MLE | Basic Stats" />
+  <meta property="og:title" content="Chapter 2 556 | Basic Stats" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 MLE | Basic Stats" />
+  <meta name="twitter:title" content="Chapter 2 556 | Basic Stats" />
   
   <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="normal-distribution.html"/>
-<link rel="next" href="score-gradient-and-jacobian.html"/>
+<link rel="prev" href="section.html"/>
+<link rel="next" href="logit-and-probit.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -227,139 +227,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> MLE</h1>
-<div id="basic-idea-of-mle" class="section level2">
-<h2><span class="header-section-number">5.1</span> Basic idea of MLE</h2>
-<p>Suppose that we flip a coin, <span class="math inline">\(y_i=0\)</span> for tails and <span class="math inline">\(y_i=1\)</span> for heads. If we get <span class="math inline">\(p\)</span> heads from <span class="math inline">\(n\)</span> trials, we can get the proportion of heads is <span class="math inline">\(p/n\)</span>, which is the sample mean. If we do not do any further calculation, this is our best guess.</p>
-<p>Suppose that the true proablity is <span class="math inline">\(\rho\)</span>, then we can get:</p>
-<p><span class="math display">\[
-\mathbf{L}(y_i)=\begin{cases} \rho \;\;\:   y_i = 1 \\ 1-\rho \;\;\:  y_i = 0 \end{cases}
-\]</span>
-Thus, we can also write it as follows.
-<span class="math display">\[\mathbf{L}(y_i) = \rho^{y_i}(1-\rho)^{1-y_i}\]</span></p>
-<p>Thus, we can get:</p>
-<p><span class="math display">\[\prod \mathbf{L}(y_i|\rho)=\rho^{\sum y_i}(1-\rho)^{\sum(1-y_i)}\]</span>
-Further, we can get a log-transformed format.</p>
-<p><span class="math display">\[log (\prod \mathbf{L}(y_i|\rho))=\sum y_i log \rho + \sum(1-y_i) log(1-\rho)\]</span></p>
-<p>To maximize the log-function above, we can calculate the derivative with respect to <span class="math inline">\(\rho\)</span>.
-<span class="math display">\[\frac{\partial log (\prod \mathbf{L}(y_i|\rho)) }{\partial \rho}=\sum y_i \frac{1}{\rho}-\sum(1-y_i) \frac{1}{1-\rho}\]</span>
-Set the derivative to zero and solve for <span class="math inline">\(\rho\)</span>, we can get</p>
-<p><span class="math display">\[\sum y_i \frac{1}{\rho}-\sum(1-y_i) \frac{1}{1-\rho}=0\]</span>
-<span class="math display">\[\Rightarrow (1-\rho)\sum y_i - \rho \sum(1-y_i) =0\]</span>
-<span class="math display">\[\Rightarrow \sum y_i-\rho\sum y_i - n\rho +\rho\sum y_i =0\]</span>
-<span class="math display">\[\Rightarrow \sum y_i - n\rho  =0\]</span>
-<span class="math display">\[\Rightarrow \rho  = \frac{\sum y_i}{n}=\frac{p}{n}\]</span>
-Thus, we can see that the <span class="math inline">\(\rho\)</span> maximizing the likelihood function is equal to the sample mean.</p>
+<div id="section-1" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> 556</h1>
+<div id="point-estimation" class="section level2">
+<h2><span class="header-section-number">2.1</span> Point Estimation</h2>
+<div id="method-of-moments-estimators" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Method of moments estimators</h3>
+<div id="definition" class="section level4">
+<h4><span class="header-section-number">2.1.1.1</span> Definition</h4>
+<p>The joint MGF of (<span class="math inline">\(X_1, ..., X_n\)</span>) is defined as <span class="math inline">\(M(t_1,...,t_n)=E(e^{\sum_{i=1}^nt_iX_i})\)</span></p>
+<p>When <span class="math inline">\(X_1, ..., X_n\)</span> are independent if and only if</p>
+<p><span class="math display">\[M(t_1,t_n)=\prod_{i=1}^n M_{X_i}(t_i)\]</span>
+where <span class="math inline">\(M_{X_i}(t_i)\)</span> is the MGF of <span class="math inline">\(X_i\)</span></p>
 </div>
-<div id="coin-flip-example-probit-and-logit" class="section level2">
-<h2><span class="header-section-number">5.2</span> Coin flip example, probit, and logit</h2>
-<p>In the example above, we are not really trying to estimate a lot of regression coefficients. What we are doing actually is to calculate the sample mean, or intercept in the regresion sense. What does it mean? Let’s use some data to explain it.</p>
-<p>Suppose that we flip a coin 20 times and observe 8 heads. We can use the R’s glm function to esimate the <span class="math inline">\(\rho\)</span>. If the result is consistent with what we did above, we should observe that the <span class="math inline">\(cdf\)</span> of the esimate of <span class="math inline">\(\beta_0\)</span> (i.e., intercept) should be equal to <span class="math inline">\(8/20=0.4\)</span>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">coins&lt;-<span class="kw">c</span>(<span class="kw">rep</span>(<span class="dv">1</span>,<span class="dt">times=</span><span class="dv">8</span>),<span class="kw">rep</span>(<span class="dv">0</span>,<span class="dt">times=</span><span class="dv">12</span>))</a>
-<a class="sourceLine" id="cb11-2" title="2"><span class="kw">table</span>(coins)</a></code></pre></div>
-<pre><code>## coins
-##  0  1 
-## 12  8</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">coins&lt;-<span class="kw">as.data.frame</span>(coins)</a></code></pre></div>
-<div id="probit-1" class="section level3">
-<h3><span class="header-section-number">5.2.1</span> Probit</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">probitresults &lt;-<span class="st"> </span><span class="kw">glm</span>(coins <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;probit&quot;</span>), <span class="dt">data =</span> coins)</a>
-<a class="sourceLine" id="cb14-2" title="2">probitresults</a></code></pre></div>
-<pre><code>## 
-## Call:  glm(formula = coins ~ 1, family = binomial(link = &quot;probit&quot;), 
-##     data = coins)
-## 
-## Coefficients:
-## (Intercept)  
-##     -0.2533  
-## 
-## Degrees of Freedom: 19 Total (i.e. Null);  19 Residual
-## Null Deviance:       26.92 
-## Residual Deviance: 26.92     AIC: 28.92</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">pnorm</span>(probitresults<span class="op">$</span>coefficients)</a></code></pre></div>
-<pre><code>## (Intercept) 
-##         0.4</code></pre>
-<p>As we can see the intercept is <span class="math inline">\(-0.2533\)</span>, and thus <span class="math inline">\(\Phi(-0.2533471)=0.4\)</span></p>
-</div>
-<div id="logit-1" class="section level3">
-<h3><span class="header-section-number">5.2.2</span> Logit</h3>
-<p>We can also use logit link to calculate the intercept as well. Recall that</p>
-<p><span class="math display">\[p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]</span>
-Thus,</p>
-<p><span class="math display">\[p(y=1)=\frac{e^{\beta_0}}{1+e^{\beta_0}}\]</span></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">logitresults &lt;-<span class="st"> </span><span class="kw">glm</span>(coins <span class="op">~</span><span class="st"> </span><span class="dv">1</span>, <span class="dt">family =</span> <span class="kw">binomial</span>(<span class="dt">link =</span> <span class="st">&quot;logit&quot;</span>), <span class="dt">data =</span> coins)</a>
-<a class="sourceLine" id="cb18-2" title="2">logitresults<span class="op">$</span>coefficients</a></code></pre></div>
-<pre><code>## (Intercept) 
-##  -0.4054651</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">exp</span>(logitresults<span class="op">$</span>coefficients)<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span><span class="kw">exp</span>(logitresults<span class="op">$</span>coefficients))</a></code></pre></div>
-<pre><code>## (Intercept) 
-##         0.4</code></pre>
-<p>Note that, the defaul link for the binomial in the glm function in logit.</p>
+<div id="well-known-mgf" class="section level4">
+<h4><span class="header-section-number">2.1.1.2</span> Well-known MGF</h4>
+<ol style="list-style-type: decimal">
+<li><p>Bernoulli with success probability p: <span class="math inline">\(1-p+pe^t\)</span></p></li>
+<li><p>Binomial Bin(n,p): <span class="math inline">\((1-p+pe^t)^n\)</span></p></li>
+<li><p>Poisson <span class="math inline">\(POI(\lambda)\)</span>: <span class="math inline">\(e^{\lambda(e^t-1)}\)</span></p></li>
+<li><p>Normal <span class="math inline">\(N(\mu,\sigma^2)\)</span>: <span class="math inline">\(e^{\mu t+\frac{1}{2}\sigma^2t^2}\)</span></p></li>
+<li><p>Gamma <span class="math inline">\(GAM(\theta,k)\)</span>: <span class="math inline">\((1-\theta t)^{-k}\)</span></p></li>
+</ol>
+<p>Two special cases:</p>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Chi-square <span class="math inline">\(\chi^2(v) =GAM(2,\frac{v}{2})\)</span>: <span class="math inline">\((1-2t)^{-\frac{v}{2}}\)</span></p></li>
+<li><p>Exponential <span class="math inline">\(EXP(\theta)=GAM(\theta,1)\)</span>: <span class="math inline">\((1-\theta t)^{-1}\)</span></p></li>
+</ol>
 </div>
 </div>
-<div id="further-on-logit" class="section level2">
-<h2><span class="header-section-number">5.3</span> Further on logit</h2>
-<p>The probablity of <span class="math inline">\(y=1\)</span> is as follows:</p>
-<p><span class="math display">\[p=p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}\]</span></p>
-<p>Thus, the likelihood function is as follows:</p>
-<p><span class="math display">\[L=\prod p^{y_i}(1-p)^{1-y_i}=\prod (\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}})^{y_i}(\frac{1}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}})^{1-y_i}\]</span></p>
-<p><span class="math display">\[=\prod (1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)})^{-y_i}(1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n})^{-(1-y_i)}\]</span></p>
-<p>Thus, the log-likelihood is as follows:
-<span class="math display">\[logL=\sum (-y_i \cdot log(1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)})-(1-y_i)\cdot log(1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}))\]</span></p>
-<p>Typically, optimisers minimize a function, so we use negative log-likelihood as minimising that is equivalent to maximising the log-likelihood or the likelihood itself.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="co">#Source of R code: https://www.r-bloggers.com/logistic-regression/</span></a>
-<a class="sourceLine" id="cb22-2" title="2"></a>
-<a class="sourceLine" id="cb22-3" title="3">mle.logreg =<span class="st"> </span><span class="cf">function</span>(fmla, data)</a>
-<a class="sourceLine" id="cb22-4" title="4">{</a>
-<a class="sourceLine" id="cb22-5" title="5">  <span class="co"># Define the negative log likelihood function</span></a>
-<a class="sourceLine" id="cb22-6" title="6">  logl &lt;-<span class="st"> </span><span class="cf">function</span>(theta,x,y){</a>
-<a class="sourceLine" id="cb22-7" title="7">    y &lt;-<span class="st"> </span>y</a>
-<a class="sourceLine" id="cb22-8" title="8">    x &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(x)</a>
-<a class="sourceLine" id="cb22-9" title="9">    beta &lt;-<span class="st"> </span>theta[<span class="dv">1</span><span class="op">:</span><span class="kw">ncol</span>(x)]</a>
-<a class="sourceLine" id="cb22-10" title="10">    </a>
-<a class="sourceLine" id="cb22-11" title="11">    <span class="co"># Use the log-likelihood of the Bernouilli distribution, where p is</span></a>
-<a class="sourceLine" id="cb22-12" title="12">    <span class="co"># defined as the logistic transformation of a linear combination</span></a>
-<a class="sourceLine" id="cb22-13" title="13">    <span class="co"># of predictors, according to logit(p)=(x%*%beta)</span></a>
-<a class="sourceLine" id="cb22-14" title="14">    loglik &lt;-<span class="st"> </span><span class="kw">sum</span>(<span class="op">-</span>y<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>(x<span class="op">%*%</span>beta))) <span class="op">-</span><span class="st"> </span>(<span class="dv">1</span><span class="op">-</span>y)<span class="op">*</span><span class="kw">log</span>(<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="kw">exp</span>(x<span class="op">%*%</span>beta)))</a>
-<a class="sourceLine" id="cb22-15" title="15">    <span class="kw">return</span>(<span class="op">-</span>loglik)</a>
-<a class="sourceLine" id="cb22-16" title="16">  }</a>
-<a class="sourceLine" id="cb22-17" title="17">  </a>
-<a class="sourceLine" id="cb22-18" title="18">  <span class="co"># Prepare the data</span></a>
-<a class="sourceLine" id="cb22-19" title="19">  outcome =<span class="st"> </span><span class="kw">rownames</span>(<span class="kw">attr</span>(<span class="kw">terms</span>(fmla),<span class="st">&quot;factors&quot;</span>))[<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb22-20" title="20">  dfrTmp =<span class="st"> </span><span class="kw">model.frame</span>(data)</a>
-<a class="sourceLine" id="cb22-21" title="21">  x =<span class="st"> </span><span class="kw">as.matrix</span>(<span class="kw">model.matrix</span>(fmla, <span class="dt">data=</span>dfrTmp))</a>
-<a class="sourceLine" id="cb22-22" title="22">  y =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.matrix</span>(data[,<span class="kw">match</span>(outcome,<span class="kw">colnames</span>(data))]))</a>
-<a class="sourceLine" id="cb22-23" title="23">  </a>
-<a class="sourceLine" id="cb22-24" title="24">  <span class="co"># Define initial values for the parameters</span></a>
-<a class="sourceLine" id="cb22-25" title="25">  theta.start =<span class="st"> </span><span class="kw">rep</span>(<span class="dv">0</span>,(<span class="kw">dim</span>(x)[<span class="dv">2</span>]))</a>
-<a class="sourceLine" id="cb22-26" title="26">  <span class="kw">names</span>(theta.start) =<span class="st"> </span><span class="kw">colnames</span>(x)</a>
-<a class="sourceLine" id="cb22-27" title="27">  </a>
-<a class="sourceLine" id="cb22-28" title="28">  <span class="co"># Calculate the maximum likelihood</span></a>
-<a class="sourceLine" id="cb22-29" title="29">  mle =<span class="st"> </span><span class="kw">optim</span>(theta.start,logl,<span class="dt">x=</span>x,<span class="dt">y=</span>y, <span class="dt">method =</span> <span class="st">&#39;BFGS&#39;</span>, <span class="dt">hessian=</span>T)</a>
-<a class="sourceLine" id="cb22-30" title="30">  out =<span class="st"> </span><span class="kw">list</span>(<span class="dt">beta=</span>mle<span class="op">$</span>par,<span class="dt">vcov=</span><span class="kw">solve</span>(mle<span class="op">$</span>hessian),<span class="dt">ll=</span><span class="dv">2</span><span class="op">*</span>mle<span class="op">$</span>value)</a>
-<a class="sourceLine" id="cb22-31" title="31">}</a></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">mydata =<span class="st"> </span><span class="kw">read.csv</span>(<span class="kw">url</span>(<span class="st">&#39;https://stats.idre.ucla.edu/stat/data/binary.csv&#39;</span>))</a>
-<a class="sourceLine" id="cb23-2" title="2">mylogit1 =<span class="st"> </span><span class="kw">glm</span>(admit<span class="op">~</span>gre<span class="op">+</span>gpa<span class="op">+</span><span class="kw">as.factor</span>(rank), <span class="dt">family=</span>binomial, <span class="dt">data=</span>mydata)</a>
-<a class="sourceLine" id="cb23-3" title="3"></a>
-<a class="sourceLine" id="cb23-4" title="4">mydata<span class="op">$</span>rank =<span class="st"> </span><span class="kw">factor</span>(mydata<span class="op">$</span>rank) <span class="co">#Treat rank as a categorical variable</span></a>
-<a class="sourceLine" id="cb23-5" title="5">fmla =<span class="st"> </span><span class="kw">as.formula</span>(<span class="st">&quot;admit~gre+gpa+rank&quot;</span>) <span class="co">#Create model formula</span></a>
-<a class="sourceLine" id="cb23-6" title="6">mylogit2 =<span class="st"> </span><span class="kw">mle.logreg</span>(fmla, mydata) <span class="co">#Estimate coefficients</span></a>
-<a class="sourceLine" id="cb23-7" title="7"></a>
-<a class="sourceLine" id="cb23-8" title="8"></a>
-<a class="sourceLine" id="cb23-9" title="9"> <span class="kw">print</span>(<span class="kw">cbind</span>(<span class="kw">coef</span>(mylogit1), mylogit2<span class="op">$</span>beta))</a></code></pre></div>
-<pre><code>##                          [,1]         [,2]
-## (Intercept)      -3.989979073 -3.772676422
-## gre               0.002264426  0.001375522
-## gpa               0.804037549  0.898201239
-## as.factor(rank)2 -0.675442928 -0.675543009
-## as.factor(rank)3 -1.340203916 -1.356554831
-## as.factor(rank)4 -1.551463677 -1.563396035</code></pre>
+<div id="least-squares-estimators" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> least squares estimators</h3>
 </div>
-<div id="references" class="section level2">
-<h2><span class="header-section-number">5.4</span> References</h2>
-<p><a href="http://www.columbia.edu/~so33/SusDev/Lecture_9.pdf" class="uri">http://www.columbia.edu/~so33/SusDev/Lecture_9.pdf</a></p>
+<div id="likelihood-function-and-maximum-likelihood-estimators" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> likelihood function and maximum likelihood estimators</h3>
+<div id="likelihood-function" class="section level4">
+<h4><span class="header-section-number">2.1.3.1</span> Likelihood function</h4>
+<p><em>P.293</em></p>
+<p>The joint density function of <span class="math inline">\(n\)</span> random variables <span class="math inline">\(X_1,...X_n\)</span> evaluated at <span class="math inline">\(x_1, ...x_n\)</span>, say <span class="math inline">\(f(x_1,...,x_n; \theta)\)</span>, is referered to as a <em>likelihood function</em>.</p>
+</div>
+<div id="maximum-likelihood-estimators" class="section level4">
+<h4><span class="header-section-number">2.1.3.2</span> Maximum likelihood estimators</h4>
+<p>Let <span class="math inline">\(L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega\)</span>, be the joint pdf of <span class="math inline">\(X_1, ..., X_n\)</span>. For a given set of observations, <span class="math inline">\((x_1,...x_n)\)</span>, a value <span class="math inline">\(\hat{\theta}\)</span> in <span class="math inline">\(\Omega\)</span> at which <span class="math inline">\(L(\theta)\)</span> is a maximum is called a <em>maximum likelihood estimate (MLE)</em> of <span class="math inline">\(\theta\)</span>. That is <span class="math inline">\(\hat{\theta}\)</span> is a value of <span class="math inline">\(\theta\)</span> that satisfies</p>
+<p><span class="math display">\[f(x_1,...x_n; \theta)=max_{\theta \in \Omega} f(x_1, ..., x_n; \theta)\]</span></p>
+</div>
+</div>
+<div id="invariance-property-of-mles" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Invariance property of MLEs</h3>
+<p><em>p296</em></p>
+<p>If <span class="math inline">\(\hat{\theta}\)</span> is the MLE of <span class="math inline">\(\theta\)</span> and if <span class="math inline">\(u(\theta)\)</span> is a function of <span class="math inline">\(\theta\)</span>, then <span class="math inline">\(u(\hat{\theta})\)</span> is an MLE of <span class="math inline">\(u(\theta)\)</span>.</p>
+<p>For instance,</p>
+</div>
+<div id="unbiased-estimators-cramer-rao-lower-bound" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> Unbiased estimators, Cramer-Rao lower bound</h3>
+<p>An estimator T is said to be an unbiased estimator of <span class="math inline">\(\tau(\theta)\)</span> if</p>
+<p><span class="math display">\[E(T)=\tau(\theta)\]</span></p>
+<p>for all <span class="math inline">\(\theta \in \Omega\)</span>. Otherwise, we said that <span class="math inline">\(T\)</span> is biased stimator of <span class="math inline">\(\tau(\theta)\)</span>.</p>
+</div>
+<div id="best-linear-unbiased-estimation-blue-or-mvlue" class="section level3">
+<h3><span class="header-section-number">2.1.6</span> Best linear unbiased estimation (BLUE or MVLUE)</h3>
+</div>
+<div id="rao-blackwell-theorem-umvues" class="section level3">
+<h3><span class="header-section-number">2.1.7</span> Rao-Blackwell theorem, UMVUEs</h3>
+</div>
+<div id="consistency-asymptotic-unbiasedness" class="section level3">
+<h3><span class="header-section-number">2.1.8</span> Consistency, asymptotic unbiasedness</h3>
+</div>
+<div id="efficiency-asymptotic-efficiency" class="section level3">
+<h3><span class="header-section-number">2.1.9</span> Efficiency, asymptotic efficiency</h3>
+</div>
+<div id="asymptotic-properties-of-mles" class="section level3">
+<h3><span class="header-section-number">2.1.10</span> Asymptotic properties of MLEs</h3>
+</div>
+</div>
+<div id="sufficient-and-completeness" class="section level2">
+<h2><span class="header-section-number">2.2</span> Sufficient and completeness</h2>
+<div id="sufficiency-and-minimal-sufficiency" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Sufficiency and minimal sufficiency</h3>
+</div>
+<div id="neyman-factorization-theorem-minimal-sufficiency-of-mles" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Neyman factorization theorem, minimal sufficiency of MLEs</h3>
+</div>
+<div id="completeness-lehmann-scheffe-completeness-theorem" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> completeness, Lehmann-Scheffe completeness theorem</h3>
+</div>
+<div id="exponential-class-complete-sufficient-statistics" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Exponential class, complete sufficient statistics</h3>
 
+</div>
 </div>
 </div>
             </section>
@@ -367,8 +322,8 @@ Thus,</p>
           </div>
         </div>
       </div>
-<a href="normal-distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="score-gradient-and-jacobian.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logit-and-probit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -399,7 +354,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-MLE.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/0000_2_556.Rmd",
 "text": "Edit"
 },
 "history": {
