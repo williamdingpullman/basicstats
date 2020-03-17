@@ -535,6 +535,43 @@ We know that
 \[E(T)=E(\bar{X}+4.94)=\mu+4.94\]
 Thus, \(T=\bar{X}+4.94\) is the unbiased estimator of \(\tau(\mu)=\mu+4.94\).
 
+\hypertarget{unbiased-estimators-vs.-invariance-property-of-mles}{%
+\subsection{Unbiased estimators vs.~Invariance property of MLEs}\label{unbiased-estimators-vs.-invariance-property-of-mles}}
+
+\_\_Do not apply ``Invariance property of MLEs'' to the Unbiased estimators.
+
+\emph{P.303}
+
+For example, consider a random sample of size \(n\) from an exponential distribution, \(X_i \sim EXP(\theta)\), with parameter \(\theta\). We know that, \(\bar{X}\) is unbiased for \(\theta\) (which is the mean of an exponential distribution).
+
+If we want to estimate \(\tau(\theta)=\frac{1}{\theta}\), then by the invariance property of MLE is \(T_1=\frac{1}{\bar{X}}\).
+
+However, \(T_1\) is a biased estimators of \(\frac{1}{\theta}\). Specifically,
+
+We know that if \(X \sim Gam(\theta,k)\), then \(Y=\frac{2X}{\theta} \sim x^2(2k)\). We know that exponential distributions are a specicial case of Gamma distribution, \(EXP(\theta)=Gam(\theta,1)\), thus we get the following,
+
+\[Y=\frac{2n\bar{X}}{\theta}=\frac{2n}{\theta} \frac{\sum_{i=1}^n X_i}{n}=\frac{\sum_{i=1}^n 2X_i}{\theta}\sim\sum_{i=1}^n x^2(2\cdot1)=\sum_{i=1}^n x^2(2)=x^2(2n)\]
+
+We further know that if \(Y \sim x^2(v)\), \(E(Y^r)=2^r\frac{\Gamma(v/2+r)}{\Gamma(v/2)}\). Thus, we know that,
+
+\[E(Y^{-1})=2^{-1} \frac{\Gamma(2n/2-1)}{\Gamma(2n/2)}=\frac{1}{2}\cdot \frac{1}{n-1}\]
+
+Thus,
+
+\[E(Y^{-1})=E(\frac{\theta}{2n \bar{X}})=\frac{\theta}{2n}E(\frac{1}{\bar{X}})=\frac{1}{2}\cdot \frac{1}{n-1}\]
+
+Thus.
+
+\[E(\frac{1}{\bar{X}})=\frac{1}{n-1}\frac{n}{\theta}=\frac{n}{n-1}\frac{1}{\theta}\]
+
+Thus,
+
+\[E(\frac{n-1}{n} \frac{1}{\bar{X}})=\frac{1}{\theta}\]
+
+\textbf{Conclusion}
+
+\(\frac{1}{\bar{X}}\) is not the unbiased estimator for \(\frac{1}{\theta}\). However, we can adjust it to \(\frac{n-1}{n} \frac{1}{\bar{X}}\), which is the unbiased estimator for \(\frac{1}{\theta}\). When the sample size is big enough, we know that \(\frac{n-1}{n}\) will be close to 1.
+
 \hypertarget{umvue-and-cramer-rao-lower-bound}{%
 \subsection{UMVUE and Cramer-Rao lower bound}\label{umvue-and-cramer-rao-lower-bound}}
 
@@ -604,7 +641,13 @@ The relative efficiency of an unbiased estimator \(T\) of \(\tau(\theta)\) to an
 
 \[re(T, T^*)=\frac{Var(T^*)}{Var(T)}\]
 
-An unbiased
+An unbiased estimator \(T^*\) of \(\tau(\theta)\) is said to be efficient if \(re(T, T^*) \leq 1\) for all unbiased estimators \(T\) of \(\tau(\theta)\), and all \(\theta \in \Omega\). The efficiency of an unbiased estimator \(T\) of \(\tau(\theta)\) is given by
+
+\[e(T)=re(T, T^*)\]
+
+if \(T^*\) is an efficient estimator of \(\tau(\theta)\).
+
+Thus, \textbf{an effecient estimator is just a UMVUE.}
 
 \hypertarget{asymptotic-properties-of-mles}{%
 \subsection{Asymptotic properties of MLEs}\label{asymptotic-properties-of-mles}}
@@ -1287,9 +1330,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 1.9597299
-## [2,] 0.9853665
-## [3,] 2.0651599
+## [1,] 1.9910485
+## [2,] 0.9303212
+## [3,] 1.9013679
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1450,7 +1493,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.134181  3.811002  3.145170
+## [1] -2.075340  3.918927  2.811489
 \end{verbatim}
 
 \begin{Shaded}
@@ -1461,7 +1504,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.649007 1.875926 3.029340
+## [1] 2.041893 3.646338 6.149583
 \end{verbatim}
 
 \begin{Shaded}
@@ -1472,10 +1515,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]      [,2]     [,3]
-## [1,]  2.649007 -0.386361 0.485667
-## [2,] -0.386361  1.875926 1.377654
-## [3,]  0.485667  1.377654 3.029340
+##            [,1]        [,2]        [,3]
+## [1,]  2.0418933 -1.89248139  0.93786286
+## [2,] -1.8924814  3.64633798 -0.03719884
+## [3,]  0.9378629 -0.03719884  6.14958312
 \end{verbatim}
 
 \hypertarget{example-2}{%
