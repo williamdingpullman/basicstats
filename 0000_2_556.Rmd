@@ -10,7 +10,7 @@ _P.264_
 
 A fucntion of observable random variables, $T=t(X_1, ... X_n)$, which does not depend on any unknown parameters is called statistic.
 
-For example, Let $X_1, ..., X_n$ represent a random sample from a population with $pdf \;f(x)$. The sample mean provides an example of a statistic with the function 
+For example, let $X_1, ..., X_n$ represent a random sample from a population with $pdf \;f(x)$. The sample mean provides an example of a statistic with the function 
 
 $$t(x_1,...,x_n)=(x_1+...+x_n)/n$$
 
@@ -69,7 +69,7 @@ $$\frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2}\sim \chi^2(n-1)$$
 (You can compare $\bar{X}$ with $\mu$, we can see the only difference is that the $\chi^2$ has one less degree of freedom because we use this degree of freedom to calculate the mean.)
 
 
-We need to know the mean and variance of $\chi^2$.
+For the mean and variance of $\chi^2$:
 
 Assume that
 
@@ -86,17 +86,22 @@ Definition
 $$t(k)=\frac{N(0,1)}{\sqrt{\frac{\chi^2(k)}{k}}}$$
 
 
-Property 1: t distribution is symmetrical
+__Property 1__
+
+__t__ distribution is symmetrical
 
 
-Given that t-distribution is symmetrical, we can get
+Given that _t_ distribution is symmetrical, we can get
 
 $$H(-c)=1-H(c)$$
 
 
-Property 2: t distribution has heavier tails than the normal
+__Property 2__
 
-My note: t-distribution only has a parameter of $k$, which is determined by the $\chi^2$'s degree of freedom. Of course, $\chi^2$ also only has one parameter, namely the degree of freedom.
+_t_ distribution has heavier tails than the normal.
+
+
+My note: _t_ distribution only has a parameter of $k$, which is determined by the $\chi^2$'s degree of freedom. Of course, $\chi^2$ also only has one parameter, namely the degree of freedom.
 
 
 #### $F$
@@ -136,7 +141,7 @@ The joint MGF of ($X_1, ..., X_n$) is defined as $M(t_1,...,t_n)=E(e^{\sum_{i=1}
 
 When $X_1, ..., X_n$ are independent if and only if 
 
-$$M(t_1,t_n)=\prod_{i=1}^n M_{X_i}(t_i)$$
+$$M(t_1,...,t_n)=\prod_{i=1}^n M_{X_i}(t_i)$$
 where $M_{X_i}(t_i)$ is the MGF of $X_i$
 
 #### Well-known MGF
@@ -176,7 +181,7 @@ _P.294_
 
 Let $L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega$, be the joint pdf of $X_1, ..., X_n$. For a given set of observations, $(x_1,...x_n)$, a value $\hat{\theta}$ in $\Omega$ at which $L(\theta)$ is a maximum is called a _maximum likelihood estimate (MLE)_ of $\theta$. That is $\hat{\theta}$ is a value of $\theta$ that satisfies
 
-$$f(x_1,...x_n; \theta)=max_{\theta \in \Omega} f(x_1, ..., x_n; \theta)$$
+$$f(x_1,...x_n; \theta)=MAX_{\theta \in \Omega} f(x_1, ..., x_n; \theta)$$
 
 ### Invariance property of MLEs
 
@@ -184,7 +189,32 @@ _p296_
 
 If $\hat{\theta}$ is the MLE of $\theta$ and if $u(\theta)$ is a function of $\theta$, then $u(\hat{\theta})$ is an MLE of $u(\theta)$.
 
-For instance,
+
+__For instance__ ,
+
+We know that the $pdf$ of exponential distribution ($X \sim EXP (\theta)$) is as follows:
+
+$$\frac{1}{\theta} e^{-\frac{X}{\theta}}$$
+
+Thus, its likelihood function is as follows
+
+$$L(\theta)=\frac{1}{\theta^n}e^{-\frac{\sum X_i}{\theta}}$$
+Thus, log-likelihood is as follows.
+
+$$lnL(\theta)=-n ln(\theta)-\frac{\sum X_i}{\theta}$$
+Thus,
+
+$$\frac{d}{d\theta} lnL(\theta)=-n \frac{1}{\theta}+\frac{\sum X_i}{\theta^2}$$
+
+Thus, we can get the $MLE$ for $\theta$ is $\hat{\theta}=\bar{x}$.
+
+If we want to estimate $\tau(\theta)=P(X \geq 1)$:
+
+$$\tau(\theta)=P(X\geq 1)=\int_1^{\infty} \frac{1}{\theta} e^{-\frac{X}{\theta}} dx=-\int_1^{\infty}  e^{-\frac{X}{\theta}} d(-\frac{x}{\theta})=-[e^{-\frac{X}{\theta}}]_1^{\infty}=-[0-e^{-\frac{1}{\theta}}]=e^{-\frac{1}{\theta}}$$
+
+Thus, based on the invariance property, we know that the $MLE$ for $\tau(\theta)$ is as follows.
+
+$$e^{-\frac{1}{\bar{x}}}$$
 
 ### Unbiased estimators
 

@@ -334,9 +334,9 @@ This is,</p>
 <h4><span class="header-section-number">1.4.4.2</span> Normal approximation to Binomial</h4>
 <p><span class="math display">\[Z_n=\frac{Y_n-np}{\sqrt{npq}} \xrightarrow{d} Z \sim N(0, 1)\]</span></p>
 <p>Example: The probability that a basketball player hits a shot is <span class="math inline">\(p=0.5\)</span>. If he takes 20 shorts, what is the probability that he hits at least 9?</p>
-<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}] \\ &amp;=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&amp;=0.7483 \end{aligned} \]</span></p>
+<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20} &lt; 8] \\ &amp;=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&amp;=0.7483 \end{aligned} \]</span></p>
 <p>A normal approximation is</p>
-<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}] \\ &amp;=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&amp;=0.8133 \end{aligned} \]</span></p>
+<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}&lt;8] \\ &amp;=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&amp;=0.8133 \end{aligned} \]</span></p>
 </div>
 <div id="normal-approximation-to-poisson" class="section level4">
 <h4><span class="header-section-number">1.4.4.3</span> Normal approximation to Poisson</h4>

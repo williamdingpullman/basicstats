@@ -129,11 +129,11 @@ $$Z_n=\frac{Y_n-np}{\sqrt{npq}} \xrightarrow{d} Z \sim N(0, 1)$$
 
 Example: The probability that a basketball player hits a shot is $p=0.5$. If he takes 20 shorts, what is the probability that he hits at least 9?
 
-$$\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&=0.7483 \end{aligned} $$
+$$\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20} < 8] \\ &=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&=0.7483 \end{aligned} $$
 
 A normal approximation is
 
-$$\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&=0.8133 \end{aligned} $$
+$$\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}<8] \\ &=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&=0.8133 \end{aligned} $$
 
 #### Normal approximation to Poisson
 

@@ -120,7 +120,7 @@
 
 \title{Basic Stats}
 \author{Bill Last Updated:}
-\date{17 March, 2020}
+\date{18 March, 2020}
 
 \begin{document}
 \frontmatter
@@ -279,11 +279,11 @@ is the standard normal, \(Z_n \xrightarrow{d} Z \sim N(0,1)\) as \(n \rightarrow
 
 Example: The probability that a basketball player hits a shot is \(p=0.5\). If he takes 20 shorts, what is the probability that he hits at least 9?
 
-\[\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&=0.7483 \end{aligned} \]
+\[\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20} < 8] \\ &=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&=0.7483 \end{aligned} \]
 
 A normal approximation is
 
-\[\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}] \\ &=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&=0.8133 \end{aligned} \]
+\[\begin{aligned} P[Y_{20} \geq 9] &=1-P[Y_{20}<8] \\ &=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&=0.8133 \end{aligned} \]
 
 \hypertarget{normal-approximation-to-poisson}{%
 \subsubsection{Normal approximation to Poisson}\label{normal-approximation-to-poisson}}
@@ -325,7 +325,7 @@ Thus,
 
 A fucntion of observable random variables, \(T=t(X_1, ... X_n)\), which does not depend on any unknown parameters is called statistic.
 
-For example, Let \(X_1, ..., X_n\) represent a random sample from a population with \(pdf \;f(x)\). The sample mean provides an example of a statistic with the function
+For example, let \(X_1, ..., X_n\) represent a random sample from a population with \(pdf \;f(x)\). The sample mean provides an example of a statistic with the function
 
 \[t(x_1,...,x_n)=(x_1+...+x_n)/n\]
 
@@ -384,7 +384,7 @@ Thus, we can
 \[\frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2}\sim \chi^2(n-1)\]
 (You can compare \(\bar{X}\) with \(\mu\), we can see the only difference is that the \(\chi^2\) has one less degree of freedom because we use this degree of freedom to calculate the mean.)
 
-We need to know the mean and variance of \(\chi^2\).
+For the mean and variance of \(\chi^2\):
 
 Assume that
 
@@ -400,15 +400,19 @@ Definition
 
 \[t(k)=\frac{N(0,1)}{\sqrt{\frac{\chi^2(k)}{k}}}\]
 
-Property 1: t distribution is symmetrical
+\textbf{Property 1}
 
-Given that t-distribution is symmetrical, we can get
+\textbf{t} distribution is symmetrical
+
+Given that \emph{t} distribution is symmetrical, we can get
 
 \[H(-c)=1-H(c)\]
 
-Property 2: t distribution has heavier tails than the normal
+\textbf{Property 2}
 
-My note: t-distribution only has a parameter of \(k\), which is determined by the \(\chi^2\)'s degree of freedom. Of course, \(\chi^2\) also only has one parameter, namely the degree of freedom.
+\emph{t} distribution has heavier tails than the normal.
+
+My note: \emph{t} distribution only has a parameter of \(k\), which is determined by the \(\chi^2\)'s degree of freedom. Of course, \(\chi^2\) also only has one parameter, namely the degree of freedom.
 
 \hypertarget{f}{%
 \subsubsection{\texorpdfstring{\(F\)}{F}}\label{f}}
@@ -448,7 +452,7 @@ The joint MGF of (\(X_1, ..., X_n\)) is defined as \(M(t_1,...,t_n)=E(e^{\sum_{i
 
 When \(X_1, ..., X_n\) are independent if and only if
 
-\[M(t_1,t_n)=\prod_{i=1}^n M_{X_i}(t_i)\]
+\[M(t_1,...,t_n)=\prod_{i=1}^n M_{X_i}(t_i)\]
 where \(M_{X_i}(t_i)\) is the MGF of \(X_i\)
 
 \hypertarget{well-known-mgf}{%
@@ -499,7 +503,7 @@ The joint density function of \(n\) random variables \(X_1,...X_n\) evaluated at
 
 Let \(L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega\), be the joint pdf of \(X_1, ..., X_n\). For a given set of observations, \((x_1,...x_n)\), a value \(\hat{\theta}\) in \(\Omega\) at which \(L(\theta)\) is a maximum is called a \emph{maximum likelihood estimate (MLE)} of \(\theta\). That is \(\hat{\theta}\) is a value of \(\theta\) that satisfies
 
-\[f(x_1,...x_n; \theta)=max_{\theta \in \Omega} f(x_1, ..., x_n; \theta)\]
+\[f(x_1,...x_n; \theta)=MAX_{\theta \in \Omega} f(x_1, ..., x_n; \theta)\]
 
 \hypertarget{invariance-property-of-mles}{%
 \subsection{Invariance property of MLEs}\label{invariance-property-of-mles}}
@@ -508,7 +512,31 @@ Let \(L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega\), be the joint pdf of 
 
 If \(\hat{\theta}\) is the MLE of \(\theta\) and if \(u(\theta)\) is a function of \(\theta\), then \(u(\hat{\theta})\) is an MLE of \(u(\theta)\).
 
-For instance,
+\textbf{For instance} ,
+
+We know that the \(pdf\) of exponential distribution (\(X \sim EXP (\theta)\)) is as follows:
+
+\[\frac{1}{\theta} e^{-\frac{X}{\theta}}\]
+
+Thus, its likelihood function is as follows
+
+\[L(\theta)=\frac{1}{\theta^n}e^{-\frac{\sum X_i}{\theta}}\]
+Thus, log-likelihood is as follows.
+
+\[lnL(\theta)=-n ln(\theta)-\frac{\sum X_i}{\theta}\]
+Thus,
+
+\[\frac{d}{d\theta} lnL(\theta)=-n \frac{1}{\theta}+\frac{\sum X_i}{\theta^2}\]
+
+Thus, we can get the \(MLE\) for \(\theta\) is \(\hat{\theta}=\bar{x}\).
+
+If we want to estimate \(\tau(\theta)=P(X \geq 1)\):
+
+\[\tau(\theta)=P(X\geq 1)=\int_1^{\infty} \frac{1}{\theta} e^{-\frac{X}{\theta}} dx=-\int_1^{\infty}  e^{-\frac{X}{\theta}} d(-\frac{x}{\theta})=-[e^{-\frac{X}{\theta}}]_1^{\infty}=-[0-e^{-\frac{1}{\theta}}]=e^{-\frac{1}{\theta}}\]
+
+Thus, based on the invariance property, we know that the \(MLE\) for \(\tau(\theta)\) is as follows.
+
+\[e^{-\frac{1}{\bar{x}}}\]
 
 \hypertarget{unbiased-estimators}{%
 \subsection{Unbiased estimators}\label{unbiased-estimators}}
@@ -1329,10 +1357,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 1.9910485
-## [2,] 0.9303212
-## [3,] 1.9013679
+##          [,1]
+## [1,] 1.965891
+## [2,] 1.059079
+## [3,] 1.952932
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1493,7 +1521,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.075340  3.918927  2.811489
+## [1] -2.271487  4.535922  3.058328
 \end{verbatim}
 
 \begin{Shaded}
@@ -1504,7 +1532,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.041893 3.646338 6.149583
+## [1] 2.308942 5.466909 4.046096
 \end{verbatim}
 
 \begin{Shaded}
@@ -1515,10 +1543,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]        [,2]        [,3]
-## [1,]  2.0418933 -1.89248139  0.93786286
-## [2,] -1.8924814  3.64633798 -0.03719884
-## [3,]  0.9378629 -0.03719884  6.14958312
+##             [,1]      [,2]        [,3]
+## [1,]  2.30894201 -1.484151  0.01330459
+## [2,] -1.48415057  5.466909 -0.50988403
+## [3,]  0.01330459 -0.509884  4.04609620
 \end{verbatim}
 
 \hypertarget{example-2}{%

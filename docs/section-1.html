@@ -245,7 +245,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">2.1.1.1</span> Definition of Statistic</h4>
 <p><em>P.264</em></p>
 <p>A fucntion of observable random variables, <span class="math inline">\(T=t(X_1, ... X_n)\)</span>, which does not depend on any unknown parameters is called statistic.</p>
-<p>For example, Let <span class="math inline">\(X_1, ..., X_n\)</span> represent a random sample from a population with <span class="math inline">\(pdf \;f(x)\)</span>. The sample mean provides an example of a statistic with the function</p>
+<p>For example, let <span class="math inline">\(X_1, ..., X_n\)</span> represent a random sample from a population with <span class="math inline">\(pdf \;f(x)\)</span>. The sample mean provides an example of a statistic with the function</p>
 <p><span class="math display">\[t(x_1,...,x_n)=(x_1+...+x_n)/n\]</span></p>
 <p>This statistic usually is denoted by</p>
 <p><span class="math display">\[\bar{X}=\sum_{i=1}^n \frac{X_i}{n}\]</span></p>
@@ -280,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Thus, we can</p>
 <p><span class="math display">\[\frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2}\sim \chi^2(n-1)\]</span>
 (You can compare <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(\mu\)</span>, we can see the only difference is that the <span class="math inline">\(\chi^2\)</span> has one less degree of freedom because we use this degree of freedom to calculate the mean.)</p>
-<p>We need to know the mean and variance of <span class="math inline">\(\chi^2\)</span>.</p>
+<p>For the mean and variance of <span class="math inline">\(\chi^2\)</span>:</p>
 <p>Assume that</p>
 <p><span class="math display">\[X \sim x^2(v)\]</span></p>
 <p><span class="math display">\[mean:v\]</span>
@@ -290,11 +290,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">2.1.2.2</span> <span class="math inline">\(t\)</span></h4>
 <p>Definition</p>
 <p><span class="math display">\[t(k)=\frac{N(0,1)}{\sqrt{\frac{\chi^2(k)}{k}}}\]</span></p>
-<p>Property 1: t distribution is symmetrical</p>
-<p>Given that t-distribution is symmetrical, we can get</p>
+<p><strong>Property 1</strong></p>
+<p><strong>t</strong> distribution is symmetrical</p>
+<p>Given that <em>t</em> distribution is symmetrical, we can get</p>
 <p><span class="math display">\[H(-c)=1-H(c)\]</span></p>
-<p>Property 2: t distribution has heavier tails than the normal</p>
-<p>My note: t-distribution only has a parameter of <span class="math inline">\(k\)</span>, which is determined by the <span class="math inline">\(\chi^2\)</span>’s degree of freedom. Of course, <span class="math inline">\(\chi^2\)</span> also only has one parameter, namely the degree of freedom.</p>
+<p><strong>Property 2</strong></p>
+<p><em>t</em> distribution has heavier tails than the normal.</p>
+<p>My note: <em>t</em> distribution only has a parameter of <span class="math inline">\(k\)</span>, which is determined by the <span class="math inline">\(\chi^2\)</span>’s degree of freedom. Of course, <span class="math inline">\(\chi^2\)</span> also only has one parameter, namely the degree of freedom.</p>
 </div>
 <div id="f" class="section level4">
 <h4><span class="header-section-number">2.1.2.3</span> <span class="math inline">\(F\)</span></h4>
@@ -323,7 +325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">2.2.1.1</span> Definition</h4>
 <p>The joint MGF of (<span class="math inline">\(X_1, ..., X_n\)</span>) is defined as <span class="math inline">\(M(t_1,...,t_n)=E(e^{\sum_{i=1}^nt_iX_i})\)</span></p>
 <p>When <span class="math inline">\(X_1, ..., X_n\)</span> are independent if and only if</p>
-<p><span class="math display">\[M(t_1,t_n)=\prod_{i=1}^n M_{X_i}(t_i)\]</span>
+<p><span class="math display">\[M(t_1,...,t_n)=\prod_{i=1}^n M_{X_i}(t_i)\]</span>
 where <span class="math inline">\(M_{X_i}(t_i)\)</span> is the MGF of <span class="math inline">\(X_i\)</span></p>
 </div>
 <div id="well-known-mgf" class="section level4">
@@ -356,14 +358,27 @@ where <span class="math inline">\(M_{X_i}(t_i)\)</span> is the MGF of <span clas
 <h4><span class="header-section-number">2.2.3.2</span> Maximum likelihood estimators</h4>
 <p><em>P.294</em></p>
 <p>Let <span class="math inline">\(L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega\)</span>, be the joint pdf of <span class="math inline">\(X_1, ..., X_n\)</span>. For a given set of observations, <span class="math inline">\((x_1,...x_n)\)</span>, a value <span class="math inline">\(\hat{\theta}\)</span> in <span class="math inline">\(\Omega\)</span> at which <span class="math inline">\(L(\theta)\)</span> is a maximum is called a <em>maximum likelihood estimate (MLE)</em> of <span class="math inline">\(\theta\)</span>. That is <span class="math inline">\(\hat{\theta}\)</span> is a value of <span class="math inline">\(\theta\)</span> that satisfies</p>
-<p><span class="math display">\[f(x_1,...x_n; \theta)=max_{\theta \in \Omega} f(x_1, ..., x_n; \theta)\]</span></p>
+<p><span class="math display">\[f(x_1,...x_n; \theta)=MAX_{\theta \in \Omega} f(x_1, ..., x_n; \theta)\]</span></p>
 </div>
 </div>
 <div id="invariance-property-of-mles" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Invariance property of MLEs</h3>
 <p><em>p296</em></p>
 <p>If <span class="math inline">\(\hat{\theta}\)</span> is the MLE of <span class="math inline">\(\theta\)</span> and if <span class="math inline">\(u(\theta)\)</span> is a function of <span class="math inline">\(\theta\)</span>, then <span class="math inline">\(u(\hat{\theta})\)</span> is an MLE of <span class="math inline">\(u(\theta)\)</span>.</p>
-<p>For instance,</p>
+<p><strong>For instance</strong> ,</p>
+<p>We know that the <span class="math inline">\(pdf\)</span> of exponential distribution (<span class="math inline">\(X \sim EXP (\theta)\)</span>) is as follows:</p>
+<p><span class="math display">\[\frac{1}{\theta} e^{-\frac{X}{\theta}}\]</span></p>
+<p>Thus, its likelihood function is as follows</p>
+<p><span class="math display">\[L(\theta)=\frac{1}{\theta^n}e^{-\frac{\sum X_i}{\theta}}\]</span>
+Thus, log-likelihood is as follows.</p>
+<p><span class="math display">\[lnL(\theta)=-n ln(\theta)-\frac{\sum X_i}{\theta}\]</span>
+Thus,</p>
+<p><span class="math display">\[\frac{d}{d\theta} lnL(\theta)=-n \frac{1}{\theta}+\frac{\sum X_i}{\theta^2}\]</span></p>
+<p>Thus, we can get the <span class="math inline">\(MLE\)</span> for <span class="math inline">\(\theta\)</span> is <span class="math inline">\(\hat{\theta}=\bar{x}\)</span>.</p>
+<p>If we want to estimate <span class="math inline">\(\tau(\theta)=P(X \geq 1)\)</span>:</p>
+<p><span class="math display">\[\tau(\theta)=P(X\geq 1)=\int_1^{\infty} \frac{1}{\theta} e^{-\frac{X}{\theta}} dx=-\int_1^{\infty}  e^{-\frac{X}{\theta}} d(-\frac{x}{\theta})=-[e^{-\frac{X}{\theta}}]_1^{\infty}=-[0-e^{-\frac{1}{\theta}}]=e^{-\frac{1}{\theta}}\]</span></p>
+<p>Thus, based on the invariance property, we know that the <span class="math inline">\(MLE\)</span> for <span class="math inline">\(\tau(\theta)\)</span> is as follows.</p>
+<p><span class="math display">\[e^{-\frac{1}{\bar{x}}}\]</span></p>
 </div>
 <div id="unbiased-estimators" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> Unbiased estimators</h3>
