@@ -352,7 +352,7 @@ Thus, $T=\bar{X}+4.94$ is the unbiased estimator of $\tau(\mu)=\mu+4.94$.
 
 ### Unbiased estimators vs. Invariance property of MLEs
 
-__Do not apply "Invariance property of MLEs" to the Unbiased estimators.
+__Do not apply "Invariance property of MLEs" to the Unbiased estimators.__
 
 _P.303_
 
@@ -427,7 +427,7 @@ We know that the variance for exponential distribution
 
 $$Var(\bar{X})=\frac{Var(X)}{n}=\frac{\theta^2}{n}$$
 
-We know that $\theta$ is the mean for exponential distribution. We also know that sample mean $\bar(X)$ is the unbiased estimator for population mean.
+We know that $\theta$ is the mean for exponential distribution. We also know that sample mean $\bar{X}$ is the unbiased estimator for population mean.
 
 Thus,
 
