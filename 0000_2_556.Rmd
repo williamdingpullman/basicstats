@@ -135,7 +135,89 @@ $$Z_v =\frac{Y_v-v}{\sqrt{2v}} \xrightarrow{d} Z \sim N(0,1)$$
 
 ### Method of moments estimators
 
+#### Definition about moments (chapter 2)
+
+_P.73_
+
+THe __kth moment about the origin__ of a random variable $X$ is 
+
+$$\mu^{'}_k=E(X^k)$$
+
+and the __kth moment about the mean__ is 
+
+$$\mu_k=E[X-E(X)]^k=E(X-\mu)^k$$
+
+Thus,$k=E(X^k)$ may be considered as the $k$th moment of $X$ or the first moment of $X^k$. 
+
+The first moment about the mean is zero,
+
+$$\mu_1=E[X-E(X)]=E(X)-E(X)=0$$
+
+The second moment about the mean is the variance,
+
+$$\mu_2=E[(X-\mu)^2]=\sigma^2$$
+
+Note that the definition of variance:
+
+_P.73_
+
+$$Var(X)=E[(X-\mu)^2]$$
+
 #### Definition
+
+Based on the last chapater (i.e., Chapter 8), sample mean $\bar{X}$ is an estimator of the population mean $\mu$. A more general approach, which produced estimators known as the __method of moments estimators(MMEs)__ , can be developed. 
+
+
+If $X_1,...,X_n$ is a random sample from $f(x; \theta_1,...,\theta_k)$, the first $k$ sample moments are given by 
+
+
+$$M_j^{'}=\frac{\sum_{i=1}^n X_i^j}{n}$$
+
+
+where,
+
+$$j=1,2,...k$$
+
+
+
+__Example 1__
+
+
+_P.291_
+
+Consider a random sample from a distribution with two unknown parameters, the mean $\mu$ and the variance $\sigma^2$. We know from earlier considerations that $\mu=\mu^{'}_1$ and $\sigma^2=E(X^2)-\mu^2=\mu_2^{'}-(\mu^{'}_1)^2$.
+
+Thus,
+
+$$\hat{\sigma}^2=\mu_2^{'}-(\mu^{'}_1)^2=\frac{\sum_{i=1}^n X_i^2}{n}-\frac{\sum_{i=1}^n X_i}{n}=\frac{\sum_{i=1}^n X_i^2}{n}-\bar{X}=\sum_{i=1}^n \frac{(X_i-\bar{X})^2}{n}$$
+
+(Thus, we can see that the estimation of $\sigma^2$ is not the same as the definition of sample variance $S^2$. $\hat{\sigma}^2=\frac{n-1}{n}S^2$.)
+
+
+__Example 2__
+
+_P.292_
+
+If a sample is from a Gamma distribution $X_i \sim GAM(\theta,k)$, and we want to estimate the $\theta$ and $k$.
+
+We know that for Gamma distribution, the mean is $k\theta$, and the variance is $k\theta^2$.
+
+We also know that $\mu_1^{'}=\mu=k\theta$ and $\mu_2^{'}= \sigma^2+\mu^2= k\theta^2+k^2\theta^2=k\theta^2(1+k)$.
+
+Thus, we can get
+
+$$\bar{X}=k\theta$$
+
+$$\sum \frac{X_i^2}{n}=k\theta^2(1+k)$$
+
+Thus, we can get
+
+$$\hat{\theta}=\sum_{i=1}^n \frac{(X_i-\bar{X})^2}{n \bar{X}}=\frac{(n-1)/n S^2}{\bar{X}}$$
+
+
+$$\hat{k}=\frac{\bar{X}}{\hat{\theta}}$$
+
+#### Property
 
 The joint MGF of ($X_1, ..., X_n$) is defined as $M(t_1,...,t_n)=E(e^{\sum_{i=1}^nt_iX_i})$
 
