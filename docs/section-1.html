@@ -404,9 +404,9 @@ where <span class="math inline">\(M_{X_i}(t_i)\)</span> is the MGF of <span clas
 </div>
 <div id="invariance-property-of-mles" class="section level3">
 <h3><span class="header-section-number">2.2.4</span> Invariance property of MLEs</h3>
-<p><em>p296</em></p>
+<p><em>P.296</em></p>
 <p>If <span class="math inline">\(\hat{\theta}\)</span> is the MLE of <span class="math inline">\(\theta\)</span> and if <span class="math inline">\(u(\theta)\)</span> is a function of <span class="math inline">\(\theta\)</span>, then <span class="math inline">\(u(\hat{\theta})\)</span> is an MLE of <span class="math inline">\(u(\theta)\)</span>.</p>
-<p><strong>For instance</strong> ,</p>
+<p><strong>Example 1</strong></p>
 <p>We know that the <span class="math inline">\(pdf\)</span> of exponential distribution (<span class="math inline">\(X \sim EXP (\theta)\)</span>) is as follows:</p>
 <p><span class="math display">\[\frac{1}{\theta} e^{-\frac{X}{\theta}}\]</span></p>
 <p>Thus, its likelihood function is as follows</p>
@@ -420,6 +420,19 @@ Thus,</p>
 <p><span class="math display">\[\tau(\theta)=P(X\geq 1)=\int_1^{\infty} \frac{1}{\theta} e^{-\frac{X}{\theta}} dx=-\int_1^{\infty}  e^{-\frac{X}{\theta}} d(-\frac{x}{\theta})=-[e^{-\frac{X}{\theta}}]_1^{\infty}=-[0-e^{-\frac{1}{\theta}}]=e^{-\frac{1}{\theta}}\]</span></p>
 <p>Thus, based on the invariance property, we know that the <span class="math inline">\(MLE\)</span> for <span class="math inline">\(\tau(\theta)\)</span> is as follows.</p>
 <p><span class="math display">\[e^{-\frac{1}{\bar{x}}}\]</span></p>
+<p><strong>Example 2: MLE vs. MME</strong></p>
+<p><em>P.296</em></p>
+<p>Assume a random sample from a two-parameter exponential distribution, <span class="math inline">\(X_i \sim EXP(1)\)</span>. Thus, the <span class="math inline">\(pdf\)</span> is <span class="math inline">\(e^{-(x-\eta)}\)</span>. Thus, the likelihood function is</p>
+<p><span class="math display">\[L(\eta)=e^{-\sum(x_i-\eta)}\]</span></p>
+<p>Thus, the log likelihood,</p>
+<p><span class="math display">\[lnL(\eta)=-\sum(x_i-\eta)=n\eta-n\bar{X}\]</span>
+Thus, we know that as <span class="math inline">\(\eta\)</span> increases, the log likelihood increases accordingly. Thus, we want to find the maximum <span class="math inline">\(\eta\)</span>. Note that a two-parameter exponential distribution has the support of <span class="math inline">\(x_i \geq \eta\)</span>. Thus, all <span class="math inline">\(\eta\)</span> are smaller than any <span class="math inline">\(X_i\)</span>. Thus, we can get the ML estimator is the first order statistic</p>
+<p><span class="math display">\[\hat{\eta}=X_{1:n}\]</span></p>
+<p><strong>Note that</strong> the estimators above is based on ML. What would be the answer if using MME?</p>
+<p>We know that for a two-parameter exponential distribution, its mean is <span class="math inline">\(\mu=1+\eta\)</span>. And, we know that based on MME, <span class="math inline">\(\mu=\bar{X}\)</span>. Thus, we can get the following,</p>
+<p><span class="math display">\[\hat{\eta}=\bar{X}-1\]</span></p>
+<p><strong>Conclusion</strong></p>
+<p>We can see that ML and MME have didferent estimators for the same <span class="math inline">\(\eta\)</span> for a two-parameter exponential distribution.</p>
 </div>
 <div id="unbiased-estimators" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> Unbiased estimators</h3>

@@ -267,12 +267,12 @@ $$f(x_1,...x_n; \theta)=MAX_{\theta \in \Omega} f(x_1, ..., x_n; \theta)$$
 
 ### Invariance property of MLEs
 
-_p296_
+_P.296_
 
 If $\hat{\theta}$ is the MLE of $\theta$ and if $u(\theta)$ is a function of $\theta$, then $u(\hat{\theta})$ is an MLE of $u(\theta)$.
 
 
-__For instance__ ,
+__Example 1__
 
 We know that the $pdf$ of exponential distribution ($X \sim EXP (\theta)$) is as follows:
 
@@ -297,6 +297,32 @@ $$\tau(\theta)=P(X\geq 1)=\int_1^{\infty} \frac{1}{\theta} e^{-\frac{X}{\theta}}
 Thus, based on the invariance property, we know that the $MLE$ for $\tau(\theta)$ is as follows.
 
 $$e^{-\frac{1}{\bar{x}}}$$
+
+__Example 2: MLE vs. MME__
+
+_P.296_
+
+Assume a random sample from a two-parameter exponential distribution, $X_i \sim EXP(1)$. Thus, the $pdf$ is $e^{-(x-\eta)}$. Thus, the likelihood function is 
+
+$$L(\eta)=e^{-\sum(x_i-\eta)}$$
+
+Thus, the log likelihood,
+
+$$lnL(\eta)=-\sum(x_i-\eta)=n\eta-n\bar{X}$$
+Thus, we know that as $\eta$ increases, the log likelihood increases accordingly. Thus, we want to find the maximum $\eta$. Note that a two-parameter exponential distribution has the support of $x_i \geq \eta$. Thus, all $\eta$ are smaller than any $X_i$. Thus, we can get the ML estimator is the first order statistic 
+
+$$\hat{\eta}=X_{1:n}$$
+
+__Note that__ the estimators above is based on ML. What would be the answer if using MME?
+
+We know that for a two-parameter exponential distribution, its mean is $\mu=1+\eta$. And, we know that based on MME, $\mu=\bar{X}$. Thus, we can get the following,
+
+$$\hat{\eta}=\bar{X}-1$$
+
+__Conclusion__
+
+We can see that ML and MME have didferent estimators for the same $\eta$ for a two-parameter exponential distribution.
+
 
 ### Unbiased estimators
 
