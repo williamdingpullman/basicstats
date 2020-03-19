@@ -405,7 +405,9 @@ If $T$ is an unbiased estimator of $\tau(\theta)$, then the Cramer-Rao lower bou
 
 $$Var(T)=\frac{[\tau^{'}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}$$
 
-For instance, consider a random sample from an exponential distribution, $X_i \sim Exp(\theta)$. Because
+__Example:__
+
+Consider a random sample from an exponential distribution, $X_i \sim Exp(\theta)$. Because
 
 $$f(x; \theta)=\frac{1}{\theta} e^{-\frac{x}{\theta}}$$
 
@@ -461,6 +463,29 @@ if $T^*$ is an efficient estimator of $\tau(\theta)$.
 Thus, __an effecient estimator is just a UMVUE.__
 
 
+__Example:__
+
+_P.233 Example 7.2.2_
+_P.303 Example 9.3.2_
+_P.309 Example 9.3.7_
+
+Let $X_1,X_2,...,X_n$ sample from $X_i \sim EXP(\theta)$. We know that 
+
+$$X_{1:n}=EXP(\theta/n)$$
+
+Thus,
+
+$$E(nX_{1:n})=nE(X_{1:n})=n\frac{\theta}{n}=\theta$$
+Thus,
+
+$$nX_{1:n}$$
+is the unbiased estimator for $\theta$.
+
+
+Thus,
+
+$$re(T,T^*)=\frac{Var(T^*)}{Var(T)}=\frac{Var(\bar{X})}{Var(nX_{1:n})}=\frac{\theta^2/n}{n^2Var(X_{1:n})}=\frac{\theta^2/n}{n^2(\theta/n)^2}=\frac{\theta^2/n}{\theta^2}=\frac{1}{n}$$
+Thus, $T^*=\bar{X}$ is a more efficient estimator for $\theta$ than $T=nX_{1:n}$.
 
 
 ### Asymptotic properties of MLEs

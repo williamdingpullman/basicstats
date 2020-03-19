@@ -483,7 +483,8 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <h4><span class="header-section-number">2.2.7.2</span> Cramer-Rao lower bound</h4>
 <p>If <span class="math inline">\(T\)</span> is an unbiased estimator of <span class="math inline">\(\tau(\theta)\)</span>, then the Cramer-Rao lower bound (CRLB), based on a random sample, is</p>
 <p><span class="math display">\[Var(T)=\frac{[\tau^{&#39;}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}\]</span></p>
-<p>For instance, consider a random sample from an exponential distribution, <span class="math inline">\(X_i \sim Exp(\theta)\)</span>. Because</p>
+<p><strong>Example:</strong></p>
+<p>Consider a random sample from an exponential distribution, <span class="math inline">\(X_i \sim Exp(\theta)\)</span>. Because</p>
 <p><span class="math display">\[f(x; \theta)=\frac{1}{\theta} e^{-\frac{x}{\theta}}\]</span></p>
 <p>Thus,</p>
 <p><span class="math display">\[ln(f(x;\theta))=-\frac{x}{\theta}-ln \theta\]</span></p>
@@ -517,6 +518,20 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <p><span class="math display">\[e(T)=re(T, T^*)\]</span></p>
 <p>if <span class="math inline">\(T^*\)</span> is an efficient estimator of <span class="math inline">\(\tau(\theta)\)</span>.</p>
 <p>Thus, <strong>an effecient estimator is just a UMVUE.</strong></p>
+<p><strong>Example:</strong></p>
+<p><em>P.233 Example 7.2.2</em>
+<em>P.303 Example 9.3.2</em>
+<em>P.309 Example 9.3.7</em></p>
+<p>Let <span class="math inline">\(X_1,X_2,...,X_n\)</span> sample from <span class="math inline">\(X_i \sim EXP(\theta)\)</span>. We know that</p>
+<p><span class="math display">\[X_{1:n}=EXP(\theta/n)\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[E(nX_{1:n})=nE(X_{1:n})=n\frac{\theta}{n}=\theta\]</span>
+Thus,</p>
+<p><span class="math display">\[nX_{1:n}\]</span>
+is the unbiased estimator for <span class="math inline">\(\theta\)</span>.</p>
+<p>Thus,</p>
+<p><span class="math display">\[re(T,T^*)=\frac{Var(T^*)}{Var(T)}=\frac{Var(\bar{X})}{Var(nX_{1:n})}=\frac{\theta^2/n}{n^2Var(X_{1:n})}=\frac{\theta^2/n}{n^2(\theta/n)^2}=\frac{\theta^2/n}{\theta^2}=\frac{1}{n}\]</span>
+Thus, <span class="math inline">\(T^*=\bar{X}\)</span> is a more efficient estimator for <span class="math inline">\(\theta\)</span> than <span class="math inline">\(T=nX_{1:n}\)</span>.</p>
 </div>
 <div id="asymptotic-properties-of-mles" class="section level3">
 <h3><span class="header-section-number">2.2.12</span> Asymptotic properties of MLEs</h3>

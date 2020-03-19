@@ -735,7 +735,9 @@ If \(T\) is an unbiased estimator of \(\tau(\theta)\), then the Cramer-Rao lower
 
 \[Var(T)=\frac{[\tau^{'}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}\]
 
-For instance, consider a random sample from an exponential distribution, \(X_i \sim Exp(\theta)\). Because
+\textbf{Example:}
+
+Consider a random sample from an exponential distribution, \(X_i \sim Exp(\theta)\). Because
 
 \[f(x; \theta)=\frac{1}{\theta} e^{-\frac{x}{\theta}}\]
 
@@ -788,6 +790,29 @@ An unbiased estimator \(T^*\) of \(\tau(\theta)\) is said to be efficient if \(r
 if \(T^*\) is an efficient estimator of \(\tau(\theta)\).
 
 Thus, \textbf{an effecient estimator is just a UMVUE.}
+
+\textbf{Example:}
+
+\emph{P.233 Example 7.2.2}
+\emph{P.303 Example 9.3.2}
+\emph{P.309 Example 9.3.7}
+
+Let \(X_1,X_2,...,X_n\) sample from \(X_i \sim EXP(\theta)\). We know that
+
+\[X_{1:n}=EXP(\theta/n)\]
+
+Thus,
+
+\[E(nX_{1:n})=nE(X_{1:n})=n\frac{\theta}{n}=\theta\]
+Thus,
+
+\[nX_{1:n}\]
+is the unbiased estimator for \(\theta\).
+
+Thus,
+
+\[re(T,T^*)=\frac{Var(T^*)}{Var(T)}=\frac{Var(\bar{X})}{Var(nX_{1:n})}=\frac{\theta^2/n}{n^2Var(X_{1:n})}=\frac{\theta^2/n}{n^2(\theta/n)^2}=\frac{\theta^2/n}{\theta^2}=\frac{1}{n}\]
+Thus, \(T^*=\bar{X}\) is a more efficient estimator for \(\theta\) than \(T=nX_{1:n}\).
 
 \hypertarget{asymptotic-properties-of-mles}{%
 \subsection{Asymptotic properties of MLEs}\label{asymptotic-properties-of-mles}}
@@ -1470,9 +1495,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 1.997942
-## [2,] 1.092257
-## [3,] 2.035520
+## [1,] 1.978189
+## [2,] 1.018094
+## [3,] 2.052522
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1633,7 +1658,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.405635  3.237926  3.898511
+## [1] -0.9168421  4.0050315  3.2902455
 \end{verbatim}
 
 \begin{Shaded}
@@ -1644,7 +1669,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.252502 1.885544 3.469925
+## [1] 1.052322 3.568716 3.025881
 \end{verbatim}
 
 \begin{Shaded}
@@ -1655,10 +1680,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##              [,1]         [,2]      [,3]
-## [1,]  1.252501567 -0.002790194 0.7580959
-## [2,] -0.002790194  1.885544423 0.6353003
-## [3,]  0.758095939  0.635300304 3.4699251
+##            [,1]       [,2]       [,3]
+## [1,]  1.0523217 -1.3797404 -0.1480202
+## [2,] -1.3797404  3.5687161 -0.4326203
+## [3,] -0.1480202 -0.4326203  3.0258814
 \end{verbatim}
 
 \hypertarget{example-2}{%
