@@ -916,11 +916,11 @@ Thus,
 
 \emph{P.335}
 
-\textbf{Sufficient statistic}
+\textbf{Sufficient statistic:}
 
 A statistic \(S\) will be consiered a ``sufficient'' statistic for a parameter \(\theta\) if the conditional distribution of any other statistic \(T\) given the value of \(S\) does not involve \(\theta\).
 
-\textbf{Jointly sufficient statistics}
+\textbf{Jointly sufficient statistics:}
 
 Let \(X=(X_1,...,X_n)\) have joint pdf \(f(x,\theta)\), and let \(S=(S_1,...,S_k)\) be a k-dimensional statistic.
 
@@ -930,16 +930,40 @@ In the one-dimension case, we simply say that \(S\) is a sufficient statistic fo
 
 If \(k\) unknown parameters are present in the model, then quite often there will exist a set of \(k\) sufficient statistics. In some cases, the number of sufficient statistics will exceed the number of parameters.
 
-\textbf{Minimal sufficient}
+\textbf{Minimal sufficient:}
 
 A set of statistics is called a \textbf{minimal sufficient} set if the members of the set are jointly sufficient for the parameters and if they are a function of every other set of jointly sufficient statistics.
 
-\_\_
-
 \textbf{In other words, once the value of a sufficient statistic is known, the observed value of any other statistic does not contain any further inforamtion about the parameter.}
+
+\textbf{Example:}
+
+\emph{P.339}
+
+Assume a random sample from an exponential distribution, \(X_i \sim EXP(\theta)\). It follows that
+
+\[f(x_1,...,x_n; \theta)=\frac{1}{\theta^n} e^{-\frac{\sum X_i}{\theta}}\]
+which suggests checking the stastic \(S=\sum X_i\). We know that \(S \sim GAM(\theta,n)\), thus
+
+\[f_S(s; \theta)=\frac{1}{\theta^n \Gamma(n)}s^{n-1}e^{-\frac{s}{n}}\]
+
+If \(s=\sum x_i\), then,
+
+\[\frac{f(x_1,...,x_n; \theta)}{f_S(s;\theta)}=\frac{\Gamma(n)}{s^{n-1}}\]
+
+which is free of \(\theta\), and thus by definition S is sufficient for \(\theta\).
 
 \hypertarget{neyman-factorization-theorem-minimal-sufficiency-of-mles}{%
 \subsection{Neyman factorization theorem, minimal sufficiency of MLEs}\label{neyman-factorization-theorem-minimal-sufficiency-of-mles}}
+
+\textbf{Factorization criterion:}
+
+If \(X_1,...,X_n\) have joint pdf \(f(x_1,...,x_n; \theta)\), and if \(S=(S_1,...,S_n)\), then \(S_1,...,S_k\) are joinly sufficient for \(\theta\) if and only if
+
+\[f(x_1,...x_n; \theta)=g(s;\theta)h(x_1,...,x_n)\]
+where \(g(s;\theta)\) does not depend on \(x_1,...,x_n\), except through \(s\), and \(h(x_1,...,x_n)\) does not involve \(\theta\).
+
+\textbf{Example 1:}
 
 \hypertarget{completeness-lehmann-scheffe-completeness-theorem}{%
 \subsection{completeness, Lehmann-Scheffe completeness theorem}\label{completeness-lehmann-scheffe-completeness-theorem}}
@@ -1610,9 +1634,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 2.028046
-## [2,] 1.022012
-## [3,] 2.062159
+## [1,] 1.940647
+## [2,] 1.057231
+## [3,] 1.990939
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1773,7 +1797,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.971996  4.263349  1.984743
+## [1] -1.318190  3.435225  3.106621
 \end{verbatim}
 
 \begin{Shaded}
@@ -1784,7 +1808,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.317352 4.481039 6.082601
+## [1] 1.483805 5.337909 3.442617
 \end{verbatim}
 
 \begin{Shaded}
@@ -1795,10 +1819,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]       [,3]
-## [1,]  1.3173523 -1.2950456 -0.3526793
-## [2,] -1.2950456  4.4810386  0.6337205
-## [3,] -0.3526793  0.6337205  6.0826012
+##            [,1]      [,2]      [,3]
+## [1,]  1.4838054 -1.343430 0.1952199
+## [2,] -1.3434304  5.337909 2.0863609
+## [3,]  0.1952199  2.086361 3.4426168
 \end{verbatim}
 
 \hypertarget{example-2}{%

@@ -590,12 +590,13 @@ $$\sqrt{n}\frac{\hat{\theta_n}-\theta}{\theta}\sim N(0,1)$$
 
 _P.335_
 
-__Sufficient statistic__
+__Sufficient statistic:__
 
 A statistic $S$ will be consiered a "sufficient" statistic for a parameter $\theta$ if the conditional distribution of any other statistic $T$ given the value of $S$ does not involve $\theta$.
 
 
-__Jointly sufficient statistics__
+
+__Jointly sufficient statistics:__
 
 Let $X=(X_1,...,X_n)$ have joint pdf $f(x,\theta)$, and let $S=(S_1,...,S_k)$ be a k-dimensional statistic. 
 
@@ -605,16 +606,45 @@ In the one-dimension case, we simply say that $S$ is a sufficient statistic for 
 
 If $k$ unknown parameters are present in the model, then quite often there will exist a set of $k$ sufficient statistics. In some cases, the number of sufficient statistics will exceed the number of parameters.
 
-__Minimal sufficient__
+
+
+__Minimal sufficient:__
 
 A set of statistics is called a __minimal sufficient__ set if the members of the set are jointly sufficient for the parameters and if they are a function of every other set of jointly sufficient statistics. 
-
-__
 
 
 __In other words, once the value of a sufficient statistic is known, the observed value of any other statistic does not contain any further inforamtion about the parameter.__
 
+__Example:__
+
+_P.339_
+
+Assume a random sample from an exponential distribution, $X_i \sim EXP(\theta)$. It follows that
+
+$$f(x_1,...,x_n; \theta)=\frac{1}{\theta^n} e^{-\frac{\sum X_i}{\theta}}$$
+which suggests checking the stastic $S=\sum X_i$. We know that $S \sim GAM(\theta,n)$, thus
+
+$$f_S(s; \theta)=\frac{1}{\theta^n \Gamma(n)}s^{n-1}e^{-\frac{s}{n}}$$
+
+If $s=\sum x_i$, then,
+
+$$\frac{f(x_1,...,x_n; \theta)}{f_S(s;\theta)}=\frac{\Gamma(n)}{s^{n-1}}$$
+
+which is free of $\theta$, and thus by definition S is sufficient for $\theta$.
+
+
 ### Neyman factorization theorem, minimal sufficiency of MLEs
+
+__Factorization criterion:__
+
+If $X_1,...,X_n$ have joint pdf $f(x_1,...,x_n; \theta)$, and if $S=(S_1,...,S_n)$, then $S_1,...,S_k$ are joinly sufficient for $\theta$ if and only if 
+
+$$f(x_1,...x_n; \theta)=g(s;\theta)h(x_1,...,x_n)$$
+where $g(s;\theta)$ does not depend on $x_1,...,x_n$, except through $s$, and $h(x_1,...,x_n)$ does not involve $\theta$.
+
+__Example 1:__
+
+
 
 ### completeness, Lehmann-Scheffe completeness theorem
 

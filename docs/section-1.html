@@ -592,20 +592,33 @@ The sequence <span class="math inline">\(\{T_n^*\}\)</span> is said to asymptoti
 <div id="sufficiency-and-minimal-sufficiency" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Sufficiency and minimal sufficiency</h3>
 <p><em>P.335</em></p>
-<p><strong>Sufficient statistic</strong></p>
+<p><strong>Sufficient statistic:</strong></p>
 <p>A statistic <span class="math inline">\(S\)</span> will be consiered a “sufficient” statistic for a parameter <span class="math inline">\(\theta\)</span> if the conditional distribution of any other statistic <span class="math inline">\(T\)</span> given the value of <span class="math inline">\(S\)</span> does not involve <span class="math inline">\(\theta\)</span>.</p>
-<p><strong>Jointly sufficient statistics</strong></p>
+<p><strong>Jointly sufficient statistics:</strong></p>
 <p>Let <span class="math inline">\(X=(X_1,...,X_n)\)</span> have joint pdf <span class="math inline">\(f(x,\theta)\)</span>, and let <span class="math inline">\(S=(S_1,...,S_k)\)</span> be a k-dimensional statistic.</p>
 <p>Then, <span class="math inline">\(S_1,...,S_k\)</span> is a set of <strong>jointly sufficient statistics</strong> for <span class="math inline">\(\theta\)</span> if for any other vector of statistics, <span class="math inline">\(T\)</span>, the conditional pdf of <span class="math inline">\(T\)</span> given <span class="math inline">\(S=s\)</span>, denoted by <span class="math inline">\(f_{T|s}(t)\)</span>, does not depend on <span class="math inline">\(\theta\)</span>.</p>
 <p>In the one-dimension case, we simply say that <span class="math inline">\(S\)</span> is a sufficient statistic for <span class="math inline">\(\theta\)</span>.</p>
 <p>If <span class="math inline">\(k\)</span> unknown parameters are present in the model, then quite often there will exist a set of <span class="math inline">\(k\)</span> sufficient statistics. In some cases, the number of sufficient statistics will exceed the number of parameters.</p>
-<p><strong>Minimal sufficient</strong></p>
+<p><strong>Minimal sufficient:</strong></p>
 <p>A set of statistics is called a <strong>minimal sufficient</strong> set if the members of the set are jointly sufficient for the parameters and if they are a function of every other set of jointly sufficient statistics.</p>
-<p>__</p>
 <p><strong>In other words, once the value of a sufficient statistic is known, the observed value of any other statistic does not contain any further inforamtion about the parameter.</strong></p>
+<p><strong>Example:</strong></p>
+<p><em>P.339</em></p>
+<p>Assume a random sample from an exponential distribution, <span class="math inline">\(X_i \sim EXP(\theta)\)</span>. It follows that</p>
+<p><span class="math display">\[f(x_1,...,x_n; \theta)=\frac{1}{\theta^n} e^{-\frac{\sum X_i}{\theta}}\]</span>
+which suggests checking the stastic <span class="math inline">\(S=\sum X_i\)</span>. We know that <span class="math inline">\(S \sim GAM(\theta,n)\)</span>, thus</p>
+<p><span class="math display">\[f_S(s; \theta)=\frac{1}{\theta^n \Gamma(n)}s^{n-1}e^{-\frac{s}{n}}\]</span></p>
+<p>If <span class="math inline">\(s=\sum x_i\)</span>, then,</p>
+<p><span class="math display">\[\frac{f(x_1,...,x_n; \theta)}{f_S(s;\theta)}=\frac{\Gamma(n)}{s^{n-1}}\]</span></p>
+<p>which is free of <span class="math inline">\(\theta\)</span>, and thus by definition S is sufficient for <span class="math inline">\(\theta\)</span>.</p>
 </div>
 <div id="neyman-factorization-theorem-minimal-sufficiency-of-mles" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Neyman factorization theorem, minimal sufficiency of MLEs</h3>
+<p><strong>Factorization criterion:</strong></p>
+<p>If <span class="math inline">\(X_1,...,X_n\)</span> have joint pdf <span class="math inline">\(f(x_1,...,x_n; \theta)\)</span>, and if <span class="math inline">\(S=(S_1,...,S_n)\)</span>, then <span class="math inline">\(S_1,...,S_k\)</span> are joinly sufficient for <span class="math inline">\(\theta\)</span> if and only if</p>
+<p><span class="math display">\[f(x_1,...x_n; \theta)=g(s;\theta)h(x_1,...,x_n)\]</span>
+where <span class="math inline">\(g(s;\theta)\)</span> does not depend on <span class="math inline">\(x_1,...,x_n\)</span>, except through <span class="math inline">\(s\)</span>, and <span class="math inline">\(h(x_1,...,x_n)\)</span> does not involve <span class="math inline">\(\theta\)</span>.</p>
+<p><strong>Example 1:</strong></p>
 </div>
 <div id="completeness-lehmann-scheffe-completeness-theorem" class="section level3">
 <h3><span class="header-section-number">2.3.3</span> completeness, Lehmann-Scheffe completeness theorem</h3>
