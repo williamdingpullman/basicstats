@@ -453,7 +453,7 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <div id="unbiased-estimators-vs.-invariance-property-of-mles" class="section level3">
 <h3><span class="header-section-number">2.2.6</span> Unbiased estimators vs. Invariance property of MLEs</h3>
 <p><strong>Do not apply “Invariance property of MLEs” to the Unbiased estimators.</strong></p>
-<p>( <strong>Note that:</strong> YOu can apply the Invariance property to “Unbiased estimators” when it is a linear combination. In that case, <span class="math inline">\(E(a\theta+b)=aE(\theta)+b\)</span>. Thus, if you find a <span class="math inline">\(T\)</span> that is a unbiased estimator for <span class="math inline">\(\theta\)</span>, it should be unbiased estimator for <span class="math inline">\(a\theta+b\)</span> as well. Thus, note that <span class="math inline">\(\frac{1}{\theta}\)</span> is not a linear combination of <span class="math inline">\(\theta\)</span>, thus <span class="math inline">\(\frac{1}{\theta}\)</span> has a very different estimator, compared to <span class="math inline">\(\theta\)</span>.)</p>
+<p>( <strong>Note that:</strong> You can apply the Invariance property to “Unbiased estimators” when it is a linear combination. In that case, <span class="math inline">\(E(a\theta+b)=aE(\theta)+b\)</span>. Thus, if you find a <span class="math inline">\(T\)</span> that is a unbiased estimator for <span class="math inline">\(\theta\)</span>, it should be unbiased estimator for <span class="math inline">\(a\theta+b\)</span> as well. Thus, note that <span class="math inline">\(\frac{1}{\theta}\)</span> is not a linear combination of <span class="math inline">\(\theta\)</span>, thus <span class="math inline">\(\frac{1}{\theta}\)</span> has a very different estimator, compared to <span class="math inline">\(\theta\)</span>.)</p>
 <p><em>P.303</em></p>
 <p>For example, consider a random sample of size <span class="math inline">\(n\)</span> from an exponential distribution, <span class="math inline">\(X_i \sim EXP(\theta)\)</span>, with parameter <span class="math inline">\(\theta\)</span>. We know that, <span class="math inline">\(\bar{X}\)</span> is unbiased for <span class="math inline">\(\theta\)</span> (which is the mean of an exponential distribution).</p>
 <p>If we want to estimate <span class="math inline">\(\tau(\theta)=\frac{1}{\theta}\)</span>, then by the invariance property of MLE is <span class="math inline">\(T_1=\frac{1}{\bar{X}}\)</span>.</p>
@@ -566,12 +566,43 @@ The sequence <span class="math inline">\(\{T_n^*\}\)</span> is said to asymptoti
 </div>
 <div id="asymptotic-properties-of-mles" class="section level3">
 <h3><span class="header-section-number">2.2.13</span> Asymptotic properties of MLEs</h3>
+<p><em>P.316</em></p>
+<p>If certain regularity conditions are satisfied, then the solutions, <span class="math inline">\(\hat{\theta}\)</span>, of the MLE have the following properties:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\hat{\theta_n}\)</span> exists and is unique.</p></li>
+<li><p><span class="math inline">\(\hat{\theta_n}\)</span> is a consistent estimator of <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p><span class="math inline">\(\hat{\theta_n}\)</span> is asymptotically normal with asymptotic mean <span class="math inline">\(\theta\)</span> and variance</p></li>
+</ol>
+<p><span class="math display">\[\frac{1}{2}E[\frac{\partial}{\partial\theta}ln \; f(X;\theta)]^2\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li><span class="math inline">\(\hat{\theta}\)</span> is asymptotically efficient.</li>
+</ol>
+<p>Note that the asymptotic efficiency of <span class="math inline">\(\hat{\theta}\)</span> follows from the fact that the asymptotic variance is the same as the <strong>CRLB</strong> for unbiased estimators of <span class="math inline">\(\theta\)</span>. Thus, for large <span class="math inline">\(n\)</span>, approximately</p>
+<p><span class="math display">\[\hat{\theta_n} \sim N(\theta, CRLB)\]</span></p>
+<p><strong>Example</strong></p>
+<p><em>P.317</em></p>
+<p>From Example 9.2.7, we know the MLE of the mean <span class="math inline">\(\theta\)</span> of an exponential distribution is the sample mean, <span class="math inline">\(\hat{\theta_n}=\bar{X}\)</span>.</p>
+<p>We can infer the same asymptotic properties either from the discussion above or from the Central Limit Theorem. That is, <span class="math inline">\(\hat{\theta_n}\)</span> is asymptotically normal with asymptotic mean <span class="math inline">\(\theta\)</span> and variance <span class="math inline">\(\theta^2/n\)</span>. From example 9.3.4, we know that <span class="math inline">\(CRLB=\theta^2/n\)</span>.</p>
+<p>Thus,</p>
+<p><span class="math display">\[\sqrt{n}\frac{\hat{\theta_n}-\theta}{\theta}\sim N(0,1)\]</span></p>
 </div>
 </div>
 <div id="sufficient-and-completeness" class="section level2">
 <h2><span class="header-section-number">2.3</span> Sufficient and completeness</h2>
 <div id="sufficiency-and-minimal-sufficiency" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Sufficiency and minimal sufficiency</h3>
+<p><em>P.335</em></p>
+<p><strong>Sufficient statistic</strong></p>
+<p>A statistic <span class="math inline">\(S\)</span> will be consiered a “sufficient” statistic for a parameter <span class="math inline">\(\theta\)</span> if the conditional distribution of any other statistic <span class="math inline">\(T\)</span> given the value of <span class="math inline">\(S\)</span> does not involve <span class="math inline">\(\theta\)</span>.</p>
+<p><strong>Jointly sufficient statistics</strong></p>
+<p>Let <span class="math inline">\(X=(X_1,...,X_n)\)</span> have joint pdf <span class="math inline">\(f(x,\theta)\)</span>, and let <span class="math inline">\(S=(S_1,...,S_k)\)</span> be a k-dimensional statistic.</p>
+<p>Then, <span class="math inline">\(S_1,...,S_k\)</span> is a set of <strong>jointly sufficient statistics</strong> for <span class="math inline">\(\theta\)</span> if for any other vector of statistics, <span class="math inline">\(T\)</span>, the conditional pdf of <span class="math inline">\(T\)</span> given <span class="math inline">\(S=s\)</span>, denoted by <span class="math inline">\(f_{T|s}(t)\)</span>, does not depend on <span class="math inline">\(\theta\)</span>.</p>
+<p>In the one-dimension case, we simply say that <span class="math inline">\(S\)</span> is a sufficient statistic for <span class="math inline">\(\theta\)</span>.</p>
+<p>If <span class="math inline">\(k\)</span> unknown parameters are present in the model, then quite often there will exist a set of <span class="math inline">\(k\)</span> sufficient statistics. In some cases, the number of sufficient statistics will exceed the number of parameters.</p>
+<p><strong>Minimal sufficient</strong></p>
+<p>A set of statistics is called a <strong>minimal sufficient</strong> set if the members of the set are jointly sufficient for the parameters and if they are a function of every other set of jointly sufficient statistics.</p>
+<p>__</p>
+<p><strong>In other words, once the value of a sufficient statistic is known, the observed value of any other statistic does not contain any further inforamtion about the parameter.</strong></p>
 </div>
 <div id="neyman-factorization-theorem-minimal-sufficiency-of-mles" class="section level3">
 <h3><span class="header-section-number">2.3.2</span> Neyman factorization theorem, minimal sufficiency of MLEs</h3>

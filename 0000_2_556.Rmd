@@ -1,3 +1,4 @@
+                                                                            # 556
 # 556
 
 ## Statistics and Sampling Distributions
@@ -354,7 +355,7 @@ Thus, $T=\bar{X}+4.94$ is the unbiased estimator of $\tau(\mu)=\mu+4.94$.
 
 __Do not apply "Invariance property of MLEs" to the Unbiased estimators.__
 
-( __Note that:__ YOu can apply the Invariance property to "Unbiased estimators" when it is a linear combination. In that case, $E(a\theta+b)=aE(\theta)+b$. Thus, if you find a $T$ that is a unbiased estimator for $\theta$, it should be unbiased estimator for $a\theta+b$ as well. Thus, note that $\frac{1}{\theta}$ is not a linear combination of $\theta$, thus $\frac{1}{\theta}$ has a very different estimator, compared to $\theta$.)
+( __Note that:__ You can apply the Invariance property to "Unbiased estimators" when it is a linear combination. In that case, $E(a\theta+b)=aE(\theta)+b$. Thus, if you find a $T$ that is a unbiased estimator for $\theta$, it should be unbiased estimator for $a\theta+b$ as well. Thus, note that $\frac{1}{\theta}$ is not a linear combination of $\theta$, thus $\frac{1}{\theta}$ has a very different estimator, compared to $\theta$.)
 
 _P.303_
 
@@ -553,11 +554,65 @@ The sequence $\{T_n^*\}$ is said to asymptotically efficient if $are\{T_n, T_n^*
 
 ### Asymptotic properties of MLEs
 
+_P.316_
 
+If certain regularity conditions are satisfied, then the solutions, $\hat{\theta}$, of the MLE have the following properties:
+
+(1) $\hat{\theta_n}$ exists and is unique.
+
+(2) $\hat{\theta_n}$ is a consistent estimator of $\theta$.
+
+(3) $\hat{\theta_n}$ is asymptotically normal with asymptotic mean $\theta$ and variance 
+
+$$\frac{1}{2}E[\frac{\partial}{\partial\theta}ln \; f(X;\theta)]^2$$
+
+(4) $\hat{\theta}$ is asymptotically efficient.
+
+Note that the asymptotic efficiency of $\hat{\theta}$ follows from the fact that the asymptotic variance is the same as the __CRLB__ for unbiased estimators of $\theta$. Thus, for large $n$, approximately
+
+$$\hat{\theta_n} \sim N(\theta, CRLB)$$
+
+__Example__
+
+_P.317_
+
+From Example 9.2.7, we know the MLE of the mean $\theta$ of an exponential distribution is the sample mean, $\hat{\theta_n}=\bar{X}$. 
+
+We can infer the same asymptotic properties either from the discussion above or from the Central Limit Theorem. That is, $\hat{\theta_n}$ is asymptotically normal with asymptotic mean $\theta$ and variance $\theta^2/n$. From example 9.3.4, we know that $CRLB=\theta^2/n$.
+
+Thus, 
+
+$$\sqrt{n}\frac{\hat{\theta_n}-\theta}{\theta}\sim N(0,1)$$
 
 ## Sufficient and completeness
 
 ### Sufficiency and minimal sufficiency
+
+_P.335_
+
+__Sufficient statistic__
+
+A statistic $S$ will be consiered a "sufficient" statistic for a parameter $\theta$ if the conditional distribution of any other statistic $T$ given the value of $S$ does not involve $\theta$.
+
+
+__Jointly sufficient statistics__
+
+Let $X=(X_1,...,X_n)$ have joint pdf $f(x,\theta)$, and let $S=(S_1,...,S_k)$ be a k-dimensional statistic. 
+
+Then, $S_1,...,S_k$ is a set of __jointly sufficient statistics__ for $\theta$ if for any other vector of statistics, $T$, the conditional pdf of $T$ given $S=s$, denoted by $f_{T|s}(t)$, does not depend on $\theta$. 
+
+In the one-dimension case, we simply say that $S$ is a sufficient statistic for $\theta$.
+
+If $k$ unknown parameters are present in the model, then quite often there will exist a set of $k$ sufficient statistics. In some cases, the number of sufficient statistics will exceed the number of parameters.
+
+__Minimal sufficient__
+
+A set of statistics is called a __minimal sufficient__ set if the members of the set are jointly sufficient for the parameters and if they are a function of every other set of jointly sufficient statistics. 
+
+__
+
+
+__In other words, once the value of a sufficient statistic is known, the observed value of any other statistic does not contain any further inforamtion about the parameter.__
 
 ### Neyman factorization theorem, minimal sufficiency of MLEs
 
