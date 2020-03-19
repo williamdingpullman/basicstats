@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 443 | Basic Stats</title>
+  <title>Chapter 3 530_533 | Basic Stats</title>
   <meta name="description" content="The webpages are mainly about Bayesian." />
   <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 443 | Basic Stats" />
+  <meta property="og:title" content="Chapter 3 530_533 | Basic Stats" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 443 | Basic Stats" />
+  <meta name="twitter:title" content="Chapter 3 530_533 | Basic Stats" />
   
   <meta name="twitter:description" content="The webpages are mainly about Bayesian." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="section-1.html"/>
+<link rel="prev" href="section-1.html"/>
+<link rel="next" href="section-3.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -257,127 +257,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="section" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> 443</h1>
-<div id="some-basic-concepts" class="section level2">
-<h2><span class="header-section-number">1.1</span> Some basic concepts</h2>
-<div id="permutation" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> Permutation</h3>
-<p>An ordered arrangement of a set of objects is known as a permutation.</p>
-<p>e.g., The number of permutations of n distinguishable objects is <span class="math inline">\(n!\)</span>.
-e.g., The number of permuations of n distinct objects taken r at a time is</p>
-<p><span class="math display">\[_{n}P_r=\frac{n!}{(n-r)!}\]</span></p>
+<div id="section-2" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> 530_533</h1>
+<div id="definition-of-the-general-linear-model---full-rank-less-than-full-rank" class="section level2">
+<h2><span class="header-section-number">3.1</span> Definition of the general linear model - full rank, less than full rank</h2>
 </div>
-<div id="combinations" class="section level3">
-<h3><span class="header-section-number">1.1.2</span> Combinations</h3>
-<p>If the order of the objects is not important, then one may simply be interested in the number of combinations.</p>
-<p><span class="math display">\[\binom{n}{r}=\frac{n!}{r!(n-r)!}\]</span></p>
+<div id="simple-linear-regression" class="section level2">
+<h2><span class="header-section-number">3.2</span> Simple Linear Regression</h2>
+<div id="mle-vs.-least-squares-propoerties-of-the-regression-parameters" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> MLE vs. least squares, propoerties of the regression parameters</h3>
 </div>
-<div id="partitioning" class="section level3">
-<h3><span class="header-section-number">1.1.3</span> Partitioning</h3>
-<p>The number of ways of partitioning a set of n objects into k cells with <span class="math inline">\(r_1\)</span> objects into the first cell, <span class="math inline">\(r_2\)</span> in the second cell, and so forth is</p>
-<p><span class="math display">\[\frac{n!}{r_1! r_2! ...r_k!}\]</span></p>
+<div id="assumptions-checking-assumptions" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Assumptions, checking assumptions</h3>
 </div>
 </div>
-<div id="discrete-random-variables" class="section level2">
-<h2><span class="header-section-number">1.2</span> Discrete Random Variables</h2>
-<div id="binomial" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Binomial</h3>
-<p><span class="math display">\[X\sim BIN(n,p)\]</span></p>
-<p><span class="math display">\[\binom{n}{x}P^x(1-P)^{n-x}\]</span>
-mean: <span class="math inline">\(np\)</span></p>
-<p>variance: <span class="math inline">\(npq\)</span></p>
-<p>(Note that, Bernoulli is written as <span class="math inline">\(BIN(1, p)\)</span>)</p>
+<div id="bootstrapping-used-in-linear-models" class="section level2">
+<h2><span class="header-section-number">3.3</span> Bootstrapping used in linear models</h2>
 </div>
-<div id="poisson" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Poisson</h3>
-<p><span class="math display">\[X \sim POI(\mu)\]</span>
-<span class="math display">\[\frac{e^{-\mu}\mu^x}{x!}\]</span>
-mean: <span class="math inline">\(\mu\)</span></p>
-<p>variance: <span class="math inline">\(\mu\)</span></p>
+<div id="generalized-linear-models" class="section level2">
+<h2><span class="header-section-number">3.4</span> Generalized linear models</h2>
+<div id="definition-similarities-and-differences-from-general-linear-models" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Definition, similarities and differences from general linear models</h3>
 </div>
+<div id="advantage-and-disadvantages" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Advantage and disadvantages</h3>
 </div>
-<div id="continuous-random-variables" class="section level2">
-<h2><span class="header-section-number">1.3</span> Continuous Random Variables</h2>
-<div id="uniform" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Uniform</h3>
-<p><span class="math display">\[X \sim UNIF(a,b)\]</span></p>
-<p><span class="math display">\[\frac{1}{b-a}\]</span></p>
-<p>Mean: <span class="math inline">\(\frac{a+b}{2}\)</span></p>
-<p>Variance: <span class="math inline">\(\frac{(b-a)^2}{12}\)</span></p>
-</div>
-<div id="exponential" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Exponential</h3>
-<p><span class="math display">\[X \sim EXP(\theta)\]</span></p>
-<p><span class="math display">\[\frac{1}{\theta} e^{-x/\theta}\]</span>
-Mean: <span class="math inline">\(\theta\)</span></p>
-<p>Variance: <span class="math inline">\(\theta^2\)</span></p>
-</div>
-<div id="normal" class="section level3">
-<h3><span class="header-section-number">1.3.3</span> Normal</h3>
-<p><span class="math display">\[X\sim N(\mu, \sigma^2)\]</span></p>
-<p><span class="math display">\[\frac{1}{\sqrt{2 \pi \sigma}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}\]</span></p>
-<p>Mean: <span class="math inline">\(\mu\)</span></p>
-<p>Variance" <span class="math inline">\(\sigma^2\)</span></p>
-</div>
-</div>
-<div id="large-sample-theory" class="section level2">
-<h2><span class="header-section-number">1.4</span> Large Sample Theory</h2>
-<div id="convergence-in-distribution" class="section level3">
-<h3><span class="header-section-number">1.4.1</span> Convergence in distribution</h3>
-<p><a href="https://en.wikipedia.org/wiki/Law_of_large_numbers" class="uri">https://en.wikipedia.org/wiki/Law_of_large_numbers</a></p>
-<p><span class="math display">\[\bar{X} \rightarrow \mu \; \; \; (n \rightarrow \infty)\]</span></p>
-<p><span class="math display">\[Var(\bar{X})=Var(\frac{1}{n}(X_1+...+X_n))=\frac{1}{n^2}Var(X_1+...+X_n)=\frac{n \sigma^2}{n^2}=\frac{\sigma^2}{n}\]</span></p>
-</div>
-<div id="weak-law" class="section level3">
-<h3><span class="header-section-number">1.4.2</span> Weak law</h3>
-<p>There are two different versions of the Law of Large Numbers: Strong law of large numbers and Weak law of large numbers.</p>
-<p>The weak law of large numbers: The sample average converges in probability towards the expected value.</p>
-<p><span class="math display">\[\bar{X_n} \xrightarrow{p} \mu \; \; \; (n \rightarrow \infty)\]</span>
-This, for any positive number <span class="math inline">\(\epsilon\)</span></p>
-<p><span class="math display">\[lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|&gt;\epsilon)=0\]</span></p>
-</div>
-<div id="strong-law" class="section level3">
-<h3><span class="header-section-number">1.4.3</span> Strong law</h3>
-<p><span class="math display">\[\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)\]</span>
-This is,</p>
-<p><span class="math display">\[Pr(lim_{n \rightarrow \infty} \bar{X_n}=\mu)=1\]</span></p>
-</div>
-<div id="central-limit-theorem" class="section level3">
-<h3><span class="header-section-number">1.4.4</span> Central limit theorem</h3>
-<p>If <span class="math inline">\(X_1,...,X_n\)</span> is a random sample from a distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, then the limiting distribution of</p>
-<p><span class="math display">\[Z_n=\frac{\sum_{i=1}^n X_i - n\mu}{\sqrt{n} \sigma}\]</span></p>
-<p>is the standard normal, <span class="math inline">\(Z_n \xrightarrow{d} Z \sim N(0,1)\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>.</p>
-<div id="bernoulli-law-of-large-number" class="section level4">
-<h4><span class="header-section-number">1.4.4.1</span> Bernoulli law of large number</h4>
-<p><span class="math inline">\(\hat{p_n}\)</span> converges stochasticalltly to <span class="math inline">\(p\)</span> as <span class="math inline">\(n\)</span> approchaes infinity. For example, if a coin is tossed repeatedly, and <span class="math inline">\(A=\{H\}\)</span>, then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to <span class="math inline">\(p=1/2\)</span>.</p>
-</div>
-<div id="normal-approximation-to-binomial" class="section level4">
-<h4><span class="header-section-number">1.4.4.2</span> Normal approximation to Binomial</h4>
-<p><span class="math display">\[Z_n=\frac{Y_n-np}{\sqrt{npq}} \xrightarrow{d} Z \sim N(0, 1)\]</span></p>
-<p>Example: The probability that a basketball player hits a shot is <span class="math inline">\(p=0.5\)</span>. If he takes 20 shorts, what is the probability that he hits at least 9?</p>
-<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20} &lt; 8] \\ &amp;=1- \sum_{y-0}^8 \binom{20}{y} 0.5^y0.5^{20-y} \\&amp;=0.7483 \end{aligned} \]</span></p>
-<p>A normal approximation is</p>
-<p><span class="math display">\[\begin{aligned} P[Y_{20} \geq 9] &amp;=1-P[Y_{20}&lt;8] \\ &amp;=1- \Phi(\frac{8-10}{\sqrt{5}}) \\&amp;=0.8133 \end{aligned} \]</span></p>
-</div>
-<div id="normal-approximation-to-poisson" class="section level4">
-<h4><span class="header-section-number">1.4.4.3</span> Normal approximation to Poisson</h4>
-<p><span class="math display">\[\begin{aligned} P[10\leq Y_{20} \leq 30] &amp;=P[ Y_{20} \leq 30]-P[ Y_{20} \leq 10] \\&amp;=\Phi[\frac{30.5-20}{\sqrt{20}}]-\Phi[\frac{9.5-20}{\sqrt{20}}] \\ &amp;=0.981 \end{aligned}\]</span></p>
-</div>
-</div>
-<div id="poisson-approximation-to-binomial" class="section level3">
-<h3><span class="header-section-number">1.4.5</span> Poisson approximation to binomial</h3>
-<p>We know that the mean for binomial is</p>
-<p><span class="math display">\[\mu=np \rightarrow p=\frac{\mu}{n}\]</span>
-The moment generating function for Binomial is</p>
-<p><span class="math display">\[M_n(t)=(1-p+pe^t)^n=(1+\frac{\mu (e^t-1)}{n})^n\]</span>
-<span class="math display">\[lim_{n \rightarrow \infty} M_n(t)=e^{\mu (e^t-1)}\]</span></p>
-<p>Note that the MGF for Poisson is as follows.</p>
-<p><span class="math display">\[POI(\lambda): e^{\lambda(e^t-1)}\]</span></p>
-<p>Thus,</p>
-<p><span class="math display">\[Y_n \rightarrow Y \sim POI (\mu)\]</span></p>
+<div id="logistic-and-poisson-regression" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> logistic and poisson regression</h3>
 
-<pre><code>                                                                        # 556</code></pre>
 </div>
 </div>
 </div>
@@ -386,8 +293,8 @@ The moment generating function for Binomial is</p>
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="section-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="section-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="section-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -418,7 +325,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/0000_1_443.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/0000_3_530533.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -763,9 +763,6 @@ Thus,
 \hypertarget{best-linear-unbiased-estimation-blue-or-mvlue}{%
 \subsection{Best linear unbiased estimation (BLUE or MVLUE)}\label{best-linear-unbiased-estimation-blue-or-mvlue}}
 
-\hypertarget{rao-blackwell-theorem}{%
-\subsection{Rao-Blackwell theorem}\label{rao-blackwell-theorem}}
-
 \hypertarget{consistency-asymptotic-unbiasedness}{%
 \subsection{Consistency, asymptotic unbiasedness}\label{consistency-asymptotic-unbiasedness}}
 
@@ -965,11 +962,251 @@ where \(g(s;\theta)\) does not depend on \(x_1,...,x_n\), except through \(s\), 
 
 \textbf{Example 1:}
 
-\hypertarget{completeness-lehmann-scheffe-completeness-theorem}{%
-\subsection{completeness, Lehmann-Scheffe completeness theorem}\label{completeness-lehmann-scheffe-completeness-theorem}}
+\emph{P.340}
+
+\(X_i \sim Bin(1,\theta)\). We can use factorization criterion to check its sufficient statistic.
+
+\[f(x_1,...,x_n;\theta)=\theta^{\sum x_i}(1-\theta)^{n-\sum x_i}=\theta^s(1-\theta)^{n-s}=g(s;\theta)h(x_1,...,x_n)\]
+
+where \(s=\sum X_i\) and \(h(x_1,...x_n)=1\). Thus, \(s\) is sufficient for \(\theta\).
+
+\textbf{Example 2:}
+
+\textbf{It is important to specify the regions of zero probability. The following shows that care must be exercised in this matter.}
+
+\emph{P.340}
+
+\(X_i \sim UNIF(0,\theta)\), where \(\theta\) is unknown. We get the joint \(pdf\) of \(X_1,...,X_n\) is
+
+\[f(x_1,...x_n; \theta)=\frac{1}{\theta^n}\]
+where,
+
+\[0<x_i<\theta\]
+
+It is easier to specify this \(pdf\) in terms of the minimum, \(x_{1:n}\), and maximum, \(x_{n:n}\), of \(x_1,...,x_n\). In particular,
+
+\[0< x_{1:n}  \; \; x_{n:n} <\theta\]
+
+Thus, \(x_{n:n}\) is sufficient for \(\theta\).
+
+\textbf{Example 3:}
+
+\emph{P.341}
+
+Consider a random sample from a normal distribution, \(X_i \sim N(\mu, \sigma^2)\).
+
+We know the \(pdf\) for normal is
+
+\[f=\frac{1}{\sqrt{2\pi \sigma^2 }} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}\]
+
+Thus, the joint \(pdf\) is as follows.
+
+\[f(x_1,...,x_n;\mu,\sigma^2)=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i-\mu)^2}=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i^2+\mu^2-2x_i\mu)}=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}(\sum x_i^2+n\mu^2-2\mu\sum x_i)}\]
+
+Thus, \(S_1=\sum X_i\) and \(S_2=\sum X_i^2\) are jointly sufficient for \(\theta={\mu, \sigma^2}\).
+
+\textbf{Note that,}
+
+\emph{P.341}
+
+based on \emph{P.298} , Example 9.2.10, ML estimation results in
+
+\[\hat{\mu}=\bar{x}\]
+\[\hat{\sigma^2}=\frac{\sum(x_i-\bar{x})^2}{n}\]
+
+Further, note that
+
+\[\hat{\mu}=\bar{x}=\frac{S_1}{n}\]
+
+\[\begin{aligned} \hat{\sigma^2}&=\frac{\sum(x_i-\bar{x})^2}{n}=\frac{\sum (x_i^2+\bar{x}^2-2x_i\bar{x})}{n} \\ &=\frac{\sum x_i^2+n\bar{x}^2-2\bar{x} \sum x_i}{n} \\ &=\frac{\sum x_i^2+n\bar{x}^2-2n\bar{x}^2}{n} \\&=\frac{\sum x_i^2-n\bar{x}^2}{n} \\&=\frac{\sum x_i^2}{n}-\bar{x}^2 \\ &=\frac{\sum x_i^2}{n}- (\frac{\sum x_i}{n})^2 \\ &=\frac{S_2}{n}-(\frac{S_1}{n})^2 \end{aligned}\]
+
+Thus, we can see that \(\hat{\mu}\) and \(\hat{\sigma^2}\) correspond to a one-to-one stransformation of \(S_1\) and \(S_2\), thus \(\hat{\mu}\) and \(\hat{\sigma^2}\) also are jontly sufficient for \(\mu\) and \(\sigma^2\).
+
+\hypertarget{rao-blackwell-theorem}{%
+\subsection{Rao-Blackwell theorem}\label{rao-blackwell-theorem}}
+
+Let \(X_1,...,X_n\) have joint \(pdf \; f(x_1,...,x_n; \theta)\), and let \(S=(S_1,...,S_k)\) be a vector of jointly sufficient statistics for \(\theta\). If \(T\) is any unbiased estimator of \(\tau(\theta)\), and if \(T^*=E(T|S)\), then
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(T^*\) is an unbiased estimator of \(\tau(\theta)\),
+\item
+  \(T^*\) is a function of \(S\), and
+\item
+  \(Var(T^*) \leq Var(T)\) for every \(\theta\), and \(Var(T^*) < Var(T)\) for some \(\theta\) unless \(T^*=T\) with probability 1.
+\end{enumerate}
+
+\textbf{Discussion:}
+
+\emph{P.345}
+
+"It is clear from the Rao-Blackwell theorem that if we are searching for an unbiased estimator with small variance, we may as well restrict attention to function of sufficient statistics. If any ubiased estimator exists, then there will be one that is a function of sufficient statistics, namely \(E(T|S)\), which also is unbiased and has variance at least as small or smaller. In particular, we still are interested in knowing how to find a UMVUE for a parameter, and the above theorem narrows our problem down somewhat.
+
+For instance, consider a one-parameter model \(f(x;\theta)\), and assume that a single sufficient statistic, \(S\), exists. We know that we must consider only unbiased functions of \(S\) in searching for a UMVUE. in some cases it may be possible to show that only one function of \(S\) is unbiased, and in that case we would know that it is a UMVUE.
+
+The concept of ``completeness'' is helpful in determinning unique unbiased estimators, and this concept is defined in the next section."
+
+\hypertarget{completeness}{%
+\subsection{completeness}\label{completeness}}
+
+\textbf{Completeness:}
+
+\emph{P.345}
+
+A family of density functions \(\{ f_T(t,\theta); \theta \in \Omega\}\), is called \textbf{complete} if \(E[u(T)]=0\) for all \(\theta \in \Omega\) implies \(u(T)=0\) with probability 1 for all \(\theta \in \Omega\).
+
+\emph{P.345}
+
+``This sometimes is expressed by saying that there are no nontrivial unbiased estimators of zero. In particular, it means that two different functions of \(T\) cannot have the same expected value.''
+
+For example, if \(E[u_1(T)]=\tau(\theta)\) and \(E[u_2(T)]=\tau(\theta)\), which implies \(u_1(T)-u_2(T)=0\), or \(u_1(T)=u_2(T)\) with probablity 1, if the family of density fucntions is complete. That is, any unbiased estimator is unique in this case.
+
+We mainly are interested in knowing that the family of density functions of a sufficient statistic is complete, because in that case an unbiased function of the sufficient statistic will be unique, and it must be a UMVUE by the Rao-Blackwell theorem.
+
+\hypertarget{lehmann-scheffe-completeness-theorem}{%
+\subsection{Lehmann-Scheffe completeness theorem}\label{lehmann-scheffe-completeness-theorem}}
+
+Let \(X_1,...,X_n\) have joint \(pdf \; f(x_1,...,x_n; \theta)\) and let \(S\) be a vector of jointly complete sufficient statistics for \(\theta\). If \(T^*=t^*(S)\) is a statistic that is unbiased for \(\tau(\theta)\) and a function of \(S\), then \(T^*\) is a UMVUE of \(tau(\theta)\).
+
+\textbf{Example:}
+
+\emph{P.346}
 
 \hypertarget{exponential-class-complete-sufficient-statistics}{%
 \subsection{Exponential class, complete sufficient statistics}\label{exponential-class-complete-sufficient-statistics}}
+
+A density fucntion is said to be a member of the \textbf{regular exponential class} if it can be expressed in the form
+
+\[f(x; \theta)=c(\theta)h(x)e^{\sum_{j=1}^k q_j(\theta)t_j(x)}\]
+where,
+
+\[x \in A\]
+And zero otherwise, where \(\theta=(\theta_1,...,\theta_k)\) is a vector of \(k\) unknown parameters, if the parameter space has the form
+
+\[\Omega=\{\theta | a_i \leq \theta_i \leq b_i, i=1,...k\}\]
+
+(note that \(a_i=-\infty\) and \(b_i=\infty\) are permissible values), and if it satisfies regularity conditions 1, 2, and 3a or 3b given by:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  The set \(A=\{x:f(x; \theta)>0\}\) does not depend on \(\theta\).
+\item
+  The functions \(q_j(\theta)\) are nontrivial, functionally independent, continuous fucntion of the \(\theta_i\).
+\end{enumerate}
+
+(3a) For a continuous random variable, the derivatives \(t_k^{'}(x)\) are linearly independent continous functions of \(x\) over \(A\).
+
+(3b) For a discrete random variable, the \(t_k(x)\) are nontrivial functions of \(x\) on \(A\), and none is a linear function of the others.
+
+\textbf{Example}
+
+\emph{P.348}
+
+Consider Bernoulli distribution \(X \sim Bin(1,p)\). It follows that
+
+\[\begin{aligned} f(x; p) &=p^x(1-p)^{1-x} \\ &=P^x(1-p)(1-p)^{-x} \\ &=(1-p)(1-p)^{-x}P^x \\&=(1-p)e^{ln(1-p)^{-x}P^x} \\ &=(1-p)e^{xln(\frac{p}{1-p})} \end{aligned}\]
+
+Compared to the definition of \textbf{Exponential Class} defined above, we can get the following.
+\[c(\theta)=(1-p)\]
+\[h(x)=1\]
+\[q_1(\theta)=ln(\frac{p}{1-p})\]
+\[t_1(x)=x\]
+
+\textbf{Theorem 10.4.2}
+
+\emph{P.348}
+
+If \(X_1,...,X_n\) is a random sample from a member of the regular exponential class \(REC(q_1,...,q_k)\), then the statistics
+
+\[S_1=\sum_{i=1}^n t_1(X_i),...,S_k=\sum_{i=1}^n t_k(X_i)\]
+
+are a minimal set of complete sufficient statistics for \(\theta_1,...\theta_k\).
+
+\textbf{Example 1:}
+
+\emph{P.348}
+
+Again, consider Bernoulli distribution \(X \sim Bin(1,p)\). For a random sample of size \(n\), \(t(x_i)=x_i\) and thus based on \textbf{Theorem 10.4.2 (see above)} \(S=\sum_{i=1}^n X_i\) is a complete sufficient statistic for \(p\).
+
+\textbf{How about we want to find UMVUE for \(Var(X)=p(1-p)\)?}
+
+We might try \(\bar{X}(1-\bar{X})\).
+
+\[\begin{aligned} E[\bar{X}(1-\bar{X})] &=E(\bar{X})-E(\bar{X}^2) \\ &=p-(p^2+var(\bar{X})) \\ &=p-p^2-\frac{p(1-p)}{n} \\ &=p(1-p)(1-\frac{1}{n}) \end{aligned}\]
+
+Thus,
+
+\[E[\frac{1}{1-\frac{1}{n}}\bar{X}(1-\bar{X})]=p(1-p)\]
+
+Thus, \(\frac{1}{1-\frac{1}{n}}\bar{X}(1-\bar{X})\) is the UMVUE of the \(p(1-p)\).
+
+but \textbf{why?}
+
+\textbf{Example 2:}
+
+\emph{P.349}
+
+If \(X \sim N(\mu,\sigma^2)\), then
+
+\[\begin{aligned} f(x;\mu,\sigma)&=\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}} \\ &=\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{1}{2\sigma^2}(x^2+\mu^2-2x\mu)} \\ &=\frac{1}{\sqrt{2\pi \sigma^2}}e^{-\frac{x^2}{2\sigma^2}-\frac{\mu^2}{2\sigma^2}+\frac{x\mu}{\sigma^2}} \end{aligned}\]
+
+Thus, \(S_1=\sum X_i^2\) and \(S_2=\sum X_i\) are jointly complete and sufficient statistics of \(\mu\) and \(\sigma^2\). \textbf{Refer to the normal example in the section of ``Neyman factorization theorem, minimal sufficiency of MLEs''}
+
+\textbf{Theorem 10.4.3}
+
+\emph{P.349}
+
+If a CRLB estimator \(T\) exists for \(\tau(\theta)\), then a single sufficient statistic exists, and \(T\) is a function of the sufficient statistic. Conversely, if a single sufficient statistic exists and teh CRLB exists, then a CRLB estimator exists for some \(\tau(\theta)\).
+
+\hypertarget{section-2}{%
+\chapter{530\_533}\label{section-2}}
+
+\hypertarget{definition-of-the-general-linear-model---full-rank-less-than-full-rank}{%
+\section{Definition of the general linear model - full rank, less than full rank}\label{definition-of-the-general-linear-model---full-rank-less-than-full-rank}}
+
+\hypertarget{simple-linear-regression}{%
+\section{Simple Linear Regression}\label{simple-linear-regression}}
+
+\hypertarget{mle-vs.-least-squares-propoerties-of-the-regression-parameters}{%
+\subsection{MLE vs.~least squares, propoerties of the regression parameters}\label{mle-vs.-least-squares-propoerties-of-the-regression-parameters}}
+
+\hypertarget{assumptions-checking-assumptions}{%
+\subsection{Assumptions, checking assumptions}\label{assumptions-checking-assumptions}}
+
+\hypertarget{bootstrapping-used-in-linear-models}{%
+\section{Bootstrapping used in linear models}\label{bootstrapping-used-in-linear-models}}
+
+\hypertarget{generalized-linear-models}{%
+\section{Generalized linear models}\label{generalized-linear-models}}
+
+\hypertarget{definition-similarities-and-differences-from-general-linear-models}{%
+\subsection{Definition, similarities and differences from general linear models}\label{definition-similarities-and-differences-from-general-linear-models}}
+
+\hypertarget{advantage-and-disadvantages}{%
+\subsection{Advantage and disadvantages}\label{advantage-and-disadvantages}}
+
+\hypertarget{logistic-and-poisson-regression}{%
+\subsection{logistic and poisson regression}\label{logistic-and-poisson-regression}}
+
+\hypertarget{section-3}{%
+\chapter{512}\label{section-3}}
+
+\hypertarget{completely-randomized-designs}{%
+\section{Completely randomized designs}\label{completely-randomized-designs}}
+
+\hypertarget{randomized-complete-block-designs}{%
+\section{Randomized complete block designs}\label{randomized-complete-block-designs}}
+
+\hypertarget{incomplete-block-designs}{%
+\section{incomplete block designs}\label{incomplete-block-designs}}
+
+\hypertarget{split-plot-designs}{%
+\section{Split-plot designs}\label{split-plot-designs}}
+
+\hypertarget{row-column-design-latin-square-designs}{%
+\section{Row-column design (Latin square designs)}\label{row-column-design-latin-square-designs}}
 
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
@@ -1634,9 +1871,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 1.940647
-## [2,] 1.057231
-## [3,] 1.990939
+## [1,] 1.929709
+## [2,] 1.007278
+## [3,] 1.952445
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1797,7 +2034,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.318190  3.435225  3.106621
+## [1] -2.022820  3.182124  2.178836
 \end{verbatim}
 
 \begin{Shaded}
@@ -1808,7 +2045,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.483805 5.337909 3.442617
+## [1] 1.005080 2.099021 2.239064
 \end{verbatim}
 
 \begin{Shaded}
@@ -1819,10 +2056,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]      [,3]
-## [1,]  1.4838054 -1.343430 0.1952199
-## [2,] -1.3434304  5.337909 2.0863609
-## [3,]  0.1952199  2.086361 3.4426168
+##             [,1]        [,2]        [,3]
+## [1,]  1.00508039 -0.13006437  0.06780402
+## [2,] -0.13006437  2.09902097 -0.09608461
+## [3,]  0.06780402 -0.09608461  2.23906434
 \end{verbatim}
 
 \hypertarget{example-2}{%

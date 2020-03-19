@@ -1,0 +1,23 @@
+
+# 530_533 
+
+## Definition of the general linear model - full rank, less than full rank 
+
+
+## Simple Linear Regression
+
+
+### MLE vs. least squares, propoerties of the regression parameters 
+
+### Assumptions, checking assumptions
+
+## Bootstrapping used in linear models
+
+
+## Generalized linear models
+
+### Definition, similarities and differences from general linear models
+
+### Advantage and disadvantages
+
+### logistic and poisson regression 
