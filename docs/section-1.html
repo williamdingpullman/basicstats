@@ -171,8 +171,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.8" data-path="section-1.html"><a href="section-1.html#best-linear-unbiased-estimation-blue-or-mvlue"><i class="fa fa-check"></i><b>2.2.8</b> Best linear unbiased estimation (BLUE or MVLUE)</a></li>
 <li class="chapter" data-level="2.2.9" data-path="section-1.html"><a href="section-1.html#rao-blackwell-theorem"><i class="fa fa-check"></i><b>2.2.9</b> Rao-Blackwell theorem</a></li>
 <li class="chapter" data-level="2.2.10" data-path="section-1.html"><a href="section-1.html#consistency-asymptotic-unbiasedness"><i class="fa fa-check"></i><b>2.2.10</b> Consistency, asymptotic unbiasedness</a></li>
-<li class="chapter" data-level="2.2.11" data-path="section-1.html"><a href="section-1.html#efficiency-asymptotic-efficiency"><i class="fa fa-check"></i><b>2.2.11</b> Efficiency, asymptotic efficiency</a></li>
-<li class="chapter" data-level="2.2.12" data-path="section-1.html"><a href="section-1.html#asymptotic-properties-of-mles"><i class="fa fa-check"></i><b>2.2.12</b> Asymptotic properties of MLEs</a></li>
+<li class="chapter" data-level="2.2.11" data-path="section-1.html"><a href="section-1.html#efficiency"><i class="fa fa-check"></i><b>2.2.11</b> Efficiency</a></li>
+<li class="chapter" data-level="2.2.12" data-path="section-1.html"><a href="section-1.html#asymptotic-efficiency"><i class="fa fa-check"></i><b>2.2.12</b> Asymptotic efficiency</a></li>
+<li class="chapter" data-level="2.2.13" data-path="section-1.html"><a href="section-1.html#asymptotic-properties-of-mles"><i class="fa fa-check"></i><b>2.2.13</b> Asymptotic properties of MLEs</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="section-1.html"><a href="section-1.html#sufficient-and-completeness"><i class="fa fa-check"></i><b>2.3</b> Sufficient and completeness</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="section-1.html"><a href="section-1.html#sufficiency-and-minimal-sufficiency"><i class="fa fa-check"></i><b>2.3.1</b> Sufficiency and minimal sufficiency</a></li>
@@ -436,7 +437,7 @@ Thus, we know that as <span class="math inline">\(\eta\)</span> increases, the l
 </div>
 <div id="unbiased-estimators" class="section level3">
 <h3><span class="header-section-number">2.2.5</span> Unbiased estimators</h3>
-<p>An estimator T is said to be an unbiased estimator of <span class="math inline">\(\tau(\theta)\)</span> if</p>
+<p>An estimator <span class="math inline">\(T\)</span> is said to be an unbiased estimator of <span class="math inline">\(\tau(\theta)\)</span> if</p>
 <p><span class="math display">\[E(T)=\tau(\theta)\]</span></p>
 <p>for all <span class="math inline">\(\theta \in \Omega\)</span>. Otherwise, we said that <span class="math inline">\(T\)</span> is biased stimator of <span class="math inline">\(\tau(\theta)\)</span>.</p>
 <p>For instance, if we want to estimate a percentile, say the 95th percentile of <span class="math inline">\(N(\mu,9)\)</span>. Note that the percentiles that we know are about standardized noraml (i.e., <span class="math inline">\(N(0,1)\)</span>). Thus, we need to have some calculation to get the non-standard one.</p>
@@ -452,6 +453,7 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <div id="unbiased-estimators-vs.-invariance-property-of-mles" class="section level3">
 <h3><span class="header-section-number">2.2.6</span> Unbiased estimators vs. Invariance property of MLEs</h3>
 <p><strong>Do not apply “Invariance property of MLEs” to the Unbiased estimators.</strong></p>
+<p>( <strong>Note that:</strong> YOu can apply the Invariance property to “Unbiased estimators” when it is a linear combination. In that case, <span class="math inline">\(E(a\theta+b)=aE(\theta)+b\)</span>. Thus, if you find a <span class="math inline">\(T\)</span> that is a unbiased estimator for <span class="math inline">\(\theta\)</span>, it should be unbiased estimator for <span class="math inline">\(a\theta+b\)</span> as well. Thus, note that <span class="math inline">\(\frac{1}{\theta}\)</span> is not a linear combination of <span class="math inline">\(\theta\)</span>, thus <span class="math inline">\(\frac{1}{\theta}\)</span> has a very different estimator, compared to <span class="math inline">\(\theta\)</span>.)</p>
 <p><em>P.303</em></p>
 <p>For example, consider a random sample of size <span class="math inline">\(n\)</span> from an exponential distribution, <span class="math inline">\(X_i \sim EXP(\theta)\)</span>, with parameter <span class="math inline">\(\theta\)</span>. We know that, <span class="math inline">\(\bar{X}\)</span> is unbiased for <span class="math inline">\(\theta\)</span> (which is the mean of an exponential distribution).</p>
 <p>If we want to estimate <span class="math inline">\(\tau(\theta)=\frac{1}{\theta}\)</span>, then by the invariance property of MLE is <span class="math inline">\(T_1=\frac{1}{\bar{X}}\)</span>.</p>
@@ -466,7 +468,7 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <p><span class="math display">\[E(\frac{1}{\bar{X}})=\frac{1}{n-1}\frac{n}{\theta}=\frac{n}{n-1}\frac{1}{\theta}\]</span></p>
 <p>Thus,</p>
 <p><span class="math display">\[E(\frac{n-1}{n} \frac{1}{\bar{X}})=\frac{1}{\theta}\]</span></p>
-<p><strong>Conclusion</strong></p>
+<p><strong>Conclusion:</strong></p>
 <p><span class="math inline">\(\frac{1}{\bar{X}}\)</span> is not the unbiased estimator for <span class="math inline">\(\frac{1}{\theta}\)</span>. However, we can adjust it to <span class="math inline">\(\frac{n-1}{n} \frac{1}{\bar{X}}\)</span>, which is the unbiased estimator for <span class="math inline">\(\frac{1}{\theta}\)</span>. When the sample size is big enough, we know that <span class="math inline">\(\frac{n-1}{n}\)</span> will be close to 1.</p>
 </div>
 <div id="umvue-and-cramer-rao-lower-bound" class="section level3">
@@ -508,9 +510,32 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 </div>
 <div id="consistency-asymptotic-unbiasedness" class="section level3">
 <h3><span class="header-section-number">2.2.10</span> Consistency, asymptotic unbiasedness</h3>
+<p><strong>Simple consistency:</strong></p>
+<p><em>P.311</em></p>
+<p>Let <span class="math inline">\(\{T_n\}\)</span> be a sequence of estimators of <span class="math inline">\(\tau(\theta)\)</span>. These estimators are said to be <strong>consistent</strong> estimators of <span class="math inline">\(\tau(\theta)\)</span> if for every <span class="math inline">\(\varepsilon &gt;0\)</span>,</p>
+<p><span class="math display">\[lim_{n\rightarrow \infty}P[|T_n-\tau(\theta)|&lt;\varepsilon]=1\]</span></p>
+<p>for every <span class="math inline">\(\theta \in \Omega\)</span>.</p>
+<p>In the terminology of Chapter 7, <span class="math inline">\(T_n\)</span> converges stochastically to <span class="math inline">\(\tau(\theta)\)</span>,<span class="math inline">\(T_n \xrightarrow{P} \tau(\theta)\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>. Sometimes this also is referred to as <strong>simple</strong> consistency.</p>
+<p>One interpretation of consistency is that for large sample size the estimator tends to be more concentrated about <span class="math inline">\(\tau(\theta)\)</span>, and by making <span class="math inline">\(n\)</span> sufficiently large <span class="math inline">\(T_n\)</span> can be made as concentrated as desired.</p>
+<p><strong>MSE consistency:</strong></p>
+<p>If <span class="math inline">\(\{ T_n \}\)</span> is a sequence of estimator of <span class="math inline">\(\tau(\theta)\)</span>, then they are called <strong>mean squared error consistent</strong> if</p>
+<p><span class="math display">\[lim_{n\rightarrow \infty} E[T_n - \tau(\theta)]^2=0\]</span></p>
+<p>for every <span class="math inline">\(\theta \in \Omega\)</span>.</p>
+<p><strong>Asymptotic Unbiased</strong></p>
+<p>A sequence <span class="math inline">\(\{ T_n \}\)</span> is said to be <strong>asymptotically unbiased</strong> for <span class="math inline">\(\tau(\theta)\)</span> if</p>
+<p><span class="math display">\[lim_{n\rightarrow \infty} E(T_n)=\tau(\theta)\]</span></p>
+<p>for every <span class="math inline">\(\theta \in \Omega\)</span>.</p>
+<p><strong>Example:</strong></p>
+<p><em>P.313</em></p>
+<p>For a sample from <span class="math inline">\(X_i \sim EXP(\theta)\)</span>, we know that <span class="math inline">\(T_n=1/ \bar{X}\)</span> is an MLE estimator for <span class="math inline">\(\tau(\theta)=1/\theta\)</span>. Howwever, <span class="math inline">\(T_n\)</span> is not a unbiased estimator for <span class="math inline">\(\tau(\theta)\)</span>, as</p>
+<p><span class="math display">\[E(T_n)=\frac{n}{n-1}\cdot \frac{1}{\theta}\]</span></p>
+<p>We also know that</p>
+<p><span class="math display">\[Var(T_n)=\frac{(\frac{n}{n-1})^2}{(n-2)\theta^2}\]</span></p>
+<p>Thus, while <span class="math inline">\(T_n\)</span> is not unbiased, it is asymptotically unbiased and MSE consistent for <span class="math inline">\(\tau(\theta)=\frac{1}{\theta}\)</span>.</p>
+<p><strong>Note that</strong>, MES consistency is a stronger property than simple consistency. Thus, if a sequenc <span class="math inline">\(\{T_n\}\)</span> is mean squared error consistent, it is also simply consistent.</p>
 </div>
-<div id="efficiency-asymptotic-efficiency" class="section level3">
-<h3><span class="header-section-number">2.2.11</span> Efficiency, asymptotic efficiency</h3>
+<div id="efficiency" class="section level3">
+<h3><span class="header-section-number">2.2.11</span> Efficiency</h3>
 <p><em>P.308</em></p>
 <p>The relative efficiency of an unbiased estimator <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span> to another unbiased estimator <span class="math inline">\(T^*\)</span> of <span class="math inline">\(\tau(\theta)\)</span> is given by</p>
 <p><span class="math display">\[re(T, T^*)=\frac{Var(T^*)}{Var(T)}\]</span></p>
@@ -519,9 +544,9 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <p>if <span class="math inline">\(T^*\)</span> is an efficient estimator of <span class="math inline">\(\tau(\theta)\)</span>.</p>
 <p>Thus, <strong>an effecient estimator is just a UMVUE.</strong></p>
 <p><strong>Example:</strong></p>
-<p><em>P.233 Example 7.2.2</em>
-<em>P.303 Example 9.3.2</em>
-<em>P.309 Example 9.3.7</em></p>
+<p><em>P.233 Example 7.2.2</em></p>
+<p><em>P.303 Example 9.3.2</em></p>
+<p><em>P.309 Example 9.3.7</em></p>
 <p>Let <span class="math inline">\(X_1,X_2,...,X_n\)</span> sample from <span class="math inline">\(X_i \sim EXP(\theta)\)</span>. We know that</p>
 <p><span class="math display">\[X_{1:n}=EXP(\theta/n)\]</span></p>
 <p>Thus,</p>
@@ -533,8 +558,14 @@ is the unbiased estimator for <span class="math inline">\(\theta\)</span>.</p>
 <p><span class="math display">\[re(T,T^*)=\frac{Var(T^*)}{Var(T)}=\frac{Var(\bar{X})}{Var(nX_{1:n})}=\frac{\theta^2/n}{n^2Var(X_{1:n})}=\frac{\theta^2/n}{n^2(\theta/n)^2}=\frac{\theta^2/n}{\theta^2}=\frac{1}{n}\]</span>
 Thus, <span class="math inline">\(T^*=\bar{X}\)</span> is a more efficient estimator for <span class="math inline">\(\theta\)</span> than <span class="math inline">\(T=nX_{1:n}\)</span>.</p>
 </div>
+<div id="asymptotic-efficiency" class="section level3">
+<h3><span class="header-section-number">2.2.12</span> Asymptotic efficiency</h3>
+<p>Let <span class="math inline">\(\{T_n\}\)</span> and <span class="math inline">\(\{T_n^*\}\)</span> be the two asymptotically unbiased sequences of estimators for <span class="math inline">\(\tau(\theta)\)</span>. The <strong>asymptotic relative efficiency</strong> of <span class="math inline">\(T_n\)</span>relative to <span class="math inline">\(T_n^*\)</span> is given by</p>
+<p><span class="math display">\[are(T_n,T_n^*)=lim_{n \rightarrow \infty} \frac{Var(T_n^*)}{T_n}\]</span>
+The sequence <span class="math inline">\(\{T_n^*\}\)</span> is said to asymptotically efficient if <span class="math inline">\(are\{T_n, T_n^*\} \leq 1\)</span> for all other asymptotically unbiased sequences <span class="math inline">\(\{T_n\}\)</span>, and all <span class="math inline">\(\theta \in \Omega\)</span>.</p>
+</div>
 <div id="asymptotic-properties-of-mles" class="section level3">
-<h3><span class="header-section-number">2.2.12</span> Asymptotic properties of MLEs</h3>
+<h3><span class="header-section-number">2.2.13</span> Asymptotic properties of MLEs</h3>
 </div>
 </div>
 <div id="sufficient-and-completeness" class="section level2">

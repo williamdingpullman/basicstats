@@ -653,7 +653,7 @@ We can see that ML and MME have didferent estimators for the same \(\eta\) for a
 \hypertarget{unbiased-estimators}{%
 \subsection{Unbiased estimators}\label{unbiased-estimators}}
 
-An estimator T is said to be an unbiased estimator of \(\tau(\theta)\) if
+An estimator \(T\) is said to be an unbiased estimator of \(\tau(\theta)\) if
 
 \[E(T)=\tau(\theta)\]
 
@@ -679,6 +679,8 @@ Thus, \(T=\bar{X}+4.94\) is the unbiased estimator of \(\tau(\mu)=\mu+4.94\).
 \subsection{Unbiased estimators vs.~Invariance property of MLEs}\label{unbiased-estimators-vs.-invariance-property-of-mles}}
 
 \textbf{Do not apply ``Invariance property of MLEs'' to the Unbiased estimators.}
+
+( \textbf{Note that:} YOu can apply the Invariance property to ``Unbiased estimators'' when it is a linear combination. In that case, \(E(a\theta+b)=aE(\theta)+b\). Thus, if you find a \(T\) that is a unbiased estimator for \(\theta\), it should be unbiased estimator for \(a\theta+b\) as well. Thus, note that \(\frac{1}{\theta}\) is not a linear combination of \(\theta\), thus \(\frac{1}{\theta}\) has a very different estimator, compared to \(\theta\).)
 
 \emph{P.303}
 
@@ -708,7 +710,7 @@ Thus,
 
 \[E(\frac{n-1}{n} \frac{1}{\bar{X}})=\frac{1}{\theta}\]
 
-\textbf{Conclusion}
+\textbf{Conclusion:}
 
 \(\frac{1}{\bar{X}}\) is not the unbiased estimator for \(\frac{1}{\theta}\). However, we can adjust it to \(\frac{n-1}{n} \frac{1}{\bar{X}}\), which is the unbiased estimator for \(\frac{1}{\theta}\). When the sample size is big enough, we know that \(\frac{n-1}{n}\) will be close to 1.
 
@@ -774,8 +776,54 @@ Thus,
 \hypertarget{consistency-asymptotic-unbiasedness}{%
 \subsection{Consistency, asymptotic unbiasedness}\label{consistency-asymptotic-unbiasedness}}
 
-\hypertarget{efficiency-asymptotic-efficiency}{%
-\subsection{Efficiency, asymptotic efficiency}\label{efficiency-asymptotic-efficiency}}
+\textbf{Simple consistency:}
+
+\emph{P.311}
+
+Let \(\{T_n\}\) be a sequence of estimators of \(\tau(\theta)\). These estimators are said to be \textbf{consistent} estimators of \(\tau(\theta)\) if for every \(\varepsilon >0\),
+
+\[lim_{n\rightarrow \infty}P[|T_n-\tau(\theta)|<\varepsilon]=1\]
+
+for every \(\theta \in \Omega\).
+
+In the terminology of Chapter 7, \(T_n\) converges stochastically to \(\tau(\theta)\),\(T_n \xrightarrow{P} \tau(\theta)\) as \(n \rightarrow \infty\). Sometimes this also is referred to as \textbf{simple} consistency.
+
+One interpretation of consistency is that for large sample size the estimator tends to be more concentrated about \(\tau(\theta)\), and by making \(n\) sufficiently large \(T_n\) can be made as concentrated as desired.
+
+\textbf{MSE consistency:}
+
+If \(\{ T_n \}\) is a sequence of estimator of \(\tau(\theta)\), then they are called \textbf{mean squared error consistent} if
+
+\[lim_{n\rightarrow \infty} E[T_n - \tau(\theta)]^2=0\]
+
+for every \(\theta \in \Omega\).
+
+\textbf{Asymptotic Unbiased}
+
+A sequence \(\{ T_n \}\) is said to be \textbf{asymptotically unbiased} for \(\tau(\theta)\) if
+
+\[lim_{n\rightarrow \infty} E(T_n)=\tau(\theta)\]
+
+for every \(\theta \in \Omega\).
+
+\textbf{Example:}
+
+\emph{P.313}
+
+For a sample from \(X_i \sim EXP(\theta)\), we know that \(T_n=1/ \bar{X}\) is an MLE estimator for \(\tau(\theta)=1/\theta\). Howwever, \(T_n\) is not a unbiased estimator for \(\tau(\theta)\), as
+
+\[E(T_n)=\frac{n}{n-1}\cdot \frac{1}{\theta}\]
+
+We also know that
+
+\[Var(T_n)=\frac{(\frac{n}{n-1})^2}{(n-2)\theta^2}\]
+
+Thus, while \(T_n\) is not unbiased, it is asymptotically unbiased and MSE consistent for \(\tau(\theta)=\frac{1}{\theta}\).
+
+\textbf{Note that}, MES consistency is a stronger property than simple consistency. Thus, if a sequenc \(\{T_n\}\) is mean squared error consistent, it is also simply consistent.
+
+\hypertarget{efficiency}{%
+\subsection{Efficiency}\label{efficiency}}
 
 \emph{P.308}
 
@@ -794,7 +842,9 @@ Thus, \textbf{an effecient estimator is just a UMVUE.}
 \textbf{Example:}
 
 \emph{P.233 Example 7.2.2}
+
 \emph{P.303 Example 9.3.2}
+
 \emph{P.309 Example 9.3.7}
 
 Let \(X_1,X_2,...,X_n\) sample from \(X_i \sim EXP(\theta)\). We know that
@@ -813,6 +863,14 @@ Thus,
 
 \[re(T,T^*)=\frac{Var(T^*)}{Var(T)}=\frac{Var(\bar{X})}{Var(nX_{1:n})}=\frac{\theta^2/n}{n^2Var(X_{1:n})}=\frac{\theta^2/n}{n^2(\theta/n)^2}=\frac{\theta^2/n}{\theta^2}=\frac{1}{n}\]
 Thus, \(T^*=\bar{X}\) is a more efficient estimator for \(\theta\) than \(T=nX_{1:n}\).
+
+\hypertarget{asymptotic-efficiency}{%
+\subsection{Asymptotic efficiency}\label{asymptotic-efficiency}}
+
+Let \(\{T_n\}\) and \(\{T_n^*\}\) be the two asymptotically unbiased sequences of estimators for \(\tau(\theta)\). The \textbf{asymptotic relative efficiency} of \(T_n\)relative to \(T_n^*\) is given by
+
+\[are(T_n,T_n^*)=lim_{n \rightarrow \infty} \frac{Var(T_n^*)}{T_n}\]
+The sequence \(\{T_n^*\}\) is said to asymptotically efficient if \(are\{T_n, T_n^*\} \leq 1\) for all other asymptotically unbiased sequences \(\{T_n\}\), and all \(\theta \in \Omega\).
 
 \hypertarget{asymptotic-properties-of-mles}{%
 \subsection{Asymptotic properties of MLEs}\label{asymptotic-properties-of-mles}}
@@ -1494,10 +1552,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 1.978189
-## [2,] 1.018094
-## [3,] 2.052522
+##           [,1]
+## [1,] 1.9860254
+## [2,] 0.9512251
+## [3,] 2.0046095
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -1658,7 +1716,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -0.9168421  4.0050315  3.2902455
+## [1] -2.197275  5.219809  3.442767
 \end{verbatim}
 
 \begin{Shaded}
@@ -1669,7 +1727,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.052322 3.568716 3.025881
+## [1] 1.747657 6.471943 3.746107
 \end{verbatim}
 
 \begin{Shaded}
@@ -1681,9 +1739,9 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 
 \begin{verbatim}
 ##            [,1]       [,2]       [,3]
-## [1,]  1.0523217 -1.3797404 -0.1480202
-## [2,] -1.3797404  3.5687161 -0.4326203
-## [3,] -0.1480202 -0.4326203  3.0258814
+## [1,]  1.7476573 -2.2153420 -0.7348547
+## [2,] -2.2153420  6.4719426  0.7695844
+## [3,] -0.7348547  0.7695844  3.7461071
 \end{verbatim}
 
 \hypertarget{example-2}{%

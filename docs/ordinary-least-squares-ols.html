@@ -171,8 +171,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2.8" data-path="section-1.html"><a href="section-1.html#best-linear-unbiased-estimation-blue-or-mvlue"><i class="fa fa-check"></i><b>2.2.8</b> Best linear unbiased estimation (BLUE or MVLUE)</a></li>
 <li class="chapter" data-level="2.2.9" data-path="section-1.html"><a href="section-1.html#rao-blackwell-theorem"><i class="fa fa-check"></i><b>2.2.9</b> Rao-Blackwell theorem</a></li>
 <li class="chapter" data-level="2.2.10" data-path="section-1.html"><a href="section-1.html#consistency-asymptotic-unbiasedness"><i class="fa fa-check"></i><b>2.2.10</b> Consistency, asymptotic unbiasedness</a></li>
-<li class="chapter" data-level="2.2.11" data-path="section-1.html"><a href="section-1.html#efficiency-asymptotic-efficiency"><i class="fa fa-check"></i><b>2.2.11</b> Efficiency, asymptotic efficiency</a></li>
-<li class="chapter" data-level="2.2.12" data-path="section-1.html"><a href="section-1.html#asymptotic-properties-of-mles"><i class="fa fa-check"></i><b>2.2.12</b> Asymptotic properties of MLEs</a></li>
+<li class="chapter" data-level="2.2.11" data-path="section-1.html"><a href="section-1.html#efficiency"><i class="fa fa-check"></i><b>2.2.11</b> Efficiency</a></li>
+<li class="chapter" data-level="2.2.12" data-path="section-1.html"><a href="section-1.html#asymptotic-efficiency"><i class="fa fa-check"></i><b>2.2.12</b> Asymptotic efficiency</a></li>
+<li class="chapter" data-level="2.2.13" data-path="section-1.html"><a href="section-1.html#asymptotic-properties-of-mles"><i class="fa fa-check"></i><b>2.2.13</b> Asymptotic properties of MLEs</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="section-1.html"><a href="section-1.html#sufficient-and-completeness"><i class="fa fa-check"></i><b>2.3</b> Sufficient and completeness</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="section-1.html"><a href="section-1.html#sufficiency-and-minimal-sufficiency"><i class="fa fa-check"></i><b>2.3.1</b> Sufficiency and minimal sufficiency</a></li>
@@ -287,10 +288,10 @@ y_n \\
 <a class="sourceLine" id="cb25-7" title="7">transposed_X&lt;-<span class="kw">t</span>(X)</a>
 <a class="sourceLine" id="cb25-8" title="8">beta_hat&lt;-<span class="kw">solve</span>(transposed_X<span class="op">%*%</span>X)<span class="op">%*%</span>transposed_X<span class="op">%*%</span>y</a>
 <a class="sourceLine" id="cb25-9" title="9">beta_hat</a></code></pre></div>
-<pre><code>##          [,1]
-## [1,] 1.950082
-## [2,] 1.035340
-## [3,] 2.078829</code></pre>
+<pre><code>##           [,1]
+## [1,] 2.0748494
+## [2,] 0.9913536
+## [3,] 1.9891774</code></pre>
 <p><strong>Side Notes</strong>
 The function of as.matrix will automatically make c(2,1,2) become the dimension of <span class="math inline">\(3 \times 1\)</span>, you do not need to transpose the <span class="math inline">\(\beta\)</span>.</p>
 <div id="taylor-series" class="section level2">
