@@ -309,10 +309,10 @@ y_n \\
 <a class="sourceLine" id="cb26-7" title="7">transposed_X&lt;-<span class="kw">t</span>(X)</a>
 <a class="sourceLine" id="cb26-8" title="8">beta_hat&lt;-<span class="kw">solve</span>(transposed_X<span class="op">%*%</span>X)<span class="op">%*%</span>transposed_X<span class="op">%*%</span>y</a>
 <a class="sourceLine" id="cb26-9" title="9">beta_hat</a></code></pre></div>
-<pre><code>##          [,1]
-## [1,] 2.092867
-## [2,] 1.009990
-## [3,] 1.963679</code></pre>
+<pre><code>##           [,1]
+## [1,] 2.0567554
+## [2,] 0.9011984
+## [3,] 2.0177254</code></pre>
 <p><strong>Side Notes</strong>
 The function of as.matrix will automatically make c(2,1,2) become the dimension of <span class="math inline">\(3 \times 1\)</span>, you do not need to transpose the <span class="math inline">\(\beta\)</span>.</p>
 <div id="taylor-series" class="section level2">

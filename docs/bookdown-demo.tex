@@ -120,7 +120,7 @@
 
 \title{Basic Stats}
 \author{Bill Last Updated:}
-\date{19 March, 2020}
+\date{20 March, 2020}
 
 \begin{document}
 \frontmatter
@@ -352,7 +352,9 @@ If \(X_1,..., X_n\) denotes a random sample from \(f(x)\) with \(E(X)=\mu\) and 
 
 \[Var(\bar{X})=\frac{\sigma^2}{n}\]
 
-For example, a random sample of size \(n\) from a Bernoulli distribution \(X_i \sim BIN(1,p)\). We know Bernoulli has \(\mu=p\) and \(\sigma^2 =pq\). In this case, the sample mean is
+\textbf{Example:}
+
+A random sample of size \(n\) from a Bernoulli distribution \(X_i \sim BIN(1,p)\). We know Bernoulli has \(\mu=p\) and \(\sigma^2 =pq\). In this case, the sample mean is
 
 \[\bar{X}=Y/n=\hat{p}\]
 
@@ -362,7 +364,7 @@ Thus,
 
 \[Var (\hat{p})=\frac{pq}{n}\]
 
-Thus, sample mean is the unbiased estimate for the population mean. However, you can not use sample mean's variance to estimate pupulation variance. That lead to definition of sample variance.
+Thus, sample mean is the unbiased estimate for the population mean. However, the variance of the mean is not equal to population variance. That lead to definition of sample variance.
 
 \emph{P.266}
 
@@ -372,16 +374,23 @@ Sample variance:
 
 \[E(S^2)=\sigma^2\]
 
+(Question: does it mean that sample varaince is an unbiased estimator of population variance?)
+
 \hypertarget{chi2-t-f-beta}{%
 \subsection{\texorpdfstring{\(\chi^2, t, F, beta\)}{\textbackslash chi\^{}2, t, F, beta}}\label{chi2-t-f-beta}}
 
 \hypertarget{chi2}{%
 \subsubsection{\texorpdfstring{\(\chi^2\)}{\textbackslash chi\^{}2}}\label{chi2}}
 
-Always squre from standard normal, and the standardization can be using \(\mu\) or \(\bar{X}\).
+\emph{P.271}
+
+If \(X_1,...,X_n\) denotes a random sample from \(N(\mu,\sigma^2)\), then
+
+\[\sum_{i=1}^n \frac{(X_i-\mu)^2}{\sigma^2} \sim x^2(n)\]
+\[\frac{n(\bar{X}-\mu)^2}{\sigma^2}\sim x^2(1)\]
 
 \[\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2(n-1)\]
-(Thus, we can see this is a bit weired, as the numerator is \(\bar{X}\) is from the sample, whereas \(\sigma^2\) is from the population.)
+(Thus, we can see this is a bit weired, as the numerator is \(\bar{X}\) is from the sample, whereas \(\sigma^2\) is from the population. Thus, assume we know \(\sigma^2\)?)
 
 Thus, we can
 
@@ -406,7 +415,7 @@ Definition
 
 \textbf{Property 1}
 
-\textbf{t} distribution is symmetrical
+\emph{t} distribution is symmetrical.
 
 Given that \emph{t} distribution is symmetrical, we can get
 
@@ -441,7 +450,7 @@ If \(Y_v \sim x^2(x)\), then
 
 \[Z_v =\frac{Y_v-v}{\sqrt{2v}} \xrightarrow{d} Z \sim N(0,1)\]
 
-(The proof is based on CLT.)
+(The proof is based on CLT. In addition, as disscused above, we can get chi-square from normal distributions.)
 
 \hypertarget{point-estimation}{%
 \section{Point Estimation}\label{point-estimation}}
@@ -478,6 +487,8 @@ Note that the definition of variance:
 
 \[Var(X)=E[(X-\mu)^2]\]
 
+( \textbf{Note: Based on the information above, it seems important to understand the difference between the moment of the origin and the moment of the mean.} )
+
 \hypertarget{definition}{%
 \subsubsection{Definition}\label{definition}}
 
@@ -491,7 +502,7 @@ where,
 
 \[j=1,2,...k\]
 
-\textbf{Example 1}
+\textbf{Example 1:}
 
 \emph{P.291}
 
@@ -499,11 +510,11 @@ Consider a random sample from a distribution with two unknown parameters, the me
 
 Thus,
 
-\[\hat{\sigma}^2=\mu_2^{'}-(\mu^{'}_1)^2=\frac{\sum_{i=1}^n X_i^2}{n}-\frac{\sum_{i=1}^n X_i}{n}=\frac{\sum_{i=1}^n X_i^2}{n}-\bar{X}=\sum_{i=1}^n \frac{(X_i-\bar{X})^2}{n}\]
+\[\hat{\sigma}^2=\mu_2^{'}-(\mu^{'}_1)^2=\frac{\sum_{i=1}^n X_i^2}{n}-\bar{X}^2=\sum_{i=1}^n \frac{(X_i-\bar{X})^2}{n}\]
 
-(Thus, we can see that the estimation of \(\sigma^2\) is not the same as the definition of sample variance \(S^2\). \(\hat{\sigma}^2=\frac{n-1}{n}S^2\).)
+(Thus, we can see that the MME estimation of \(\sigma^2\) is not the same as the definition of sample variance \(S^2\). \(\hat{\sigma}^2=\frac{n-1}{n}S^2\). So, the MME estimator is not an unbiased one?)
 
-\textbf{Example 2}
+\textbf{Example 2:}
 
 \emph{P.292}
 
@@ -525,6 +536,8 @@ Thus, we can get
 
 \[\hat{k}=\frac{\bar{X}}{\hat{\theta}}\]
 
+( \textbf{Note: To sum up, (1) we know how to calculate moments based on sample. And, (2) we know that connection between moment and parameter of mean and variance. Thus, combining (1) and (2), we can get the estimators for the parameters.} )
+
 \hypertarget{property}{%
 \subsubsection{Property}\label{property}}
 
@@ -541,9 +554,9 @@ where \(M_{X_i}(t_i)\) is the MGF of \(X_i\)
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
 \item
-  Bernoulli with success probability p: \(1-p+pe^t\)
+  Bernoulli with success probability \(p\): \(1-p+pe^t\)
 \item
-  Binomial Bin(n,p): \((1-p+pe^t)^n\)
+  Binomial \(Bin(n,p)\): \((1-p+pe^t)^n\)
 \item
   Poisson \(POI(\lambda)\): \(e^{\lambda(e^t-1)}\)
 \item
@@ -552,7 +565,7 @@ where \(M_{X_i}(t_i)\) is the MGF of \(X_i\)
   Gamma \(GAM(\theta,k)\): \((1-\theta t)^{-k}\)
 \end{enumerate}
 
-Two special cases:
+\textbf{Two special cases:}
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -592,7 +605,7 @@ Let \(L(\theta)=f(x_1,...x_n; \theta), \theta \in \Omega\), be the joint pdf of 
 
 If \(\hat{\theta}\) is the MLE of \(\theta\) and if \(u(\theta)\) is a function of \(\theta\), then \(u(\hat{\theta})\) is an MLE of \(u(\theta)\).
 
-\textbf{Example 1}
+\textbf{Example 1:}
 
 We know that the \(pdf\) of exponential distribution (\(X \sim EXP (\theta)\)) is as follows:
 
@@ -622,7 +635,7 @@ Thus, based on the invariance property, we know that the \(MLE\) for \(\tau(\the
 
 \emph{P.296}
 
-Assume a random sample from a two-parameter exponential distribution, \(X_i \sim EXP(1)\). Thus, the \(pdf\) is \(e^{-(x-\eta)}\). Thus, the likelihood function is
+Assume a random sample from a two-parameter exponential distribution, \(X_i \sim EXP(1,\eta)\). Thus, the \(pdf\) is \(e^{-(x-\eta)}\). Thus, the likelihood function is
 
 \[L(\eta)=e^{-\sum(x_i-\eta)}\]
 
@@ -718,7 +731,7 @@ Let \(X_1, X_2,...,X_n\) be a random sample of size \(n\) from \(f(x; \theta)\).
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
-  \(T^*\) is unbiased for \(\tau{\theta}\)
+  \(T^*\) is unbiased for \(\tau (\theta)\).
 \item
   For any other unbiased estimator \(T\) of \(\tau(\theta)\), \(Var(T^*) \leq Var(T)\) for all \(\theta \in \Omega\).
 \end{enumerate}
@@ -750,11 +763,11 @@ Thus, the CRLB for \(\tau(\theta)=\theta\) is as follows.
 
 \[Var(T) \geq \frac{[\tau^{'}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}=\frac{[\frac{\partial }{\partial \theta}\theta]^2}{n \frac{1}{\theta^2}}=\frac{1^2}{\frac{n}{\theta^2}}=\frac{\theta^2}{n}\]
 
-We know that the variance for exponential distribution
+We know that the variance for the sample mean of the exponential distribution:
 
 \[Var(\bar{X})=\frac{Var(X)}{n}=\frac{\theta^2}{n}\]
 
-We know that \(\theta\) is the mean for exponential distribution. We also know that sample mean \(\bar{X}\) is the unbiased estimator for population mean.
+In addition, we also know that sample mean \(\bar{X}\) is the unbiased estimator for population mean.
 
 Thus,
 
@@ -776,7 +789,7 @@ Let \(\{T_n\}\) be a sequence of estimators of \(\tau(\theta)\). These estimator
 
 for every \(\theta \in \Omega\).
 
-In the terminology of Chapter 7, \(T_n\) converges stochastically to \(\tau(\theta)\),\(T_n \xrightarrow{P} \tau(\theta)\) as \(n \rightarrow \infty\). Sometimes this also is referred to as \textbf{simple} consistency.
+In the terminology of Chapter 7, \(T_n\) converges \textbf{stochastically} to \(\tau(\theta)\), \(T_n \xrightarrow{P} \tau(\theta)\) as \(n \rightarrow \infty\). Sometimes this also is referred to as \textbf{simple} consistency.
 
 One interpretation of consistency is that for large sample size the estimator tends to be more concentrated about \(\tau(\theta)\), and by making \(n\) sufficiently large \(T_n\) can be made as concentrated as desired.
 
@@ -810,14 +823,14 @@ We also know that
 
 Thus, while \(T_n\) is not unbiased, it is asymptotically unbiased and MSE consistent for \(\tau(\theta)=\frac{1}{\theta}\).
 
-\textbf{Note that}, MES consistency is a stronger property than simple consistency. Thus, if a sequenc \(\{T_n\}\) is mean squared error consistent, it is also simply consistent.
+\textbf{Note that}, MSE consistency is a stronger property than simple consistency. Thus, if a sequenc \(\{T_n\}\) is mean squared error consistent, it is also simply consistent.
 
 \hypertarget{efficiency}{%
 \subsection{Efficiency}\label{efficiency}}
 
 \emph{P.308}
 
-The relative efficiency of an unbiased estimator \(T\) of \(\tau(\theta)\) to another unbiased estimator \(T^*\) of \(\tau(\theta)\) is given by
+The relative efficiency of an \textbf{unbiased} estimator \(T\) of \(\tau(\theta)\) to another \textbf{unbiased} estimator \(T^*\) of \(\tau(\theta)\) is given by
 
 \[re(T, T^*)=\frac{Var(T^*)}{Var(T)}\]
 
@@ -859,7 +872,7 @@ Thus, \(T^*=\bar{X}\) is a more efficient estimator for \(\theta\) than \(T=nX_{
 
 Let \(\{T_n\}\) and \(\{T_n^*\}\) be the two asymptotically unbiased sequences of estimators for \(\tau(\theta)\). The \textbf{asymptotic relative efficiency} of \(T_n\)relative to \(T_n^*\) is given by
 
-\[are(T_n,T_n^*)=lim_{n \rightarrow \infty} \frac{Var(T_n^*)}{T_n}\]
+\[are(T_n,T_n^*)=lim_{n \rightarrow \infty} \frac{Var(T_n^*)}{Var(T_n)}\]
 The sequence \(\{T_n^*\}\) is said to asymptotically efficient if \(are\{T_n, T_n^*\} \leq 1\) for all other asymptotically unbiased sequences \(\{T_n\}\), and all \(\theta \in \Omega\).
 
 \hypertarget{asymptotic-properties-of-mles}{%
@@ -1001,7 +1014,7 @@ We know the \(pdf\) for normal is
 
 Thus, the joint \(pdf\) is as follows.
 
-\[f(x_1,...,x_n;\mu,\sigma^2)=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i-\mu)^2}=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i^2+\mu^2-2x_i\mu)}=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}(\sum x_i^2+n\mu^2-2\mu\sum x_i)}\]
+\[\begin{aligned} f(x_1,...,x_n;\mu,\sigma^2) &=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i-\mu)^2} \\ &=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i^2+\mu^2-2x_i\mu)} \\ &=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}(\sum x_i^2+n\mu^2-2\mu\sum x_i)} \end{aligned}\]
 
 Thus, \(S_1=\sum X_i\) and \(S_2=\sum X_i^2\) are jointly sufficient for \(\theta={\mu, \sigma^2}\).
 
@@ -1041,9 +1054,11 @@ Let \(X_1,...,X_n\) have joint \(pdf \; f(x_1,...,x_n; \theta)\), and let \(S=(S
 
 \emph{P.345}
 
-"It is clear from the Rao-Blackwell theorem that if we are searching for an unbiased estimator with small variance, we may as well restrict attention to function of sufficient statistics. If any ubiased estimator exists, then there will be one that is a function of sufficient statistics, namely \(E(T|S)\), which also is unbiased and has variance at least as small or smaller. In particular, we still are interested in knowing how to find a UMVUE for a parameter, and the above theorem narrows our problem down somewhat.
+"It is clear from the Rao-Blackwell theorem that if we are searching for an unbiased estimator with small variance, we may as well restrict attention to function of sufficient statistics.
 
-For instance, consider a one-parameter model \(f(x;\theta)\), and assume that a single sufficient statistic, \(S\), exists. We know that we must consider only unbiased functions of \(S\) in searching for a UMVUE. in some cases it may be possible to show that only one function of \(S\) is unbiased, and in that case we would know that it is a UMVUE.
+If any ubiased estimator exists, then there will be one that is a function of sufficient statistics, namely \(E(T|S)\), which also is unbiased and has variance at least as small or smaller. In particular, we still are interested in knowing how to find a UMVUE for a parameter, and the above theorem narrows our problem down somewhat.
+
+For instance, consider a one-parameter model \(f(x;\theta)\), and assume that a single sufficient statistic, \(S\), exists. We know that we must consider only unbiased functions of \(S\) in searching for a UMVUE. In some cases it may be possible to show that only one function of \(S\) is unbiased, and in that case we would know that it is a UMVUE.
 
 The concept of ``completeness'' is helpful in determinning unique unbiased estimators, and this concept is defined in the next section."
 
@@ -1096,9 +1111,9 @@ And zero otherwise, where \(\theta=(\theta_1,...,\theta_k)\) is a vector of \(k\
   The functions \(q_j(\theta)\) are nontrivial, functionally independent, continuous fucntion of the \(\theta_i\).
 \end{enumerate}
 
-(3a) For a continuous random variable, the derivatives \(t_k^{'}(x)\) are linearly independent continous functions of \(x\) over \(A\).
+3a. For a continuous random variable, the derivatives \(t_k^{'}(x)\) are linearly independent continous functions of \(x\) over \(A\).
 
-(3b) For a discrete random variable, the \(t_k(x)\) are nontrivial functions of \(x\) on \(A\), and none is a linear function of the others.
+3b. For a discrete random variable, the \(t_k(x)\) are nontrivial functions of \(x\) on \(A\), and none is a linear function of the others.
 
 \textbf{Example}
 
@@ -1870,10 +1885,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 1.929709
-## [2,] 1.007278
-## [3,] 1.952445
+##           [,1]
+## [1,] 2.0499524
+## [2,] 0.9995701
+## [3,] 1.9709464
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2034,7 +2049,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.022820  3.182124  2.178836
+## [1] -1.376956  4.950311  2.705599
 \end{verbatim}
 
 \begin{Shaded}
@@ -2045,7 +2060,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.005080 2.099021 2.239064
+## [1] 1.128839 8.332503 2.434790
 \end{verbatim}
 
 \begin{Shaded}
@@ -2056,10 +2071,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]        [,2]        [,3]
-## [1,]  1.00508039 -0.13006437  0.06780402
-## [2,] -0.13006437  2.09902097 -0.09608461
-## [3,]  0.06780402 -0.09608461  2.23906434
+##             [,1]      [,2]       [,3]
+## [1,]  1.12883907 -2.059225 0.07478846
+## [2,] -2.05922518  8.332503 1.56012140
+## [3,]  0.07478846  1.560121 2.43479020
 \end{verbatim}
 
 \hypertarget{example-2}{%

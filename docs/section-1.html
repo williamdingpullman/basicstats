@@ -280,25 +280,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If <span class="math inline">\(X_1,..., X_n\)</span> denotes a random sample from <span class="math inline">\(f(x)\)</span> with <span class="math inline">\(E(X)=\mu\)</span> and <span class="math inline">\(var(X)=\sigma^2\)</span>, then</p>
 <p><span class="math display">\[E(\bar{X})=\mu\]</span></p>
 <p><span class="math display">\[Var(\bar{X})=\frac{\sigma^2}{n}\]</span></p>
-<p>For example, a random sample of size <span class="math inline">\(n\)</span> from a Bernoulli distribution <span class="math inline">\(X_i \sim BIN(1,p)\)</span>. We know Bernoulli has <span class="math inline">\(\mu=p\)</span> and <span class="math inline">\(\sigma^2 =pq\)</span>. In this case, the sample mean is</p>
+<p><strong>Example:</strong></p>
+<p>A random sample of size <span class="math inline">\(n\)</span> from a Bernoulli distribution <span class="math inline">\(X_i \sim BIN(1,p)\)</span>. We know Bernoulli has <span class="math inline">\(\mu=p\)</span> and <span class="math inline">\(\sigma^2 =pq\)</span>. In this case, the sample mean is</p>
 <p><span class="math display">\[\bar{X}=Y/n=\hat{p}\]</span></p>
 <p>Thus,</p>
 <p><span class="math display">\[E(\hat{p})=p\]</span></p>
 <p><span class="math display">\[Var (\hat{p})=\frac{pq}{n}\]</span></p>
-<p>Thus, sample mean is the unbiased estimate for the population mean. However, you can not use sample mean’s variance to estimate pupulation variance. That lead to definition of sample variance.</p>
+<p>Thus, sample mean is the unbiased estimate for the population mean. However, the variance of the mean is not equal to population variance. That lead to definition of sample variance.</p>
 <p><em>P.266</em></p>
 <p>Sample variance:</p>
 <p><span class="math display">\[S^2=\frac{1}{n-1}\sum_{i=1}^n(X_i-\bar{X})^2\]</span></p>
 <p><span class="math display">\[E(S^2)=\sigma^2\]</span></p>
+<p>(Question: does it mean that sample varaince is an unbiased estimator of population variance?)</p>
 </div>
 </div>
 <div id="chi2-t-f-beta" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> <span class="math inline">\(\chi^2, t, F, beta\)</span></h3>
 <div id="chi2" class="section level4">
 <h4><span class="header-section-number">2.1.2.1</span> <span class="math inline">\(\chi^2\)</span></h4>
-<p>Always squre from standard normal, and the standardization can be using <span class="math inline">\(\mu\)</span> or <span class="math inline">\(\bar{X}\)</span>.</p>
+<p><em>P.271</em></p>
+<p>If <span class="math inline">\(X_1,...,X_n\)</span> denotes a random sample from <span class="math inline">\(N(\mu,\sigma^2)\)</span>, then</p>
+<p><span class="math display">\[\sum_{i=1}^n \frac{(X_i-\mu)^2}{\sigma^2} \sim x^2(n)\]</span>
+<span class="math display">\[\frac{n(\bar{X}-\mu)^2}{\sigma^2}\sim x^2(1)\]</span></p>
 <p><span class="math display">\[\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2(n-1)\]</span>
-(Thus, we can see this is a bit weired, as the numerator is <span class="math inline">\(\bar{X}\)</span> is from the sample, whereas <span class="math inline">\(\sigma^2\)</span> is from the population.)</p>
+(Thus, we can see this is a bit weired, as the numerator is <span class="math inline">\(\bar{X}\)</span> is from the sample, whereas <span class="math inline">\(\sigma^2\)</span> is from the population. Thus, assume we know <span class="math inline">\(\sigma^2\)</span>?)</p>
 <p>Thus, we can</p>
 <p><span class="math display">\[\frac{\sum_{i=1}^n(X_i-\bar{X})^2}{\sigma^2}\sim \chi^2(n-1)\]</span>
 (You can compare <span class="math inline">\(\bar{X}\)</span> with <span class="math inline">\(\mu\)</span>, we can see the only difference is that the <span class="math inline">\(\chi^2\)</span> has one less degree of freedom because we use this degree of freedom to calculate the mean.)</p>
@@ -313,7 +318,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Definition</p>
 <p><span class="math display">\[t(k)=\frac{N(0,1)}{\sqrt{\frac{\chi^2(k)}{k}}}\]</span></p>
 <p><strong>Property 1</strong></p>
-<p><strong>t</strong> distribution is symmetrical</p>
+<p><em>t</em> distribution is symmetrical.</p>
 <p>Given that <em>t</em> distribution is symmetrical, we can get</p>
 <p><span class="math display">\[H(-c)=1-H(c)\]</span></p>
 <p><strong>Property 2</strong></p>
@@ -336,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><em>P.280</em></p>
 <p>If <span class="math inline">\(Y_v \sim x^2(x)\)</span>, then</p>
 <p><span class="math display">\[Z_v =\frac{Y_v-v}{\sqrt{2v}} \xrightarrow{d} Z \sim N(0,1)\]</span></p>
-<p>(The proof is based on CLT.)</p>
+<p>(The proof is based on CLT. In addition, as disscused above, we can get chi-square from normal distributions.)</p>
 </div>
 </div>
 <div id="point-estimation" class="section level2">
@@ -358,6 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Note that the definition of variance:</p>
 <p><em>P.73</em></p>
 <p><span class="math display">\[Var(X)=E[(X-\mu)^2]\]</span></p>
+<p>( <strong>Note: Based on the information above, it seems important to understand the difference between the moment of the origin and the moment of the mean.</strong> )</p>
 </div>
 <div id="definition" class="section level4">
 <h4><span class="header-section-number">2.2.1.2</span> Definition</h4>
@@ -366,13 +372,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[M_j^{&#39;}=\frac{\sum_{i=1}^n X_i^j}{n}\]</span></p>
 <p>where,</p>
 <p><span class="math display">\[j=1,2,...k\]</span></p>
-<p><strong>Example 1</strong></p>
+<p><strong>Example 1:</strong></p>
 <p><em>P.291</em></p>
 <p>Consider a random sample from a distribution with two unknown parameters, the mean <span class="math inline">\(\mu\)</span> and the variance <span class="math inline">\(\sigma^2\)</span>. We know from earlier considerations that <span class="math inline">\(\mu=\mu^{&#39;}_1\)</span> and <span class="math inline">\(\sigma^2=E(X^2)-\mu^2=\mu_2^{&#39;}-(\mu^{&#39;}_1)^2\)</span>.</p>
 <p>Thus,</p>
-<p><span class="math display">\[\hat{\sigma}^2=\mu_2^{&#39;}-(\mu^{&#39;}_1)^2=\frac{\sum_{i=1}^n X_i^2}{n}-\frac{\sum_{i=1}^n X_i}{n}=\frac{\sum_{i=1}^n X_i^2}{n}-\bar{X}=\sum_{i=1}^n \frac{(X_i-\bar{X})^2}{n}\]</span></p>
-<p>(Thus, we can see that the estimation of <span class="math inline">\(\sigma^2\)</span> is not the same as the definition of sample variance <span class="math inline">\(S^2\)</span>. <span class="math inline">\(\hat{\sigma}^2=\frac{n-1}{n}S^2\)</span>.)</p>
-<p><strong>Example 2</strong></p>
+<p><span class="math display">\[\hat{\sigma}^2=\mu_2^{&#39;}-(\mu^{&#39;}_1)^2=\frac{\sum_{i=1}^n X_i^2}{n}-\bar{X}^2=\sum_{i=1}^n \frac{(X_i-\bar{X})^2}{n}\]</span></p>
+<p>(Thus, we can see that the MME estimation of <span class="math inline">\(\sigma^2\)</span> is not the same as the definition of sample variance <span class="math inline">\(S^2\)</span>. <span class="math inline">\(\hat{\sigma}^2=\frac{n-1}{n}S^2\)</span>. So, the MME estimator is not an unbiased one?)</p>
+<p><strong>Example 2:</strong></p>
 <p><em>P.292</em></p>
 <p>If a sample is from a Gamma distribution <span class="math inline">\(X_i \sim GAM(\theta,k)\)</span>, and we want to estimate the <span class="math inline">\(\theta\)</span> and <span class="math inline">\(k\)</span>.</p>
 <p>We know that for Gamma distribution, the mean is <span class="math inline">\(k\theta\)</span>, and the variance is <span class="math inline">\(k\theta^2\)</span>.</p>
@@ -383,6 +389,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Thus, we can get</p>
 <p><span class="math display">\[\hat{\theta}=\sum_{i=1}^n \frac{(X_i-\bar{X})^2}{n \bar{X}}=\frac{(n-1)/n S^2}{\bar{X}}\]</span></p>
 <p><span class="math display">\[\hat{k}=\frac{\bar{X}}{\hat{\theta}}\]</span></p>
+<p>( <strong>Note: To sum up, (1) we know how to calculate moments based on sample. And, (2) we know that connection between moment and parameter of mean and variance. Thus, combining (1) and (2), we can get the estimators for the parameters.</strong> )</p>
 </div>
 <div id="property" class="section level4">
 <h4><span class="header-section-number">2.2.1.3</span> Property</h4>
@@ -394,13 +401,13 @@ where <span class="math inline">\(M_{X_i}(t_i)\)</span> is the MGF of <span clas
 <div id="well-known-mgf" class="section level4">
 <h4><span class="header-section-number">2.2.1.4</span> Well-known MGF</h4>
 <ol style="list-style-type: decimal">
-<li><p>Bernoulli with success probability p: <span class="math inline">\(1-p+pe^t\)</span></p></li>
-<li><p>Binomial Bin(n,p): <span class="math inline">\((1-p+pe^t)^n\)</span></p></li>
+<li><p>Bernoulli with success probability <span class="math inline">\(p\)</span>: <span class="math inline">\(1-p+pe^t\)</span></p></li>
+<li><p>Binomial <span class="math inline">\(Bin(n,p)\)</span>: <span class="math inline">\((1-p+pe^t)^n\)</span></p></li>
 <li><p>Poisson <span class="math inline">\(POI(\lambda)\)</span>: <span class="math inline">\(e^{\lambda(e^t-1)}\)</span></p></li>
 <li><p>Normal <span class="math inline">\(N(\mu,\sigma^2)\)</span>: <span class="math inline">\(e^{\mu t+\frac{1}{2}\sigma^2t^2}\)</span></p></li>
 <li><p>Gamma <span class="math inline">\(GAM(\theta,k)\)</span>: <span class="math inline">\((1-\theta t)^{-k}\)</span></p></li>
 </ol>
-<p>Two special cases:</p>
+<p><strong>Two special cases:</strong></p>
 <ol start="6" style="list-style-type: decimal">
 <li><p>Chi-square <span class="math inline">\(\chi^2(v) =GAM(2,\frac{v}{2})\)</span>: <span class="math inline">\((1-2t)^{-\frac{v}{2}}\)</span></p></li>
 <li><p>Exponential <span class="math inline">\(EXP(\theta)=GAM(\theta,1)\)</span>: <span class="math inline">\((1-\theta t)^{-1}\)</span></p></li>
@@ -428,7 +435,7 @@ where <span class="math inline">\(M_{X_i}(t_i)\)</span> is the MGF of <span clas
 <h3><span class="header-section-number">2.2.4</span> Invariance property of MLEs</h3>
 <p><em>P.296</em></p>
 <p>If <span class="math inline">\(\hat{\theta}\)</span> is the MLE of <span class="math inline">\(\theta\)</span> and if <span class="math inline">\(u(\theta)\)</span> is a function of <span class="math inline">\(\theta\)</span>, then <span class="math inline">\(u(\hat{\theta})\)</span> is an MLE of <span class="math inline">\(u(\theta)\)</span>.</p>
-<p><strong>Example 1</strong></p>
+<p><strong>Example 1:</strong></p>
 <p>We know that the <span class="math inline">\(pdf\)</span> of exponential distribution (<span class="math inline">\(X \sim EXP (\theta)\)</span>) is as follows:</p>
 <p><span class="math display">\[\frac{1}{\theta} e^{-\frac{X}{\theta}}\]</span></p>
 <p>Thus, its likelihood function is as follows</p>
@@ -444,7 +451,7 @@ Thus,</p>
 <p><span class="math display">\[e^{-\frac{1}{\bar{x}}}\]</span></p>
 <p><strong>Example 2: MLE vs. MME</strong></p>
 <p><em>P.296</em></p>
-<p>Assume a random sample from a two-parameter exponential distribution, <span class="math inline">\(X_i \sim EXP(1)\)</span>. Thus, the <span class="math inline">\(pdf\)</span> is <span class="math inline">\(e^{-(x-\eta)}\)</span>. Thus, the likelihood function is</p>
+<p>Assume a random sample from a two-parameter exponential distribution, <span class="math inline">\(X_i \sim EXP(1,\eta)\)</span>. Thus, the <span class="math inline">\(pdf\)</span> is <span class="math inline">\(e^{-(x-\eta)}\)</span>. Thus, the likelihood function is</p>
 <p><span class="math display">\[L(\eta)=e^{-\sum(x_i-\eta)}\]</span></p>
 <p>Thus, the log likelihood,</p>
 <p><span class="math display">\[lnL(\eta)=-\sum(x_i-\eta)=n\eta-n\bar{X}\]</span>
@@ -498,7 +505,7 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <h4><span class="header-section-number">2.2.7.1</span> UMVUE</h4>
 <p>Let <span class="math inline">\(X_1, X_2,...,X_n\)</span> be a random sample of size <span class="math inline">\(n\)</span> from <span class="math inline">\(f(x; \theta)\)</span>. An estimator <span class="math inline">\(T^*\)</span> of <span class="math inline">\(\tau (\theta)\)</span> is called a <em>uniformly minimum variance ubiased estimator</em> (UMVUE) of <span class="math inline">\(\tau(\theta)\)</span> if</p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(T^*\)</span> is unbiased for <span class="math inline">\(\tau{\theta}\)</span></p></li>
+<li><p><span class="math inline">\(T^*\)</span> is unbiased for <span class="math inline">\(\tau (\theta)\)</span>.</p></li>
 <li><p>For any other unbiased estimator <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span>, <span class="math inline">\(Var(T^*) \leq Var(T)\)</span> for all <span class="math inline">\(\theta \in \Omega\)</span>.</p></li>
 </ol>
 </div>
@@ -516,9 +523,9 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <p><span class="math display">\[E[\frac{\partial}{\partial \theta} ln(f(X; \theta))]^2 =E[\frac{(X-\theta)^2}{\theta^4}]=\frac{1}{\theta^4}E(X-\theta)^2=\frac{1}{\theta^4} Var(X)=\frac{\theta^2}{\theta^4}=\frac{1}{\theta^2}\]</span></p>
 <p>Thus, the CRLB for <span class="math inline">\(\tau(\theta)=\theta\)</span> is as follows.</p>
 <p><span class="math display">\[Var(T) \geq \frac{[\tau^{&#39;}(\theta)]^2}{nE[\frac{\partial}{\partial \theta} ln f(X; \theta)]^2}=\frac{[\frac{\partial }{\partial \theta}\theta]^2}{n \frac{1}{\theta^2}}=\frac{1^2}{\frac{n}{\theta^2}}=\frac{\theta^2}{n}\]</span></p>
-<p>We know that the variance for exponential distribution</p>
+<p>We know that the variance for the sample mean of the exponential distribution:</p>
 <p><span class="math display">\[Var(\bar{X})=\frac{Var(X)}{n}=\frac{\theta^2}{n}\]</span></p>
-<p>We know that <span class="math inline">\(\theta\)</span> is the mean for exponential distribution. We also know that sample mean <span class="math inline">\(\bar{X}\)</span> is the unbiased estimator for population mean.</p>
+<p>In addition, we also know that sample mean <span class="math inline">\(\bar{X}\)</span> is the unbiased estimator for population mean.</p>
 <p>Thus,</p>
 <p><span class="math inline">\(\bar{X}\)</span> is the UMVUE of <span class="math inline">\(\theta\)</span>.</p>
 </div>
@@ -533,7 +540,7 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <p>Let <span class="math inline">\(\{T_n\}\)</span> be a sequence of estimators of <span class="math inline">\(\tau(\theta)\)</span>. These estimators are said to be <strong>consistent</strong> estimators of <span class="math inline">\(\tau(\theta)\)</span> if for every <span class="math inline">\(\varepsilon &gt;0\)</span>,</p>
 <p><span class="math display">\[lim_{n\rightarrow \infty}P[|T_n-\tau(\theta)|&lt;\varepsilon]=1\]</span></p>
 <p>for every <span class="math inline">\(\theta \in \Omega\)</span>.</p>
-<p>In the terminology of Chapter 7, <span class="math inline">\(T_n\)</span> converges stochastically to <span class="math inline">\(\tau(\theta)\)</span>,<span class="math inline">\(T_n \xrightarrow{P} \tau(\theta)\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>. Sometimes this also is referred to as <strong>simple</strong> consistency.</p>
+<p>In the terminology of Chapter 7, <span class="math inline">\(T_n\)</span> converges <strong>stochastically</strong> to <span class="math inline">\(\tau(\theta)\)</span>, <span class="math inline">\(T_n \xrightarrow{P} \tau(\theta)\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>. Sometimes this also is referred to as <strong>simple</strong> consistency.</p>
 <p>One interpretation of consistency is that for large sample size the estimator tends to be more concentrated about <span class="math inline">\(\tau(\theta)\)</span>, and by making <span class="math inline">\(n\)</span> sufficiently large <span class="math inline">\(T_n\)</span> can be made as concentrated as desired.</p>
 <p><strong>MSE consistency:</strong></p>
 <p>If <span class="math inline">\(\{ T_n \}\)</span> is a sequence of estimator of <span class="math inline">\(\tau(\theta)\)</span>, then they are called <strong>mean squared error consistent</strong> if</p>
@@ -550,12 +557,12 @@ Thus, <span class="math inline">\(T=\bar{X}+4.94\)</span> is the unbiased estima
 <p>We also know that</p>
 <p><span class="math display">\[Var(T_n)=\frac{(\frac{n}{n-1})^2}{(n-2)\theta^2}\]</span></p>
 <p>Thus, while <span class="math inline">\(T_n\)</span> is not unbiased, it is asymptotically unbiased and MSE consistent for <span class="math inline">\(\tau(\theta)=\frac{1}{\theta}\)</span>.</p>
-<p><strong>Note that</strong>, MES consistency is a stronger property than simple consistency. Thus, if a sequenc <span class="math inline">\(\{T_n\}\)</span> is mean squared error consistent, it is also simply consistent.</p>
+<p><strong>Note that</strong>, MSE consistency is a stronger property than simple consistency. Thus, if a sequenc <span class="math inline">\(\{T_n\}\)</span> is mean squared error consistent, it is also simply consistent.</p>
 </div>
 <div id="efficiency" class="section level3">
 <h3><span class="header-section-number">2.2.10</span> Efficiency</h3>
 <p><em>P.308</em></p>
-<p>The relative efficiency of an unbiased estimator <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span> to another unbiased estimator <span class="math inline">\(T^*\)</span> of <span class="math inline">\(\tau(\theta)\)</span> is given by</p>
+<p>The relative efficiency of an <strong>unbiased</strong> estimator <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span> to another <strong>unbiased</strong> estimator <span class="math inline">\(T^*\)</span> of <span class="math inline">\(\tau(\theta)\)</span> is given by</p>
 <p><span class="math display">\[re(T, T^*)=\frac{Var(T^*)}{Var(T)}\]</span></p>
 <p>An unbiased estimator <span class="math inline">\(T^*\)</span> of <span class="math inline">\(\tau(\theta)\)</span> is said to be efficient if <span class="math inline">\(re(T, T^*) \leq 1\)</span> for all unbiased estimators <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span>, and all <span class="math inline">\(\theta \in \Omega\)</span>. The efficiency of an unbiased estimator <span class="math inline">\(T\)</span> of <span class="math inline">\(\tau(\theta)\)</span> is given by</p>
 <p><span class="math display">\[e(T)=re(T, T^*)\]</span></p>
@@ -579,7 +586,7 @@ Thus, <span class="math inline">\(T^*=\bar{X}\)</span> is a more efficient estim
 <div id="asymptotic-efficiency" class="section level3">
 <h3><span class="header-section-number">2.2.11</span> Asymptotic efficiency</h3>
 <p>Let <span class="math inline">\(\{T_n\}\)</span> and <span class="math inline">\(\{T_n^*\}\)</span> be the two asymptotically unbiased sequences of estimators for <span class="math inline">\(\tau(\theta)\)</span>. The <strong>asymptotic relative efficiency</strong> of <span class="math inline">\(T_n\)</span>relative to <span class="math inline">\(T_n^*\)</span> is given by</p>
-<p><span class="math display">\[are(T_n,T_n^*)=lim_{n \rightarrow \infty} \frac{Var(T_n^*)}{T_n}\]</span>
+<p><span class="math display">\[are(T_n,T_n^*)=lim_{n \rightarrow \infty} \frac{Var(T_n^*)}{Var(T_n)}\]</span>
 The sequence <span class="math inline">\(\{T_n^*\}\)</span> is said to asymptotically efficient if <span class="math inline">\(are\{T_n, T_n^*\} \leq 1\)</span> for all other asymptotically unbiased sequences <span class="math inline">\(\{T_n\}\)</span>, and all <span class="math inline">\(\theta \in \Omega\)</span>.</p>
 </div>
 <div id="asymptotic-properties-of-mles" class="section level3">
@@ -657,7 +664,7 @@ where,</p>
 <p>We know the <span class="math inline">\(pdf\)</span> for normal is</p>
 <p><span class="math display">\[f=\frac{1}{\sqrt{2\pi \sigma^2 }} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}\]</span></p>
 <p>Thus, the joint <span class="math inline">\(pdf\)</span> is as follows.</p>
-<p><span class="math display">\[f(x_1,...,x_n;\mu,\sigma^2)=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i-\mu)^2}=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i^2+\mu^2-2x_i\mu)}=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}(\sum x_i^2+n\mu^2-2\mu\sum x_i)}\]</span></p>
+<p><span class="math display">\[\begin{aligned} f(x_1,...,x_n;\mu,\sigma^2) &amp;=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i-\mu)^2} \\ &amp;=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}\sum (x_i^2+\mu^2-2x_i\mu)} \\ &amp;=\frac{1}{(2\pi\sigma^2)^{\frac{n}{2}}}e^{-\frac{1}{2\sigma^2}(\sum x_i^2+n\mu^2-2\mu\sum x_i)} \end{aligned}\]</span></p>
 <p>Thus, <span class="math inline">\(S_1=\sum X_i\)</span> and <span class="math inline">\(S_2=\sum X_i^2\)</span> are jointly sufficient for <span class="math inline">\(\theta={\mu, \sigma^2}\)</span>.</p>
 <p><strong>Note that,</strong></p>
 <p><em>P.341</em></p>
@@ -679,8 +686,9 @@ where,</p>
 </ol>
 <p><strong>Discussion:</strong></p>
 <p><em>P.345</em></p>
-<p>"It is clear from the Rao-Blackwell theorem that if we are searching for an unbiased estimator with small variance, we may as well restrict attention to function of sufficient statistics. If any ubiased estimator exists, then there will be one that is a function of sufficient statistics, namely <span class="math inline">\(E(T|S)\)</span>, which also is unbiased and has variance at least as small or smaller. In particular, we still are interested in knowing how to find a UMVUE for a parameter, and the above theorem narrows our problem down somewhat.</p>
-<p>For instance, consider a one-parameter model <span class="math inline">\(f(x;\theta)\)</span>, and assume that a single sufficient statistic, <span class="math inline">\(S\)</span>, exists. We know that we must consider only unbiased functions of <span class="math inline">\(S\)</span> in searching for a UMVUE. in some cases it may be possible to show that only one function of <span class="math inline">\(S\)</span> is unbiased, and in that case we would know that it is a UMVUE.</p>
+<p>"It is clear from the Rao-Blackwell theorem that if we are searching for an unbiased estimator with small variance, we may as well restrict attention to function of sufficient statistics.</p>
+<p>If any ubiased estimator exists, then there will be one that is a function of sufficient statistics, namely <span class="math inline">\(E(T|S)\)</span>, which also is unbiased and has variance at least as small or smaller. In particular, we still are interested in knowing how to find a UMVUE for a parameter, and the above theorem narrows our problem down somewhat.</p>
+<p>For instance, consider a one-parameter model <span class="math inline">\(f(x;\theta)\)</span>, and assume that a single sufficient statistic, <span class="math inline">\(S\)</span>, exists. We know that we must consider only unbiased functions of <span class="math inline">\(S\)</span> in searching for a UMVUE. In some cases it may be possible to show that only one function of <span class="math inline">\(S\)</span> is unbiased, and in that case we would know that it is a UMVUE.</p>
 <p>The concept of “completeness” is helpful in determinning unique unbiased estimators, and this concept is defined in the next section."</p>
 </div>
 <div id="completeness" class="section level3">
@@ -712,8 +720,8 @@ And zero otherwise, where <span class="math inline">\(\theta=(\theta_1,...,\thet
 <li><p>The set <span class="math inline">\(A=\{x:f(x; \theta)&gt;0\}\)</span> does not depend on <span class="math inline">\(\theta\)</span>.</p></li>
 <li><p>The functions <span class="math inline">\(q_j(\theta)\)</span> are nontrivial, functionally independent, continuous fucntion of the <span class="math inline">\(\theta_i\)</span>.</p></li>
 </ol>
-<p>(3a) For a continuous random variable, the derivatives <span class="math inline">\(t_k^{&#39;}(x)\)</span> are linearly independent continous functions of <span class="math inline">\(x\)</span> over <span class="math inline">\(A\)</span>.</p>
-<p>(3b) For a discrete random variable, the <span class="math inline">\(t_k(x)\)</span> are nontrivial functions of <span class="math inline">\(x\)</span> on <span class="math inline">\(A\)</span>, and none is a linear function of the others.</p>
+<p>3a. For a continuous random variable, the derivatives <span class="math inline">\(t_k^{&#39;}(x)\)</span> are linearly independent continous functions of <span class="math inline">\(x\)</span> over <span class="math inline">\(A\)</span>.</p>
+<p>3b. For a discrete random variable, the <span class="math inline">\(t_k(x)\)</span> are nontrivial functions of <span class="math inline">\(x\)</span> on <span class="math inline">\(A\)</span>, and none is a linear function of the others.</p>
 <p><strong>Example</strong></p>
 <p><em>P.348</em></p>
 <p>Consider Bernoulli distribution <span class="math inline">\(X \sim Bin(1,p)\)</span>. It follows that</p>
