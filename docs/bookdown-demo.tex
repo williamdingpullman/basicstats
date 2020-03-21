@@ -1280,15 +1280,7 @@ Since this is always going to be zero, we need to minimize:
 
 If the rank \(r\) of \(X_{n \times m}\) is smaller than \(m\), i.e., \(r<m\), there is not a unique solution \(\hat{\beta}\). We have three ways to find a solution \(\hat{\beta}\) and the orthogonal projection \(\hat{Y}\):
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\item
-  Reducing the model to the full rank.
-\item
-  Find the generalized inverse \((X^TX)^{-}\).
-\item
-  Impose identififiability constraints.
-\end{enumerate}
+\textbf{1. Reducing the model to the full rank.}
 
 Let \(X_1\) consist of \(r\) linear independent columns from \(X\) and let \(X_2\) consistn of the remaining columns. Then, \(X_2=X_1F\) because the columns of \(X_2\) are linearly dependent on the columns of \(X_1\).
 
@@ -1301,6 +1293,44 @@ Since \(K\) has full rank, the Least Squares Estimate of \(\alpha\) is \(\hat{\a
 The orthogonal project,
 
 \[\hat{Y}=K\cdot \alpha=K \cdot(K^T K)^{-1} \cdot K^TY=X_1 \cdot(X_1^TX_1)^{-1}\cdot X_1^TY\]
+
+\[\begin{bmatrix}
+Y_{11} \\ ... \\ Y_{1n_1} \\
+Y_{21}  \\ ... \\ Y_{2n_2} \end{bmatrix}=
+\begin{bmatrix}
+1 & 1 & 0\\
+... & ... & ... \\
+1 & 1 & 0 \\
+1 & 0 & 1 \\ 
+... & ... & ... \\
+1 & 0 &1 \end{bmatrix} 
+\begin{bmatrix}
+\mu \\
+\beta_1  \\
+\beta_2\\
+\end{bmatrix}+\begin{bmatrix}
+\varepsilon_{11} \\ ... \\ \varepsilon_{1n_1} \\
+\varepsilon_{21}  \\ ... \\ \varepsilon_{2n_2}  \end{bmatrix}\]
+
+Let \(X_1\) consist of the first 2 columns of \(X\), then
+
+\[X=X_1 \begin{bmatrix}
+1 & 0 & 1 \\ 0 & 1 & -1 \end{bmatrix}\]
+
+And, \(X\beta=X_1 \alpha\),
+
+\[\alpha=\begin{bmatrix}
+\mu+\beta_2 \\ \beta_1 - \beta_2 \end{bmatrix}\]
+
+\textbf{2. Find the generalized inverse \((X^TX)^{-}\). }
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Impose identififiability constraints.
+\end{enumerate}
 
 \hypertarget{assumptions-checking-assumptions}{%
 \subsection{Assumptions, checking assumptions}\label{assumptions-checking-assumptions}}
@@ -2004,10 +2034,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 1.997081
-## [2,] 1.012230
-## [3,] 1.942595
+##           [,1]
+## [1,] 2.0195422
+## [2,] 0.9898853
+## [3,] 2.0608752
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2168,7 +2198,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.973976  3.927796  4.512614
+## [1] -1.409759  4.484619  3.580131
 \end{verbatim}
 
 \begin{Shaded}
@@ -2179,7 +2209,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.118665 2.872017 4.985362
+## [1] 0.9931063 5.4321521 5.0633054
 \end{verbatim}
 
 \begin{Shaded}
@@ -2190,10 +2220,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]      [,2]        [,3]
-## [1,]  2.11866460 -0.862839 -0.07153269
-## [2,] -0.86283903  2.872017  1.68831445
-## [3,] -0.07153269  1.688314  4.98536221
+##            [,1]      [,2]      [,3]
+## [1,]  0.9931063 -1.167851 0.5288192
+## [2,] -1.1678509  5.432152 0.2792140
+## [3,]  0.5288192  0.279214 5.0633054
 \end{verbatim}
 
 \hypertarget{example-2}{%

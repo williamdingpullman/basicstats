@@ -325,11 +325,7 @@ Thus,</p>
 <p><a href="http://www.biostat.jhsph.edu/~iruczins/teaching/140.751/notes/ch7.pdf" class="uri">http://www.biostat.jhsph.edu/~iruczins/teaching/140.751/notes/ch7.pdf</a></p>
 <p><span class="math display">\[Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}\]</span></p>
 <p>If the rank <span class="math inline">\(r\)</span> of <span class="math inline">\(X_{n \times m}\)</span> is smaller than <span class="math inline">\(m\)</span>, i.e., <span class="math inline">\(r&lt;m\)</span>, there is not a unique solution <span class="math inline">\(\hat{\beta}\)</span>. We have three ways to find a solution <span class="math inline">\(\hat{\beta}\)</span> and the orthogonal projection <span class="math inline">\(\hat{Y}\)</span>:</p>
-<ol style="list-style-type: decimal">
-<li><p>Reducing the model to the full rank.</p></li>
-<li><p>Find the generalized inverse <span class="math inline">\((X^TX)^{-}\)</span>.</p></li>
-<li><p>Impose identififiability constraints.</p></li>
-</ol>
+<p><strong>1. Reducing the model to the full rank.</strong></p>
 <p>Let <span class="math inline">\(X_1\)</span> consist of <span class="math inline">\(r\)</span> linear independent columns from <span class="math inline">\(X\)</span> and let <span class="math inline">\(X_2\)</span> consistn of the remaining columns. Then, <span class="math inline">\(X_2=X_1F\)</span> because the columns of <span class="math inline">\(X_2\)</span> are linearly dependent on the columns of <span class="math inline">\(X_1\)</span>.</p>
 <p><span class="math display">\[X=(X_1, X_2)=(X_1, X_1F)=X_1[I_{r\times r}, F]\]</span>
 This is a special case of the factorization <span class="math inline">\(X=KL\)</span>, where rank <span class="math inline">\((K_{n \times r})=r\)</span> and rank <span class="math inline">\((L_{r\times p})=r\)</span>.</p>
@@ -337,6 +333,33 @@ This is a special case of the factorization <span class="math inline">\(X=KL\)</
 Since <span class="math inline">\(K\)</span> has full rank, the Least Squares Estimate of <span class="math inline">\(\alpha\)</span> is <span class="math inline">\(\hat{\alpha}=(K^T K)^{-1} \cdot K^TY\)</span>.</p>
 <p>The orthogonal project,</p>
 <p><span class="math display">\[\hat{Y}=K\cdot \alpha=K \cdot(K^T K)^{-1} \cdot K^TY=X_1 \cdot(X_1^TX_1)^{-1}\cdot X_1^TY\]</span></p>
+<p><span class="math display">\[\begin{bmatrix}
+Y_{11} \\ ... \\ Y_{1n_1} \\
+Y_{21}  \\ ... \\ Y_{2n_2} \end{bmatrix}=
+\begin{bmatrix}
+1 &amp; 1 &amp; 0\\
+... &amp; ... &amp; ... \\
+1 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 \\ 
+... &amp; ... &amp; ... \\
+1 &amp; 0 &amp;1 \end{bmatrix} 
+\begin{bmatrix}
+\mu \\
+\beta_1  \\
+\beta_2\\
+\end{bmatrix}+\begin{bmatrix}
+\varepsilon_{11} \\ ... \\ \varepsilon_{1n_1} \\
+\varepsilon_{21}  \\ ... \\ \varepsilon_{2n_2}  \end{bmatrix}\]</span></p>
+<p>Let <span class="math inline">\(X_1\)</span> consist of the first 2 columns of <span class="math inline">\(X\)</span>, then</p>
+<p><span class="math display">\[X=X_1 \begin{bmatrix}
+1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; -1 \end{bmatrix}\]</span></p>
+<p>And, <span class="math inline">\(X\beta=X_1 \alpha\)</span>,</p>
+<p><span class="math display">\[\alpha=\begin{bmatrix}
+\mu+\beta_2 \\ \beta_1 - \beta_2 \end{bmatrix}\]</span></p>
+<p><strong>2. Find the generalized inverse <span class="math inline">\((X^TX)^{-}\)</span>. </strong></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Impose identififiability constraints.</li>
+</ol>
 <div id="assumptions-checking-assumptions" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Assumptions, checking assumptions</h3>
 </div>
