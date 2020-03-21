@@ -300,23 +300,50 @@ Y_n \end{bmatrix}=\begin{bmatrix}
 <p>Simple linear regression is a linear regression model with a single explanatory variable. In addition, we typically assume that this is under the GLM framework and thus we also assume that the residuals follow normal distribution.</p>
 <div id="least-squares-vs.-mle-vs-propoerties-of-the-regression-parameters" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Least squares vs. MLE vs, propoerties of the regression parameters</h3>
-<div id="least-sqaure-method" class="section level4">
-<h4><span class="header-section-number">3.2.1.1</span> Least sqaure method</h4>
-<p><strong>Basic Idea:</strong></p>
-<p>Assume the following model:</p>
-<p><span class="math display">\[Y=X\beta +\varepsilon\]</span>
-Thus,</p>
-<p><span class="math display">\[\varepsilon=Y-X\beta\]</span></p>
-<p>Since this is always going to be zero, we need to minimize:</p>
-<p><span class="math display">\[\sum \varepsilon^2=\sum [Y-X\beta]^2\]</span></p>
-<p><strong>Calculation:</strong></p>
+<div id="basic-idea" class="section level4">
+<h4><span class="header-section-number">3.2.1.1</span> Basic idea</h4>
+<p><strong>Of note</strong></p>
+<p>The following method can always calculate the vector of <span class="math inline">\(\beta\)</span>, not related to any specific methods.</p>
 <p><span class="math display">\[Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}\]</span></p>
 <p><span class="math inline">\(\rightarrow\)</span></p>
 <p><span class="math display">\[[X^T]_{m \times n}Y_{n \times 1}=[X^T]_{m \times n}X_{n\times m}\beta_{m \times 1}\]</span>
 <span class="math inline">\(\rightarrow\)</span></p>
-<p><span class="math display">\[[X^TX]_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}\]</span></p>
+<p><span class="math display">\[[X^TX]^{-1}_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}\]</span></p>
 <p><span class="math inline">\(\rightarrow\)</span></p>
-<p><span class="math display">\[\beta_{m \times 1}=[X^TX \cdot X^TY]_{m \times 1}\]</span></p>
+<p><span class="math display">\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]</span>
+#### Least Squares</p>
+<p>Assume the following model:</p>
+<p><span class="math display">\[Y=X\beta +\varepsilon\]</span></p>
+<p>When <span class="math inline">\(\beta\)</span> only has a dimension of <span class="math inline">\(2 \times 1\)</span>, can can write it as follows.</p>
+<p><span class="math display">\[Y_i=\beta_0+\beta_1X_i +\varepsilon\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[Q=\sum_{i=1}^n (Y_i-\beta_0-\beta_1X_i)^2\]</span>
+We can calculate the partial derivates as follows.</p>
+<p><span class="math display">\[\frac{\partial}{\partial \beta_0} Q \rightarrow \sum_{i=1}^n [Y_i-\beta_0-\beta_1X_i]=0\]</span></p>
+<p><span class="math display">\[\frac{\partial}{\partial \beta_1} Q \rightarrow \sum_{i=1}^n [Y_i-\beta_0-\beta_1X_i]X_i=0\]</span></p>
+<p><strong>Combining the two pieces of information, we can get</strong></p>
+<p><span class="math display">\[b_1=\frac{\sum(X_i-\bar{X})(Y_i-\bar{Y})}{\sum(X_i-\bar{X})^2}\]</span></p>
+<p><span class="math display">\[b_0=\frac{1}{n}(\sum Y_i-b_1\sum X_i)=\bar{Y}-b_1\bar{X}\]</span></p>
+<p><strong>Properties of Least Squares Estimators (Gauss- Markov theorem)</strong></p>
+<p><em>P.18</em></p>
+<p>Under the conditions of regression model shown above, the least squares estimator <span class="math inline">\(b_0\)</span> and <span class="math inline">\(b_1\)</span> are unbiased and have minimum variance among all unbiased linear estimators.</p>
+<p>That is,</p>
+<p><span class="math display">\[E(b_0)=\beta_0\]</span></p>
+<p><span class="math display">\[E(b_1)=\beta_1\]</span></p>
+</div>
+<div id="mle" class="section level4">
+<h4><span class="header-section-number">3.2.1.2</span> MLE</h4>
+<p><em>P.30</em></p>
+<p>Note that the <strong>Normal Error Regression Model</strong> is as follows.</p>
+<p><span class="math display">\[Y_i=\beta_0+\beta_1X_i +\varepsilon\]</span>
+(This is a specific eample of the definition provided earlier, i.e., <span class="math inline">\(Y=X\beta +\varepsilon\)</span>)</p>
+<p>For this model, each <span class="math inline">\(Y_i\)</span> observation is normally distributed with mean <span class="math inline">\(\beta_0+\beta_1x_i\)</span> and a standard devision <span class="math inline">\(\sigma\)</span>.</p>
+<p>Givern <span class="math inline">\(Y_i\)</span> follows normal distribution, we can use <span class="math inline">\(pdf\)</span> of normal distributions and MLE to estimate parameters.</p>
+<p><span class="math display">\[\begin{aligned} L(\beta_0,\beta_1,\sigma^2) &amp;=\prod_{i=1}^n \frac{1}{(2\pi \sigma^2)^{1/2}}exp[-\frac{1}{2 \sigma^2}(Y_i-\beta_0-\beta_1X_i)^2] \\ &amp;=\frac{1}{(2\pi \sigma^2)^{n/2}}exp[-\frac{1}{2 \sigma^2}\sum_{i=1}^n(Y_i-\beta_0-\beta_1X_i)^2]  \end{aligned}\]</span>
+Since the variance <span class="math inline">\(\sigma^2\)</span>is usually unknown, the likelihood fucntion is a function of three parameters, <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>We can calculate <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2\)</span> analytically, and the results of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are the same as least squares estimators (see above).</p>
+<p>The variance <span class="math inline">\(\sigma^2\)</span> is as follows.</p>
+<p><span class="math display">\[\hat{\sigma}^2=\frac{\sum(Y_i-\hat{Y_i})^2}{n}\]</span></p>
 </div>
 </div>
 </div>
@@ -353,13 +380,53 @@ Y_{21}  \\ ... \\ Y_{2n_2} \end{bmatrix}=
 <p>Let <span class="math inline">\(X_1\)</span> consist of the first 2 columns of <span class="math inline">\(X\)</span>, then</p>
 <p><span class="math display">\[X=X_1 \begin{bmatrix}
 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; -1 \end{bmatrix}\]</span></p>
-<p>And, <span class="math inline">\(X\beta=X_1 \alpha\)</span>,</p>
-<p><span class="math display">\[\alpha=\begin{bmatrix}
-\mu+\beta_2 \\ \beta_1 - \beta_2 \end{bmatrix}\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[X_1=K=\begin{bmatrix}
+1 &amp; 1 \\
+... &amp; ...  \\
+1 &amp; 1 \\
+1 &amp; 0  \\ 
+... &amp; ... \\
+1 &amp; 0  \end{bmatrix} \]</span></p>
+<p><span class="math display">\[\hat{\alpha}=(K^T K)^{-1} \cdot K^TY=\begin{bmatrix}
+n &amp; n_1 \\
+n_1 &amp; n_1 \end{bmatrix}^{-1} \begin{bmatrix}
+\sum Y_{1j}+\sum y_{2j} \\
+\sum y_{1j} \end{bmatrix} =\begin{bmatrix}
+\bar{Y_2}\\ \bar{Y_1}-\bar{Y_2} \end{bmatrix}\]</span></p>
+<p><span class="math display">\[\hat{Y}=X_1 \hat{\alpha}=\begin{bmatrix}
+1 &amp; 1 \\
+... &amp; ...  \\
+1 &amp; 1 \\
+1 &amp; 0  \\ 
+... &amp; ... \\
+1 &amp; 0  \end{bmatrix} \begin{bmatrix}
+\bar{Y_2}\\ \bar{Y_1}-\bar{Y_2} \end{bmatrix}=\begin{bmatrix}
+\bar{Y_1}  \\
+...   \\
+\bar{Y_1} \\
+\bar{Y_2}   \\ 
+... \\
+\bar{Y_2} \end{bmatrix}\]</span></p>
 <p><strong>2. Find the generalized inverse <span class="math inline">\((X^TX)^{-}\)</span>. </strong></p>
-<ol start="3" style="list-style-type: decimal">
-<li>Impose identififiability constraints.</li>
-</ol>
+<p>As noted above, when <span class="math inline">\(X^TX\)</span> has a full rank, we can directly calculate the inverse of <span class="math inline">\(X^TX\)</span>. That is,</p>
+<p><span class="math display">\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]</span></p>
+<p>We can just find <strong>some columns</strong> within <span class="math inline">\(X\)</span> that are independent, and then calculate the inverse of it.</p>
+<p>This is because if a matrix <span class="math inline">\(W\)</span> with a rank <span class="math inline">\(r\)</span> and can be partitioned as follows.</p>
+<p><span class="math display">\[W=\begin{bmatrix}
+A &amp; B  \\
+C &amp; D \end{bmatrix}\]</span></p>
+<p>Assume <span class="math inline">\(A\)</span> has rank <span class="math inline">\(r\)</span>, then</p>
+<p><span class="math display">\[W^{-1}=\begin{bmatrix}
+A^{-1} &amp;0  \\
+0 &amp; 0 \end{bmatrix}\]</span></p>
+<p>Thus, let <span class="math inline">\(X=(X_1, X_2)\)</span>, where <span class="math inline">\(X_1\)</span> consists of <span class="math inline">\(r\)</span> linearly independent columns from <span class="math inline">\(X\)</span>. Then a generalized inverse of <span class="math inline">\(X^TX\)</span> is</p>
+<p><span class="math display">\[[X^TX]^{-1}=\begin{bmatrix}
+[X_1^TX_1]^{-1}&amp;0  \\
+0 &amp; 0 \end{bmatrix}\]</span></p>
+<p>Thus, all other steps are similar to the full rank case.</p>
+<p><strong>3. Impose identififiability constraints</strong></p>
+<p>(Not very sure this one.)</p>
 <div id="assumptions-checking-assumptions" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Assumptions, checking assumptions</h3>
 </div>

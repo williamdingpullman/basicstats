@@ -1240,23 +1240,12 @@ Simple linear regression is a linear regression model with a single explanatory 
 \hypertarget{least-squares-vs.-mle-vs-propoerties-of-the-regression-parameters}{%
 \subsection{Least squares vs.~MLE vs, propoerties of the regression parameters}\label{least-squares-vs.-mle-vs-propoerties-of-the-regression-parameters}}
 
-\hypertarget{least-sqaure-method}{%
-\subsubsection{Least sqaure method}\label{least-sqaure-method}}
+\hypertarget{basic-idea}{%
+\subsubsection{Basic idea}\label{basic-idea}}
 
-\textbf{Basic Idea:}
+\textbf{Of note}
 
-Assume the following model:
-
-\[Y=X\beta +\varepsilon\]
-Thus,
-
-\[\varepsilon=Y-X\beta\]
-
-Since this is always going to be zero, we need to minimize:
-
-\[\sum \varepsilon^2=\sum [Y-X\beta]^2\]
-
-\textbf{Calculation:}
+The following method can always calculate the vector of \(\beta\), not related to any specific methods.
 
 \[Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}\]
 
@@ -1265,11 +1254,70 @@ Since this is always going to be zero, we need to minimize:
 \[[X^T]_{m \times n}Y_{n \times 1}=[X^T]_{m \times n}X_{n\times m}\beta_{m \times 1}\]
 \(\rightarrow\)
 
-\[[X^TX]_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}\]
+\[[X^TX]^{-1}_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}\]
 
 \(\rightarrow\)
 
-\[\beta_{m \times 1}=[X^TX \cdot X^TY]_{m \times 1}\]
+\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]
+\#\#\#\# Least Squares
+
+Assume the following model:
+
+\[Y=X\beta +\varepsilon\]
+
+When \(\beta\) only has a dimension of \(2 \times 1\), can can write it as follows.
+
+\[Y_i=\beta_0+\beta_1X_i +\varepsilon\]
+
+Thus,
+
+\[Q=\sum_{i=1}^n (Y_i-\beta_0-\beta_1X_i)^2\]
+We can calculate the partial derivates as follows.
+
+\[\frac{\partial}{\partial \beta_0} Q \rightarrow \sum_{i=1}^n [Y_i-\beta_0-\beta_1X_i]=0\]
+
+\[\frac{\partial}{\partial \beta_1} Q \rightarrow \sum_{i=1}^n [Y_i-\beta_0-\beta_1X_i]X_i=0\]
+
+\textbf{Combining the two pieces of information, we can get}
+
+\[b_1=\frac{\sum(X_i-\bar{X})(Y_i-\bar{Y})}{\sum(X_i-\bar{X})^2}\]
+
+\[b_0=\frac{1}{n}(\sum Y_i-b_1\sum X_i)=\bar{Y}-b_1\bar{X}\]
+
+\textbf{Properties of Least Squares Estimators (Gauss- Markov theorem)}
+
+\emph{P.18}
+
+Under the conditions of regression model shown above, the least squares estimator \(b_0\) and \(b_1\) are unbiased and have minimum variance among all unbiased linear estimators.
+
+That is,
+
+\[E(b_0)=\beta_0\]
+
+\[E(b_1)=\beta_1\]
+
+\hypertarget{mle}{%
+\subsubsection{MLE}\label{mle}}
+
+\emph{P.30}
+
+Note that the \textbf{Normal Error Regression Model} is as follows.
+
+\[Y_i=\beta_0+\beta_1X_i +\varepsilon\]
+(This is a specific eample of the definition provided earlier, i.e., \(Y=X\beta +\varepsilon\))
+
+For this model, each \(Y_i\) observation is normally distributed with mean \(\beta_0+\beta_1x_i\) and a standard devision \(\sigma\).
+
+Givern \(Y_i\) follows normal distribution, we can use \(pdf\) of normal distributions and MLE to estimate parameters.
+
+\[\begin{aligned} L(\beta_0,\beta_1,\sigma^2) &=\prod_{i=1}^n \frac{1}{(2\pi \sigma^2)^{1/2}}exp[-\frac{1}{2 \sigma^2}(Y_i-\beta_0-\beta_1X_i)^2] \\ &=\frac{1}{(2\pi \sigma^2)^{n/2}}exp[-\frac{1}{2 \sigma^2}\sum_{i=1}^n(Y_i-\beta_0-\beta_1X_i)^2]  \end{aligned}\]
+Since the variance \(\sigma^2\)is usually unknown, the likelihood fucntion is a function of three parameters, \(\beta_0\), \(\beta_1\), and \(\sigma^2\).
+
+We can calculate \(\beta_0\), \(\beta_1\), and \(\sigma^2\) analytically, and the results of \(\beta_0\) and \(\beta_1\) are the same as least squares estimators (see above).
+
+The variance \(\sigma^2\) is as follows.
+
+\[\hat{\sigma}^2=\frac{\sum(Y_i-\hat{Y_i})^2}{n}\]
 
 \hypertarget{full-rank-less-than-full-rank}{%
 \section{full rank, less than full rank}\label{full-rank-less-than-full-rank}}
@@ -1317,20 +1365,69 @@ Let \(X_1\) consist of the first 2 columns of \(X\), then
 \[X=X_1 \begin{bmatrix}
 1 & 0 & 1 \\ 0 & 1 & -1 \end{bmatrix}\]
 
-And, \(X\beta=X_1 \alpha\),
+Thus,
 
-\[\alpha=\begin{bmatrix}
-\mu+\beta_2 \\ \beta_1 - \beta_2 \end{bmatrix}\]
+\[X_1=K=\begin{bmatrix}
+1 & 1 \\
+... & ...  \\
+1 & 1 \\
+1 & 0  \\ 
+... & ... \\
+1 & 0  \end{bmatrix} \]
+
+\[\hat{\alpha}=(K^T K)^{-1} \cdot K^TY=\begin{bmatrix}
+n & n_1 \\
+n_1 & n_1 \end{bmatrix}^{-1} \begin{bmatrix}
+\sum Y_{1j}+\sum y_{2j} \\
+\sum y_{1j} \end{bmatrix} =\begin{bmatrix}
+\bar{Y_2}\\ \bar{Y_1}-\bar{Y_2} \end{bmatrix}\]
+
+\[\hat{Y}=X_1 \hat{\alpha}=\begin{bmatrix}
+1 & 1 \\
+... & ...  \\
+1 & 1 \\
+1 & 0  \\ 
+... & ... \\
+1 & 0  \end{bmatrix} \begin{bmatrix}
+\bar{Y_2}\\ \bar{Y_1}-\bar{Y_2} \end{bmatrix}=\begin{bmatrix}
+\bar{Y_1}  \\
+...   \\
+\bar{Y_1} \\
+\bar{Y_2}   \\ 
+... \\
+\bar{Y_2} \end{bmatrix}\]
 
 \textbf{2. Find the generalized inverse \((X^TX)^{-}\). }
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{2}
-\tightlist
-\item
-  Impose identififiability constraints.
-\end{enumerate}
+As noted above, when \(X^TX\) has a full rank, we can directly calculate the inverse of \(X^TX\). That is,
+
+\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]
+
+We can just find \textbf{some columns} within \(X\) that are independent, and then calculate the inverse of it.
+
+This is because if a matrix \(W\) with a rank \(r\) and can be partitioned as follows.
+
+\[W=\begin{bmatrix}
+A & B  \\
+C & D \end{bmatrix}\]
+
+Assume \(A\) has rank \(r\), then
+
+\[W^{-1}=\begin{bmatrix}
+A^{-1} &0  \\
+0 & 0 \end{bmatrix}\]
+
+Thus, let \(X=(X_1, X_2)\), where \(X_1\) consists of \(r\) linearly independent columns from \(X\). Then a generalized inverse of \(X^TX\) is
+
+\[[X^TX]^{-1}=\begin{bmatrix}
+[X_1^TX_1]^{-1}&0  \\
+0 & 0 \end{bmatrix}\]
+
+Thus, all other steps are similar to the full rank case.
+
+\textbf{3. Impose identififiability constraints}
+
+(Not very sure this one.)
 
 \hypertarget{assumptions-checking-assumptions}{%
 \subsection{Assumptions, checking assumptions}\label{assumptions-checking-assumptions}}
@@ -2034,10 +2131,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 2.0195422
-## [2,] 0.9898853
-## [3,] 2.0608752
+##          [,1]
+## [1,] 1.971222
+## [2,] 1.037028
+## [3,] 1.993912
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2198,7 +2295,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.409759  4.484619  3.580131
+## [1] -2.186356  3.964496  3.880926
 \end{verbatim}
 
 \begin{Shaded}
@@ -2209,7 +2306,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9931063 5.4321521 5.0633054
+## [1] 2.869157 5.531601 3.298613
 \end{verbatim}
 
 \begin{Shaded}
@@ -2220,10 +2317,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]      [,3]
-## [1,]  0.9931063 -1.167851 0.5288192
-## [2,] -1.1678509  5.432152 0.2792140
-## [3,]  0.5288192  0.279214 5.0633054
+##           [,1]       [,2]       [,3]
+## [1,]  2.869157 -2.8472323  1.1137140
+## [2,] -2.847232  5.5316013 -0.5001845
+## [3,]  1.113714 -0.5001845  3.2986125
 \end{verbatim}
 
 \hypertarget{example-2}{%

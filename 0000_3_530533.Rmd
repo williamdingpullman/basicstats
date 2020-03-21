@@ -57,22 +57,11 @@ Simple linear regression is a linear regression model with a single explanatory 
 
 ### Least squares vs. MLE vs, propoerties of the regression parameters 
 
-#### Least sqaure method
+#### Basic idea
 
-__Basic Idea:__
+__Of note__
 
-Assume the following model:
-
-$$Y=X\beta +\varepsilon$$
-Thus,
-
-$$\varepsilon=Y-X\beta$$
-
-Since this is always going to be zero, we need to minimize:
-
-$$\sum \varepsilon^2=\sum [Y-X\beta]^2$$
-
-__Calculation:__
+The following method can always calculate the vector of $\beta$, not related to any specific methods.
 
 $$Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}$$
 
@@ -81,11 +70,73 @@ $\rightarrow$
 $$[X^T]_{m \times n}Y_{n \times 1}=[X^T]_{m \times n}X_{n\times m}\beta_{m \times 1}$$
 $\rightarrow$
 
-$$[X^TX]_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}$$
+$$[X^TX]^{-1}_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}$$
 
 $\rightarrow$
 
-$$\beta_{m \times 1}=[X^TX \cdot X^TY]_{m \times 1}$$
+$$\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}$$
+#### Least Squares
+
+Assume the following model:
+
+$$Y=X\beta +\varepsilon$$
+
+When $\beta$ only has a dimension of $2 \times 1$, can can write it as follows. 
+
+$$Y_i=\beta_0+\beta_1X_i +\varepsilon$$
+
+
+
+
+Thus,
+
+$$Q=\sum_{i=1}^n (Y_i-\beta_0-\beta_1X_i)^2$$
+We can calculate the partial derivates as follows.
+
+$$\frac{\partial}{\partial \beta_0} Q \rightarrow \sum_{i=1}^n [Y_i-\beta_0-\beta_1X_i]=0$$
+
+$$\frac{\partial}{\partial \beta_1} Q \rightarrow \sum_{i=1}^n [Y_i-\beta_0-\beta_1X_i]X_i=0$$
+
+__Combining the two pieces of information, we can get__
+
+$$b_1=\frac{\sum(X_i-\bar{X})(Y_i-\bar{Y})}{\sum(X_i-\bar{X})^2}$$
+
+$$b_0=\frac{1}{n}(\sum Y_i-b_1\sum X_i)=\bar{Y}-b_1\bar{X}$$
+
+__Properties of Least Squares Estimators (Gauss- Markov theorem)__
+
+_P.18_
+
+Under the conditions of regression model shown above, the least squares estimator $b_0$ and $b_1$ are unbiased and have minimum variance among all unbiased linear estimators.
+
+That is,
+
+$$E(b_0)=\beta_0$$
+
+$$E(b_1)=\beta_1$$
+
+
+#### MLE
+
+_P.30_
+
+Note that the __Normal Error Regression Model__ is as follows.
+
+$$Y_i=\beta_0+\beta_1X_i +\varepsilon$$
+(This is a specific eample of the definition provided earlier, i.e., $Y=X\beta +\varepsilon$)
+
+For this model, each $Y_i$ observation is normally distributed with mean $\beta_0+\beta_1x_i$ and a standard devision $\sigma$.
+
+Givern $Y_i$ follows normal distribution, we can use $pdf$ of normal distributions and MLE to estimate parameters.
+
+$$\begin{aligned} L(\beta_0,\beta_1,\sigma^2) &=\prod_{i=1}^n \frac{1}{(2\pi \sigma^2)^{1/2}}exp[-\frac{1}{2 \sigma^2}(Y_i-\beta_0-\beta_1X_i)^2] \\ &=\frac{1}{(2\pi \sigma^2)^{n/2}}exp[-\frac{1}{2 \sigma^2}\sum_{i=1}^n(Y_i-\beta_0-\beta_1X_i)^2]  \end{aligned}$$
+Since the variance $\sigma^2$is usually unknown, the likelihood fucntion is a function of three parameters, $\beta_0$, $\beta_1$, and $\sigma^2$.
+
+We can calculate $\beta_0$, $\beta_1$, and $\sigma^2$ analytically, and the results of $\beta_0$ and $\beta_1$ are the same as least squares estimators (see above).
+
+The variance $\sigma^2$ is as follows.
+
+$$\hat{\sigma}^2=\frac{\sum(Y_i-\hat{Y_i})^2}{n}$$
 
 ## full rank, less than full rank 
 
@@ -135,18 +186,71 @@ $$X=X_1 \begin{bmatrix}
 1 & 0 & 1 \\ 0 & 1 & -1 \end{bmatrix}$$
 
 
-And, $X\beta=X_1 \alpha$,
+Thus,
 
-$$\alpha=\begin{bmatrix}
-\mu+\beta_2 \\ \beta_1 - \beta_2 \end{bmatrix}$$
+$$X_1=K=\begin{bmatrix}
+1 & 1 \\
+... & ...  \\
+1 & 1 \\
+1 & 0  \\ 
+... & ... \\
+1 & 0  \end{bmatrix} $$
 
 
+$$\hat{\alpha}=(K^T K)^{-1} \cdot K^TY=\begin{bmatrix}
+n & n_1 \\
+n_1 & n_1 \end{bmatrix}^{-1} \begin{bmatrix}
+\sum Y_{1j}+\sum y_{2j} \\
+\sum y_{1j} \end{bmatrix} =\begin{bmatrix}
+\bar{Y_2}\\ \bar{Y_1}-\bar{Y_2} \end{bmatrix}$$
+
+$$\hat{Y}=X_1 \hat{\alpha}=\begin{bmatrix}
+1 & 1 \\
+... & ...  \\
+1 & 1 \\
+1 & 0  \\ 
+... & ... \\
+1 & 0  \end{bmatrix} \begin{bmatrix}
+\bar{Y_2}\\ \bar{Y_1}-\bar{Y_2} \end{bmatrix}=\begin{bmatrix}
+\bar{Y_1}  \\
+...   \\
+\bar{Y_1} \\
+\bar{Y_2}   \\ 
+... \\
+\bar{Y_2} \end{bmatrix}$$
 
 __2. Find the generalized inverse $(X^TX)^{-}$. __
 
+As noted above, when $X^TX$ has a full rank, we can directly calculate the inverse of $X^TX$. That is,
 
 
-(3) Impose identififiability constraints.
+$$\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}$$
+
+We can just find __some columns__ within $X$ that are independent, and then calculate the inverse of it.
+
+This is because if a matrix $W$ with a rank $r$ and can be partitioned as follows.
+
+$$W=\begin{bmatrix}
+A & B  \\
+C & D \end{bmatrix}$$
+
+Assume $A$ has rank $r$, then
+
+$$W^{-1}=\begin{bmatrix}
+A^{-1} &0  \\
+0 & 0 \end{bmatrix}$$
+
+Thus, let $X=(X_1, X_2)$, where $X_1$ consists of $r$ linearly independent columns from $X$. Then a generalized inverse of $X^TX$ is
+
+$$[X^TX]^{-1}=\begin{bmatrix}
+[X_1^TX_1]^{-1}&0  \\
+0 & 0 \end{bmatrix}$$
+
+Thus, all other steps are similar to the full rank case. 
+
+__3. Impose identififiability constraints__
+
+(Not very sure this one.)
 
 
 ### Assumptions, checking assumptions
