@@ -3,6 +3,12 @@
 
 ## Some basic concepts
 
+### Random variable
+
+Any numerical realization of a random experiment results in a random variable. 
+
+In layman terms, it is a number that has a certain probability attached to it. 
+
 ### Permutation
 An ordered arrangement of a set of objects is known as a permutation. 
 

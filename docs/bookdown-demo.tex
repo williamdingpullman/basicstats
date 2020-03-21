@@ -120,7 +120,7 @@
 
 \title{Basic Stats}
 \author{Bill Last Updated:}
-\date{20 March, 2020}
+\date{21 March, 2020}
 
 \begin{document}
 \frontmatter
@@ -142,6 +142,13 @@ All the notes I have done here are about basic stats. While I have tried my best
 
 \hypertarget{some-basic-concepts}{%
 \section{Some basic concepts}\label{some-basic-concepts}}
+
+\hypertarget{random-variable}{%
+\subsection{Random variable}\label{random-variable}}
+
+Any numerical realization of a random experiment results in a random variable.
+
+In layman terms, it is a number that has a certain probability attached to it.
 
 \hypertarget{permutation}{%
 \subsection{Permutation}\label{permutation}}
@@ -1178,14 +1185,122 @@ If a CRLB estimator \(T\) exists for \(\tau(\theta)\), then a single sufficient 
 \hypertarget{section-2}{%
 \chapter{530\_533}\label{section-2}}
 
-\hypertarget{definition-of-the-general-linear-model---full-rank-less-than-full-rank}{%
-\section{Definition of the general linear model - full rank, less than full rank}\label{definition-of-the-general-linear-model---full-rank-less-than-full-rank}}
+\url{https://www.ssc.wisc.edu/sscc/pubs/RegressionDiagnostics.html}
+
+\url{http://www.sthda.com/english/articles/39-regression-model-diagnostics/161-linear-regression-assumptions-and-diagnostics-in-r-essentials/}
+
+\hypertarget{definition-of-the-general-linear-model}{%
+\section{Definition of the general linear model}\label{definition-of-the-general-linear-model}}
+
+\[Y=X\beta+\varepsilon\]
+
+\[\begin{bmatrix}
+Y_1 \\
+Y_2  \\
+...\\
+Y_n \end{bmatrix}=\begin{bmatrix}
+1 & x_{11} & x_{12} & x_{13} & ... & x_{1m}\\
+1 & x_{21} & x_{22} & x_{23} & ... & x_{2m} \\
+...\\
+1 & x_{n1} & x_{n2} & x_{n3} & ... & x_{nm}
+\end{bmatrix} \begin{bmatrix}
+\beta_0 \\
+\beta_1  \\
+...\\
+\beta_m \end{bmatrix}+\begin{bmatrix}
+\varepsilon_1 \\ \varepsilon_2 \\
+...\\
+\varepsilon_n  \end{bmatrix}\]
+
+Where,
+
+\(Y\): Response vector
+
+\(X\): Design matrix
+
+\(\beta\): parameter vector
+
+\(\varepsilon\): error vector
+
+If \(\varepsilon\) follows a mutivariate normal distribution then we will be under the General Linear Model (GLM) framework.
+
+\[\varepsilon \sim N(0, \sigma^2I_{x \times n})\]
+
+If \(X\) is continuous we have regression.
+
+If \(X\) is categorical we have ANOVA.
+
+If \(X\) is a mix of both, we have ANCOVA.
 
 \hypertarget{simple-linear-regression}{%
 \section{Simple Linear Regression}\label{simple-linear-regression}}
 
-\hypertarget{mle-vs.-least-squares-propoerties-of-the-regression-parameters}{%
-\subsection{MLE vs.~least squares, propoerties of the regression parameters}\label{mle-vs.-least-squares-propoerties-of-the-regression-parameters}}
+Simple linear regression is a linear regression model with a single explanatory variable. In addition, we typically assume that this is under the GLM framework and thus we also assume that the residuals follow normal distribution.
+
+\hypertarget{least-squares-vs.-mle-vs-propoerties-of-the-regression-parameters}{%
+\subsection{Least squares vs.~MLE vs, propoerties of the regression parameters}\label{least-squares-vs.-mle-vs-propoerties-of-the-regression-parameters}}
+
+\hypertarget{least-sqaure-method}{%
+\subsubsection{Least sqaure method}\label{least-sqaure-method}}
+
+\textbf{Basic Idea:}
+
+Assume the following model:
+
+\[Y=X\beta +\varepsilon\]
+Thus,
+
+\[\varepsilon=Y-X\beta\]
+
+Since this is always going to be zero, we need to minimize:
+
+\[\sum \varepsilon^2=\sum [Y-X\beta]^2\]
+
+\textbf{Calculation:}
+
+\[Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}\]
+
+\(\rightarrow\)
+
+\[[X^T]_{m \times n}Y_{n \times 1}=[X^T]_{m \times n}X_{n\times m}\beta_{m \times 1}\]
+\(\rightarrow\)
+
+\[[X^TX]_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}\]
+
+\(\rightarrow\)
+
+\[\beta_{m \times 1}=[X^TX \cdot X^TY]_{m \times 1}\]
+
+\hypertarget{full-rank-less-than-full-rank}{%
+\section{full rank, less than full rank}\label{full-rank-less-than-full-rank}}
+
+\url{http://www.biostat.jhsph.edu/~iruczins/teaching/140.751/notes/ch7.pdf}
+
+\[Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}\]
+
+If the rank \(r\) of \(X_{n \times m}\) is smaller than \(m\), i.e., \(r<m\), there is not a unique solution \(\hat{\beta}\). We have three ways to find a solution \(\hat{\beta}\) and the orthogonal projection \(\hat{Y}\):
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  Reducing the model to the full rank.
+\item
+  Find the generalized inverse \((X^TX)^{-}\).
+\item
+  Impose identififiability constraints.
+\end{enumerate}
+
+Let \(X_1\) consist of \(r\) linear independent columns from \(X\) and let \(X_2\) consistn of the remaining columns. Then, \(X_2=X_1F\) because the columns of \(X_2\) are linearly dependent on the columns of \(X_1\).
+
+\[X=(X_1, X_2)=(X_1, X_1F)=X_1[I_{r\times r}, F]\]
+This is a special case of the factorization \(X=KL\), where rank \((K_{n \times r})=r\) and rank \((L_{r\times p})=r\).
+
+\[E[Y]=x\beta=KL\beta=k\alpha\]
+Since \(K\) has full rank, the Least Squares Estimate of \(\alpha\) is \(\hat{\alpha}=(K^T K)^{-1} \cdot K^TY\).
+
+The orthogonal project,
+
+\[\hat{Y}=K\cdot \alpha=K \cdot(K^T K)^{-1} \cdot K^TY=X_1 \cdot(X_1^TX_1)^{-1}\cdot X_1^TY\]
 
 \hypertarget{assumptions-checking-assumptions}{%
 \subsection{Assumptions, checking assumptions}\label{assumptions-checking-assumptions}}
@@ -1198,6 +1313,10 @@ If a CRLB estimator \(T\) exists for \(\tau(\theta)\), then a single sufficient 
 
 \hypertarget{definition-similarities-and-differences-from-general-linear-models}{%
 \subsection{Definition, similarities and differences from general linear models}\label{definition-similarities-and-differences-from-general-linear-models}}
+
+Generalized Linear Model (GLiM) loosens this assumption that \(\varepsilon\) follows a mutivariate normal distribution, and allows for a variety of other distributions from the exponential family for the residuals.
+
+Of note, the GLM is a special case of the GLiM in which the distribution of the residuals follow a conditionally normal distribution.
 
 \hypertarget{advantage-and-disadvantages}{%
 \subsection{Advantage and disadvantages}\label{advantage-and-disadvantages}}
@@ -1885,10 +2004,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 2.0499524
-## [2,] 0.9995701
-## [3,] 1.9709464
+##          [,1]
+## [1,] 1.997081
+## [2,] 1.012230
+## [3,] 1.942595
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2049,7 +2168,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.376956  4.950311  2.705599
+## [1] -1.973976  3.927796  4.512614
 \end{verbatim}
 
 \begin{Shaded}
@@ -2060,7 +2179,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.128839 8.332503 2.434790
+## [1] 2.118665 2.872017 4.985362
 \end{verbatim}
 
 \begin{Shaded}
@@ -2071,10 +2190,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]      [,2]       [,3]
-## [1,]  1.12883907 -2.059225 0.07478846
-## [2,] -2.05922518  8.332503 1.56012140
-## [3,]  0.07478846  1.560121 2.43479020
+##             [,1]      [,2]        [,3]
+## [1,]  2.11866460 -0.862839 -0.07153269
+## [2,] -0.86283903  2.872017  1.68831445
+## [3,] -0.07153269  1.688314  4.98536221
 \end{verbatim}
 
 \hypertarget{example-2}{%
