@@ -55,13 +55,11 @@ If $X$ is a mix of both, we have ANCOVA.
 Simple linear regression is a linear regression model with a single explanatory variable. In addition, we typically assume that this is under the GLM framework and thus we also assume that the residuals follow normal distribution. 
 
 
-### Least squares vs. MLE vs, propoerties of the regression parameters 
+### Least squares and propoerties of the regression parameters 
 
 #### Basic idea
 
-__Of note__
-
-The following method can always calculate the vector of $\beta$, not related to any specific methods.
+__Of note__ The following method can always calculate the vector of $\beta$, not related to any specific methods.
 
 $$Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}$$
 
@@ -75,13 +73,14 @@ $$[X^TX]^{-1}_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}$$
 $\rightarrow$
 
 $$\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}$$
+
 #### Least Squares
 
 Assume the following model:
 
 $$Y=X\beta +\varepsilon$$
 
-When $\beta$ only has a dimension of $2 \times 1$, can can write it as follows. 
+When $\beta$ only has a dimension of $2 \times 1$, we can write it as follows. 
 
 $$Y_i=\beta_0+\beta_1X_i +\varepsilon$$
 
@@ -139,7 +138,7 @@ The sum of the residuals is zero
 $$\sum_{i=1}^n e_i=0$$
 
 
-#### Point estimator of $\sigma^2$:__
+#### Point estimator of $\sigma^2$
 
 Note that, there are two $S^2$ below, and they have different formulus, even though the only difference is the degree of freedom and the logic of calculating df is the same across these two cases (i.e., __Single Population vs. Regression Model__ ).
 
@@ -157,7 +156,7 @@ The sum of squares is then divided by the degrees of freedom associated with it.
 
 $$S^2= \frac{\sum_{i=1}^n (Y_i-\bar{Y})^2}{n-1}$$
 
-__ $S^2$ is an unbiased estimator of the variance $\sigma^2$. The sample variance $S^2$ is often called a mean square, because a sum of squares has been divided by the appropriate number of degrees of freedom. __
+$S^2$ is an unbiased estimator of the variance $\sigma^2$. The sample variance $S^2$ is often called a mean square, because a sum of squares has been divided by the appropriate number of degrees of freedom.
 
 $$E(S^2)=\sigma^2$$
 
@@ -179,35 +178,33 @@ $$E(MSE=S^2)=\sigma^2$$
 
 
 
-#### MLE
+### MLE
 
 _P.30_
 
 Note that the __Normal Error Regression Model__ is as follows.
 
 $$Y_i=\beta_0+\beta_1X_i +\varepsilon$$
-(This is a specific eample of the definition provided earlier, i.e., $Y=X\beta +\varepsilon$)
+(This is a special case of the definition provided earlier, i.e., $Y=X\beta +\varepsilon$)
 
 For this model, each $Y_i$ observation is normally distributed with mean $\beta_0+\beta_1x_i$ and a standard devision $\sigma$.
 
 Givern $Y_i$ follows normal distribution, we can use $pdf$ of normal distributions and MLE to estimate parameters.
 
 $$\begin{aligned} L(\beta_0,\beta_1,\sigma^2) &=\prod_{i=1}^n \frac{1}{(2\pi \sigma^2)^{1/2}}exp[-\frac{1}{2 \sigma^2}(Y_i-\beta_0-\beta_1X_i)^2] \\ &=\frac{1}{(2\pi \sigma^2)^{n/2}}exp[-\frac{1}{2 \sigma^2}\sum_{i=1}^n(Y_i-\beta_0-\beta_1X_i)^2]  \end{aligned}$$
-Since the variance $\sigma^2$is usually unknown, the likelihood fucntion is a function of three parameters, $\beta_0$, $\beta_1$, and $\sigma^2$.
+Since the variance $\sigma^2$is usually unknown, the likelihood fucntion is a function of three parameters, $\beta_0$, $\beta_1$, and $\sigma^2$. 
 
-We can calculate $\beta_0$, $\beta_1$, and $\sigma^2$ analytically, and the results of $\beta_0$ and $\beta_1$ are the same as least squares estimators (see above).
+Thus, we can calculate $\beta_0$, $\beta_1$, and $\sigma^2$ analytically, and the results of $\beta_0$ and $\beta_1$ are the same as least squares estimators (see above).
 
 The variance $\sigma^2$ is as follows.
 
 $$\hat{\sigma}^2=\frac{\sum(Y_i-\hat{Y_i})^2}{n}$$
 
-As noted in the least square estimation, we know that $\hat{\sigma}^2$ is biased.
-
-Thus, we know that
+As noted in the least square estimation, we know that $\hat{\sigma}^2$ is biased. Thus, we know that:
 
 $$S^2=MSE=\frac{n}{n-2}\hat{\sigma}^2$$
 
-## full rank, less than full rank 
+## Full rank, less than full rank 
 
 http://www.biostat.jhsph.edu/~iruczins/teaching/140.751/notes/ch7.pdf
 
@@ -288,7 +285,7 @@ $$\hat{Y}=X_1 \hat{\alpha}=\begin{bmatrix}
 ... \\
 \bar{Y_2} \end{bmatrix}$$
 
-__2. Find the generalized inverse $(X^TX)^{-}$. __
+__2. Find the generalized inverse $(X^TX)^{-1}$. __
 
 As noted above, when $X^TX$ has a full rank, we can directly calculate the inverse of $X^TX$. That is,
 
@@ -322,7 +319,7 @@ __3. Impose identififiability constraints__
 (Not very sure this one.)
 
 
-### Assumptions, checking assumptions
+## Assumptions, checking assumptions
 
 __The following are some of the possible violations of assumptions:__
 
@@ -345,6 +342,8 @@ __(1) Modified Levene's test (Brown-Forsythe test):__
 To check and see if the variability for $Y$ for the smaller $X's$ are different than the vairability of $Y$ for the larger $X's$.
 
 Thus, we can break up the data into two groups based $X's$ values. Then, we test to see if the vairability of these two groups significantly differ. 
+
+__Note that__ Modefied Levene's test does not depend on normality of the error terms. That is, this test is robust against serious departures from normality. 
 
 
 __(2) Breusch-Pagan test:__

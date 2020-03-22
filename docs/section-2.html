@@ -187,16 +187,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>3</b> 530_533</a><ul>
 <li class="chapter" data-level="3.1" data-path="section-2.html"><a href="section-2.html#definition-of-the-general-linear-model"><i class="fa fa-check"></i><b>3.1</b> Definition of the general linear model</a></li>
 <li class="chapter" data-level="3.2" data-path="section-2.html"><a href="section-2.html#simple-linear-regression"><i class="fa fa-check"></i><b>3.2</b> Simple Linear Regression</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="section-2.html"><a href="section-2.html#least-squares-vs.-mle-vs-propoerties-of-the-regression-parameters"><i class="fa fa-check"></i><b>3.2.1</b> Least squares vs. MLE vs, propoerties of the regression parameters</a></li>
+<li class="chapter" data-level="3.2.1" data-path="section-2.html"><a href="section-2.html#least-squares-and-propoerties-of-the-regression-parameters"><i class="fa fa-check"></i><b>3.2.1</b> Least squares and propoerties of the regression parameters</a></li>
+<li class="chapter" data-level="3.2.2" data-path="section-2.html"><a href="section-2.html#mle"><i class="fa fa-check"></i><b>3.2.2</b> MLE</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="section-2.html"><a href="section-2.html#full-rank-less-than-full-rank"><i class="fa fa-check"></i><b>3.3</b> full rank, less than full rank</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="section-2.html"><a href="section-2.html#assumptions-checking-assumptions"><i class="fa fa-check"></i><b>3.3.1</b> Assumptions, checking assumptions</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="section-2.html"><a href="section-2.html#bootstrapping-used-in-linear-models"><i class="fa fa-check"></i><b>3.4</b> Bootstrapping used in linear models</a></li>
-<li class="chapter" data-level="3.5" data-path="section-2.html"><a href="section-2.html#generalized-linear-models"><i class="fa fa-check"></i><b>3.5</b> Generalized linear models</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="section-2.html"><a href="section-2.html#definition-similarities-and-differences-from-general-linear-models"><i class="fa fa-check"></i><b>3.5.1</b> Definition, similarities and differences from general linear models</a></li>
-<li class="chapter" data-level="3.5.2" data-path="section-2.html"><a href="section-2.html#advantage-and-disadvantages"><i class="fa fa-check"></i><b>3.5.2</b> Advantage and disadvantages</a></li>
-<li class="chapter" data-level="3.5.3" data-path="section-2.html"><a href="section-2.html#logistic-and-poisson-regression"><i class="fa fa-check"></i><b>3.5.3</b> logistic and poisson regression</a></li>
+<li class="chapter" data-level="3.3" data-path="section-2.html"><a href="section-2.html#full-rank-less-than-full-rank"><i class="fa fa-check"></i><b>3.3</b> Full rank, less than full rank</a></li>
+<li class="chapter" data-level="3.4" data-path="section-2.html"><a href="section-2.html#assumptions-checking-assumptions"><i class="fa fa-check"></i><b>3.4</b> Assumptions, checking assumptions</a></li>
+<li class="chapter" data-level="3.5" data-path="section-2.html"><a href="section-2.html#bootstrapping-used-in-linear-models"><i class="fa fa-check"></i><b>3.5</b> Bootstrapping used in linear models</a></li>
+<li class="chapter" data-level="3.6" data-path="section-2.html"><a href="section-2.html#generalized-linear-models"><i class="fa fa-check"></i><b>3.6</b> Generalized linear models</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="section-2.html"><a href="section-2.html#definition-similarities-and-differences-from-general-linear-models"><i class="fa fa-check"></i><b>3.6.1</b> Definition, similarities and differences from general linear models</a></li>
+<li class="chapter" data-level="3.6.2" data-path="section-2.html"><a href="section-2.html#advantage-and-disadvantages"><i class="fa fa-check"></i><b>3.6.2</b> Advantage and disadvantages</a></li>
+<li class="chapter" data-level="3.6.3" data-path="section-2.html"><a href="section-2.html#logistic-and-poisson-regression"><i class="fa fa-check"></i><b>3.6.3</b> logistic and poisson regression</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="section-3.html"><a href="section-3.html"><i class="fa fa-check"></i><b>4</b> 512</a><ul>
@@ -298,23 +298,24 @@ Y_n \end{bmatrix}=\begin{bmatrix}
 <div id="simple-linear-regression" class="section level2">
 <h2><span class="header-section-number">3.2</span> Simple Linear Regression</h2>
 <p>Simple linear regression is a linear regression model with a single explanatory variable. In addition, we typically assume that this is under the GLM framework and thus we also assume that the residuals follow normal distribution.</p>
-<div id="least-squares-vs.-mle-vs-propoerties-of-the-regression-parameters" class="section level3">
-<h3><span class="header-section-number">3.2.1</span> Least squares vs. MLE vs, propoerties of the regression parameters</h3>
+<div id="least-squares-and-propoerties-of-the-regression-parameters" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Least squares and propoerties of the regression parameters</h3>
 <div id="basic-idea" class="section level4">
 <h4><span class="header-section-number">3.2.1.1</span> Basic idea</h4>
-<p><strong>Of note</strong></p>
-<p>The following method can always calculate the vector of <span class="math inline">\(\beta\)</span>, not related to any specific methods.</p>
+<p><strong>Of note</strong> The following method can always calculate the vector of <span class="math inline">\(\beta\)</span>, not related to any specific methods.</p>
 <p><span class="math display">\[Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}\]</span></p>
 <p><span class="math inline">\(\rightarrow\)</span></p>
 <p><span class="math display">\[[X^T]_{m \times n}Y_{n \times 1}=[X^T]_{m \times n}X_{n\times m}\beta_{m \times 1}\]</span>
 <span class="math inline">\(\rightarrow\)</span></p>
 <p><span class="math display">\[[X^TX]^{-1}_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}\]</span></p>
 <p><span class="math inline">\(\rightarrow\)</span></p>
-<p><span class="math display">\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]</span>
-#### Least Squares</p>
+<p><span class="math display">\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]</span></p>
+</div>
+<div id="least-squares" class="section level4">
+<h4><span class="header-section-number">3.2.1.2</span> Least Squares</h4>
 <p>Assume the following model:</p>
 <p><span class="math display">\[Y=X\beta +\varepsilon\]</span></p>
-<p>When <span class="math inline">\(\beta\)</span> only has a dimension of <span class="math inline">\(2 \times 1\)</span>, can can write it as follows.</p>
+<p>When <span class="math inline">\(\beta\)</span> only has a dimension of <span class="math inline">\(2 \times 1\)</span>, we can write it as follows.</p>
 <p><span class="math display">\[Y_i=\beta_0+\beta_1X_i +\varepsilon\]</span></p>
 <p>Thus,</p>
 <p><span class="math display">\[Q=\sum_{i=1}^n (Y_i-\beta_0-\beta_1X_i)^2\]</span>
@@ -343,8 +344,8 @@ We estimate the regression function as follows:</p>
 The sum of the residuals is zero</p>
 <p><span class="math display">\[\sum_{i=1}^n e_i=0\]</span></p>
 </div>
-<div id="point-estimator-of-sigma2__" class="section level4">
-<h4><span class="header-section-number">3.2.1.2</span> Point estimator of <span class="math inline">\(\sigma^2\)</span>:__</h4>
+<div id="point-estimator-of-sigma2" class="section level4">
+<h4><span class="header-section-number">3.2.1.3</span> Point estimator of <span class="math inline">\(\sigma^2\)</span></h4>
 <p>Note that, there are two <span class="math inline">\(S^2\)</span> below, and they have different formulus, even though the only difference is the degree of freedom and the logic of calculating df is the same across these two cases (i.e., <strong>Single Population vs. Regression Model</strong> ).</p>
 <p><strong>1. Single Pupulation</strong></p>
 <p><strong>Sum of squares:</strong></p>
@@ -352,7 +353,7 @@ The sum of the residuals is zero</p>
 <p><span class="math display">\[\sum_{i=1}^ne_i^2=\sum_{i=1}^n (Y_i-\bar{Y})^2\]</span></p>
 <p>The sum of squares is then divided by the degrees of freedom associated with it.</p>
 <p><span class="math display">\[S^2= \frac{\sum_{i=1}^n (Y_i-\bar{Y})^2}{n-1}\]</span></p>
-<p>__ <span class="math inline">\(S^2\)</span> is an unbiased estimator of the variance <span class="math inline">\(\sigma^2\)</span>. The sample variance <span class="math inline">\(S^2\)</span> is often called a mean square, because a sum of squares has been divided by the appropriate number of degrees of freedom. __</p>
+<p><span class="math inline">\(S^2\)</span> is an unbiased estimator of the variance <span class="math inline">\(\sigma^2\)</span>. The sample variance <span class="math inline">\(S^2\)</span> is often called a mean square, because a sum of squares has been divided by the appropriate number of degrees of freedom.</p>
 <p><span class="math display">\[E(S^2)=\sigma^2\]</span></p>
 <p><strong>2. Regression model</strong></p>
 <p><strong>Sum of Squares Error (SSE) (or, Sum of Squares Residual): </strong></p>
@@ -362,27 +363,26 @@ The sum of the residuals is zero</p>
 <span class="math inline">\(MSE\)</span> is an unbiased estimator of <span class="math inline">\(\sigma^2\)</span> for regression model.</p>
 <p><span class="math display">\[E(MSE=S^2)=\sigma^2\]</span></p>
 </div>
-<div id="mle" class="section level4">
-<h4><span class="header-section-number">3.2.1.3</span> MLE</h4>
+</div>
+<div id="mle" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> MLE</h3>
 <p><em>P.30</em></p>
 <p>Note that the <strong>Normal Error Regression Model</strong> is as follows.</p>
 <p><span class="math display">\[Y_i=\beta_0+\beta_1X_i +\varepsilon\]</span>
-(This is a specific eample of the definition provided earlier, i.e., <span class="math inline">\(Y=X\beta +\varepsilon\)</span>)</p>
+(This is a special case of the definition provided earlier, i.e., <span class="math inline">\(Y=X\beta +\varepsilon\)</span>)</p>
 <p>For this model, each <span class="math inline">\(Y_i\)</span> observation is normally distributed with mean <span class="math inline">\(\beta_0+\beta_1x_i\)</span> and a standard devision <span class="math inline">\(\sigma\)</span>.</p>
 <p>Givern <span class="math inline">\(Y_i\)</span> follows normal distribution, we can use <span class="math inline">\(pdf\)</span> of normal distributions and MLE to estimate parameters.</p>
 <p><span class="math display">\[\begin{aligned} L(\beta_0,\beta_1,\sigma^2) &amp;=\prod_{i=1}^n \frac{1}{(2\pi \sigma^2)^{1/2}}exp[-\frac{1}{2 \sigma^2}(Y_i-\beta_0-\beta_1X_i)^2] \\ &amp;=\frac{1}{(2\pi \sigma^2)^{n/2}}exp[-\frac{1}{2 \sigma^2}\sum_{i=1}^n(Y_i-\beta_0-\beta_1X_i)^2]  \end{aligned}\]</span>
 Since the variance <span class="math inline">\(\sigma^2\)</span>is usually unknown, the likelihood fucntion is a function of three parameters, <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2\)</span>.</p>
-<p>We can calculate <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2\)</span> analytically, and the results of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are the same as least squares estimators (see above).</p>
+<p>Thus, we can calculate <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span>, and <span class="math inline">\(\sigma^2\)</span> analytically, and the results of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> are the same as least squares estimators (see above).</p>
 <p>The variance <span class="math inline">\(\sigma^2\)</span> is as follows.</p>
 <p><span class="math display">\[\hat{\sigma}^2=\frac{\sum(Y_i-\hat{Y_i})^2}{n}\]</span></p>
-<p>As noted in the least square estimation, we know that <span class="math inline">\(\hat{\sigma}^2\)</span> is biased.</p>
-<p>Thus, we know that</p>
+<p>As noted in the least square estimation, we know that <span class="math inline">\(\hat{\sigma}^2\)</span> is biased. Thus, we know that:</p>
 <p><span class="math display">\[S^2=MSE=\frac{n}{n-2}\hat{\sigma}^2\]</span></p>
 </div>
 </div>
-</div>
 <div id="full-rank-less-than-full-rank" class="section level2">
-<h2><span class="header-section-number">3.3</span> full rank, less than full rank</h2>
+<h2><span class="header-section-number">3.3</span> Full rank, less than full rank</h2>
 <p><a href="http://www.biostat.jhsph.edu/~iruczins/teaching/140.751/notes/ch7.pdf" class="uri">http://www.biostat.jhsph.edu/~iruczins/teaching/140.751/notes/ch7.pdf</a></p>
 <p><span class="math display">\[Y_{n \times 1}=X_{n\times m}\beta_{m \times 1}\]</span></p>
 <p>If the rank <span class="math inline">\(r\)</span> of <span class="math inline">\(X_{n \times m}\)</span> is smaller than <span class="math inline">\(m\)</span>, i.e., <span class="math inline">\(r&lt;m\)</span>, there is not a unique solution <span class="math inline">\(\hat{\beta}\)</span>. We have three ways to find a solution <span class="math inline">\(\hat{\beta}\)</span> and the orthogonal projection <span class="math inline">\(\hat{Y}\)</span>:</p>
@@ -442,7 +442,7 @@ n_1 &amp; n_1 \end{bmatrix}^{-1} \begin{bmatrix}
 \bar{Y_2}   \\ 
 ... \\
 \bar{Y_2} \end{bmatrix}\]</span></p>
-<p><strong>2. Find the generalized inverse <span class="math inline">\((X^TX)^{-}\)</span>. </strong></p>
+<p><strong>2. Find the generalized inverse <span class="math inline">\((X^TX)^{-1}\)</span>. </strong></p>
 <p>As noted above, when <span class="math inline">\(X^TX\)</span> has a full rank, we can directly calculate the inverse of <span class="math inline">\(X^TX\)</span>. That is,</p>
 <p><span class="math display">\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]</span></p>
 <p>We can just find <strong>some columns</strong> within <span class="math inline">\(X\)</span> that are independent, and then calculate the inverse of it.</p>
@@ -461,8 +461,9 @@ A^{-1} &amp;0  \\
 <p>Thus, all other steps are similar to the full rank case.</p>
 <p><strong>3. Impose identififiability constraints</strong></p>
 <p>(Not very sure this one.)</p>
-<div id="assumptions-checking-assumptions" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Assumptions, checking assumptions</h3>
+</div>
+<div id="assumptions-checking-assumptions" class="section level2">
+<h2><span class="header-section-number">3.4</span> Assumptions, checking assumptions</h2>
 <p><strong>The following are some of the possible violations of assumptions:</strong></p>
 <p><strong>1 Regression function is nonlinear</strong></p>
 <p>Plot explanatory and response variables to see whether their relationship is linear, it is not, suggesting that a linear regression function is not appropriate.</p>
@@ -474,6 +475,7 @@ A^{-1} &amp;0  \\
 <p><strong>(1) Modified Levene’s test (Brown-Forsythe test):</strong></p>
 <p>To check and see if the variability for <span class="math inline">\(Y\)</span> for the smaller <span class="math inline">\(X&#39;s\)</span> are different than the vairability of <span class="math inline">\(Y\)</span> for the larger <span class="math inline">\(X&#39;s\)</span>.</p>
 <p>Thus, we can break up the data into two groups based <span class="math inline">\(X&#39;s\)</span> values. Then, we test to see if the vairability of these two groups significantly differ.</p>
+<p><strong>Note that</strong> Modefied Levene’s test does not depend on normality of the error terms. That is, this test is robust against serious departures from normality.</p>
 <p><strong>(2) Breusch-Pagan test:</strong></p>
 <p>Want to see if there is any relationship between <span class="math inline">\(\sigma_i\)</span> and the <span class="math inline">\(X_i\)</span>’s. To do this, we can fit a regression of <span class="math inline">\(log(\sigma_i)\)</span> on <span class="math inline">\(X_i\)</span>’s:</p>
 <p><span class="math display">\[log(\sigma_i)=b_0+b_1X_i\]</span></p>
@@ -491,9 +493,8 @@ A^{-1} &amp;0  \\
 <p><strong>6 Omission of some of the important predictors</strong></p>
 <p>Plots should be made betweeen variables omitted from the model and the dependent variable. Such omitted variables may have important effects on the response.</p>
 </div>
-</div>
 <div id="bootstrapping-used-in-linear-models" class="section level2">
-<h2><span class="header-section-number">3.4</span> Bootstrapping used in linear models</h2>
+<h2><span class="header-section-number">3.5</span> Bootstrapping used in linear models</h2>
 <p><em>P.458</em></p>
 <p><strong>Intro</strong></p>
 <p>For standard fitted regression models, methods described earlier chapters are available for evaluating the precision of estimated regression coefficients, fitted values, and predictions of new observations.</p>
@@ -526,17 +527,17 @@ times, yelding a bootstrap sample of <span class="math inline">\(n\)</span> pair
 <p><em>P.460</em></p>
 </div>
 <div id="generalized-linear-models" class="section level2">
-<h2><span class="header-section-number">3.5</span> Generalized linear models</h2>
+<h2><span class="header-section-number">3.6</span> Generalized linear models</h2>
 <div id="definition-similarities-and-differences-from-general-linear-models" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Definition, similarities and differences from general linear models</h3>
+<h3><span class="header-section-number">3.6.1</span> Definition, similarities and differences from general linear models</h3>
 <p>Generalized Linear Model (GLiM) loosens this assumption that <span class="math inline">\(\varepsilon\)</span> follows a mutivariate normal distribution, and allows for a variety of other distributions from the exponential family for the residuals.</p>
 <p>Of note, the GLM is a special case of the GLiM in which the distribution of the residuals follow a conditionally normal distribution.</p>
 </div>
 <div id="advantage-and-disadvantages" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Advantage and disadvantages</h3>
+<h3><span class="header-section-number">3.6.2</span> Advantage and disadvantages</h3>
 </div>
 <div id="logistic-and-poisson-regression" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> logistic and poisson regression</h3>
+<h3><span class="header-section-number">3.6.3</span> logistic and poisson regression</h3>
 <p><strong>Logistic regression</strong></p>
 <p>Logistic regression is a special case of GLiM with binomial distribution on the <span class="math inline">\(Y&#39;s\)</span> and the link function</p>
 <p>The basic idea of logistic regression:
