@@ -1,3 +1,7 @@
+---
+output:
+  word_document: default
+---
 # 530_533 
 
 https://www.ssc.wisc.edu/sscc/pubs/RegressionDiagnostics.html

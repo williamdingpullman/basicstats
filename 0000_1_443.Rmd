@@ -100,7 +100,7 @@ $$Var(\bar{X})=Var(\frac{1}{n}(X_1+...+X_n))=\frac{1}{n^2}Var(X_1+...+X_n)=\frac
 
 There are two different versions of the Law of Large Numbers: Strong law of large numbers and Weak law of large numbers. 
 
-The weak law of large numbers: The sample average converges in probability towards the expected value. 
+The weak law of large numbers: The sample average converges __in probability__ towards the expected value. 
 
 $$\bar{X_n} \xrightarrow{p} \mu \; \; \; (n \rightarrow \infty)$$
 This, for any positive number $\epsilon$
@@ -108,6 +108,8 @@ This, for any positive number $\epsilon$
 $$lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|>\epsilon)=0$$
 
 ### Strong law
+
+The sequence of sample mean $\bar{X}_n$ converges to $\mu$ __almost surely__.
 
 $$\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)$$
 This is,
