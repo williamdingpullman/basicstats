@@ -327,7 +327,7 @@ __3. Impose identififiability constraints__
 
 __The following are some of the possible violations of assumptions:__
 
-### Regression function is nonlinear__
+### Regression function is nonlinear
 
 Plot explanatory and response variables to see whether their relationship is linear, it is not, suggesting that a linear regression function is not appropriate. 
 
@@ -335,7 +335,7 @@ __Stat Methods:__
 
 F-test for lack of fit. 
 
-### Non-constant variance__
+### Non-constant variance
 
 Plots of the residuals against the predictor variable (i.e., $X$) or against the fitted values (i.e., $\hat{Y}$), to study whether the linear model is appropriate and whether the __variance of the error terms__ is constant.  
 
@@ -357,7 +357,7 @@ Want to see if there is any relationship between $\sigma_i$ and the $X_i$'s. To 
 $$log(\sigma_i)=b_0+b_1X_i$$
 
 
-### Error terms not independent__
+### Error terms not independent
 
 We want a random pattern. Any type of pattern indicates time orderred problems indicates that the model is not appropriate. 
 
@@ -365,12 +365,12 @@ __Stat Methods:__
 
 __Durbin Watson Test__ Test for presence of autocorrelation amongst observations. 
 
-### Possibility of outliers__
+### Possibility of outliers
 
 Scatter plot the dependent variable and independent variables (each $X_i$ is plotted seprately.)
 
 
-### Non normal distribution of error__
+### Non normal distribution of error
 
 Use histogram to check whether the resitual follows normal distribution. 
 
@@ -385,7 +385,7 @@ _P.70 512 note_
 
 You can use Shapiro-Wilk, Kolmogorov-Smirnov, Cramer-von Mises, Anderson-Darling in SAS to assess the normal errors. 
 
-### Omission of some of the important predictors__
+### Omission of some of the important predictors
 
 Plots should be made betweeen variables omitted from the model and the dependent variable. Such omitted variables may have important effects on the response. 
 

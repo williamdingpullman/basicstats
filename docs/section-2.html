@@ -192,12 +192,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="section-2.html"><a href="section-2.html#full-rank-less-than-full-rank"><i class="fa fa-check"></i><b>3.3</b> Full rank, less than full rank</a></li>
 <li class="chapter" data-level="3.4" data-path="section-2.html"><a href="section-2.html#assumptions-checking-assumptions"><i class="fa fa-check"></i><b>3.4</b> Assumptions, checking assumptions</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="section-2.html"><a href="section-2.html#regression-function-is-nonlinear__"><i class="fa fa-check"></i><b>3.4.1</b> Regression function is nonlinear__</a></li>
-<li class="chapter" data-level="3.4.2" data-path="section-2.html"><a href="section-2.html#non-constant-variance__"><i class="fa fa-check"></i><b>3.4.2</b> Non-constant variance__</a></li>
-<li class="chapter" data-level="3.4.3" data-path="section-2.html"><a href="section-2.html#error-terms-not-independent__"><i class="fa fa-check"></i><b>3.4.3</b> Error terms not independent__</a></li>
-<li class="chapter" data-level="3.4.4" data-path="section-2.html"><a href="section-2.html#possibility-of-outliers__"><i class="fa fa-check"></i><b>3.4.4</b> Possibility of outliers__</a></li>
-<li class="chapter" data-level="3.4.5" data-path="section-2.html"><a href="section-2.html#non-normal-distribution-of-error__"><i class="fa fa-check"></i><b>3.4.5</b> Non normal distribution of error__</a></li>
-<li class="chapter" data-level="3.4.6" data-path="section-2.html"><a href="section-2.html#omission-of-some-of-the-important-predictors__"><i class="fa fa-check"></i><b>3.4.6</b> Omission of some of the important predictors__</a></li>
+<li class="chapter" data-level="3.4.1" data-path="section-2.html"><a href="section-2.html#regression-function-is-nonlinear"><i class="fa fa-check"></i><b>3.4.1</b> Regression function is nonlinear</a></li>
+<li class="chapter" data-level="3.4.2" data-path="section-2.html"><a href="section-2.html#non-constant-variance"><i class="fa fa-check"></i><b>3.4.2</b> Non-constant variance</a></li>
+<li class="chapter" data-level="3.4.3" data-path="section-2.html"><a href="section-2.html#error-terms-not-independent"><i class="fa fa-check"></i><b>3.4.3</b> Error terms not independent</a></li>
+<li class="chapter" data-level="3.4.4" data-path="section-2.html"><a href="section-2.html#possibility-of-outliers"><i class="fa fa-check"></i><b>3.4.4</b> Possibility of outliers</a></li>
+<li class="chapter" data-level="3.4.5" data-path="section-2.html"><a href="section-2.html#non-normal-distribution-of-error"><i class="fa fa-check"></i><b>3.4.5</b> Non normal distribution of error</a></li>
+<li class="chapter" data-level="3.4.6" data-path="section-2.html"><a href="section-2.html#omission-of-some-of-the-important-predictors"><i class="fa fa-check"></i><b>3.4.6</b> Omission of some of the important predictors</a></li>
 </ul></li>
 <li class="chapter" data-level="3.5" data-path="section-2.html"><a href="section-2.html#bootstrapping-used-in-linear-models"><i class="fa fa-check"></i><b>3.5</b> Bootstrapping used in linear models</a></li>
 <li class="chapter" data-level="3.6" data-path="section-2.html"><a href="section-2.html#generalized-linear-models"><i class="fa fa-check"></i><b>3.6</b> Generalized linear models</a><ul>
@@ -476,14 +476,14 @@ A^{-1} &amp;0  \\
 <div id="assumptions-checking-assumptions" class="section level2">
 <h2><span class="header-section-number">3.4</span> Assumptions, checking assumptions</h2>
 <p><strong>The following are some of the possible violations of assumptions:</strong></p>
-<div id="regression-function-is-nonlinear__" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Regression function is nonlinear__</h3>
+<div id="regression-function-is-nonlinear" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Regression function is nonlinear</h3>
 <p>Plot explanatory and response variables to see whether their relationship is linear, it is not, suggesting that a linear regression function is not appropriate.</p>
 <p><strong>Stat Methods:</strong></p>
 <p>F-test for lack of fit.</p>
 </div>
-<div id="non-constant-variance__" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Non-constant variance__</h3>
+<div id="non-constant-variance" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Non-constant variance</h3>
 <p>Plots of the residuals against the predictor variable (i.e., <span class="math inline">\(X\)</span>) or against the fitted values (i.e., <span class="math inline">\(\hat{Y}\)</span>), to study whether the linear model is appropriate and whether the <strong>variance of the error terms</strong> is constant.</p>
 <p><strong>Stat Methods:</strong></p>
 <p><strong>(1) Modified Levene’s test (Brown-Forsythe test):</strong></p>
@@ -494,18 +494,18 @@ A^{-1} &amp;0  \\
 <p>Want to see if there is any relationship between <span class="math inline">\(\sigma_i\)</span> and the <span class="math inline">\(X_i\)</span>’s. To do this, we can fit a regression of <span class="math inline">\(log(\sigma_i)\)</span> on <span class="math inline">\(X_i\)</span>’s:</p>
 <p><span class="math display">\[log(\sigma_i)=b_0+b_1X_i\]</span></p>
 </div>
-<div id="error-terms-not-independent__" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Error terms not independent__</h3>
+<div id="error-terms-not-independent" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Error terms not independent</h3>
 <p>We want a random pattern. Any type of pattern indicates time orderred problems indicates that the model is not appropriate.</p>
 <p><strong>Stat Methods:</strong></p>
 <p><strong>Durbin Watson Test</strong> Test for presence of autocorrelation amongst observations.</p>
 </div>
-<div id="possibility-of-outliers__" class="section level3">
-<h3><span class="header-section-number">3.4.4</span> Possibility of outliers__</h3>
+<div id="possibility-of-outliers" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> Possibility of outliers</h3>
 <p>Scatter plot the dependent variable and independent variables (each <span class="math inline">\(X_i\)</span> is plotted seprately.)</p>
 </div>
-<div id="non-normal-distribution-of-error__" class="section level3">
-<h3><span class="header-section-number">3.4.5</span> Non normal distribution of error__</h3>
+<div id="non-normal-distribution-of-error" class="section level3">
+<h3><span class="header-section-number">3.4.5</span> Non normal distribution of error</h3>
 <p>Use histogram to check whether the resitual follows normal distribution.</p>
 <p><strong>Stat Methods:</strong></p>
 <p><em>P.115</em></p>
@@ -513,8 +513,8 @@ A^{-1} &amp;0  \\
 <p><em>P.70 512 note</em></p>
 <p>You can use Shapiro-Wilk, Kolmogorov-Smirnov, Cramer-von Mises, Anderson-Darling in SAS to assess the normal errors.</p>
 </div>
-<div id="omission-of-some-of-the-important-predictors__" class="section level3">
-<h3><span class="header-section-number">3.4.6</span> Omission of some of the important predictors__</h3>
+<div id="omission-of-some-of-the-important-predictors" class="section level3">
+<h3><span class="header-section-number">3.4.6</span> Omission of some of the important predictors</h3>
 <p>Plots should be made betweeen variables omitted from the model and the dependent variable. Such omitted variables may have important effects on the response.</p>
 </div>
 </div>

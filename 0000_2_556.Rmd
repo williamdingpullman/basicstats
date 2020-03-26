@@ -464,6 +464,20 @@ $\bar{X}$ is the UMVUE of $\theta$.
 
 ### Best linear unbiased estimation (BLUE or MVLUE)
 
+https://statisticsbyjim.com/regression/gauss-markov-theorem-ols-blue/
+
+
+The Gauss-Markov theorem states that if you linear regression satisfies the first 6 classical assumption, the Ordinary least squares (OLS) produces unbiased estimates that have the smallest variable of all possible linear estimators.
+
+The Gauss-Markov theorem famously states that OLS is (Best Linear Unbiased Estimator) BLUE.
+
+In this context, __best__ refers to the minimum variance. 
+
+
+__MULUE:__ Minimum Variance Linear Unbiased Estimate
+
+https://link.springer.com/chapter/10.2991/978-94-91216-83-1_13
+
 
 ### Consistency, asymptotic unbiasedness
 
