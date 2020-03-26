@@ -271,6 +271,8 @@ This, for any positive number \(\epsilon\)
 \hypertarget{strong-law}{%
 \subsection{Strong law}\label{strong-law}}
 
+\url{http://maxim.ece.illinois.edu/teaching/fall12/handouts/LLN.pdf}
+
 The sequence of sample mean \(\bar{X}_n\) converges to \(\mu\) \textbf{almost surely}.
 
 \[\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)\]
@@ -290,7 +292,7 @@ is the standard normal, \(Z_n \xrightarrow{d} Z \sim N(0,1)\) as \(n \rightarrow
 \hypertarget{bernoulli-law-of-large-number}{%
 \subsubsection{Bernoulli law of large number}\label{bernoulli-law-of-large-number}}
 
-\(\hat{p_n}\) converges stochasticalltly to \(p\) as \(n\) approchaes infinity. For example, if a coin is tossed repeatedly, and \(A=\{H\}\), then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to \(p=1/2\).
+\(\hat{p}_n=\frac{Y_n}{n}\) converges stochasticalltly to \(p\) as \(n\) approchaes infinity. For example, if a coin is tossed repeatedly, and \(A=\{H\}\), then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to \(p=1/2\).
 
 \hypertarget{normal-approximation-to-binomial}{%
 \subsubsection{Normal approximation to Binomial}\label{normal-approximation-to-binomial}}
@@ -2468,9 +2470,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 2.0261400
-## [2,] 0.9868326
-## [3,] 1.9929680
+## [1,] 1.9442591
+## [2,] 0.9053468
+## [3,] 1.9380527
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2631,7 +2633,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.965932  3.609447  3.428036
+## [1] -2.329156  4.415612  3.756848
 \end{verbatim}
 
 \begin{Shaded}
@@ -2642,7 +2644,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.253737 6.077783 4.886638
+## [1] 1.396673 4.743514 3.875867
 \end{verbatim}
 
 \begin{Shaded}
@@ -2653,10 +2655,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]      [,3]
-## [1,]  1.2537367 -0.1369531 -0.526759
-## [2,] -0.1369531  6.0777827  3.989427
-## [3,] -0.5267590  3.9894273  4.886638
+##            [,1]      [,2]       [,3]
+## [1,]  1.3966732 -1.509577 -0.2781451
+## [2,] -1.5095771  4.743514  1.8569503
+## [3,] -0.2781451  1.856950  3.8758668
 \end{verbatim}
 
 \hypertarget{example-2}{%

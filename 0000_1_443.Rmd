@@ -109,6 +109,9 @@ $$lim_{n \rightarrow \infty} Pr(|\bar{X_n}-\mu|>\epsilon)=0$$
 
 ### Strong law
 
+http://maxim.ece.illinois.edu/teaching/fall12/handouts/LLN.pdf
+
+
 The sequence of sample mean $\bar{X}_n$ converges to $\mu$ __almost surely__.
 
 $$\bar{X_n} \xrightarrow{a.s.} \mu \; \; \; (n \rightarrow \infty)$$
@@ -128,7 +131,7 @@ is the standard normal, $Z_n \xrightarrow{d} Z \sim N(0,1)$ as $n \rightarrow \i
 #### Bernoulli law of large number 
 
 
-$\hat{p_n}$ converges stochasticalltly to $p$ as $n$ approchaes infinity. For example, if a coin is tossed repeatedly, and $A=\{H\}$, then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to $p=1/2$.
+$\hat{p}_n=\frac{Y_n}{n}$ converges stochasticalltly to $p$ as $n$ approchaes infinity. For example, if a coin is tossed repeatedly, and $A=\{H\}$, then the successive relative frequencies of A correspond to a sequence of random variables that will converge stochastically to $p=1/2$.
 
 
 #### Normal approximation to Binomial
