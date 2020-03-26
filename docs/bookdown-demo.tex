@@ -544,7 +544,13 @@ If a sample is from a Gamma distribution \(X_i \sim GAM(\theta,k)\), and we want
 
 We know that for Gamma distribution, the mean is \(k\theta\), and the variance is \(k\theta^2\).
 
-We also know that \(\mu_1^{'}=\mu=k\theta\) and \(\mu_2^{'}= \sigma^2+\mu^2= k\theta^2+k^2\theta^2=k\theta^2(1+k)\).
+We also know that
+
+\[\mu_1^{'}=\mu=k\theta\]
+
+and
+
+\[\mu_2^{'}= \sigma^2+\mu^2= k\theta^2+k^2\theta^2=k\theta^2(1+k)\].
 
 Thus, we can get
 
@@ -2470,9 +2476,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 1.9442591
-## [2,] 0.9053468
-## [3,] 1.9380527
+## [1,] 2.0711349
+## [2,] 0.9800422
+## [3,] 2.0066650
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2633,7 +2639,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.329156  4.415612  3.756848
+## [1] -1.412034  4.218966  3.714156
 \end{verbatim}
 
 \begin{Shaded}
@@ -2644,7 +2650,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.396673 4.743514 3.875867
+## [1] 1.587043 1.045071 4.970654
 \end{verbatim}
 
 \begin{Shaded}
@@ -2655,10 +2661,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]       [,3]
-## [1,]  1.3966732 -1.509577 -0.2781451
-## [2,] -1.5095771  4.743514  1.8569503
-## [3,] -0.2781451  1.856950  3.8758668
+##            [,1]       [,2]      [,3]
+## [1,]  1.5870429 -0.5810887 1.2197442
+## [2,] -0.5810887  1.0450715 0.4839776
+## [3,]  1.2197442  0.4839776 4.9706544
 \end{verbatim}
 
 \hypertarget{example-2}{%

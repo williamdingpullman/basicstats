@@ -215,7 +215,13 @@ If a sample is from a Gamma distribution $X_i \sim GAM(\theta,k)$, and we want t
 
 We know that for Gamma distribution, the mean is $k\theta$, and the variance is $k\theta^2$.
 
-We also know that $\mu_1^{'}=\mu=k\theta$ and $\mu_2^{'}= \sigma^2+\mu^2= k\theta^2+k^2\theta^2=k\theta^2(1+k)$.
+We also know that 
+
+$$\mu_1^{'}=\mu=k\theta$$
+
+and 
+
+$$\mu_2^{'}= \sigma^2+\mu^2= k\theta^2+k^2\theta^2=k\theta^2(1+k)$$.
 
 Thus, we can get
 
