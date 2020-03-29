@@ -213,9 +213,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="section-3.html"><a href="section-3.html#completely-randomized-designs"><i class="fa fa-check"></i><b>4.2</b> Completely randomized designs</a></li>
 <li class="chapter" data-level="4.3" data-path="section-3.html"><a href="section-3.html#randomized-complete-block-designs"><i class="fa fa-check"></i><b>4.3</b> Randomized complete block designs</a></li>
-<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html#incomplete-block-designs"><i class="fa fa-check"></i><b>4.4</b> Incomplete block designs</a></li>
-<li class="chapter" data-level="4.5" data-path="section-3.html"><a href="section-3.html#row-column-design-latin-square-designs"><i class="fa fa-check"></i><b>4.5</b> Row-column design (Latin square designs)</a></li>
-<li class="chapter" data-level="4.6" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.6</b> Split-plot designs</a></li>
+<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html#row-column-design-latin-square-designs"><i class="fa fa-check"></i><b>4.4</b> Row-column design (Latin square designs)</a></li>
+<li class="chapter" data-level="4.5" data-path="section-3.html"><a href="section-3.html#comparing-rcbd-versus-crd"><i class="fa fa-check"></i><b>4.5</b> Comparing RCBD versus CRD</a></li>
+<li class="chapter" data-level="4.6" data-path="section-3.html"><a href="section-3.html#incomplete-block-designs"><i class="fa fa-check"></i><b>4.6</b> Incomplete block designs</a></li>
+<li class="chapter" data-level="4.7" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.7</b> Split-plot designs</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>5</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="5.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>5.1</b> Logit</a></li>
@@ -323,10 +324,10 @@ y_n \\
 <a class="sourceLine" id="cb27-7" title="7">transposed_X&lt;-<span class="kw">t</span>(X)</a>
 <a class="sourceLine" id="cb27-8" title="8">beta_hat&lt;-<span class="kw">solve</span>(transposed_X<span class="op">%*%</span>X)<span class="op">%*%</span>transposed_X<span class="op">%*%</span>y</a>
 <a class="sourceLine" id="cb27-9" title="9">beta_hat</a></code></pre></div>
-<pre><code>##          [,1]
-## [1,] 2.048614
-## [2,] 1.106736
-## [3,] 2.045968</code></pre>
+<pre><code>##           [,1]
+## [1,] 2.0627857
+## [2,] 0.9478306
+## [3,] 2.0053491</code></pre>
 <p><strong>Side Notes</strong>
 The function of as.matrix will automatically make c(2,1,2) become the dimension of <span class="math inline">\(3 \times 1\)</span>, you do not need to transpose the <span class="math inline">\(\beta\)</span>.</p>
 <div id="taylor-series" class="section level2">

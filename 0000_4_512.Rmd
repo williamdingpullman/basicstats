@@ -20,26 +20,54 @@ Otherwise, the factor is said to be __nested__. A factor, say B, is __nested__ w
 
 __Completely random design (CRD)__: 
 
-__All experimental  units__ are __randomly assigned__ to all treatment combinations and therefore the design is a CRD design. That is, across all experimental units, they are assumed to be homogeneous before getting the assigned treatments assigned.
+__Randomly select 9 farms. Randomly assign 3 farms to Variety 1, 3 farms to Variety 2, and 3 farms to Variety 3. This arrangement might appear as in the following table.__
 
 ![CRD](CRD.png) 
 
-This is __Completely Randomized Design__. That is, we have a __one-way treatment structure__ (Variety) in a __completely randomized design structure__. Note that the experimental unit (Farm) is __nested__ within treatment (Variety).
+__All experimental units__ (i.e., 9 farms) are __randomly assigned__ to all treatment (i.e., 3 varieties) and therefore the design is a CRD design. That is, across __all experimental units__, (i.e., 9 farms)  they are assumed to be homogeneous before getting the __assigned treatments__.
+
 
 ## Randomized complete block designs
 
 __Randomized complete block design (RCBD)__: 
 
-Suppose there are __t-treatments__, with each to be observed __b times__, so that $b\times t$ experimental units are necessary. An RCBD arranges the $b\times t$ experimental units into $b$ homogeneous groups (blocks) with each containing t base units. 
-
-The $t$ treatments are randomly assigned to the $t$ units within each block so that each treatment appears once with a block. 
-
+Randomly select 3 farms. Each farm is divided into 3 subunits with all three varieties, and all 3 varities are randomly assigned into the 3 subunits. 
 
 ![RCBD](RCBD.png) 
+
+
+The $t$ treatments are randomly assigned to the $t$ subunits within each block. Thus, there are __t-treatments__, with each to be observed __b times__ (i.e., $t \times b$ experimental units).  
+
+In the table above, __t-treatments__ are the 3 varities, whereas __b times__ are the 3 blocks. Thus, __3 farms__ are the __3 blocks__.
+
 
 This is a __Randomized Complete Block Design__. That is, we have a one-way treatment structure (Variety) in a randomized complete block design structure. 
 
 We call the __farms__ blocks or __blocking factor__. Note that block and treatment (Variety) are crossed.
+
+
+
+## Row-column design (Latin square designs)
+
+( __My own short summary:__ Latin Square Designs basically are a double-block design.)
+
+Randomly select __3 farms__ and divide each farm into __3 subunits__ with all three Varieties to be assigned to each farm. 
+
+In addition, suppose that these farms have fertility gradients (high, medium and low). The treatments are assigned so that each farm (row) receives all three Varieties, but so does each fertility (column) level. 
+
+![LSD](LSD.png)
+
+This is a __Latin Square Design__. That is, we have blocked both on __rows (farms)__ and __columns (fertility)__ such that each treatment occurs once, and only once, within a row or column (e.g., a block). 
+
+
+## Comparing RCBD versus CRD
+
+When is it to use RCBD or CRD more efficient?
+
+If there is "substantial" amount of variation in the units of replications (i.e., blocks for RCBD; replicats for CRD), then the block design is more efficient and has higher power than CRD.
+
+In contrast, if the variation among units of replication is small, CRD is more efficient and has more power than RCBD.
+
 
 
 ## Incomplete block designs
@@ -47,27 +75,6 @@ We call the __farms__ blocks or __blocking factor__. Note that block and treatme
 _512 P. 293_
 
 These designs are similar to the RCBD except that each block (e.g., each farm) contains fewer than $t$ units and thus, only a portion of the $t$ treatments are applied to the units within each block. (e.g., not all the farms will get all the varieties of wheat).
-
-## Row-column design (Latin square designs)
-
-( __My own short summary:__ Latin Square Designs basically are a double-block design.)
-
-This design is a form of double blocking. Suppose there are t treatments of interest and t2 experimental units that are arranged in t rows which intersect with t columns. The experiment units of the rows form a homogeneous structure (block), as do the columns. As with the RCBD, each row (block) receives all t treatments, as with each column (block).
-
-
-__Example:__
-
-Randomly select 3 farms and divide each farm into 3 subunits with all three Varieties to be assigned to each farm. 
-
-Suppose however, that these farms have fertility gradients (high, medium and low) which may influence the response (yield). The subunits in each farm might be arranged in order of their fertility level. The treatments are assigned so that each farm (row) receives all three Varieties, but so does each fertility (column) level. 
-
-This arrangement might appear as in the following table.
-
-![LSD](LSD.png)
-
-This is a __Latin Square Design__. That is, we have blocked both on __rows (farms)__ and __columns (fertility)__ such that each treatment occurs once, and only once, within a row or column (e.g., a block). 
-
-Again, treatments are arranged in a __one-way treatment structure__. Note that the rows and columns are crossed factors and also crossed with the treatment (Variety).
 
 
 ## Split-plot designs
@@ -85,7 +92,6 @@ __Whole Plot and Treatment Structure__
 </center>
 
 ![RCD2_ANOVA](RCD2_ANOVA.jpg)
-
 
 
 However, now suppose that the researcher is also interested in the effect of two different fertilizers ($F_1, F_2$) on yield. The completely randomized design can be modified by __splitting__each farm in half. In this experiment, there are two different sizes of experimental units: the large units, which are the farms and the small units, which are the Farm Halves (i.e., fertility levels).

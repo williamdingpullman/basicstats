@@ -41,6 +41,8 @@ mean: $np$
 
 variance: $npq$
 
+Support (or, possible values): $0, 1, 2,...n$
+
 (Note that, Bernoulli is written as $BIN(1, p)$)
 
 ### Poisson 
@@ -50,6 +52,9 @@ $$\frac{e^{-\mu}\mu^x}{x!}$$
 mean: $\mu$
 
 variance: $\mu$
+
+Support (or, possible values): $0, 1, 2,...$ (i.e., 0+ positive integer; or Natural number)
+
 
 ## Continuous Random Variables
 
@@ -63,6 +68,8 @@ Mean: $\frac{a+b}{2}$
 
 Variance: $\frac{(b-a)^2}{12}$
 
+Support (or, possible values): $a<x<b$
+
 ### Exponential 
 
 $$X \sim EXP(\theta)$$
@@ -71,6 +78,9 @@ $$\frac{1}{\theta} e^{-x/\theta}$$
 Mean: $\theta$
 
 Variance: $\theta^2$
+
+
+Support (or, possible values): $0<x$
 
 ### Normal
 
@@ -81,6 +91,9 @@ $$\frac{1}{\sqrt{2 \pi \sigma}} e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$$
 Mean: $\mu$
 
 Variance" $\sigma^2$
+
+Support (or, possible values): $-\infty<x<+\infty$
+
 
 ## Large Sample Theory 
 

@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{26 March, 2020}
+    \date{28 March, 2020}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -198,6 +198,8 @@ mean: \(np\)
 
 variance: \(npq\)
 
+Support (or, possible values): \(0, 1, 2,...n\)
+
 (Note that, Bernoulli is written as \(BIN(1, p)\))
 
 \hypertarget{poisson}{%
@@ -208,6 +210,8 @@ variance: \(npq\)
 mean: \(\mu\)
 
 variance: \(\mu\)
+
+Support (or, possible values): \(0, 1, 2,...\) (i.e., 0+ positive integer; or Natural number)
 
 \hypertarget{continuous-random-variables}{%
 \section{Continuous Random Variables}\label{continuous-random-variables}}
@@ -223,6 +227,8 @@ Mean: \(\frac{a+b}{2}\)
 
 Variance: \(\frac{(b-a)^2}{12}\)
 
+Support (or, possible values): \(a<x<b\)
+
 \hypertarget{exponential}{%
 \subsection{Exponential}\label{exponential}}
 
@@ -232,6 +238,8 @@ Variance: \(\frac{(b-a)^2}{12}\)
 Mean: \(\theta\)
 
 Variance: \(\theta^2\)
+
+Support (or, possible values): \(0<x\)
 
 \hypertarget{normal}{%
 \subsection{Normal}\label{normal}}
@@ -243,6 +251,8 @@ Variance: \(\theta^2\)
 Mean: \(\mu\)
 
 Variance" \(\sigma^2\)
+
+Support (or, possible values): \(-\infty<x<+\infty\)
 
 \hypertarget{large-sample-theory}{%
 \section{Large Sample Theory}\label{large-sample-theory}}
@@ -1291,6 +1301,27 @@ Simple linear regression is a linear regression model with a single explanatory 
 
 \[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]
 
+Thus,
+
+\[Var(\hat{\beta})=(X^TX)^{-1}X^T \cdot \sigma^2 \cdot [(X^TX)^{-1}X^T]^T\]
+
+\textbf{Residual is given by \(e_i\)}, which is an estimate of \(\varepsilon_i\).
+
+Properties of the residuals \(e_i\) :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The mean of resituals should be \(0\).
+\item
+  The variance of \(e_i\):
+\end{enumerate}
+
+\[\begin{aligned} Var(e) &=Var(Y-X\hat{\beta}) \\ &=Var(Y-X(X^TX)^{-1}X^TY) \\ &=Var(I-X(X^TX)^{-1}X^T)Y \\&=(I-X(X^TX)^{-1}X^{T})\sigma^2 \end{aligned}\]
+Thus,
+
+\[Var(e) \neq \sigma^2\]
+
 \hypertarget{least-squares}{%
 \subsubsection{Least Squares}\label{least-squares}}
 
@@ -1721,7 +1752,7 @@ Otherwise, the factor is said to be \textbf{nested}. A factor, say B, is \textbf
 
 \textbf{Completely random design (CRD)}:
 
-\textbf{All experimental units} are \textbf{randomly assigned} to all treatment combinations and therefore the design is a CRD design. That is, across all experimental units, they are assumed to be homogeneous before getting the assigned treatments assigned.
+\textbf{Randomly select 9 farms. Randomly assign 3 farms to Variety 1, 3 farms to Variety 2, and 3 farms to Variety 3. This arrangement might appear as in the following table.}
 
 \begin{figure}
 \centering
@@ -1729,16 +1760,14 @@ Otherwise, the factor is said to be \textbf{nested}. A factor, say B, is \textbf
 \caption{CRD}
 \end{figure}
 
-This is \textbf{Completely Randomized Design}. That is, we have a \textbf{one-way treatment structure} (Variety) in a \textbf{completely randomized design structure}. Note that the experimental unit (Farm) is \textbf{nested} within treatment (Variety).
+\textbf{All experimental units} (i.e., 9 farms) are \textbf{randomly assigned} to all treatment (i.e., 3 varieties) and therefore the design is a CRD design. That is, across \textbf{all experimental units}, (i.e., 9 farms) they are assumed to be homogeneous before getting the \textbf{assigned treatments}.
 
 \hypertarget{randomized-complete-block-designs}{%
 \section{Randomized complete block designs}\label{randomized-complete-block-designs}}
 
 \textbf{Randomized complete block design (RCBD)}:
 
-Suppose there are \textbf{t-treatments}, with each to be observed \textbf{b times}, so that \(b\times t\) experimental units are necessary. An RCBD arranges the \(b\times t\) experimental units into \(b\) homogeneous groups (blocks) with each containing t base units.
-
-The \(t\) treatments are randomly assigned to the \(t\) units within each block so that each treatment appears once with a block.
+Randomly select 3 farms. Each farm is divided into 3 subunits with all three varieties, and all 3 varities are randomly assigned into the 3 subunits.
 
 \begin{figure}
 \centering
@@ -1746,31 +1775,22 @@ The \(t\) treatments are randomly assigned to the \(t\) units within each block 
 \caption{RCBD}
 \end{figure}
 
+The \(t\) treatments are randomly assigned to the \(t\) subunits within each block. Thus, there are \textbf{t-treatments}, with each to be observed \textbf{b times} (i.e., \(t \times b\) experimental units).
+
+In the table above, \textbf{t-treatments} are the 3 varities, whereas \textbf{b times} are the 3 blocks. Thus, \textbf{3 farms} are the \textbf{3 blocks}.
+
 This is a \textbf{Randomized Complete Block Design}. That is, we have a one-way treatment structure (Variety) in a randomized complete block design structure.
 
 We call the \textbf{farms} blocks or \textbf{blocking factor}. Note that block and treatment (Variety) are crossed.
-
-\hypertarget{incomplete-block-designs}{%
-\section{Incomplete block designs}\label{incomplete-block-designs}}
-
-\emph{512 P. 293}
-
-These designs are similar to the RCBD except that each block (e.g., each farm) contains fewer than \(t\) units and thus, only a portion of the \(t\) treatments are applied to the units within each block. (e.g., not all the farms will get all the varieties of wheat).
 
 \hypertarget{row-column-design-latin-square-designs}{%
 \section{Row-column design (Latin square designs)}\label{row-column-design-latin-square-designs}}
 
 ( \textbf{My own short summary:} Latin Square Designs basically are a double-block design.)
 
-This design is a form of double blocking. Suppose there are t treatments of interest and t2 experimental units that are arranged in t rows which intersect with t columns. The experiment units of the rows form a homogeneous structure (block), as do the columns. As with the RCBD, each row (block) receives all t treatments, as with each column (block).
+Randomly select \textbf{3 farms} and divide each farm into \textbf{3 subunits} with all three Varieties to be assigned to each farm.
 
-\textbf{Example:}
-
-Randomly select 3 farms and divide each farm into 3 subunits with all three Varieties to be assigned to each farm.
-
-Suppose however, that these farms have fertility gradients (high, medium and low) which may influence the response (yield). The subunits in each farm might be arranged in order of their fertility level. The treatments are assigned so that each farm (row) receives all three Varieties, but so does each fertility (column) level.
-
-This arrangement might appear as in the following table.
+In addition, suppose that these farms have fertility gradients (high, medium and low). The treatments are assigned so that each farm (row) receives all three Varieties, but so does each fertility (column) level.
 
 \begin{figure}
 \centering
@@ -1780,7 +1800,21 @@ This arrangement might appear as in the following table.
 
 This is a \textbf{Latin Square Design}. That is, we have blocked both on \textbf{rows (farms)} and \textbf{columns (fertility)} such that each treatment occurs once, and only once, within a row or column (e.g., a block).
 
-Again, treatments are arranged in a \textbf{one-way treatment structure}. Note that the rows and columns are crossed factors and also crossed with the treatment (Variety).
+\hypertarget{comparing-rcbd-versus-crd}{%
+\section{Comparing RCBD versus CRD}\label{comparing-rcbd-versus-crd}}
+
+When is it to use RCBD or CRD more efficient?
+
+If there is ``substantial'' amount of variation in the units of replications (i.e., blocks for RCBD; replicats for CRD), then the block design is more efficient and has higher power than CRD.
+
+In contrast, if the variation among units of replication is small, CRD is more efficient and has more power than RCBD.
+
+\hypertarget{incomplete-block-designs}{%
+\section{Incomplete block designs}\label{incomplete-block-designs}}
+
+\emph{512 P. 293}
+
+These designs are similar to the RCBD except that each block (e.g., each farm) contains fewer than \(t\) units and thus, only a portion of the \(t\) treatments are applied to the units within each block. (e.g., not all the farms will get all the varieties of wheat).
 
 \hypertarget{split-plot-designs}{%
 \section{Split-plot designs}\label{split-plot-designs}}
@@ -2487,10 +2521,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 2.090745
-## [2,] 1.013869
-## [3,] 1.922315
+##           [,1]
+## [1,] 1.9956529
+## [2,] 0.9120316
+## [3,] 1.9824800
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2651,7 +2685,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.060320  3.837672  3.961394
+## [1] -1.288280  3.193583  3.627688
 \end{verbatim}
 
 \begin{Shaded}
@@ -2662,7 +2696,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.506800 3.545563 1.841613
+## [1] 1.440870 3.680965 3.238273
 \end{verbatim}
 
 \begin{Shaded}
@@ -2673,10 +2707,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]        [,2]        [,3]
-## [1,]  0.50680001 -0.01006253 -0.03418578
-## [2,] -0.01006253  3.54556268  1.42464812
-## [3,] -0.03418578  1.42464812  1.84161279
+##            [,1]       [,2]       [,3]
+## [1,]  1.4408697 -1.4364056  0.6772635
+## [2,] -1.4364056  3.6809653 -0.1216653
+## [3,]  0.6772635 -0.1216653  3.2382727
 \end{verbatim}
 
 \hypertarget{example-2}{%

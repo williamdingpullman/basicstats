@@ -78,6 +78,23 @@ $\rightarrow$
 
 $$\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}$$
 
+Thus,
+
+$$Var(\hat{\beta})=(X^TX)^{-1}X^T \cdot \sigma^2 \cdot [(X^TX)^{-1}X^T]^T$$
+
+__Residual is given by $e_i$__, which is an estimate of $\varepsilon_i$.
+
+Properties of the residuals $e_i$ :
+
+1. The mean of resituals should be $0$.
+
+2. The variance of $e_i$:
+
+$$\begin{aligned} Var(e) &=Var(Y-X\hat{\beta}) \\ &=Var(Y-X(X^TX)^{-1}X^TY) \\ &=Var(I-X(X^TX)^{-1}X^T)Y \\&=(I-X(X^TX)^{-1}X^{T})\sigma^2 \end{aligned}$$
+Thus, 
+
+$$Var(e) \neq \sigma^2$$
+
 #### Least Squares
 
 Assume the following model:

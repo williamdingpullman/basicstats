@@ -213,9 +213,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="section-3.html"><a href="section-3.html#completely-randomized-designs"><i class="fa fa-check"></i><b>4.2</b> Completely randomized designs</a></li>
 <li class="chapter" data-level="4.3" data-path="section-3.html"><a href="section-3.html#randomized-complete-block-designs"><i class="fa fa-check"></i><b>4.3</b> Randomized complete block designs</a></li>
-<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html#incomplete-block-designs"><i class="fa fa-check"></i><b>4.4</b> Incomplete block designs</a></li>
-<li class="chapter" data-level="4.5" data-path="section-3.html"><a href="section-3.html#row-column-design-latin-square-designs"><i class="fa fa-check"></i><b>4.5</b> Row-column design (Latin square designs)</a></li>
-<li class="chapter" data-level="4.6" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.6</b> Split-plot designs</a></li>
+<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html#row-column-design-latin-square-designs"><i class="fa fa-check"></i><b>4.4</b> Row-column design (Latin square designs)</a></li>
+<li class="chapter" data-level="4.5" data-path="section-3.html"><a href="section-3.html#comparing-rcbd-versus-crd"><i class="fa fa-check"></i><b>4.5</b> Comparing RCBD versus CRD</a></li>
+<li class="chapter" data-level="4.6" data-path="section-3.html"><a href="section-3.html#incomplete-block-designs"><i class="fa fa-check"></i><b>4.6</b> Incomplete block designs</a></li>
+<li class="chapter" data-level="4.7" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.7</b> Split-plot designs</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>5</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="5.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>5.1</b> Logit</a></li>
@@ -321,6 +322,17 @@ Y_n \end{bmatrix}=\begin{bmatrix}
 <p><span class="math display">\[[X^TX]^{-1}_{m\times m}[X^TY]_{m \times 1}=\beta_{m \times 1}\]</span></p>
 <p><span class="math inline">\(\rightarrow\)</span></p>
 <p><span class="math display">\[\beta_{m \times 1}=[(X^TX)^{-1} \cdot (X^TY)]_{m \times 1}\]</span></p>
+<p>Thus,</p>
+<p><span class="math display">\[Var(\hat{\beta})=(X^TX)^{-1}X^T \cdot \sigma^2 \cdot [(X^TX)^{-1}X^T]^T\]</span></p>
+<p><strong>Residual is given by <span class="math inline">\(e_i\)</span></strong>, which is an estimate of <span class="math inline">\(\varepsilon_i\)</span>.</p>
+<p>Properties of the residuals <span class="math inline">\(e_i\)</span> :</p>
+<ol style="list-style-type: decimal">
+<li><p>The mean of resituals should be <span class="math inline">\(0\)</span>.</p></li>
+<li><p>The variance of <span class="math inline">\(e_i\)</span>:</p></li>
+</ol>
+<p><span class="math display">\[\begin{aligned} Var(e) &amp;=Var(Y-X\hat{\beta}) \\ &amp;=Var(Y-X(X^TX)^{-1}X^TY) \\ &amp;=Var(I-X(X^TX)^{-1}X^T)Y \\&amp;=(I-X(X^TX)^{-1}X^{T})\sigma^2 \end{aligned}\]</span>
+Thus,</p>
+<p><span class="math display">\[Var(e) \neq \sigma^2\]</span></p>
 </div>
 <div id="least-squares" class="section level4">
 <h4><span class="header-section-number">3.2.1.2</span> Least Squares</h4>

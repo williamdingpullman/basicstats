@@ -213,9 +213,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="section-3.html"><a href="section-3.html#completely-randomized-designs"><i class="fa fa-check"></i><b>4.2</b> Completely randomized designs</a></li>
 <li class="chapter" data-level="4.3" data-path="section-3.html"><a href="section-3.html#randomized-complete-block-designs"><i class="fa fa-check"></i><b>4.3</b> Randomized complete block designs</a></li>
-<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html#incomplete-block-designs"><i class="fa fa-check"></i><b>4.4</b> Incomplete block designs</a></li>
-<li class="chapter" data-level="4.5" data-path="section-3.html"><a href="section-3.html#row-column-design-latin-square-designs"><i class="fa fa-check"></i><b>4.5</b> Row-column design (Latin square designs)</a></li>
-<li class="chapter" data-level="4.6" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.6</b> Split-plot designs</a></li>
+<li class="chapter" data-level="4.4" data-path="section-3.html"><a href="section-3.html#row-column-design-latin-square-designs"><i class="fa fa-check"></i><b>4.4</b> Row-column design (Latin square designs)</a></li>
+<li class="chapter" data-level="4.5" data-path="section-3.html"><a href="section-3.html#comparing-rcbd-versus-crd"><i class="fa fa-check"></i><b>4.5</b> Comparing RCBD versus CRD</a></li>
+<li class="chapter" data-level="4.6" data-path="section-3.html"><a href="section-3.html#incomplete-block-designs"><i class="fa fa-check"></i><b>4.6</b> Incomplete block designs</a></li>
+<li class="chapter" data-level="4.7" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.7</b> Split-plot designs</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>5</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="5.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>5.1</b> Logit</a></li>
@@ -303,16 +304,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb29-20" title="20"></a>
 <a class="sourceLine" id="cb29-21" title="21"><span class="co"># calculating column means</span></a>
 <a class="sourceLine" id="cb29-22" title="22"><span class="kw">colMeans</span>(Final_data)</a></code></pre></div>
-<pre><code>## [1] -1.576354  4.363722  3.433507</code></pre>
+<pre><code>## [1] -1.877626  5.008032  2.836827</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1"><span class="co"># calculating column variances</span></a>
 <a class="sourceLine" id="cb31-2" title="2"><span class="kw">apply</span>(Final_data,<span class="dv">2</span>,var)</a></code></pre></div>
-<pre><code>## [1] 2.249143 1.694230 2.862559</code></pre>
+<pre><code>## [1] 2.702605 3.280479 2.951779</code></pre>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1"><span class="co"># calculating covariance matrix</span></a>
 <a class="sourceLine" id="cb33-2" title="2"><span class="kw">cov</span>(Final_data)</a></code></pre></div>
-<pre><code>##           [,1]       [,2]       [,3]
-## [1,] 2.2491434  0.3549145  0.8736221
-## [2,] 0.3549145  1.6942301 -0.3082460
-## [3,] 0.8736221 -0.3082460  2.8625590</code></pre>
+<pre><code>##             [,1]        [,2]       [,3]
+## [1,]  2.70260543 -0.06198794  0.5829542
+## [2,] -0.06198794  3.28047898 -0.8178476
+## [3,]  0.58295421 -0.81784761  2.9517790</code></pre>
 </div>
 <div id="example-2" class="section level2">
 <h2><span class="header-section-number">11.2</span> Example 2</h2>
