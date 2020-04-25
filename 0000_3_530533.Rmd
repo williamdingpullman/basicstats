@@ -454,6 +454,8 @@ For simple regression, the pair $X$ and $Y$ data in the oringal sample are consi
  
  _P.460_
  
+ 
+
 
 ## Generalized linear models
 
