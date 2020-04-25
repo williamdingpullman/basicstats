@@ -219,7 +219,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.7</b> Split-plot designs</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="chapter-12.html"><a href="chapter-12.html"><i class="fa fa-check"></i><b>5</b> 556 Chapter 12</a><ul>
-<li class="chapter" data-level="5.1" data-path="chapter-12.html"><a href="chapter-12.html#section-4"><i class="fa fa-check"></i><b>5.1</b> 12.1</a></li>
+<li class="chapter" data-level="5.1" data-path="chapter-12.html"><a href="chapter-12.html#section-4"><i class="fa fa-check"></i><b>5.1</b> 12.1</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="chapter-12.html"><a href="chapter-12.html#theory"><i class="fa fa-check"></i><b>5.1.1</b> THeory</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chapter-12.html"><a href="chapter-12.html#example"><i class="fa fa-check"></i><b>5.1.2</b> Example</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
@@ -279,13 +282,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 5</span> 556 Chapter 12</h1>
 <div id="section-4" class="section level2">
 <h2><span class="header-section-number">5.1</span> 12.1</h2>
+<div id="theory" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> THeory</h3>
 <p>If <span class="math inline">\(X \sim f(x;\theta)\)</span>, a <strong>statistical hypothesis</strong> is a statement about the distribution of <span class="math inline">\(X\)</span>. If the hypothesis completely specifies <span class="math inline">\(f(x;\theta)\)</span>, then it is referred to as a <strong>simple hypothesis</strong>; otherwise it is called <strong>composite</strong>.</p>
 <p>Quite often the distribution in question has <strong>a known parametric form</strong> with a single unknown parameter <span class="math inline">\(\theta\)</span>, and the hypothesis consists of a statement about <span class="math inline">\(\theta\)</span>.</p>
 <p>In this framework, a statistical hypothesis corresponds to a subset of the parameter space, and the objective of a test would be to decide whether the true value of the parameter is in the subset. Thus, a null hypothesis would correspond to a subset <span class="math inline">\(\Omega_0\)</span> of <span class="math inline">\(\Omega\)</span>, and the alternative hypothesis would correspond to its complement, <span class="math inline">\(\Omega-\Omega_0\)</span></p>
 <p>In the case of simple hypothesis, these sets consist of only one element each, <span class="math inline">\(\Omega_0=\{ \theta_0\}\)</span> and <span class="math inline">\(\Omega -\Omega_0=\{ \theta_1\}\)</span>, where <span class="math inline">\(\theta_0 \neq \theta_1\)</span>.</p>
 <p>We now must consider sample data, and decide on the basis of the data whether we have sufficient statistical evidence to reject <span class="math inline">\(H_0\)</span> in favor of the alternative <span class="math inline">\(H_a\)</span>, or whether we do not have sufficient evidence.</p>
-<p>That is, our philosophy will be to divide the sample space into two regions, the “critical region” or “rejection region” <span class="math inline">\(C\)</span>, and the nonrejection region <span class="math inline">\(S-C\)</span>. If the observed sample data fall in <span class="math inline">\(C\)</span>, then we will reject <span class="math inline">\(H_0\)</span></p>
+<p>That is, our philosophy will be to divide the sample space into two regions, the “critical region” or “rejection region” <span class="math inline">\(C\)</span>, and the nonrejection region <span class="math inline">\(S-C\)</span>. If the observed sample data fall in <span class="math inline">\(C\)</span>, then we will reject <span class="math inline">\(H_0\)</span>.</p>
+<p><span class="math inline">\(\bar{X}\)</span> is a sufficent statistic for <span class="math inline">\(\mu\)</span>, so we may conveniently express the critical region directly in terms of the univariate variable <span class="math inline">\(\bar{X}\)</span>, and we will refer <span class="math inline">\(\bar{X}\)</span> as the test statstic. Because <span class="math inline">\(\mu_1 &gt; \mu_0\)</span>, a natural form for the critical region in this problem is to let <span class="math inline">\(C=\{ (x_1,..., x_n) | \bar{x} \geq c\}\)</span>, for some appropriate constant <span class="math inline">\(c\)</span>. That is, we will reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(\bar{x} \geq c\)</span>, and we not reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(\bar{x} &lt; c\)</span>.</p>
+<p>There are two possible error:
+1. Type I error: reject a true <span class="math inline">\(H_0\)</span>. <span class="math inline">\(P[Type I error]=\alpha\)</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Type II error: fail to reject a false <span class="math inline">\(H_0\)</span>. <span class="math inline">\(P[Type II error]=\beta\)</span>.</li>
+</ol>
+<p>Note that, <span class="math inline">\(P[Type I error]=\alpha\)</span> is also referred to as the <strong>significance level</strong> of the test.</p>
+</div>
+<div id="example" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Example</h3>
+<p>For instance, if <span class="math inline">\(n=25\)</span>, then <span class="math inline">\(\alpha=0.05\)</span> gives <span class="math inline">\(c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316\)</span>.</p>
+<p>We can verify as follows.</p>
+<p><span class="math display">\[\begin{aligned} P[\bar{X}\geq c | \mu=\mu_0=10] &amp;=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq \frac{c-\mu_0}{\sigma/\sqrt{n}}] \\ &amp;=P[Z \geq \frac{11.316-10}{4/5}] \\&amp;=P[Z\geq 1.645] \\&amp;=0.05 \end{aligned}\]</span></p>
+<p>Thus, a size <span class="math inline">\(0.05\)</span> test of <span class="math inline">\(H_0: \mu=10\)</span> against the alternative <span class="math inline">\(H_a:\mu=11\)</span> is to reject <span class="math inline">\(H_0\)</span> if the observed value <span class="math inline">\(\bar{X} \geq 11.316\)</span></p>
 
+</div>
 </div>
 </div>
             </section>

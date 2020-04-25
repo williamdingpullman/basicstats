@@ -1861,6 +1861,9 @@ However, now suppose that the researcher is also interested in the effect of two
 \hypertarget{section-4}{%
 \section{12.1}\label{section-4}}
 
+\hypertarget{theory}{%
+\subsection{THeory}\label{theory}}
+
 If \(X \sim f(x;\theta)\), a \textbf{statistical hypothesis} is a statement about the distribution of \(X\). If the hypothesis completely specifies \(f(x;\theta)\), then it is referred to as a \textbf{simple hypothesis}; otherwise it is called \textbf{composite}.
 
 Quite often the distribution in question has \textbf{a known parametric form} with a single unknown parameter \(\theta\), and the hypothesis consists of a statement about \(\theta\).
@@ -1871,7 +1874,33 @@ In the case of simple hypothesis, these sets consist of only one element each, \
 
 We now must consider sample data, and decide on the basis of the data whether we have sufficient statistical evidence to reject \(H_0\) in favor of the alternative \(H_a\), or whether we do not have sufficient evidence.
 
-That is, our philosophy will be to divide the sample space into two regions, the ``critical region'' or ``rejection region'' \(C\), and the nonrejection region \(S-C\). If the observed sample data fall in \(C\), then we will reject \(H_0\)
+That is, our philosophy will be to divide the sample space into two regions, the ``critical region'' or ``rejection region'' \(C\), and the nonrejection region \(S-C\). If the observed sample data fall in \(C\), then we will reject \(H_0\).
+
+\(\bar{X}\) is a sufficent statistic for \(\mu\), so we may conveniently express the critical region directly in terms of the univariate variable \(\bar{X}\), and we will refer \(\bar{X}\) as the test statstic. Because \(\mu_1 > \mu_0\), a natural form for the critical region in this problem is to let \(C=\{ (x_1,..., x_n) | \bar{x} \geq c\}\), for some appropriate constant \(c\). That is, we will reject \(H_0\) if \(\bar{x} \geq c\), and we not reject \(H_0\) if \(\bar{x} < c\).
+
+There are two possible error:
+1. Type I error: reject a true \(H_0\). \(P[Type I error]=\alpha\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Type II error: fail to reject a false \(H_0\). \(P[Type II error]=\beta\).
+\end{enumerate}
+
+Note that, \(P[Type I error]=\alpha\) is also referred to as the \textbf{significance level} of the test.
+
+\hypertarget{example}{%
+\subsection{Example}\label{example}}
+
+For instance, if \(n=25\), then \(\alpha=0.05\) gives \(c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316\).
+
+We can verify as follows.
+
+\[\begin{aligned} P[\bar{X}\geq c | \mu=\mu_0=10] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq \frac{c-\mu_0}{\sigma/\sqrt{n}}] \\ &=P[Z \geq \frac{11.316-10}{4/5}] \\&=P[Z\geq 1.645] \\&=0.05 \end{aligned}\]
+
+Thus, a size \(0.05\) test of \(H_0: \mu=10\) against the alternative \(H_a:\mu=11\) is to reject \(H_0\) if the observed value \(\bar{X} \geq 11.316\)
 
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
@@ -2535,10 +2564,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 2.0040914
-## [2,] 0.9692127
-## [3,] 1.9756762
+##          [,1]
+## [1,] 2.008482
+## [2,] 1.052978
+## [3,] 2.037433
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2699,7 +2728,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.460158  3.838982  3.608352
+## [1] -2.085507  3.495782  2.322797
 \end{verbatim}
 
 \begin{Shaded}
@@ -2710,7 +2739,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.016073 1.986553 6.410418
+## [1] 2.851775 2.287410 4.079532
 \end{verbatim}
 
 \begin{Shaded}
@@ -2721,10 +2750,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]       [,3]
-## [1,]  2.0160730 -0.2174087 -0.5277906
-## [2,] -0.2174087  1.9865531  1.1786473
-## [3,] -0.5277906  1.1786473  6.4104182
+##            [,1]       [,2]      [,3]
+## [1,]  2.8517750 -1.8220794 0.1677847
+## [2,] -1.8220794  2.2874100 0.3503862
+## [3,]  0.1677847  0.3503862 4.0795321
 \end{verbatim}
 
 \hypertarget{example-2}{%

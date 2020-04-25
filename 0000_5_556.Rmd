@@ -2,6 +2,8 @@
 
 ## 12.1
 
+### THeory
+
 If $X \sim f(x;\theta)$, a __statistical hypothesis__ is a statement about the distribution of $X$. If the hypothesis completely specifies $f(x;\theta)$, then it is referred to as a __simple hypothesis__; otherwise it is called __composite__.
 
 Quite often the distribution in question has __a known parametric form__ with a single unknown parameter $\theta$, and the hypothesis consists of a statement about $\theta$. 
@@ -12,8 +14,27 @@ In the case of simple hypothesis, these sets consist of only one element each, $
 
 We now must consider sample data, and decide on the basis of the data whether we have sufficient statistical evidence to reject $H_0$ in favor of the alternative $H_a$, or whether we do not have sufficient evidence.
 
-That is, our philosophy will be to divide the sample space into two regions, the "critical region" or "rejection region" $C$, and the nonrejection region $S-C$. If the observed sample data fall in $C$, then we will reject $H_0$
+That is, our philosophy will be to divide the sample space into two regions, the "critical region" or "rejection region" $C$, and the nonrejection region $S-C$. If the observed sample data fall in $C$, then we will reject $H_0$.
+
+$\bar{X}$ is a sufficent statistic for $\mu$, so we may conveniently express the critical region directly in terms of the univariate variable $\bar{X}$, and we will refer $\bar{X}$ as the test statstic. Because $\mu_1 > \mu_0$, a natural form for the critical region in this problem is to let $C=\{ (x_1,..., x_n) | \bar{x} \geq c\}$, for some appropriate constant $c$. That is, we will reject $H_0$ if $\bar{x} \geq c$, and we not reject $H_0$ if $\bar{x} < c$.
+
+There are two possible error:
+1. Type I error: reject a true $H_0$. $P[Type I error]=\alpha$.
+
+2. Type II error: fail to reject a false $H_0$. $P[Type II error]=\beta$.
 
 
+Note that, $P[Type I error]=\alpha$ is also referred to as the __significance level__ of the test. 
+
+
+### Example
+
+For instance, if $n=25$, then $\alpha=0.05$ gives $c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316$.
+
+We can verify as follows.
+
+$$\begin{aligned} P[\bar{X}\geq c | \mu=\mu_0=10] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq \frac{c-\mu_0}{\sigma/\sqrt{n}}] \\ &=P[Z \geq \frac{11.316-10}{4/5}] \\&=P[Z\geq 1.645] \\&=0.05 \end{aligned}$$
+
+Thus, a size $0.05$ test of $H_0: \mu=10$ against the alternative $H_a:\mu=11$ is to reject $H_0$ if the observed value $\bar{X} \geq 11.316$
 
 
