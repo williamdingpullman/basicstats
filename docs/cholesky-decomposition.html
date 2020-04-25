@@ -218,7 +218,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6" data-path="section-3.html"><a href="section-3.html#incomplete-block-designs"><i class="fa fa-check"></i><b>4.6</b> Incomplete block designs</a></li>
 <li class="chapter" data-level="4.7" data-path="section-3.html"><a href="section-3.html#split-plot-designs"><i class="fa fa-check"></i><b>4.7</b> Split-plot designs</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chapter-12.html"><a href="chapter-12.html"><i class="fa fa-check"></i><b>5</b> 556 Chapter 12</a></li>
+<li class="chapter" data-level="5" data-path="chapter-12.html"><a href="chapter-12.html"><i class="fa fa-check"></i><b>5</b> 556 Chapter 12</a><ul>
+<li class="chapter" data-level="5.1" data-path="chapter-12.html"><a href="chapter-12.html#section-4"><i class="fa fa-check"></i><b>5.1</b> 12.1</a></li>
+</ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
 <li class="chapter" data-level="6.2" data-path="logit-and-probit.html"><a href="logit-and-probit.html#probit"><i class="fa fa-check"></i><b>6.2</b> Probit</a></li>
@@ -305,16 +307,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb28-20" title="20"></a>
 <a class="sourceLine" id="cb28-21" title="21"><span class="co"># calculating column means</span></a>
 <a class="sourceLine" id="cb28-22" title="22"><span class="kw">colMeans</span>(Final_data)</a></code></pre></div>
-<pre><code>## [1] -2.275151  4.201351  2.297016</code></pre>
+<pre><code>## [1] -1.779057  4.319029  1.463783</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="co"># calculating column variances</span></a>
 <a class="sourceLine" id="cb30-2" title="2"><span class="kw">apply</span>(Final_data,<span class="dv">2</span>,var)</a></code></pre></div>
-<pre><code>## [1] 2.076468 4.680794 7.458927</code></pre>
+<pre><code>## [1] 1.845682 4.471961 4.523552</code></pre>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="co"># calculating covariance matrix</span></a>
 <a class="sourceLine" id="cb32-2" title="2"><span class="kw">cov</span>(Final_data)</a></code></pre></div>
-<pre><code>##            [,1]       [,2]      [,3]
-## [1,]  2.0764681 -0.7683119 -1.079762
-## [2,] -0.7683119  4.6807944  1.034203
-## [3,] -1.0797617  1.0342027  7.458927</code></pre>
+<pre><code>##            [,1]        [,2]        [,3]
+## [1,]  1.8456815 -0.94967215  1.15350213
+## [2,] -0.9496722  4.47196101 -0.08133053
+## [3,]  1.1535021 -0.08133053  4.52355165</code></pre>
 </div>
 <div id="example-2" class="section level2">
 <h2><span class="header-section-number">12.2</span> Example 2</h2>

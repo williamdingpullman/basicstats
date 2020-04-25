@@ -1858,6 +1858,21 @@ However, now suppose that the researcher is also interested in the effect of two
 \hypertarget{chapter-12}{%
 \chapter{556 Chapter 12}\label{chapter-12}}
 
+\hypertarget{section-4}{%
+\section{12.1}\label{section-4}}
+
+If \(X \sim f(x;\theta)\), a \textbf{statistical hypothesis} is a statement about the distribution of \(X\). If the hypothesis completely specifies \(f(x;\theta)\), then it is referred to as a \textbf{simple hypothesis}; otherwise it is called \textbf{composite}.
+
+Quite often the distribution in question has \textbf{a known parametric form} with a single unknown parameter \(\theta\), and the hypothesis consists of a statement about \(\theta\).
+
+In this framework, a statistical hypothesis corresponds to a subset of the parameter space, and the objective of a test would be to decide whether the true value of the parameter is in the subset. Thus, a null hypothesis would correspond to a subset \(\Omega_0\) of \(\Omega\), and the alternative hypothesis would correspond to its complement, \(\Omega-\Omega_0\)
+
+In the case of simple hypothesis, these sets consist of only one element each, \(\Omega_0=\{ \theta_0\}\) and \(\Omega -\Omega_0=\{ \theta_1\}\), where \(\theta_0 \neq \theta_1\).
+
+We now must consider sample data, and decide on the basis of the data whether we have sufficient statistical evidence to reject \(H_0\) in favor of the alternative \(H_a\), or whether we do not have sufficient evidence.
+
+That is, our philosophy will be to divide the sample space into two regions, the ``critical region'' or ``rejection region'' \(C\), and the nonrejection region \(S-C\). If the observed sample data fall in \(C\), then we will reject \(H_0\)
+
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
 
@@ -2520,10 +2535,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 1.953008
-## [2,] 1.002497
-## [3,] 1.953470
+##           [,1]
+## [1,] 2.0040914
+## [2,] 0.9692127
+## [3,] 1.9756762
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2684,7 +2699,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.387850  4.046815  3.471021
+## [1] -1.460158  3.838982  3.608352
 \end{verbatim}
 
 \begin{Shaded}
@@ -2695,7 +2710,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.769356 3.208465 5.606242
+## [1] 2.016073 1.986553 6.410418
 \end{verbatim}
 
 \begin{Shaded}
@@ -2706,10 +2721,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]      [,3]
-## [1,]  2.7693563 -0.4216916 2.2915645
-## [2,] -0.4216916  3.2084647 0.3428484
-## [3,]  2.2915645  0.3428484 5.6062422
+##            [,1]       [,2]       [,3]
+## [1,]  2.0160730 -0.2174087 -0.5277906
+## [2,] -0.2174087  1.9865531  1.1786473
+## [3,] -0.5277906  1.1786473  6.4104182
 \end{verbatim}
 
 \hypertarget{example-2}{%

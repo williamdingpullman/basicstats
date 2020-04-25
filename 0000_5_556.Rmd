@@ -1,6 +1,18 @@
 # 556 Chapter 12
 
+## 12.1
 
+If $X \sim f(x;\theta)$, a __statistical hypothesis__ is a statement about the distribution of $X$. If the hypothesis completely specifies $f(x;\theta)$, then it is referred to as a __simple hypothesis__; otherwise it is called __composite__.
+
+Quite often the distribution in question has __a known parametric form__ with a single unknown parameter $\theta$, and the hypothesis consists of a statement about $\theta$. 
+
+In this framework, a statistical hypothesis corresponds to a subset of the parameter space, and the objective of a test would be to decide whether the true value of the parameter is in the subset. Thus, a null hypothesis would correspond to a subset $\Omega_0$ of $\Omega$, and the alternative hypothesis would correspond to its complement, $\Omega-\Omega_0$
+
+In the case of simple hypothesis, these sets consist of only one element each, $\Omega_0=\{ \theta_0\}$ and $\Omega -\Omega_0=\{ \theta_1\}$, where $\theta_0 \neq \theta_1$.
+
+We now must consider sample data, and decide on the basis of the data whether we have sufficient statistical evidence to reject $H_0$ in favor of the alternative $H_a$, or whether we do not have sufficient evidence.
+
+That is, our philosophy will be to divide the sample space into two regions, the "critical region" or "rejection region" $C$, and the nonrejection region $S-C$. If the observed sample data fall in $C$, then we will reject $H_0$
 
 
 
