@@ -1879,12 +1879,11 @@ That is, our philosophy will be to divide the sample space into two regions, the
 \(\bar{X}\) is a sufficent statistic for \(\mu\), so we may conveniently express the critical region directly in terms of the univariate variable \(\bar{X}\), and we will refer \(\bar{X}\) as the test statstic. Because \(\mu_1 > \mu_0\), a natural form for the critical region in this problem is to let \(C=\{ (x_1,..., x_n) | \bar{x} \geq c\}\), for some appropriate constant \(c\). That is, we will reject \(H_0\) if \(\bar{x} \geq c\), and we not reject \(H_0\) if \(\bar{x} < c\).
 
 There are two possible error:
-1. Type I error: reject a true \(H_0\). \(P[Type I error]=\alpha\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\setcounter{enumi}{1}
-\tightlist
+\item
+  Type I error: reject a true \(H_0\). \(P[Type I error]=\alpha\).
 \item
   Type II error: fail to reject a false \(H_0\). \(P[Type II error]=\beta\).
 \end{enumerate}
@@ -1900,7 +1899,31 @@ We can verify as follows.
 
 \[\begin{aligned} P[\bar{X}\geq c | \mu=\mu_0=10] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq \frac{c-\mu_0}{\sigma/\sqrt{n}}] \\ &=P[Z \geq \frac{11.316-10}{4/5}] \\&=P[Z\geq 1.645] \\&=0.05 \end{aligned}\]
 
-Thus, a size \(0.05\) test of \(H_0: \mu=10\) against the alternative \(H_a:\mu=11\) is to reject \(H_0\) if the observed value \(\bar{X} \geq 11.316\)
+Thus, a size \(0.05\) test of \(H_0: \mu=10\) against the alternative \(H_a:\mu=11\) is to reject \(H_0\) if the observed value \(\bar{X} \geq 11.316\).
+
+Note that, the calculation of \(C\) has nothing to do with the alternative. However, \(c\) impacts type II error:
+
+\[\begin{aligned} \beta=P[TII] &=P[\bar{X}<11.316 |\mu=\mu_1=11] \\ &=P[\frac{\bar{X}-11}{4/5}<\frac{11.316-11}{4/5}] \\ &=P[Z <0.395] \\ &=0.645 \end{aligned}\]
+
+\textbf{My personal note}:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(C\) is only determined by \(H_0\), but the choose of \(C\) can impact type II error. The basic idea of the calculation a region where the probability there will be \(0.05\). And if the observed mean falls into that region, we can reject \(H_0\).
+\item
+  Type II error is to calculate the \textbf{probability} that \textbf{NOT} in the \textbf{critical region} defined by \textbf{null hypothesis}.
+\end{enumerate}
+
+Thus, we can set another critical area to illustrate this.
+
+\[P[10 < \bar{X}<10.1006]=P[0 <\frac{\bar{X}-10}{4/5} <0.1257]=0.05\]
+
+However, \(P[Type II error]\) for this critical regiion is:
+
+\[\begin{aligned} P[TII] &=1-P[10<\bar{X}<10.1006|\mu=11] \\ &=1-P[\frac{10-11}{4/5}<Z<\frac{10.1006-11}{4/5}] \\ &=1-P[-1.25 <Z<-1.12425] \\ &=0.9752 \end{aligned}\]
+
+If we increase the sample size from 25 to 100
 
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
@@ -2565,9 +2588,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 2.008482
-## [2,] 1.052978
-## [3,] 2.037433
+## [1,] 2.037320
+## [2,] 1.024361
+## [3,] 1.969110
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2728,7 +2751,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.085507  3.495782  2.322797
+## [1] -1.236262  3.512457  3.749554
 \end{verbatim}
 
 \begin{Shaded}
@@ -2739,7 +2762,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.851775 2.287410 4.079532
+## [1] 0.7046165 2.3852103 1.8301990
 \end{verbatim}
 
 \begin{Shaded}
@@ -2750,10 +2773,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]      [,3]
-## [1,]  2.8517750 -1.8220794 0.1677847
-## [2,] -1.8220794  2.2874100 0.3503862
-## [3,]  0.1677847  0.3503862 4.0795321
+##            [,1]       [,2]       [,3]
+## [1,]  0.7046165 -0.2050229 -0.1680512
+## [2,] -0.2050229  2.3852103  1.5608600
+## [3,] -0.1680512  1.5608600  1.8301990
 \end{verbatim}
 
 \hypertarget{example-2}{%
