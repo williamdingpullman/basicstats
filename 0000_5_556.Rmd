@@ -30,7 +30,9 @@ Note that, $P[Type I error]=\alpha$ is also referred to as the __significance le
 
 ### Example
 
-For instance, if $n=25$, then $\alpha=0.05$ gives $c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316$.
+For instance, if $n=25$, then $\alpha=0.05$ gives
+
+$$c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316$$.
 
 We can verify as follows.
 
@@ -58,4 +60,58 @@ However, $P[Type II error]$ for this critical regiion is:
 
 $$\begin{aligned} P[TII] &=1-P[10<\bar{X}<10.1006|\mu=11] \\ &=1-P[\frac{10-11}{4/5}<Z<\frac{10.1006-11}{4/5}] \\ &=1-P[-1.25 <Z<-1.12425] \\ &=0.9752 \end{aligned}$$
 
-If we increase the sample size from 25 to 100
+Thus, this critical region is much worse than using the right-hand tail of the distribution of $\bar{X}$ under $H_0$.
+
+If we increase the sample size from 25 to 100, we can reduce the Type II error. Specifically,
+
+$$C_2=\mu_0+Z_{1-\alpha} \sigma/\sqrt{n}=10+1.645 \cdot 4/10=10.658$$
+
+Thus, the $P[TII]$ is:
+
+__Type II is the opposite of Type I regarding directions: < vs. >__
+
+$$\begin{aligned} P[\bar{X} <10.658 | \mu=11]&=P[\frac{\bar{X}-11}{4/10} < \frac{10.658-11}{4/10}] \\ &=P[Z< -0.855] \\ &=0.196\end{aligned}$$
+
+__Note that, we need to choose the tail based on $H_1$ in order to avoid the type II error__. To illustrate, I calculate the following.
+
+__Original, right-hand side__
+
+$$c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316$$.
+
+__changed, left hand side__
+
+$$c=\mu_0-Z_{1-\alpha}\sigma/\sqrt{n}=10-1.645 \cdot 4/5=8.648$$.
+
+Then, we can declare the critical region as $[-\infty, 8.648]$. We can verify whether the probability is 0.05 
+
+$$\begin{aligned} P[\bar{X} < c | \mu=\mu_0=10] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} < \frac{c-\mu_0}{\sigma/\sqrt{n}}] \\ &=P[Z < \frac{8.648-10}{4/5}] \\&=P[Z< -1.645] \\&=0.05 \end{aligned}$$
+
+However, in the case, the type II error is as follows.
+
+$$\begin{aligned} \beta=P[TII] &=P[\bar{X}>8.648 |\mu=\mu_1=11] \\ &=P[\frac{\bar{X}-11}{4/5}>\frac{8.648-11}{4/5}] \\ &=P[Z > -2.94] \\ &=1-P[Z<-2.94] \\ &=1-\Phi(-2.94) \\ &=1-0.00164 \\&=0.9984 \end{aligned}$$
+
+```{R}
+pnorm(-2.94)
+
+1-pnorm(-2.94)
+```
+
+
+Thus, we can see that it is worse than choose the middlle, which has a type II error or 0.9752.
+
+__To summarize:__
+
+(1) While C is determined by $H_0$, since you can calculate a c based on a given $\alpha$ value (which determine the percentile), it is important to incoporate the $H_1$ into the considertation of determining C.
+
+(2) If $H_1$ is greater than $H_0$, it is better to choose the right-hand side, namely "+". In contrast, if $H_1$ is smaller than $H_0$, it is better to choose the left-hand side, namely "-". It seems it is always better than to choose a middle. (I am not sure about this, actually).
+
+(3) The calculation of Type II error is always use the opposite < or > in the writing of $P(...)$. 
+
+
+```{R}
+points_1<-rnorm(1000000,mean=8,sd=4)
+
+points_2<-rnorm(1000000,mean=11,sd=4)
+
+plot(density(points_1),col="red")+lines(density(points_2),col="green")
+```

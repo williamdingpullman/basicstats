@@ -300,7 +300,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="example" class="section level3">
 <h3><span class="header-section-number">5.1.2</span> Example</h3>
-<p>For instance, if <span class="math inline">\(n=25\)</span>, then <span class="math inline">\(\alpha=0.05\)</span> gives <span class="math inline">\(c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316\)</span>.</p>
+<p>For instance, if <span class="math inline">\(n=25\)</span>, then <span class="math inline">\(\alpha=0.05\)</span> gives</p>
+<p><span class="math display">\[c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316\]</span>.</p>
 <p>We can verify as follows.</p>
 <p><span class="math display">\[\begin{aligned} P[\bar{X}\geq c | \mu=\mu_0=10] &amp;=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq \frac{c-\mu_0}{\sigma/\sqrt{n}}] \\ &amp;=P[Z \geq \frac{11.316-10}{4/5}] \\&amp;=P[Z\geq 1.645] \\&amp;=0.05 \end{aligned}\]</span></p>
 <p>Thus, a size <span class="math inline">\(0.05\)</span> test of <span class="math inline">\(H_0: \mu=10\)</span> against the alternative <span class="math inline">\(H_a:\mu=11\)</span> is to reject <span class="math inline">\(H_0\)</span> if the observed value <span class="math inline">\(\bar{X} \geq 11.316\)</span>.</p>
@@ -315,7 +316,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[P[10 &lt; \bar{X}&lt;10.1006]=P[0 &lt;\frac{\bar{X}-10}{4/5} &lt;0.1257]=0.05\]</span></p>
 <p>However, <span class="math inline">\(P[Type II error]\)</span> for this critical regiion is:</p>
 <p><span class="math display">\[\begin{aligned} P[TII] &amp;=1-P[10&lt;\bar{X}&lt;10.1006|\mu=11] \\ &amp;=1-P[\frac{10-11}{4/5}&lt;Z&lt;\frac{10.1006-11}{4/5}] \\ &amp;=1-P[-1.25 &lt;Z&lt;-1.12425] \\ &amp;=0.9752 \end{aligned}\]</span></p>
-<p>If we increase the sample size from 25 to 100</p>
+<p>Thus, this critical region is much worse than using the right-hand tail of the distribution of <span class="math inline">\(\bar{X}\)</span> under <span class="math inline">\(H_0\)</span>.</p>
+<p>If we increase the sample size from 25 to 100, we can reduce the Type II error. Specifically,</p>
+<p><span class="math display">\[C_2=\mu_0+Z_{1-\alpha} \sigma/\sqrt{n}=10+1.645 \cdot 4/10=10.658\]</span></p>
+<p>Thus, the <span class="math inline">\(P[TII]\)</span> is:</p>
+<p><strong>Type II is the opposite of Type I regarding directions: &lt; vs. &gt;</strong></p>
+<p><span class="math display">\[\begin{aligned} P[\bar{X} &lt;10.658 | \mu=11]&amp;=P[\frac{\bar{X}-11}{4/10} &lt; \frac{10.658-11}{4/10}] \\ &amp;=P[Z&lt; -0.855] \\ &amp;=0.196\end{aligned}\]</span></p>
+<p><strong>Note that, we need to choose the tail based on <span class="math inline">\(H_1\)</span> in order to avoid the type II error</strong>. To illustrate, I calculate the following.</p>
+<p><strong>Original, right-hand side</strong></p>
+<p><span class="math display">\[c=\mu_0+Z_{1-\alpha}\sigma/\sqrt{n}=10+1.645 \cdot 4/5=11.316\]</span>.</p>
+<p><strong>changed, left hand side</strong></p>
+<p><span class="math display">\[c=\mu_0-Z_{1-\alpha}\sigma/\sqrt{n}=10-1.645 \cdot 4/5=8.648\]</span>.</p>
+<p>Then, we can declare the critical region as <span class="math inline">\([-\infty, 8.648]\)</span>. We can verify whether the probability is 0.05</p>
+<p><span class="math display">\[\begin{aligned} P[\bar{X} &lt; c | \mu=\mu_0=10] &amp;=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} &lt; \frac{c-\mu_0}{\sigma/\sqrt{n}}] \\ &amp;=P[Z &lt; \frac{8.648-10}{4/5}] \\&amp;=P[Z&lt; -1.645] \\&amp;=0.05 \end{aligned}\]</span></p>
+<p>However, in the case, the type II error is as follows.</p>
+<p><span class="math display">\[\begin{aligned} \beta=P[TII] &amp;=P[\bar{X}&gt;8.648 |\mu=\mu_1=11] \\ &amp;=P[\frac{\bar{X}-11}{4/5}&gt;\frac{8.648-11}{4/5}] \\ &amp;=P[Z &gt; -2.94] \\ &amp;=1-P[Z&lt;-2.94] \\ &amp;=1-\Phi(-2.94) \\ &amp;=1-0.00164 \\&amp;=0.9984 \end{aligned}\]</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">pnorm</span>(<span class="op">-</span><span class="fl">2.94</span>)</a></code></pre></div>
+<pre><code>## [1] 0.001641061</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="dv">1</span><span class="op">-</span><span class="kw">pnorm</span>(<span class="op">-</span><span class="fl">2.94</span>)</a></code></pre></div>
+<pre><code>## [1] 0.9983589</code></pre>
+<p>Thus, we can see that it is worse than choose the middlle, which has a type II error or 0.9752.</p>
+<p><strong>To summarize:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>While C is determined by <span class="math inline">\(H_0\)</span>, since you can calculate a c based on a given <span class="math inline">\(\alpha\)</span> value (which determine the percentile), it is important to incoporate the <span class="math inline">\(H_1\)</span> into the considertation of determining C.</p></li>
+<li><p>If <span class="math inline">\(H_1\)</span> is greater than <span class="math inline">\(H_0\)</span>, it is better to choose the right-hand side, namely “+”. In contrast, if <span class="math inline">\(H_1\)</span> is smaller than <span class="math inline">\(H_0\)</span>, it is better to choose the left-hand side, namely “-”. It seems it is always better than to choose a middle. (I am not sure about this, actually).</p></li>
+<li><p>The calculation of Type II error is always use the opposite &lt; or &gt; in the writing of <span class="math inline">\(P(...)\)</span>.</p></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">points_<span class="dv">1</span>&lt;-<span class="kw">rnorm</span>(<span class="dv">1000000</span>,<span class="dt">mean=</span><span class="dv">8</span>,<span class="dt">sd=</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">points_<span class="dv">2</span>&lt;-<span class="kw">rnorm</span>(<span class="dv">1000000</span>,<span class="dt">mean=</span><span class="dv">11</span>,<span class="dt">sd=</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">plot</span>(<span class="kw">density</span>(points_<span class="dv">1</span>),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span><span class="kw">lines</span>(<span class="kw">density</span>(points_<span class="dv">2</span>),<span class="dt">col=</span><span class="st">&quot;green&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre><code>## integer(0)</code></pre>
 
 </div>
 </div>
