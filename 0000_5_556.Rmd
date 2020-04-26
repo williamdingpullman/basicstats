@@ -146,10 +146,36 @@ __Power function:__
 
 The power function, $\pi(\theta)$, of a test of $H_0$ is the probability of rejection $H_0$ when then true value of the parameter is $\theta$.
 
-For simple hypothesis, $H_0:\theta=\theta_0$ versus $H_a:\theta=\theta_1$, we have $\pi(\theta_0)=P[TI]=\alpha$ and $\pi(\theta_1)=1-P[TII]=1-\beta$.
+For instance, for simple hypothesis, $H_0:\theta=\theta_0$ versus $H_a:\theta=\theta_1$, we have:
 
-__Type II error: __ Fix C, then calculate the opposite of $H_0$, based on $H_a$. Thus, power function based on $H_a$ is $1-P(TII)=1-\beta$.
+$$\pi(\theta_0)=P[TI]=\alpha$$ 
+
+and 
+
+$$\pi(\theta_1)=1-P[TII]=1-\beta$$
+
+
+__Type II error: __ Fix C, then calculate the opposite of $H_0$, based on $H_a$. Thus, power function based on $H_a$ is $\pi(\theta_1)=1-P(TII)=1-\beta$.
 
 
 ## 12.2
 
+
+$$\begin{aligned} \pi[\mu] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq z_{1-\alpha} |\mu] \\ &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} \geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu]  \\ &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}$$ 
+
+Thus, based on the formula above, we know that:
+
+The probability of rejecting $H_0$ for any $\mu \leq \mu_0$ is $\pi (\mu)$, and $\pi(\mu) \leq \pi (\mu_0)=\alpha$ for $\mu \leq \mu_0$. Thus, $MAX_{\mu <\mu_0} \pi(\mu)=\alpha$.
+
+That is:
+
+__P.395__
+
+__If the critical region is chosen to have a size of $\alpha$ at $\mu_0$, then the Type I error will be less than $\alpha$.__
+
+
+__To intuitive understand this:__
+
+Note that, $\pi(\mu)$ is that, given the $\mu$, as well as given the $\alpha$, the probability of rejecting $H_0$ is $\pi(\mu)$.
+
+However, the catch here is that, $c$ is not determined by $\mu$, but actually by $\mu_0$. Thus, it simila to calculate Type II error that uses $c$ based on $H_0$.
