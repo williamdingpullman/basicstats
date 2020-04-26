@@ -222,7 +222,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="chapter-12.html"><a href="chapter-12.html#section-4"><i class="fa fa-check"></i><b>5.1</b> 12.1</a><ul>
 <li class="chapter" data-level="5.1.1" data-path="chapter-12.html"><a href="chapter-12.html#theory"><i class="fa fa-check"></i><b>5.1.1</b> THeory</a></li>
 <li class="chapter" data-level="5.1.2" data-path="chapter-12.html"><a href="chapter-12.html#example"><i class="fa fa-check"></i><b>5.1.2</b> Example</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chapter-12.html"><a href="chapter-12.html#power-function"><i class="fa fa-check"></i><b>5.1.3</b> Power function</a></li>
 </ul></li>
+<li class="chapter" data-level="5.2" data-path="chapter-12.html"><a href="chapter-12.html#section-5"><i class="fa fa-check"></i><b>5.2</b> 12.2</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
@@ -349,8 +351,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb6-5" title="5"><span class="kw">plot</span>(<span class="kw">density</span>(points_<span class="dv">1</span>),<span class="dt">col=</span><span class="st">&quot;red&quot;</span>)<span class="op">+</span><span class="kw">lines</span>(<span class="kw">density</span>(points_<span class="dv">2</span>),<span class="dt">col=</span><span class="st">&quot;green&quot;</span>)</a></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <pre><code>## integer(0)</code></pre>
-
 </div>
+<div id="power-function" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Power function</h3>
+<p>As above, the computation of <span class="math inline">\(H_0\)</span> is based on standard normal <span class="math inline">\(Z\)</span>. If critical region is on the right-tail (e.g., <span class="math inline">\(H_0:\mu=\mu_0, H_1: \mu=\mu_1, \mu_1&gt;\mu_0\)</span>), and we rejct <span class="math inline">\(H_0\)</span> if <span class="math inline">\(z_0 \geq z_{1-\alpha}\)</span>. That is,</p>
+<p><span class="math display">\[P[z_0 \geq z_{1-\alpha}]=\alpha\]</span></p>
+<p><span class="math display">\[\begin{aligned} P[TII] &amp;=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} &lt; z_{1-\alpha} |\mu=\mu_1] \\ &amp;=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}+\frac{\mu_0-\mu_1}{\sigma/\sqrt{n}} &lt; z_{1-\alpha} +\frac{\mu_0-\mu_1}{\sigma/\sqrt{n}}|\mu=\mu_1]  \\ &amp;=P[\frac{\bar{X}-\mu_1}{\sigma/\sqrt{n}}&lt; z_{1-\alpha} +\frac{\mu_0-\mu_1}{\sigma/\sqrt{n}}|\mu=\mu_1] \\ &amp;=\Phi(z_{1-\alpha} +\frac{\mu_0-\mu_1}{\sigma/\sqrt{n}}) \\ &amp;=\beta \end{aligned}\]</span></p>
+<p>Thus, we can get the following:</p>
+<p><span class="math display">\[z_{1-\alpha} +\frac{\mu_0-\mu_1}{\sigma/\sqrt{n}}=z_{\beta}=-z_{1-\beta}\]</span></p>
+<p>Thus, we can get the following:</p>
+<p><span class="math display">\[n=\frac{(z_{1-\alpha}+z_{1-\beta})^2\sigma^2}{(\mu_0-\mu_1)^2}\]</span></p>
+<p>Thus, for instance, <span class="math inline">\(\alpha=0.05, \beta=0.1, \mu_0=10, \mu_1=11, \sigma=4\)</span>, we can get:</p>
+<p><span class="math display">\[n=\frac{(1.645+1.282)^2 \cdot 16}{1}=137\]</span></p>
+<p><strong>Power function:</strong></p>
+<p>The power function, <span class="math inline">\(\pi(\theta)\)</span>, of a test of <span class="math inline">\(H_0\)</span> is the probability of rejection <span class="math inline">\(H_0\)</span> when then true value of the parameter is <span class="math inline">\(\theta\)</span>.</p>
+<p>For simple hypothesis, <span class="math inline">\(H_0:\theta=\theta_0\)</span> versus <span class="math inline">\(H_a:\theta=\theta_1\)</span>, we have <span class="math inline">\(\pi(\theta_0)=P[TI]=\alpha\)</span> and <span class="math inline">\(\pi(\theta_1)=1-P[TII]=1-\beta\)</span>.</p>
+<p><strong>Type II error: </strong> Fix C, then calculate the opposite of <span class="math inline">\(H_0\)</span>, based on <span class="math inline">\(H_a\)</span>. Thus, power function based on <span class="math inline">\(H_a\)</span> is <span class="math inline">\(1-P(TII)=1-\beta\)</span>.</p>
+</div>
+</div>
+<div id="section-5" class="section level2">
+<h2><span class="header-section-number">5.2</span> 12.2</h2>
+
 </div>
 </div>
             </section>
