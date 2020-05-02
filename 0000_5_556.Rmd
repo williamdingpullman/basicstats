@@ -160,8 +160,9 @@ __Type II error: __ Fix C, then calculate the opposite of $H_0$, based on $H_a$.
 
 ## 12.2
 
+![From The Textbook](556.PNG) 
 
-$$\begin{aligned} \pi[\mu] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq z_{1-\alpha} |\mu] \\ &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} \geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu]  \\ &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}$$ 
+$$\begin{aligned} \pi[\mu] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq z_{1-\alpha} |\mu] \\ &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} \geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu]  \\ &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}$$  
 
 Thus, based on the formula above, we know that:
 

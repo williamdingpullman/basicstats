@@ -2043,6 +2043,12 @@ and
 \hypertarget{section-5}{%
 \section{12.2}\label{section-5}}
 
+\begin{figure}
+\centering
+\includegraphics{556.PNG}
+\caption{From The Textbook}
+\end{figure}
+
 \[\begin{aligned} \pi[\mu] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq z_{1-\alpha} |\mu] \\ &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} \geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu]  \\ &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}\]
 
 Thus, based on the formula above, we know that:
@@ -2723,10 +2729,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 2.0212976
-## [2,] 0.9354054
-## [3,] 1.9812324
+##          [,1]
+## [1,] 1.970876
+## [2,] 1.021451
+## [3,] 2.026831
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2887,7 +2893,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.833505  4.298547  2.568240
+## [1] -1.653288  3.209915  3.128398
 \end{verbatim}
 
 \begin{Shaded}
@@ -2898,7 +2904,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.177014 1.860278 5.064040
+## [1] 2.334811 2.747875 3.869315
 \end{verbatim}
 
 \begin{Shaded}
@@ -2909,10 +2915,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]        [,2]     [,3]
-## [1,]  2.17701401 -0.07591952 1.572650
-## [2,] -0.07591952  1.86027814 1.062699
-## [3,]  1.57264953  1.06269882 5.064040
+##            [,1]      [,2]      [,3]
+## [1,]  2.3348107 -1.138010 0.5964875
+## [2,] -1.1380100  2.747875 1.1010318
+## [3,]  0.5964875  1.101032 3.8693154
 \end{verbatim}
 
 \hypertarget{example-2}{%
