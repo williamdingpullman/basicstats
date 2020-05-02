@@ -10,7 +10,7 @@ Quite often the distribution in question has __a known parametric form__ with a 
 
 In this framework, a statistical hypothesis corresponds to a subset of the parameter space, and the objective of a test would be to decide whether the true value of the parameter is in the subset. Thus, a null hypothesis would correspond to a subset $\Omega_0$ of $\Omega$, and the alternative hypothesis would correspond to its complement, $\Omega-\Omega_0$
 
-In the case of simple hypothesis, these sets consist of only one element each, $\Omega_0=\{ \theta_0\}$ and $\Omega -\Omega_0=\{ \theta_1\}$, where $\theta_0 \neq \theta_1$.
+In the case of __simple hypothesis__, these sets consist of only one element each, $\Omega_0=\{ \theta_0\}$ and $\Omega -\Omega_0=\{ \theta_1\}$, where $\theta_0 \neq \theta_1$.
 
 We now must consider sample data, and decide on the basis of the data whether we have sufficient statistical evidence to reject $H_0$ in favor of the alternative $H_a$, or whether we do not have sufficient evidence.
 
@@ -72,7 +72,7 @@ __Type II is the opposite of Type I regarding directions: < vs. >__
 
 $$\begin{aligned} P[\bar{X} <10.658 | \mu=11]&=P[\frac{\bar{X}-11}{4/10} < \frac{10.658-11}{4/10}] \\ &=P[Z< -0.855] \\ &=0.196\end{aligned}$$
 
-__Note that, we need to choose the tail based on $H_1$ in order to avoid the type II error__. To illustrate, I calculate the following.
+__Note that, we need to choose the direction of the tail based on $H_1$ in order to avoid a big type II error__. To illustrate, I calculate the following.
 
 __Original, right-hand side__
 

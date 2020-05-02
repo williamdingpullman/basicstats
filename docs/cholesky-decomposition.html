@@ -312,16 +312,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb34-20" title="20"></a>
 <a class="sourceLine" id="cb34-21" title="21"><span class="co"># calculating column means</span></a>
 <a class="sourceLine" id="cb34-22" title="22"><span class="kw">colMeans</span>(Final_data)</a></code></pre></div>
-<pre><code>## [1] -2.390331  4.185844  4.647668</code></pre>
+<pre><code>## [1] -2.697349  4.079025  3.099757</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="co"># calculating column variances</span></a>
 <a class="sourceLine" id="cb36-2" title="2"><span class="kw">apply</span>(Final_data,<span class="dv">2</span>,var)</a></code></pre></div>
-<pre><code>## [1] 4.200915 2.811233 7.021191</code></pre>
+<pre><code>## [1] 1.593001 5.774800 2.969655</code></pre>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co"># calculating covariance matrix</span></a>
 <a class="sourceLine" id="cb38-2" title="2"><span class="kw">cov</span>(Final_data)</a></code></pre></div>
-<pre><code>##           [,1]       [,2]       [,3]
-## [1,]  4.200915 -2.1092723  1.2796322
-## [2,] -2.109272  2.8112329 -0.7781056
-## [3,]  1.279632 -0.7781056  7.0211908</code></pre>
+<pre><code>##            [,1]      [,2]       [,3]
+## [1,]  1.5930009 -2.027002 -0.8141243
+## [2,] -2.0270018  5.774800  2.7034962
+## [3,] -0.8141243  2.703496  2.9696555</code></pre>
 </div>
 <div id="example-2" class="section level2">
 <h2><span class="header-section-number">12.2</span> Example 2</h2>

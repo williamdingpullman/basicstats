@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{26 April, 2020}
+    \date{02 May, 2020}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -1870,7 +1870,7 @@ Quite often the distribution in question has \textbf{a known parametric form} wi
 
 In this framework, a statistical hypothesis corresponds to a subset of the parameter space, and the objective of a test would be to decide whether the true value of the parameter is in the subset. Thus, a null hypothesis would correspond to a subset \(\Omega_0\) of \(\Omega\), and the alternative hypothesis would correspond to its complement, \(\Omega-\Omega_0\)
 
-In the case of simple hypothesis, these sets consist of only one element each, \(\Omega_0=\{ \theta_0\}\) and \(\Omega -\Omega_0=\{ \theta_1\}\), where \(\theta_0 \neq \theta_1\).
+In the case of \textbf{simple hypothesis}, these sets consist of only one element each, \(\Omega_0=\{ \theta_0\}\) and \(\Omega -\Omega_0=\{ \theta_1\}\), where \(\theta_0 \neq \theta_1\).
 
 We now must consider sample data, and decide on the basis of the data whether we have sufficient statistical evidence to reject \(H_0\) in favor of the alternative \(H_a\), or whether we do not have sufficient evidence.
 
@@ -1937,7 +1937,7 @@ Thus, the \(P[TII]\) is:
 
 \[\begin{aligned} P[\bar{X} <10.658 | \mu=11]&=P[\frac{\bar{X}-11}{4/10} < \frac{10.658-11}{4/10}] \\ &=P[Z< -0.855] \\ &=0.196\end{aligned}\]
 
-\textbf{Note that, we need to choose the tail based on \(H_1\) in order to avoid the type II error}. To illustrate, I calculate the following.
+\textbf{Note that, we need to choose the direction of the tail based on \(H_1\) in order to avoid a big type II error}. To illustrate, I calculate the following.
 
 \textbf{Original, right-hand side}
 
@@ -2724,9 +2724,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##           [,1]
-## [1,] 1.9876157
-## [2,] 0.9585547
-## [3,] 1.9537234
+## [1,] 2.0212976
+## [2,] 0.9354054
+## [3,] 1.9812324
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2887,7 +2887,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.330534  4.057790  3.323813
+## [1] -2.833505  4.298547  2.568240
 \end{verbatim}
 
 \begin{Shaded}
@@ -2898,7 +2898,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.9584726 2.9161683 2.7635146
+## [1] 2.177014 1.860278 5.064040
 \end{verbatim}
 
 \begin{Shaded}
@@ -2909,10 +2909,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]       [,3]
-## [1,]  0.9584726 -0.2679897  0.8897642
-## [2,] -0.2679897  2.9161683 -0.1046069
-## [3,]  0.8897642 -0.1046069  2.7635146
+##             [,1]        [,2]     [,3]
+## [1,]  2.17701401 -0.07591952 1.572650
+## [2,] -0.07591952  1.86027814 1.062699
+## [3,]  1.57264953  1.06269882 5.064040
 \end{verbatim}
 
 \hypertarget{example-2}{%
