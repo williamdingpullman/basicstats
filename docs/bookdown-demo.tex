@@ -2049,23 +2049,59 @@ and
 \caption{From The Textbook}
 \end{figure}
 
+Note that, \(\pi(\mu)\) (see the following) is that, given the \(\mu\), as well as given the \(\alpha\), the probability of rejecting \(H_0\) is \(\pi(\mu)\).
+
+However, the catch here is that, \(c\) is not determined by \(\mu\), but actually by \(\mu_0\).
+
+Also, note that, from the figure above, the \textbf{direction} of power calculation (\(1-\beta\)) is the same \textbf{direction} of type one error \(\alpha\). Remember, the only opposite is \(\beta\) and \(\alpha\), but power of \(1-\beta\) and \(\alpha\) actually are the same region!
+
+\hypertarget{h_a-is-composite}{%
+\subsection{H\_a is composite}\label{h_a-is-composite}}
+
+For
+
+\(H_0: \mu=\mu_0\)
+
+\(H_a: \mu > \mu_0\)
+
 \[\begin{aligned} \pi[\mu] &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq z_{1-\alpha} |\mu] \\ &=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} \geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu]  \\ &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}\]
 
 Thus, based on the formula above, we know that:
 
+For \(\mu=\mu_0\), we have \(\pi(\mu_0)=\alpha\), and for \(\mu >\mu_0\), we have \(\pi(\mu)=1-P[TII]\).
+
+\textbf{My interpretation:}
+
+The statement above is about power of the test. Note that, \(\mu\) is always the true \(\mu\). However, we do not know what the actual value is, thus we have two different statementsm namely \(H_0\) and \(H_a\). Thus, do \textbf{NOT} think that \(\mu\) stated in \(H_a\) is the true \(\mu\)!
+
+Thus, when we calculate the type II error, we assume that \(\mu=\mu_1\), which is stated in \(H_a\). But, in reality, we never know the true type II error. Thus, the calculation of type 2 error is based on an assumption!
+
+Anyhow, link to the figure above, when \(\mu=\mu_0\), that means that the true \(\mu\) is equal to \(\mu_0\) (note that, \(\mu\) is always true!). That is, the true \(\mu\) is the same as the one stated in the \(H_0\). In this case, \(\pi(\mu)=\pi(\mu_0)=\alpha\)
+
+\[\begin{aligned} 1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) &=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu_0}{\sigma/\sqrt{n}}) \\ &=1-\Phi(z_{1-\alpha}) \\&=1-(1-\alpha) \\ &=\alpha  \end{aligned}\]
+
+\hypertarget{both-h0-and-ha-are-composite}{%
+\subsection{Both H0 and Ha are composite}\label{both-h0-and-ha-are-composite}}
+
+\[H_0: \mu \leq \mu_0\]
+
+\[H_a: \mu > \mu_0\]
+
 The probability of rejecting \(H_0\) for any \(\mu \leq \mu_0\) is \(\pi (\mu)\), and \(\pi(\mu) \leq \pi (\mu_0)=\alpha\) for \(\mu \leq \mu_0\). Thus, \(MAX_{\mu <\mu_0} \pi(\mu)=\alpha\).
 
-That is:
+To understand that, you can visualize that that there is \(\mu_0^{'}\), which is smaller than \(\mu_0\). If that is the case, the \(c\) set by \(\mu_0\) will result in a smaller \(\pi(\mu) <\alpha\).
+
+\begin{figure}
+\centering
+\includegraphics{556_2.PNG}
+\caption{From The Textbook}
+\end{figure}
 
 \textbf{P.395}
 
 \textbf{If the critical region is chosen to have a size of \(\alpha\) at \(\mu_0\), then the Type I error will be less than \(\alpha\).}
 
 \textbf{To intuitive understand this:}
-
-Note that, \(\pi(\mu)\) is that, given the \(\mu\), as well as given the \(\alpha\), the probability of rejecting \(H_0\) is \(\pi(\mu)\).
-
-However, the catch here is that, \(c\) is not determined by \(\mu\), but actually by \(\mu_0\). Thus, it simila to calculate Type II error that uses \(c\) based on \(H_0\).
 
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
@@ -2730,9 +2766,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 1.970876
-## [2,] 1.021451
-## [3,] 2.026831
+## [1,] 1.958993
+## [2,] 1.043080
+## [3,] 2.074515
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2893,7 +2929,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.653288  3.209915  3.128398
+## [1] -2.008359  4.358043  3.373532
 \end{verbatim}
 
 \begin{Shaded}
@@ -2904,7 +2940,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.334811 2.747875 3.869315
+## [1] 4.461874 2.198983 6.434064
 \end{verbatim}
 
 \begin{Shaded}
@@ -2915,10 +2951,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]      [,2]      [,3]
-## [1,]  2.3348107 -1.138010 0.5964875
-## [2,] -1.1380100  2.747875 1.1010318
-## [3,]  0.5964875  1.101032 3.8693154
+##            [,1]       [,2]      [,3]
+## [1,]  4.4618745 -1.9499356 0.7797521
+## [2,] -1.9499356  2.1989826 0.4162071
+## [3,]  0.7797521  0.4162071 6.4340642
 \end{verbatim}
 
 \hypertarget{example-2}{%

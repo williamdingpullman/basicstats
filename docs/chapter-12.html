@@ -224,7 +224,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1.2" data-path="chapter-12.html"><a href="chapter-12.html#example"><i class="fa fa-check"></i><b>5.1.2</b> Example</a></li>
 <li class="chapter" data-level="5.1.3" data-path="chapter-12.html"><a href="chapter-12.html#power-function"><i class="fa fa-check"></i><b>5.1.3</b> Power function</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="chapter-12.html"><a href="chapter-12.html#section-5"><i class="fa fa-check"></i><b>5.2</b> 12.2</a></li>
+<li class="chapter" data-level="5.2" data-path="chapter-12.html"><a href="chapter-12.html#section-5"><i class="fa fa-check"></i><b>5.2</b> 12.2</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chapter-12.html"><a href="chapter-12.html#h_a-is-composite"><i class="fa fa-check"></i><b>5.2.1</b> H_a is composite</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chapter-12.html"><a href="chapter-12.html#both-h0-and-ha-are-composite"><i class="fa fa-check"></i><b>5.2.2</b> Both H0 and Ha are composite</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
@@ -378,16 +381,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="556.PNG" alt="From The Textbook" />
 <p class="caption">From The Textbook</p>
 </div>
+<p>Note that, <span class="math inline">\(\pi(\mu)\)</span> (see the following) is that, given the <span class="math inline">\(\mu\)</span>, as well as given the <span class="math inline">\(\alpha\)</span>, the probability of rejecting <span class="math inline">\(H_0\)</span> is <span class="math inline">\(\pi(\mu)\)</span>.</p>
+<p>However, the catch here is that, <span class="math inline">\(c\)</span> is not determined by <span class="math inline">\(\mu\)</span>, but actually by <span class="math inline">\(\mu_0\)</span>.</p>
+<p>Also, note that, from the figure above, the <strong>direction</strong> of power calculation (<span class="math inline">\(1-\beta\)</span>) is the same <strong>direction</strong> of type one error <span class="math inline">\(\alpha\)</span>. Remember, the only opposite is <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\alpha\)</span>, but power of <span class="math inline">\(1-\beta\)</span> and <span class="math inline">\(\alpha\)</span> actually are the same region!</p>
+<div id="h_a-is-composite" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> H_a is composite</h3>
+<p>For</p>
+<p><span class="math inline">\(H_0: \mu=\mu_0\)</span></p>
+<p><span class="math inline">\(H_a: \mu &gt; \mu_0\)</span></p>
 <p><span class="math display">\[\begin{aligned} \pi[\mu] &amp;=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} \geq z_{1-\alpha} |\mu] \\ &amp;=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} \geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu]  \\ &amp;=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\geq z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &amp;=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}&lt;z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}|\mu] \\ &amp;=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}\]</span></p>
 <p>Thus, based on the formula above, we know that:</p>
+<p>For <span class="math inline">\(\mu=\mu_0\)</span>, we have <span class="math inline">\(\pi(\mu_0)=\alpha\)</span>, and for <span class="math inline">\(\mu &gt;\mu_0\)</span>, we have <span class="math inline">\(\pi(\mu)=1-P[TII]\)</span>.</p>
+<p><strong>My interpretation:</strong></p>
+<p>The statement above is about power of the test. Note that, <span class="math inline">\(\mu\)</span> is always the true <span class="math inline">\(\mu\)</span>. However, we do not know what the actual value is, thus we have two different statementsm namely <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span>. Thus, do <strong>NOT</strong> think that <span class="math inline">\(\mu\)</span> stated in <span class="math inline">\(H_a\)</span> is the true <span class="math inline">\(\mu\)</span>!</p>
+<p>Thus, when we calculate the type II error, we assume that <span class="math inline">\(\mu=\mu_1\)</span>, which is stated in <span class="math inline">\(H_a\)</span>. But, in reality, we never know the true type II error. Thus, the calculation of type 2 error is based on an assumption!</p>
+<p>Anyhow, link to the figure above, when <span class="math inline">\(\mu=\mu_0\)</span>, that means that the true <span class="math inline">\(\mu\)</span> is equal to <span class="math inline">\(\mu_0\)</span> (note that, <span class="math inline">\(\mu\)</span> is always true!). That is, the true <span class="math inline">\(\mu\)</span> is the same as the one stated in the <span class="math inline">\(H_0\)</span>. In this case, <span class="math inline">\(\pi(\mu)=\pi(\mu_0)=\alpha\)</span></p>
+<p><span class="math display">\[\begin{aligned} 1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) &amp;=1-\Phi(z_{1-\alpha} +\frac{\mu_0-\mu_0}{\sigma/\sqrt{n}}) \\ &amp;=1-\Phi(z_{1-\alpha}) \\&amp;=1-(1-\alpha) \\ &amp;=\alpha  \end{aligned}\]</span></p>
+</div>
+<div id="both-h0-and-ha-are-composite" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Both H0 and Ha are composite</h3>
+<p><span class="math display">\[H_0: \mu \leq \mu_0\]</span></p>
+<p><span class="math display">\[H_a: \mu &gt; \mu_0\]</span></p>
 <p>The probability of rejecting <span class="math inline">\(H_0\)</span> for any <span class="math inline">\(\mu \leq \mu_0\)</span> is <span class="math inline">\(\pi (\mu)\)</span>, and <span class="math inline">\(\pi(\mu) \leq \pi (\mu_0)=\alpha\)</span> for <span class="math inline">\(\mu \leq \mu_0\)</span>. Thus, <span class="math inline">\(MAX_{\mu &lt;\mu_0} \pi(\mu)=\alpha\)</span>.</p>
-<p>That is:</p>
+<p>To understand that, you can visualize that that there is <span class="math inline">\(\mu_0^{&#39;}\)</span>, which is smaller than <span class="math inline">\(\mu_0\)</span>. If that is the case, the <span class="math inline">\(c\)</span> set by <span class="math inline">\(\mu_0\)</span> will result in a smaller <span class="math inline">\(\pi(\mu) &lt;\alpha\)</span>.</p>
+<div class="figure">
+<img src="556_2.PNG" alt="From The Textbook" />
+<p class="caption">From The Textbook</p>
+</div>
 <p><strong>P.395</strong></p>
 <p><strong>If the critical region is chosen to have a size of <span class="math inline">\(\alpha\)</span> at <span class="math inline">\(\mu_0\)</span>, then the Type I error will be less than <span class="math inline">\(\alpha\)</span>.</strong></p>
 <p><strong>To intuitive understand this:</strong></p>
-<p>Note that, <span class="math inline">\(\pi(\mu)\)</span> is that, given the <span class="math inline">\(\mu\)</span>, as well as given the <span class="math inline">\(\alpha\)</span>, the probability of rejecting <span class="math inline">\(H_0\)</span> is <span class="math inline">\(\pi(\mu)\)</span>.</p>
-<p>However, the catch here is that, <span class="math inline">\(c\)</span> is not determined by <span class="math inline">\(\mu\)</span>, but actually by <span class="math inline">\(\mu_0\)</span>. Thus, it simila to calculate Type II error that uses <span class="math inline">\(c\)</span> based on <span class="math inline">\(H_0\)</span>.</p>
 
+</div>
 </div>
 </div>
             </section>
