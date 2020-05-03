@@ -373,3 +373,60 @@ A test $H_0: ]theta =\theta_0$ versus $H_a:\theta=\theta_1$ based on a critical 
 (1) $\pi_{C^*}(\theta_0)=\alpha$ and 
 
 (2) $\pi_{C^*}(\theta_1)> \pi_{C}(\theta_1)$ for any other critical region $C$ of size $\alpha$ [that is, $\pi_{C}(\theta_0)=\alpha$]. 
+
+
+The following theorem shows how to derive a most powerful critical region for testing simple hypotheses.
+
+__Neyman-Pearson Lemma__
+
+
+Suppose that $X_1,...X_n$ have joint pdf $f(x_1,...,x_n; \theta)$. Let
+
+$$\lambda(x_1,...,x_n; \theta_0,\theta_1)=\frac{f(x_1,...,x_n; \theta_0)}{f(x_1,...,x_n; \theta_1)}$$
+
+
+and let $C^*$ be the set 
+
+$$C^*=\{(x_1,...,x_n)|\lambda(x_1,...,x_n; \theta_0,\theta_1)\leq k \}$$
+
+
+where $k$ is a constant such that
+
+$$P[(X_1,...,X_n) \in C^*|\theta_0]=\alpha$$
+
+Then $C^*$ is a most powerful critical region of size $\alpha$ for testing $H_0: \theta=\theta_0$ versus $H_a:\theta=\theta_1$.
+
+The general philosophy of the Neyman-Pearson approach to hypothesis testing is to put sample points into the critical region until it reaches size $\alpha$. To maximize power, points should be put into the critical region that are more likely under $H_a$ than under $H_0$. In particular, the Neyman-Pearson lemma says that the criterion for choosing sample points to be included should be based on the magnitude of the ratio of the likelihood functions under $H_0$ and $H_a$.
+
+
+## 12.7 Uniformly most powerful tests
+
+If a test is most powerful against every possible value in a composite alternative, then it will be called a uniformly most powerful test. 
+
+
+Let $X_1,...,X_n$ have joint pdf $f(x_1,...,x_n; \theta)$ for $\theta \in \Omega$, and consider hypotheses of the form $H_0:\theta \in \Omega_0$ versus $H_a: \theta \in \Omega -\Omega_o$, where $\Omega_0$ is a subset of $\Omega$. A critical region $C^*$, and the associated test, are said to be __uniformly most powerful (UMP)__ of size $\alpha$ if 
+
+$$MAX_{\theta \in \Omega_0} \pi_{C^*}(\theta)=\alpha$$
+
+
+and
+
+$$\pi_{C^*}(\theta) \geq \pi_C(\theta)$$
+
+
+for all $\theta \in \Omega-\Omega_0$ and all critical regions $C$ of size $\alpha$.
+
+
+
+## 12.8 Generalized likelihood ratio tests
+
+
+The Neyman-Pearson lemma provides a method for deriving a most powerful test of simple hypotheses, and quite often this test also will be UMP for a one-sided composite alternative. 
+
+The generalized likelihood ratio test is a generalization fo the Neyman-Pearson test, and it provides a desirable test in many applications.
+
+Let $X=(X_1,...,X_n)$ where $X_1,...,X_n$ have joint pdf $f(x;\theta)$ for $\theta \in \Omega$, and consider the hypothesis $H_0: \theta \in \Omega_0$ versus $H_a: \theta \in \Omega-\Omega_0$. The __Generalized likelihood Ratio (GLR)__ is defined by
+
+$$\lambda (x)=\frac{MAX_{\theta\in\Omega_0}f(x;\theta)}{MAX_{\theta\in\Omega}f(x;\theta)}=\frac{f(x;\hat{\theta_0})}{f(x;\hat{\theta})}$$
+
+where $\hat{\theta}$ denotes the usual MLE of $\theta$, and $\hat{\theta}_0$ denotes the MLE under the restriction that $H_0$ is true. 

@@ -236,6 +236,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.4" data-path="chapter-12.html"><a href="chapter-12.html#paired-sample-t-test"><i class="fa fa-check"></i><b>5.3.4</b> Paired-sample t test</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="chapter-12.html"><a href="chapter-12.html#most-powerful-test"><i class="fa fa-check"></i><b>5.4</b> 12.6 Most powerful test</a></li>
+<li class="chapter" data-level="5.5" data-path="chapter-12.html"><a href="chapter-12.html#uniformly-most-powerful-tests"><i class="fa fa-check"></i><b>5.5</b> 12.7 Uniformly most powerful tests</a></li>
+<li class="chapter" data-level="5.6" data-path="chapter-12.html"><a href="chapter-12.html#generalized-likelihood-ratio-tests"><i class="fa fa-check"></i><b>5.6</b> 12.8 Generalized likelihood ratio tests</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
@@ -519,6 +521,33 @@ Thus, the the type II error is as follows:</p>
 <li><p><span class="math inline">\(\pi_{C^*}(\theta_0)=\alpha\)</span> and</p></li>
 <li><p><span class="math inline">\(\pi_{C^*}(\theta_1)&gt; \pi_{C}(\theta_1)\)</span> for any other critical region <span class="math inline">\(C\)</span> of size <span class="math inline">\(\alpha\)</span> [that is, <span class="math inline">\(\pi_{C}(\theta_0)=\alpha\)</span>].</p></li>
 </ol>
+<p>The following theorem shows how to derive a most powerful critical region for testing simple hypotheses.</p>
+<p><strong>Neyman-Pearson Lemma</strong></p>
+<p>Suppose that <span class="math inline">\(X_1,...X_n\)</span> have joint pdf <span class="math inline">\(f(x_1,...,x_n; \theta)\)</span>. Let</p>
+<p><span class="math display">\[\lambda(x_1,...,x_n; \theta_0,\theta_1)=\frac{f(x_1,...,x_n; \theta_0)}{f(x_1,...,x_n; \theta_1)}\]</span></p>
+<p>and let <span class="math inline">\(C^*\)</span> be the set</p>
+<p><span class="math display">\[C^*=\{(x_1,...,x_n)|\lambda(x_1,...,x_n; \theta_0,\theta_1)\leq k \}\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is a constant such that</p>
+<p><span class="math display">\[P[(X_1,...,X_n) \in C^*|\theta_0]=\alpha\]</span></p>
+<p>Then <span class="math inline">\(C^*\)</span> is a most powerful critical region of size <span class="math inline">\(\alpha\)</span> for testing <span class="math inline">\(H_0: \theta=\theta_0\)</span> versus <span class="math inline">\(H_a:\theta=\theta_1\)</span>.</p>
+<p>The general philosophy of the Neyman-Pearson approach to hypothesis testing is to put sample points into the critical region until it reaches size <span class="math inline">\(\alpha\)</span>. To maximize power, points should be put into the critical region that are more likely under <span class="math inline">\(H_a\)</span> than under <span class="math inline">\(H_0\)</span>. In particular, the Neyman-Pearson lemma says that the criterion for choosing sample points to be included should be based on the magnitude of the ratio of the likelihood functions under <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_a\)</span>.</p>
+</div>
+<div id="uniformly-most-powerful-tests" class="section level2">
+<h2><span class="header-section-number">5.5</span> 12.7 Uniformly most powerful tests</h2>
+<p>If a test is most powerful against every possible value in a composite alternative, then it will be called a uniformly most powerful test.</p>
+<p>Let <span class="math inline">\(X_1,...,X_n\)</span> have joint pdf <span class="math inline">\(f(x_1,...,x_n; \theta)\)</span> for <span class="math inline">\(\theta \in \Omega\)</span>, and consider hypotheses of the form <span class="math inline">\(H_0:\theta \in \Omega_0\)</span> versus <span class="math inline">\(H_a: \theta \in \Omega -\Omega_o\)</span>, where <span class="math inline">\(\Omega_0\)</span> is a subset of <span class="math inline">\(\Omega\)</span>. A critical region <span class="math inline">\(C^*\)</span>, and the associated test, are said to be <strong>uniformly most powerful (UMP)</strong> of size <span class="math inline">\(\alpha\)</span> if</p>
+<p><span class="math display">\[MAX_{\theta \in \Omega_0} \pi_{C^*}(\theta)=\alpha\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\pi_{C^*}(\theta) \geq \pi_C(\theta)\]</span></p>
+<p>for all <span class="math inline">\(\theta \in \Omega-\Omega_0\)</span> and all critical regions <span class="math inline">\(C\)</span> of size <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div id="generalized-likelihood-ratio-tests" class="section level2">
+<h2><span class="header-section-number">5.6</span> 12.8 Generalized likelihood ratio tests</h2>
+<p>The Neyman-Pearson lemma provides a method for deriving a most powerful test of simple hypotheses, and quite often this test also will be UMP for a one-sided composite alternative.</p>
+<p>The generalized likelihood ratio test is a generalization fo the Neyman-Pearson test, and it provides a desirable test in many applications.</p>
+<p>Let <span class="math inline">\(X=(X_1,...,X_n)\)</span> where <span class="math inline">\(X_1,...,X_n\)</span> have joint pdf <span class="math inline">\(f(x;\theta)\)</span> for <span class="math inline">\(\theta \in \Omega\)</span>, and consider the hypothesis <span class="math inline">\(H_0: \theta \in \Omega_0\)</span> versus <span class="math inline">\(H_a: \theta \in \Omega-\Omega_0\)</span>. The <strong>Generalized likelihood Ratio (GLR)</strong> is defined by</p>
+<p><span class="math display">\[\lambda (x)=\frac{MAX_{\theta\in\Omega_0}f(x;\theta)}{MAX_{\theta\in\Omega}f(x;\theta)}=\frac{f(x;\hat{\theta_0})}{f(x;\hat{\theta})}\]</span></p>
+<p>where <span class="math inline">\(\hat{\theta}\)</span> denotes the usual MLE of <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(\hat{\theta}_0\)</span> denotes the MLE under the restriction that <span class="math inline">\(H_0\)</span> is true.</p>
 
 </div>
 </div>
