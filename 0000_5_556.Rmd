@@ -425,7 +425,7 @@ The Neyman-Pearson lemma provides a method for deriving a most powerful test of 
 
 The generalized likelihood ratio test is a generalization fo the Neyman-Pearson test, and it provides a desirable test in many applications.
 
-Let $X=(X_1,...,X_n)$ where $X_1,...,X_n$ have joint pdf $f(x;\theta)$ for $\theta \in \Omega$, and consider the hypothesis $H_0: \theta \in \Omega_0$ versus $H_a: \theta \in \Omega-\Omega_0$. The __Generalized likelihood Ratio (GLR)__ is defined by
+Let $X=(X_1,...,X_n)$ where $X_1,...,X_n$ have joint pdf $f(x;\theta)$ for $\theta \in \Omega$, and consider the hypothesis $H_0: \theta \in \Omega_0$ versus $H_a: \theta \in \Omega-\Omega_0$. The __Generalized Likelihood Ratio (GLR)__ is defined by
 
 $$\lambda (x)=\frac{MAX_{\theta\in\Omega_0}f(x;\theta)}{MAX_{\theta\in\Omega}f(x;\theta)}=\frac{f(x;\hat{\theta_0})}{f(x;\hat{\theta})}$$
 

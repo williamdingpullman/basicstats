@@ -2319,7 +2319,7 @@ The Neyman-Pearson lemma provides a method for deriving a most powerful test of 
 
 The generalized likelihood ratio test is a generalization fo the Neyman-Pearson test, and it provides a desirable test in many applications.
 
-Let \(X=(X_1,...,X_n)\) where \(X_1,...,X_n\) have joint pdf \(f(x;\theta)\) for \(\theta \in \Omega\), and consider the hypothesis \(H_0: \theta \in \Omega_0\) versus \(H_a: \theta \in \Omega-\Omega_0\). The \textbf{Generalized likelihood Ratio (GLR)} is defined by
+Let \(X=(X_1,...,X_n)\) where \(X_1,...,X_n\) have joint pdf \(f(x;\theta)\) for \(\theta \in \Omega\), and consider the hypothesis \(H_0: \theta \in \Omega_0\) versus \(H_a: \theta \in \Omega-\Omega_0\). The \textbf{Generalized Likelihood Ratio (GLR)} is defined by
 
 \[\lambda (x)=\frac{MAX_{\theta\in\Omega_0}f(x;\theta)}{MAX_{\theta\in\Omega}f(x;\theta)}=\frac{f(x;\hat{\theta_0})}{f(x;\hat{\theta})}\]
 
@@ -2988,9 +2988,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 1.947625
-## [2,] 1.003846
-## [3,] 2.009860
+## [1,] 2.019850
+## [2,] 1.043793
+## [3,] 2.044559
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -3151,7 +3151,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.228181  4.315511  2.899584
+## [1] -2.076320  3.977241  2.331179
 \end{verbatim}
 
 \begin{Shaded}
@@ -3162,7 +3162,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.080893 4.034614 1.429978
+## [1] 1.314751 4.032824 5.378778
 \end{verbatim}
 
 \begin{Shaded}
@@ -3173,10 +3173,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##            [,1]       [,2]      [,3]
-## [1,]  1.0808929 -0.4839923 0.2055892
-## [2,] -0.4839923  4.0346136 1.3871988
-## [3,]  0.2055892  1.3871988 1.4299777
+##             [,1]      [,2]       [,3]
+## [1,]  1.31475096 -1.028968 0.05319084
+## [2,] -1.02896832  4.032824 2.17312629
+## [3,]  0.05319084  2.173126 5.37877773
 \end{verbatim}
 
 \hypertarget{example-2}{%
