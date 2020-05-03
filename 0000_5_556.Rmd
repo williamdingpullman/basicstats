@@ -203,7 +203,10 @@ $$H_a: \mu > \mu_0$$
 
 
 
-The probability of rejecting $H_0$ for any $\mu \leq \mu_0$ is $\pi (\mu)$, and $\pi(\mu) \leq \pi (\mu_0)=\alpha$ for $\mu \leq \mu_0$. Thus, $MAX_{\mu <\mu_0} \pi(\mu)=\alpha$.
+The probability of rejecting $H_0$ for any $\mu \leq \mu_0$ is $\pi (\mu)$, and $\pi(\mu) \leq \pi (\mu_0)=\alpha$ for $\mu \leq \mu_0$. Thus, $MAX_{\mu <\mu_0} \pi(\mu)=\alpha$. 
+
+__That is, if the critical region is chosen to have a size of $\alpha$ at $\mu_0$, then the Type I error will be less than $\alpha$.__
+
 
 To understand that, you can visualize that that there is $\mu_0^{'}$, which is smaller than $\mu_0$. If that is the case, the $c$ set by $\mu_0$ will result in a smaller $\pi(\mu) <\alpha$.
 
@@ -212,10 +215,44 @@ To understand that, you can visualize that that there is $\mu_0^{'}$, which is s
 
 
 
-__P.395__
+### P value
 
-__If the critical region is chosen to have a size of $\alpha$ at $\mu_0$, then the Type I error will be less than $\alpha$.__
+To test 
+
+$$H_0: \mu \geq \mu_0$$
+
+$$H_a:\mu < \mu_0$$
+
+Note that, the direction of rejection regiion is determined by alternative hypothesis $H_a$. That is, it is consistnt with the direction of $H_a$ related to $H_0$.
+
+If $H_a$ is the left-hand side of $H_0$, the rejection region is on the left-hand side. 
+
+If $H_a$ is the right-hand side of $H_0$, the rejection region is on the right-hand side. 
+
+Thus, since $H_a$ here is on the left-hand side of $H_0$, we should choose the rejection region to tbe on the left-hand side as well.
+
+These tests are known one-sided tests of hypotheses.
+
+Another common type of test involves a two-sided alternative. For instance,
+
+$$H_0: \mu=\mu_0$$
+
+$$H_a: \mu\neq \mu_0$$
+
+In this case, we choose a two-sided test, and the rejection region is as follows:
+
+$$Z_0 \leq -Z_{1-\alpha/2} \; or \; Z_0 \geq Z_{1-\alpha/2}$$
+
+The type II error is 
+
+$$P[-Z_{1-\alpha/2} < Z_0 < Z_{1-\alpha/2}| \mu]$$
+
+Thus, the power function for the two-sided test is as follows.
+
+$$\begin{aligned} \pi(\mu) &=1-P[-Z_{1-\alpha/2} < Z_0 < Z_{1-\alpha/2}| \mu] \\ &=1-P[-Z_{1-\alpha/2} < Z_0=\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} < Z_{1-\alpha/2}| \mu] \\ &=1-P[-Z_{1-\alpha/2} < Z_0=\frac{\bar{X}-\mu+\mu-\mu_0}{\sigma/\sqrt{n}} < Z_{1-\alpha/2}| \mu] \\ &=1-P[-Z_{1-\alpha/2} < \frac{\bar{X}-\mu+\mu-\mu_0}{\sigma/\sqrt{n}} < Z_{1-\alpha/2}| \mu] \\ &=1-P[-Z_{1-\alpha/2} < \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}+\frac{\mu-\mu_0}{\sigma/\sqrt{n}} < Z_{1-\alpha/2}| \mu] \\ &=1-P[-Z_{1-\alpha/2}-\frac{\mu-\mu_0}{\sigma/\sqrt{n}} < \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} < Z_{1-\alpha/2}-\frac{\mu-\mu_0}{\sigma/\sqrt{n}}| \mu] \\ &=1-P[-Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} < \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} < Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}| \mu] \\&=1-\Phi(Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})+\Phi(-Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}$$
+
+## 12.3 Tests for the normal distribution 
 
 
-__To intuitive understand this:__
+
 

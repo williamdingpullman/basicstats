@@ -227,7 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="chapter-12.html"><a href="chapter-12.html#section-5"><i class="fa fa-check"></i><b>5.2</b> 12.2</a><ul>
 <li class="chapter" data-level="5.2.1" data-path="chapter-12.html"><a href="chapter-12.html#h_a-is-composite"><i class="fa fa-check"></i><b>5.2.1</b> H_a is composite</a></li>
 <li class="chapter" data-level="5.2.2" data-path="chapter-12.html"><a href="chapter-12.html#both-h0-and-ha-are-composite"><i class="fa fa-check"></i><b>5.2.2</b> Both H0 and Ha are composite</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chapter-12.html"><a href="chapter-12.html#p-value"><i class="fa fa-check"></i><b>5.2.3</b> P value</a></li>
 </ul></li>
+<li class="chapter" data-level="5.3" data-path="chapter-12.html"><a href="chapter-12.html#tests-for-the-normal-distribution"><i class="fa fa-check"></i><b>5.3</b> 12.3 Tests for the normal distribution</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
@@ -403,16 +405,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[H_0: \mu \leq \mu_0\]</span></p>
 <p><span class="math display">\[H_a: \mu &gt; \mu_0\]</span></p>
 <p>The probability of rejecting <span class="math inline">\(H_0\)</span> for any <span class="math inline">\(\mu \leq \mu_0\)</span> is <span class="math inline">\(\pi (\mu)\)</span>, and <span class="math inline">\(\pi(\mu) \leq \pi (\mu_0)=\alpha\)</span> for <span class="math inline">\(\mu \leq \mu_0\)</span>. Thus, <span class="math inline">\(MAX_{\mu &lt;\mu_0} \pi(\mu)=\alpha\)</span>.</p>
+<p><strong>That is, if the critical region is chosen to have a size of <span class="math inline">\(\alpha\)</span> at <span class="math inline">\(\mu_0\)</span>, then the Type I error will be less than <span class="math inline">\(\alpha\)</span>.</strong></p>
 <p>To understand that, you can visualize that that there is <span class="math inline">\(\mu_0^{&#39;}\)</span>, which is smaller than <span class="math inline">\(\mu_0\)</span>. If that is the case, the <span class="math inline">\(c\)</span> set by <span class="math inline">\(\mu_0\)</span> will result in a smaller <span class="math inline">\(\pi(\mu) &lt;\alpha\)</span>.</p>
 <div class="figure">
 <img src="556_2.PNG" alt="From The Textbook" />
 <p class="caption">From The Textbook</p>
 </div>
-<p><strong>P.395</strong></p>
-<p><strong>If the critical region is chosen to have a size of <span class="math inline">\(\alpha\)</span> at <span class="math inline">\(\mu_0\)</span>, then the Type I error will be less than <span class="math inline">\(\alpha\)</span>.</strong></p>
-<p><strong>To intuitive understand this:</strong></p>
-
 </div>
+<div id="p-value" class="section level3">
+<h3><span class="header-section-number">5.2.3</span> P value</h3>
+<p>To test</p>
+<p><span class="math display">\[H_0: \mu \geq \mu_0\]</span></p>
+<p><span class="math display">\[H_a:\mu &lt; \mu_0\]</span></p>
+<p>Note that, the direction of rejection regiion is determined by alternative hypothesis <span class="math inline">\(H_a\)</span>. That is, it is consistnt with the direction of <span class="math inline">\(H_a\)</span> related to <span class="math inline">\(H_0\)</span>.</p>
+<p>If <span class="math inline">\(H_a\)</span> is the left-hand side of <span class="math inline">\(H_0\)</span>, the rejection region is on the left-hand side.</p>
+<p>If <span class="math inline">\(H_a\)</span> is the right-hand side of <span class="math inline">\(H_0\)</span>, the rejection region is on the right-hand side.</p>
+<p>Thus, since <span class="math inline">\(H_a\)</span> here is on the left-hand side of <span class="math inline">\(H_0\)</span>, we should choose the rejection region to tbe on the left-hand side as well.</p>
+<p>These tests are known one-sided tests of hypotheses.</p>
+<p>Another common type of test involves a two-sided alternative. For instance,</p>
+<p><span class="math display">\[H_0: \mu=\mu_0\]</span></p>
+<p><span class="math display">\[H_a: \mu\neq \mu_0\]</span></p>
+<p>In this case, we choose a two-sided test, and the rejection region is as follows:</p>
+<p><span class="math display">\[Z_0 \leq -Z_{1-\alpha/2} \; or \; Z_0 \geq Z_{1-\alpha/2}\]</span></p>
+<p>The type II error is</p>
+<p><span class="math display">\[P[-Z_{1-\alpha/2} &lt; Z_0 &lt; Z_{1-\alpha/2}| \mu]\]</span></p>
+<p>Thus, the power function for the two-sided test is as follows.</p>
+<p><span class="math display">\[\begin{aligned} \pi(\mu) &amp;=1-P[-Z_{1-\alpha/2} &lt; Z_0 &lt; Z_{1-\alpha/2}| \mu] \\ &amp;=1-P[-Z_{1-\alpha/2} &lt; Z_0=\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}} &lt; Z_{1-\alpha/2}| \mu] \\ &amp;=1-P[-Z_{1-\alpha/2} &lt; Z_0=\frac{\bar{X}-\mu+\mu-\mu_0}{\sigma/\sqrt{n}} &lt; Z_{1-\alpha/2}| \mu] \\ &amp;=1-P[-Z_{1-\alpha/2} &lt; \frac{\bar{X}-\mu+\mu-\mu_0}{\sigma/\sqrt{n}} &lt; Z_{1-\alpha/2}| \mu] \\ &amp;=1-P[-Z_{1-\alpha/2} &lt; \frac{\bar{X}-\mu}{\sigma/\sqrt{n}}+\frac{\mu-\mu_0}{\sigma/\sqrt{n}} &lt; Z_{1-\alpha/2}| \mu] \\ &amp;=1-P[-Z_{1-\alpha/2}-\frac{\mu-\mu_0}{\sigma/\sqrt{n}} &lt; \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} &lt; Z_{1-\alpha/2}-\frac{\mu-\mu_0}{\sigma/\sqrt{n}}| \mu] \\ &amp;=1-P[-Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}} &lt; \frac{\bar{X}-\mu}{\sigma/\sqrt{n}} &lt; Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}| \mu] \\&amp;=1-\Phi(Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})+\Phi(-Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}\]</span></p>
+</div>
+</div>
+<div id="tests-for-the-normal-distribution" class="section level2">
+<h2><span class="header-section-number">5.3</span> 12.3 Tests for the normal distribution</h2>
+
 </div>
 </div>
             </section>
