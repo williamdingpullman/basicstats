@@ -231,7 +231,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="chapter-12.html"><a href="chapter-12.html#tests-for-the-normal-distribution"><i class="fa fa-check"></i><b>5.3</b> 12.3 Tests for the normal distribution</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="chapter-12.html"><a href="chapter-12.html#test-for-mean-sigma2-known"><i class="fa fa-check"></i><b>5.3.1</b> Test for mean (<span class="math inline">\(\sigma^2\)</span> known)</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chapter-12.html"><a href="chapter-12.html#test-for-mean-sigma2-unknown"><i class="fa fa-check"></i><b>5.3.2</b> Test for mean (<span class="math inline">\(\sigma^2\)</span> unknown)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chapter-12.html"><a href="chapter-12.html#test-for-variance"><i class="fa fa-check"></i><b>5.3.3</b> Test for variance</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chapter-12.html"><a href="chapter-12.html#paired-sample-t-test"><i class="fa fa-check"></i><b>5.3.4</b> Paired-sample t test</a></li>
 </ul></li>
+<li class="chapter" data-level="5.4" data-path="chapter-12.html"><a href="chapter-12.html#most-powerful-test"><i class="fa fa-check"></i><b>5.4</b> 12.6 Most powerful test</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
@@ -448,15 +452,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\begin{aligned} \pi(\mu)=P[\frac{\bar{X}-\mu_0}{\sigma/n}&gt; z_{1-\alpha} |\mu] &amp;=P[\bar{X} &gt; z_{1-\alpha} \cdot (\sigma/n)+\mu_0 |\mu] \\ &amp;=P[\frac{\bar{X}-\mu}{\sigma/n} &gt; \frac{z_{1-\alpha} \cdot (\sigma/n)+\mu_0-\mu}{\sigma/n} |\mu] \\ &amp;=P[\frac{\bar{X}-\mu}{\sigma/n} &gt; z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &amp;=1-P[\frac{\bar{X}-\mu}{\sigma/n} \leq z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &amp;=1-\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\end{aligned} \]</span>
 Thus, the the type II error is as follows:</p>
 <p><span class="math display">\[1-P[\frac{\bar{X}-\mu_0}{\sigma/n}&gt; z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\]</span></p>
-<ol style="list-style-type: decimal">
+<ol start="2" style="list-style-type: decimal">
 <li></li>
 </ol>
 <p><span class="math display">\[H_0: \mu \geq \mu_0\]</span></p>
 <p><span class="math display">\[H_a: \mu &lt; \mu_0\]</span></p>
-<p>Note that <span class="math inline">\(H_a\)</span> is on the left-hand side of <span class="math inline">\(H_0\)</span>, thus the region region is on the left-hand side (i.e., left-tail).</p>
+<p>Note that <span class="math inline">\(H_a\)</span> is on the left-hand side of <span class="math inline">\(H_0\)</span>, thus the rejection region is on the left-hand side (i.e., left-tail).</p>
 <p><span class="math display">\[\begin{aligned} P[\bar{X}&lt;-Z_{1-\alpha} \cdot (\sigma/n)+\mu_0] &amp;=P[\frac{\bar{X}-\mu}{\sigma/n}&lt;-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}] \\ &amp;= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}) \end{aligned}\]</span></p>
-
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[H_0: \mu = \mu_0\]</span></p>
+<p><span class="math display">\[H_a: \mu \neq \mu_0\]</span></p>
+<p>Reject <span class="math inline">\(H_0\)</span> if</p>
+<p><span class="math display">\[Z_0 \leq -Z_{1-\alpha/2} \; or \; Z_0 \geq Z_{1-\alpha/2}\]</span></p>
+<p>The power function is as follows.</p>
+<p><span class="math display">\[\pi(\mu) =1-\Phi(Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})+\Phi(-Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>Sample size, see book <em>P.399</em></p>
 </div>
+<div id="test-for-mean-sigma2-unknown" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Test for mean (<span class="math inline">\(\sigma^2\)</span> unknown)</h3>
+<p>Let <span class="math inline">\(x_1,x_2,...,x_n\)</span> be an observed random sample from <span class="math inline">\(N(\mu,\sigma^2)\)</span>, where <span class="math inline">\(\sigma^2\)</span> is unknown, and let</p>
+<p><span class="math display">\[t_0=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}\]</span>
+(1)</p>
+<p><span class="math display">\[H_0: \mu \leq \mu_0\]</span></p>
+<p><span class="math display">\[H_a: \mu &gt; \mu_0\]</span></p>
+<p>Reject <span class="math inline">\(H_0\)</span> if</p>
+<p><span class="math display">\[t_0 \geq t_{1-n}(n-1)\]</span>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[H_0: \mu \geq \mu_0\]</span></p>
+<p><span class="math display">\[H_a: \mu &lt; \mu_0\]</span></p>
+<p>Reject <span class="math inline">\(H_0\)</span> if</p>
+<p><span class="math display">\[t_0 \leq -t_{1-\alpha}(n-1)\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p><span class="math display">\[H_0: \mu = \mu_0\]</span></p>
+<p><span class="math display">\[H_a: \mu \neq \mu_0\]</span></p>
+<p>Reject <span class="math inline">\(H_0\)</span> if</p>
+<p><span class="math display">\[t_0 \leq -t_{1-\alpha/2}(n-1) \;\; or \; \; t_0 \geq t_{1-\alpha/2}(n-1)\]</span></p>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
+<p>For power function, please see <em>P.400</em> .</p>
+</div>
+<div id="test-for-variance" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Test for variance</h3>
+<p><em>P.401</em></p>
+</div>
+<div id="paired-sample-t-test" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Paired-sample t test</h3>
+<p><em>P.403</em></p>
+</div>
+</div>
+<div id="most-powerful-test" class="section level2">
+<h2><span class="header-section-number">5.4</span> 12.6 Most powerful test</h2>
+<p>Let <span class="math inline">\(X_1,...X_n\)</span> have joint pdf <span class="math inline">\(f(x_1,...,x_n; \theta)\)</span>, and consider a critical region <span class="math inline">\(C\)</span>. The notation for the power function corresponding to <span class="math inline">\(C\)</span> is</p>
+<p><span class="math display">\[\pi_C(\theta)=P[(X_1,...,X_n)\in C |\theta ]\]</span></p>
+<p>A test <span class="math inline">\(H_0: ]theta =\theta_0\)</span> versus <span class="math inline">\(H_a:\theta=\theta_1\)</span> based on a critical region <span class="math inline">\(C^*\)</span> is said to be a <strong>most powerful test</strong> of size <span class="math inline">\(\alpha\)</span> if</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\pi_{C^*}(\theta_0)=\alpha\)</span> and</p></li>
+<li><p><span class="math inline">\(\pi_{C^*}(\theta_1)&gt; \pi_{C}(\theta_1)\)</span> for any other critical region <span class="math inline">\(C\)</span> of size <span class="math inline">\(\alpha\)</span> [that is, <span class="math inline">\(\pi_{C}(\theta_0)=\alpha\)</span>].</p></li>
+</ol>
+
 </div>
 </div>
             </section>

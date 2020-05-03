@@ -270,13 +270,106 @@ Thus, the the type II error is as follows:
 $$1-P[\frac{\bar{X}-\mu_0}{\sigma/n}> z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )$$
 
 
-(1)
+(2)
 
 $$H_0: \mu \geq \mu_0$$
 
 
 $$H_a: \mu < \mu_0$$
 
-Note that $H_a$ is on the left-hand side of $H_0$, thus the region region is on the left-hand side (i.e., left-tail).
+Note that $H_a$ is on the left-hand side of $H_0$, thus the rejection region is on the left-hand side (i.e., left-tail).
 
 $$\begin{aligned} P[\bar{X}<-Z_{1-\alpha} \cdot (\sigma/n)+\mu_0] &=P[\frac{\bar{X}-\mu}{\sigma/n}<-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}] \\ &= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}) \end{aligned}$$
+
+
+(3)
+
+$$H_0: \mu = \mu_0$$
+
+
+$$H_a: \mu \neq \mu_0$$
+
+
+Reject $H_0$ if 
+
+$$Z_0 \leq -Z_{1-\alpha/2} \; or \; Z_0 \geq Z_{1-\alpha/2}$$
+
+The power function is as follows.
+
+$$\pi(\mu) =1-\Phi(Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})+\Phi(-Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})$$
+
+
+(4)
+
+Sample size, see book _P.399_
+
+
+### Test for mean ($\sigma^2$ unknown)
+
+Let $x_1,x_2,...,x_n$ be an observed random sample from $N(\mu,\sigma^2)$, where $\sigma^2$ is unknown, and let
+
+$$t_0=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}$$
+(1)
+
+$$H_0: \mu \leq \mu_0$$
+
+
+$$H_a: \mu > \mu_0$$
+
+Reject $H_0$ if 
+
+$$t_0 \geq t_{1-n}(n-1)$$.
+
+
+(2)
+
+$$H_0: \mu \geq \mu_0$$
+
+
+$$H_a: \mu < \mu_0$$
+
+Reject $H_0$ if 
+
+$$t_0 \leq -t_{1-\alpha}(n-1)$$
+
+
+(3)
+
+$$H_0: \mu = \mu_0$$
+
+
+$$H_a: \mu \neq \mu_0$$
+
+Reject $H_0$ if 
+
+$$t_0 \leq -t_{1-\alpha/2}(n-1) \;\; or \; \; t_0 \geq t_{1-\alpha/2}(n-1)$$
+
+
+(4)
+
+For power function, please see _P.400_ .
+
+
+### Test for variance
+
+_P.401_
+
+
+### Paired-sample t test
+
+_P.403_
+
+
+## 12.6 Most powerful test
+
+Let $X_1,...X_n$ have joint pdf $f(x_1,...,x_n; \theta)$, and consider a critical region $C$. The notation for the power function corresponding to $C$ is 
+
+$$\pi_C(\theta)=P[(X_1,...,X_n)\in C |\theta ]$$
+
+
+
+A test $H_0: ]theta =\theta_0$ versus $H_a:\theta=\theta_1$ based on a critical region $C^*$ is said to be a __most powerful test__ of size $\alpha$ if 
+
+(1) $\pi_{C^*}(\theta_0)=\alpha$ and 
+
+(2) $\pi_{C^*}(\theta_1)> \pi_{C}(\theta_1)$ for any other critical region $C$ of size $\alpha$ [that is, $\pi_{C}(\theta_0)=\alpha$]. 

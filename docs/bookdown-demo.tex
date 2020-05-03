@@ -124,7 +124,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{02 May, 2020}
+    \date{03 May, 2020}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -2160,6 +2160,7 @@ Thus, the the type II error is as follows:
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
 \item
 \end{enumerate}
 
@@ -2167,9 +2168,114 @@ Thus, the the type II error is as follows:
 
 \[H_a: \mu < \mu_0\]
 
-Note that \(H_a\) is on the left-hand side of \(H_0\), thus the region region is on the left-hand side (i.e., left-tail).
+Note that \(H_a\) is on the left-hand side of \(H_0\), thus the rejection region is on the left-hand side (i.e., left-tail).
 
 \[\begin{aligned} P[\bar{X}<-Z_{1-\alpha} \cdot (\sigma/n)+\mu_0] &=P[\frac{\bar{X}-\mu}{\sigma/n}<-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}] \\ &= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}) \end{aligned}\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{2}
+\item
+\end{enumerate}
+
+\[H_0: \mu = \mu_0\]
+
+\[H_a: \mu \neq \mu_0\]
+
+Reject \(H_0\) if
+
+\[Z_0 \leq -Z_{1-\alpha/2} \; or \; Z_0 \geq Z_{1-\alpha/2}\]
+
+The power function is as follows.
+
+\[\pi(\mu) =1-\Phi(Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})+\Phi(-Z_{1-\alpha/2}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}})\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{3}
+\item
+\end{enumerate}
+
+Sample size, see book \emph{P.399}
+
+\hypertarget{test-for-mean-sigma2-unknown}{%
+\subsection{\texorpdfstring{Test for mean (\(\sigma^2\) unknown)}{Test for mean (\textbackslash sigma\^{}2 unknown)}}\label{test-for-mean-sigma2-unknown}}
+
+Let \(x_1,x_2,...,x_n\) be an observed random sample from \(N(\mu,\sigma^2)\), where \(\sigma^2\) is unknown, and let
+
+\[t_0=\frac{\bar{x}-\mu_0}{s/\sqrt{n}}\]
+(1)
+
+\[H_0: \mu \leq \mu_0\]
+
+\[H_a: \mu > \mu_0\]
+
+Reject \(H_0\) if
+
+\[t_0 \geq t_{1-n}(n-1)\].
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+\end{enumerate}
+
+\[H_0: \mu \geq \mu_0\]
+
+\[H_a: \mu < \mu_0\]
+
+Reject \(H_0\) if
+
+\[t_0 \leq -t_{1-\alpha}(n-1)\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{2}
+\item
+\end{enumerate}
+
+\[H_0: \mu = \mu_0\]
+
+\[H_a: \mu \neq \mu_0\]
+
+Reject \(H_0\) if
+
+\[t_0 \leq -t_{1-\alpha/2}(n-1) \;\; or \; \; t_0 \geq t_{1-\alpha/2}(n-1)\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\setcounter{enumi}{3}
+\item
+\end{enumerate}
+
+For power function, please see \emph{P.400} .
+
+\hypertarget{test-for-variance}{%
+\subsection{Test for variance}\label{test-for-variance}}
+
+\emph{P.401}
+
+\hypertarget{paired-sample-t-test}{%
+\subsection{Paired-sample t test}\label{paired-sample-t-test}}
+
+\emph{P.403}
+
+\hypertarget{most-powerful-test}{%
+\section{12.6 Most powerful test}\label{most-powerful-test}}
+
+Let \(X_1,...X_n\) have joint pdf \(f(x_1,...,x_n; \theta)\), and consider a critical region \(C\). The notation for the power function corresponding to \(C\) is
+
+\[\pi_C(\theta)=P[(X_1,...,X_n)\in C |\theta ]\]
+
+A test \(H_0: ]theta =\theta_0\) versus \(H_a:\theta=\theta_1\) based on a critical region \(C^*\) is said to be a \textbf{most powerful test} of size \(\alpha\) if
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  \(\pi_{C^*}(\theta_0)=\alpha\) and
+\item
+  \(\pi_{C^*}(\theta_1)> \pi_{C}(\theta_1)\) for any other critical region \(C\) of size \(\alpha\) {[}that is, \(\pi_{C}(\theta_0)=\alpha\){]}.
+\end{enumerate}
 
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
@@ -2833,10 +2939,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]
-## [1,] 2.0420158
-## [2,] 0.9651604
-## [3,] 2.0029158
+##          [,1]
+## [1,] 1.930318
+## [2,] 1.000879
+## [3,] 1.960509
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2997,7 +3103,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.393966  3.953241  3.768437
+## [1] -1.923198  4.058002  2.617099
 \end{verbatim}
 
 \begin{Shaded}
@@ -3008,7 +3114,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 2.679649 5.128687 6.728053
+## [1] 1.417776 4.573329 3.694235
 \end{verbatim}
 
 \begin{Shaded}
@@ -3019,10 +3125,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]      [,2]     [,3]
-## [1,]  2.679649 -1.609407 1.219144
-## [2,] -1.609407  5.128687 1.667007
-## [3,]  1.219144  1.667007 6.728053
+##            [,1]      [,2]       [,3]
+## [1,]  1.4177765 -1.650096 -0.6138349
+## [2,] -1.6500956  4.573329  2.4202487
+## [3,] -0.6138349  2.420249  3.6942345
 \end{verbatim}
 
 \hypertarget{example-2}{%

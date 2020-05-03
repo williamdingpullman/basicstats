@@ -231,7 +231,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="chapter-12.html"><a href="chapter-12.html#tests-for-the-normal-distribution"><i class="fa fa-check"></i><b>5.3</b> 12.3 Tests for the normal distribution</a><ul>
 <li class="chapter" data-level="5.3.1" data-path="chapter-12.html"><a href="chapter-12.html#test-for-mean-sigma2-known"><i class="fa fa-check"></i><b>5.3.1</b> Test for mean (<span class="math inline">\(\sigma^2\)</span> known)</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chapter-12.html"><a href="chapter-12.html#test-for-mean-sigma2-unknown"><i class="fa fa-check"></i><b>5.3.2</b> Test for mean (<span class="math inline">\(\sigma^2\)</span> unknown)</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chapter-12.html"><a href="chapter-12.html#test-for-variance"><i class="fa fa-check"></i><b>5.3.3</b> Test for variance</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chapter-12.html"><a href="chapter-12.html#paired-sample-t-test"><i class="fa fa-check"></i><b>5.3.4</b> Paired-sample t test</a></li>
 </ul></li>
+<li class="chapter" data-level="5.4" data-path="chapter-12.html"><a href="chapter-12.html#most-powerful-test"><i class="fa fa-check"></i><b>5.4</b> 12.6 Most powerful test</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="logit-and-probit.html"><a href="logit-and-probit.html"><i class="fa fa-check"></i><b>6</b> Logit and Probit</a><ul>
 <li class="chapter" data-level="6.1" data-path="logit-and-probit.html"><a href="logit-and-probit.html#logit"><i class="fa fa-check"></i><b>6.1</b> Logit</a></li>
@@ -319,16 +323,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb34-20" title="20"></a>
 <a class="sourceLine" id="cb34-21" title="21"><span class="co"># calculating column means</span></a>
 <a class="sourceLine" id="cb34-22" title="22"><span class="kw">colMeans</span>(Final_data)</a></code></pre></div>
-<pre><code>## [1] -2.138510  3.101854  2.856586</code></pre>
+<pre><code>## [1] -1.691113  4.783514  4.520731</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="co"># calculating column variances</span></a>
 <a class="sourceLine" id="cb36-2" title="2"><span class="kw">apply</span>(Final_data,<span class="dv">2</span>,var)</a></code></pre></div>
-<pre><code>## [1] 1.961870 4.777553 2.487051</code></pre>
+<pre><code>## [1] 3.837774 2.573813 4.714646</code></pre>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co"># calculating covariance matrix</span></a>
 <a class="sourceLine" id="cb38-2" title="2"><span class="kw">cov</span>(Final_data)</a></code></pre></div>
-<pre><code>##            [,1]       [,2]       [,3]
-## [1,]  1.9618696 -0.5595468 -0.3753749
-## [2,] -0.5595468  4.7775530  1.4235312
-## [3,] -0.3753749  1.4235312  2.4870508</code></pre>
+<pre><code>##            [,1]       [,2]      [,3]
+## [1,]  3.8377740 -0.4298843  1.948304
+## [2,] -0.4298843  2.5738132 -0.308657
+## [3,]  1.9483042 -0.3086570  4.714646</code></pre>
 </div>
 <div id="example-2" class="section level2">
 <h2><span class="header-section-number">12.2</span> Example 2</h2>
