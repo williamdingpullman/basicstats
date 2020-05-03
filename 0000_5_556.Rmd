@@ -253,6 +253,30 @@ $$\begin{aligned} \pi(\mu) &=1-P[-Z_{1-\alpha/2} < Z_0 < Z_{1-\alpha/2}| \mu] \\
 
 ## 12.3 Tests for the normal distribution 
 
+### Test for mean ($\sigma^2$ known)
+
+(1)
+
+$$H_0: \mu \leq \mu_0$$
 
 
+$$H_a: \mu > \mu_0$$
 
+The power function is as follows.
+
+$$\begin{aligned} \pi(\mu)=P[\frac{\bar{X}-\mu_0}{\sigma/n}> z_{1-\alpha} |\mu] &=P[\bar{X} > z_{1-\alpha} \cdot (\sigma/n)+\mu_0 |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/n} > \frac{z_{1-\alpha} \cdot (\sigma/n)+\mu_0-\mu}{\sigma/n} |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/n} > z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/n} \leq z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\end{aligned} $$
+Thus, the the type II error is as follows:
+
+$$1-P[\frac{\bar{X}-\mu_0}{\sigma/n}> z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )$$
+
+
+(1)
+
+$$H_0: \mu \geq \mu_0$$
+
+
+$$H_a: \mu < \mu_0$$
+
+Note that $H_a$ is on the left-hand side of $H_0$, thus the region region is on the left-hand side (i.e., left-tail).
+
+$$\begin{aligned} P[\bar{X}<-Z_{1-\alpha} \cdot (\sigma/n)+\mu_0] &=P[\frac{\bar{X}-\mu}{\sigma/n}<-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}] \\ &= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}) \end{aligned}$$

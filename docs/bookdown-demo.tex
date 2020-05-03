@@ -2139,6 +2139,38 @@ Thus, the power function for the two-sided test is as follows.
 \hypertarget{tests-for-the-normal-distribution}{%
 \section{12.3 Tests for the normal distribution}\label{tests-for-the-normal-distribution}}
 
+\hypertarget{test-for-mean-sigma2-known}{%
+\subsection{\texorpdfstring{Test for mean (\(\sigma^2\) known)}{Test for mean (\textbackslash sigma\^{}2 known)}}\label{test-for-mean-sigma2-known}}
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+\end{enumerate}
+
+\[H_0: \mu \leq \mu_0\]
+
+\[H_a: \mu > \mu_0\]
+
+The power function is as follows.
+
+\[\begin{aligned} \pi(\mu)=P[\frac{\bar{X}-\mu_0}{\sigma/n}> z_{1-\alpha} |\mu] &=P[\bar{X} > z_{1-\alpha} \cdot (\sigma/n)+\mu_0 |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/n} > \frac{z_{1-\alpha} \cdot (\sigma/n)+\mu_0-\mu}{\sigma/n} |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/n} > z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/n} \leq z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\end{aligned} \]
+Thus, the the type II error is as follows:
+
+\[1-P[\frac{\bar{X}-\mu_0}{\sigma/n}> z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\]
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+\end{enumerate}
+
+\[H_0: \mu \geq \mu_0\]
+
+\[H_a: \mu < \mu_0\]
+
+Note that \(H_a\) is on the left-hand side of \(H_0\), thus the region region is on the left-hand side (i.e., left-tail).
+
+\[\begin{aligned} P[\bar{X}<-Z_{1-\alpha} \cdot (\sigma/n)+\mu_0] &=P[\frac{\bar{X}-\mu}{\sigma/n}<-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}] \\ &= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}) \end{aligned}\]
+
 \hypertarget{logit-and-probit}{%
 \chapter{Logit and Probit}\label{logit-and-probit}}
 
@@ -2801,10 +2833,10 @@ We can use R to implement this calculation. As we can see, there is no need to d
 \end{Shaded}
 
 \begin{verbatim}
-##          [,1]
-## [1,] 1.992802
-## [2,] 1.030492
-## [3,] 2.022669
+##           [,1]
+## [1,] 2.0420158
+## [2,] 0.9651604
+## [3,] 2.0029158
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -2965,7 +2997,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -1.542916  3.985808  2.846733
+## [1] -1.393966  3.953241  3.768437
 \end{verbatim}
 
 \begin{Shaded}
@@ -2976,7 +3008,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.248758 6.761848 4.250295
+## [1] 2.679649 5.128687 6.728053
 \end{verbatim}
 
 \begin{Shaded}
@@ -2987,10 +3019,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##           [,1]      [,2]      [,3]
-## [1,] 1.2487585 0.8343477 0.5803022
-## [2,] 0.8343477 6.7618476 3.4497934
-## [3,] 0.5803022 3.4497934 4.2502954
+##           [,1]      [,2]     [,3]
+## [1,]  2.679649 -1.609407 1.219144
+## [2,] -1.609407  5.128687 1.667007
+## [3,]  1.219144  1.667007 6.728053
 \end{verbatim}
 
 \hypertarget{example-2}{%
