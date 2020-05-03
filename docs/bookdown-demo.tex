@@ -2153,10 +2153,10 @@ Thus, the power function for the two-sided test is as follows.
 
 The power function is as follows.
 
-\[\begin{aligned} \pi(\mu)=P[\frac{\bar{X}-\mu_0}{\sigma/n}> z_{1-\alpha} |\mu] &=P[\bar{X} > z_{1-\alpha} \cdot (\sigma/n)+\mu_0 |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/n} > \frac{z_{1-\alpha} \cdot (\sigma/n)+\mu_0-\mu}{\sigma/n} |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/n} > z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/n} \leq z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\end{aligned} \]
+\[\begin{aligned} \pi(\mu)=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}> z_{1-\alpha} |\mu] &=P[\bar{X} > z_{1-\alpha} \cdot (\sigma/n)+\mu_0 |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} > \frac{z_{1-\alpha} \cdot (\sigma/\sqrt{n})+\mu_0-\mu}{\sigma/\sqrt{n}} |\mu] \\ &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} > z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} |\mu] \\ &=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \leq z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} |\mu] \\ &=1-\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} )\end{aligned} \]
 Thus, the the type II error is as follows:
 
-\[1-P[\frac{\bar{X}-\mu_0}{\sigma/n}> z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\]
+\[1-P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}> z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} )\]
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -2170,7 +2170,7 @@ Thus, the the type II error is as follows:
 
 Note that \(H_a\) is on the left-hand side of \(H_0\), thus the rejection region is on the left-hand side (i.e., left-tail).
 
-\[\begin{aligned} P[\bar{X}<-Z_{1-\alpha} \cdot (\sigma/n)+\mu_0] &=P[\frac{\bar{X}-\mu}{\sigma/n}<-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}] \\ &= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}) \end{aligned}\]
+\[\begin{aligned} P[\bar{X}<-Z_{1-\alpha} \cdot (\sigma/\sqrt{n})+\mu_0] &=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}<-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}] \\ &= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}\]
 
 \begin{enumerate}
 \def\labelenumi{(\arabic{enumi})}
@@ -2988,9 +2988,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 2.019850
-## [2,] 1.043793
-## [3,] 2.044559
+## [1,] 2.031032
+## [2,] 0.992672
+## [3,] 1.955731
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -3151,7 +3151,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.076320  3.977241  2.331179
+## [1] -1.721117  3.513067  3.307118
 \end{verbatim}
 
 \begin{Shaded}
@@ -3162,7 +3162,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.314751 4.032824 5.378778
+## [1] 2.742355 5.302675 4.182372
 \end{verbatim}
 
 \begin{Shaded}
@@ -3173,10 +3173,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]      [,2]       [,3]
-## [1,]  1.31475096 -1.028968 0.05319084
-## [2,] -1.02896832  4.032824 2.17312629
-## [3,]  0.05319084  2.173126 5.37877773
+##            [,1]       [,2]     [,3]
+## [1,]  2.7423549 -0.4105141 1.809093
+## [2,] -0.4105141  5.3026752 1.440779
+## [3,]  1.8090935  1.4407793 4.182372
 \end{verbatim}
 
 \hypertarget{example-2}{%

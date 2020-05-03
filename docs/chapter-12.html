@@ -451,16 +451,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[H_0: \mu \leq \mu_0\]</span></p>
 <p><span class="math display">\[H_a: \mu &gt; \mu_0\]</span></p>
 <p>The power function is as follows.</p>
-<p><span class="math display">\[\begin{aligned} \pi(\mu)=P[\frac{\bar{X}-\mu_0}{\sigma/n}&gt; z_{1-\alpha} |\mu] &amp;=P[\bar{X} &gt; z_{1-\alpha} \cdot (\sigma/n)+\mu_0 |\mu] \\ &amp;=P[\frac{\bar{X}-\mu}{\sigma/n} &gt; \frac{z_{1-\alpha} \cdot (\sigma/n)+\mu_0-\mu}{\sigma/n} |\mu] \\ &amp;=P[\frac{\bar{X}-\mu}{\sigma/n} &gt; z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &amp;=1-P[\frac{\bar{X}-\mu}{\sigma/n} \leq z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} |\mu] \\ &amp;=1-\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\end{aligned} \]</span>
+<p><span class="math display">\[\begin{aligned} \pi(\mu)=P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}&gt; z_{1-\alpha} |\mu] &amp;=P[\bar{X} &gt; z_{1-\alpha} \cdot (\sigma/n)+\mu_0 |\mu] \\ &amp;=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} &gt; \frac{z_{1-\alpha} \cdot (\sigma/\sqrt{n})+\mu_0-\mu}{\sigma/\sqrt{n}} |\mu] \\ &amp;=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} &gt; z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} |\mu] \\ &amp;=1-P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}} \leq z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} |\mu] \\ &amp;=1-\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} )\end{aligned} \]</span>
 Thus, the the type II error is as follows:</p>
-<p><span class="math display">\[1-P[\frac{\bar{X}-\mu_0}{\sigma/n}&gt; z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/n} )\]</span></p>
+<p><span class="math display">\[1-P[\frac{\bar{X}-\mu_0}{\sigma/\sqrt{n}}&gt; z_{1-\alpha} |\mu]=\Phi(z_{1-\alpha} +\frac{ \mu_0-\mu}{\sigma/\sqrt{n}} )\]</span></p>
 <ol start="2" style="list-style-type: decimal">
 <li></li>
 </ol>
 <p><span class="math display">\[H_0: \mu \geq \mu_0\]</span></p>
 <p><span class="math display">\[H_a: \mu &lt; \mu_0\]</span></p>
 <p>Note that <span class="math inline">\(H_a\)</span> is on the left-hand side of <span class="math inline">\(H_0\)</span>, thus the rejection region is on the left-hand side (i.e., left-tail).</p>
-<p><span class="math display">\[\begin{aligned} P[\bar{X}&lt;-Z_{1-\alpha} \cdot (\sigma/n)+\mu_0] &amp;=P[\frac{\bar{X}-\mu}{\sigma/n}&lt;-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}] \\ &amp;= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/n}) \end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned} P[\bar{X}&lt;-Z_{1-\alpha} \cdot (\sigma/\sqrt{n})+\mu_0] &amp;=P[\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}&lt;-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}] \\ &amp;= \Phi(-Z_{1-\alpha}+\frac{\mu_0-\mu}{\sigma/\sqrt{n}}) \end{aligned}\]</span></p>
 <ol start="3" style="list-style-type: decimal">
 <li></li>
 </ol>
