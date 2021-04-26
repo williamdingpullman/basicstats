@@ -2348,7 +2348,7 @@ Thus, \(\beta_0+\beta_1x_1+...+\beta_nx_n\) can be from \(-\infty\) to \(+\infty
 
 We can also write the function into another format as follows:
 \[log \frac{p(y=1)}{1-p(y=1)}= \beta_0+\beta_1x_1+...+\beta_nx_n\]
-Thus, we know that the regression coeficients of \(\beta_i\) actually change the ``log-odds'' of the event. Of course, note that the magnitude of \(\beta_i\) is dependent upon the units of \(x_i\). But, in general, log-odds can be in the range of \(-\infty +\infty\) .
+Thus, we know that the regression coeficients of \(\beta_i\) actually change the ``log-odds'' of the event. Of course, note that the magnitude of \(\beta_i\) is dependent upon the units of \(x_i\). But, in general, log-odds can be in the range of \(-\infty +\infty\). Also, the distribution of log(odds) can look pretty ``normal.''
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2359,6 +2359,14 @@ Thus, we know that the regression coeficients of \(\beta_i\) actually change the
 \end{Shaded}
 
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(}\KeywordTok{f2}\NormalTok{(data2))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-5-2.pdf}
 
 The following is an example testing whether that home teams are more likely to win in NFL games. The results show that the odd of winning is the same for both home and away teams.
 
@@ -3000,9 +3008,9 @@ We can use R to implement this calculation. As we can see, there is no need to d
 
 \begin{verbatim}
 ##          [,1]
-## [1,] 1.955316
-## [2,] 1.099676
-## [3,] 2.080372
+## [1,] 2.041347
+## [2,] 1.012229
+## [3,] 2.030086
 \end{verbatim}
 
 \textbf{Side Notes}
@@ -3163,7 +3171,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] -2.309907  4.213704  3.067120
+## [1] -2.248358  4.257673  3.239870
 \end{verbatim}
 
 \begin{Shaded}
@@ -3174,7 +3182,7 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.607966 2.969770 3.100369
+## [1] 2.680800 4.294547 4.174360
 \end{verbatim}
 
 \begin{Shaded}
@@ -3185,10 +3193,10 @@ Use Cholesky decomposition to generate 1,000 trivariate normal deviates \(X_1, .
 \end{Shaded}
 
 \begin{verbatim}
-##             [,1]      [,2]        [,3]
-## [1,]  1.60796623 0.5916524 -0.05268495
-## [2,]  0.59165235 2.9697701  1.12369105
-## [3,] -0.05268495 1.1236910  3.10036939
+##            [,1]       [,2]       [,3]
+## [1,]  2.6807995 -0.7682982 -0.3060642
+## [2,] -0.7682982  4.2945472  0.7012714
+## [3,] -0.3060642  0.7012714  4.1743601
 \end{verbatim}
 
 \hypertarget{example-2}{%

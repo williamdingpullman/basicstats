@@ -16,7 +16,7 @@ plot(data,f(data),type = "b")
 
 We can also write the function into another format as follows:
 $$log \frac{p(y=1)}{1-p(y=1)}= \beta_0+\beta_1x_1+...+\beta_nx_n$$
-Thus, we know that the regression coeficients of $\beta_i$ actually change the "log-odds" of the event. Of course, note that the magnitude of $\beta_i$ is dependent upon the units of $x_i$. But, in general, log-odds can be in the range of $-\infty +\infty$ .
+Thus, we know that the regression coeficients of $\beta_i$ actually change the "log-odds" of the event. Of course, note that the magnitude of $\beta_i$ is dependent upon the units of $x_i$. But, in general, log-odds can be in the range of $-\infty +\infty$. Also, the distribution of log(odds) can look pretty "normal."
 
 ```{R}
 
@@ -24,7 +24,7 @@ f2<-function(z){log((z)/(1-z))}
 data2<-seq(0,1,0.0001)
 plot(data2,f2(data2),type="b")
 
-
+hist(f2(data2))
 ```
 
 The following is an example testing whether that home teams are more likely to win in NFL games. The results show that the odd of winning is the same for both home and away teams.
