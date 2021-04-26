@@ -16,7 +16,16 @@ plot(data,f(data),type = "b")
 
 We can also write the function into another format as follows:
 $$log \frac{p(y=1)}{1-p(y=1)}= \beta_0+\beta_1x_1+...+\beta_nx_n$$
-Thus, we know that the regression coeficients of $\beta_i$ actually change the "log-odds" of the event. Of course, note that the magnitude of $\beta_i$ is dependent upon the units of $x_i$.
+Thus, we know that the regression coeficients of $\beta_i$ actually change the "log-odds" of the event. Of course, note that the magnitude of $\beta_i$ is dependent upon the units of $x_i$. But, in general, log-odds can be in the range of $-\infty +\infty$ .
+
+```{R}
+
+f2<-function(z){log((z)/(1-z))}
+data2<-seq(0,1,0.0001)
+plot(data2,f2(data2),type="b")
+
+
+```
 
 The following is an example testing whether that home teams are more likely to win in NFL games. The results show that the odd of winning is the same for both home and away teams.
 
@@ -29,9 +38,12 @@ summary(mylogit1)
 
 ```
 
+
+
+
 ## Probit
 
-As noted above, logit $f(x)=log(\frac{p(y=1)}{1-p(y=1)})$ provides the resulting range of $(0,1)$. Another way to provide the same rage is through the cdf of normal distribution.The following R code is used to illusrate this process. 
+As noted above, logit $p(y=1)=\frac{1}{1+e^{-(\beta_0+\beta_1x_1+...+\beta_nx_n)}}=\frac{e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}{1+e^{\beta_0+\beta_1x_1+...+\beta_nx_n}}$ provides the resulting range of (0,1). Another way to provide the same rage is through the cdf of normal distribution.The following R code is used to illusrate this process. 
 
 ```{R}
 data2<-seq(-5,5,1)
@@ -41,9 +53,7 @@ Thus, the cdf of normal distribution can be used to indicate the probability of 
 
 $$\Phi(\beta_0+\beta_1x_1+...+\beta_nx_n )= p(y=1)$$
 
-Similar to logit model, we can also write the inverse function of the cdf to get the function that can be from $-\infty$ to $+\infty$.
 
-$$\beta_0+\beta_1x_1+...+\beta_nx_n =\Phi^{-1}(p(y=1))$$
 
 
 Thus, for example, if $X\beta$ = -2, based on $\Phi(\beta_0+\beta_1x_1+...+\beta_nx_n )= p(y=1)$ we can get that the $p(y=1)=0.023$. 
@@ -55,6 +65,12 @@ pnorm(-2)
 pnorm(3)
 ```
 
+
+Similar to logit model, we can also write the inverse function of the cdf to get the function that can be from $-\infty$ to $+\infty$.
+
+$$\beta_0+\beta_1x_1+...+\beta_nx_n =\Phi^{-1}(p(y=1))$$
+
+
 Let's assume that there is a latent variable called $Y^*$ such that
 
 $$Y^*=X\beta+\epsilon, \epsilon \sim N(0,\sigma^2)$$
@@ -63,8 +79,7 @@ You could think of $Y^*$ as a kind of "proxy" between $X\beta+\epsilon$ and the 
 $$
 Y^*=\begin{cases} 0 \;\;\: if \;  y_i^* \leq 0 \\ 1 \;\;\: if \;  y_i^* > 0 \end{cases}
 $$
-
-Thus, 
+ 
 
 $$y_i^* > 0 \Rightarrow \beta^{'}X_i + \epsilon_i >0 \Rightarrow \epsilon_i > -\beta^{'}X_i$$
 
@@ -80,3 +95,8 @@ For $p(y=1|x_i)=\Phi(\frac{\beta^{'}X_i}{\sigma})$, we can not really estimate b
 We know $y_i$ and $x_i$ since we observe them. Thus, we can write it as follows. 
 
 $$p(y=1|x_i)=\Phi(\beta^{'}X_i)$$
+
+
+Side note: Similar to logit model, we can also write the inverse function of the cdf to get the function that can be from $-\infty$ to $+\infty$.
+
+$$\beta_0+\beta_1x_1+...+\beta_nx_n =\Phi^{-1}(p(y=1))$$
